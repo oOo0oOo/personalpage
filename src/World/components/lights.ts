@@ -1,8 +1,6 @@
 import {
     AmbientLight,
-    PointLight,
-    HemisphereLight,
-    MathUtils,
+    PointLight
 } from 'three';
 
 import { config } from '../../main';
@@ -10,7 +8,6 @@ import { config } from '../../main';
 interface lightTypes {
     sunLight: PointLight;
     ambientLight: AmbientLight;
-    hemisphereLight: HemisphereLight;
 }
 
 function createLights(): lightTypes {
@@ -26,10 +23,7 @@ function createLights(): lightTypes {
 
     const ambientLight = new AmbientLight('white', 0.35);
 
-    // uses a bright sky color and a dark ground color
-    const hemisphereLight = new HemisphereLight('white', 'darkslategray', 0);
-
-    return { sunLight, ambientLight, hemisphereLight };
+    return { sunLight, ambientLight };
 }
 
 export { createLights };

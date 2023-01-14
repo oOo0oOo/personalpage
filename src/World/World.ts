@@ -45,8 +45,8 @@ class World {
         loop.updatables.push(controls);
         container.append(renderer.domElement);
 
-        const { sunLight, ambientLight, hemisphereLight } = createLights();
-        scene.add(sunLight, ambientLight, hemisphereLight);
+        const { sunLight, ambientLight } = createLights();
+        scene.add(sunLight, ambientLight);
 
         new Resizer({ container, camera, renderer });
     }
