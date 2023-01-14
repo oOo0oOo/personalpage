@@ -1,0 +1,105 @@
+{
+    "COLOR_BACKGROUND": "#090A0F",
+    "COLOR_SUN": "#E6E2C3",
+    "COLOR_ORBIT": "#404040",
+    "COLOR_MOON": "#227C70",
+    "COLOR_PLANET": "#88A47C",
+
+    "DISTANCE_SUN": 42,
+    "DISTANCE_PLANET": 4,
+    "DISTANCE_MOON": 1,
+    "PAN_SPEED": 0.022,
+    "ZOOM_SPEED": 0.02,
+
+    "EXTRA_RADIUS": 2,
+
+    "ORBIT_RANDOM": 0.07,
+
+    "RADIUS_SUN": 0.8,
+    "RADIUS_PLANET": [0.1, 0.35],
+    "RADIUS_MOON": [0.04, 0.08],
+
+    "SCALE_PLANET_ORBIT": 25.0,
+    "SCALE_MOON_ORBIT": 2.0,
+
+    "LABEL_SIZE":  [512 , 512],
+    "LABEL_Y_OFFSETS": [100, -450],
+    "LABEL_Y_STEP": 80,
+
+    "GRAVITY": 0.1,
+
+    "SHADOWS": true,
+
+    "CONTENT": [
+        {
+            "id": "games",
+            "title": "Games",
+            "projects": [
+                {
+                    "id": "vectorflow",
+                    "title": "Vector Flow"
+                },
+                {
+                    "id": "takeoff",
+                    "title": "Ready for takeoff"
+                },
+                {
+                    "id": "rocketkite",
+                    "title": "Rocket Kite"
+                }
+            ]
+        },
+        {
+            "id": "music",
+            "title": "Music",
+            "projects": [
+                {
+                    "id": "freesound",
+                    "title": "Freesound"
+                },
+                {
+                    "id": "proofofgroove",
+                    "title": "Proof of Groove"
+                }
+            ]
+        },
+        {
+            "id": "software",
+            "title": "Software",
+            "projects": [
+                {
+                    "id": "winnietack",
+                    "title": "Winnie & Tack"
+                },
+                {
+                    "id": "thelist",
+                    "title": "The List"
+                }
+            ]
+        },
+        {
+            "id": "art",
+            "title": "Art",
+            "projects": [
+                {
+                    "id": "patterns",
+                    "title": "Patterns from Randomness"
+                }
+            ]
+        },
+        {
+            "id": "bio",
+            "title": "Bio",
+            "projects": [
+                {
+                    "id": "contact",
+                    "title": "Contact"
+                },
+                {
+                    "id": "about",
+                    "title": "About"
+                }
+            ]
+        }
+    ]
+}

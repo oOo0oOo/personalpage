@@ -1,20 +1,22 @@
 import {
-  OrthographicCamera,
-  PerspectiveCamera,
-  Scene,
-  WebGL1Renderer,
-  WebGLRenderer,
+    OrthographicCamera,
+    PerspectiveCamera,
+    Scene,
+    WebGL1Renderer,
+    WebGLRenderer,
 } from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { createCamera } from './components/camera';
 import { createAxesHelper, createGridHelper } from './components/helpers';
 import { createLights } from './components/lights';
-import { loadModels } from './components/models/loadModels';
+import { createBody } from './components/objects/body';
 import { createScene } from './components/scene';
 import { createControls } from './systems/controls';
 import { Loop } from './systems/Loop';
 import { createRenderer } from './systems/renderer';
 import { Resizer } from './systems/Resizer';
+
+import { config } from '../main';
 
 /**
  * If two instances of the World class are created, the second instance will
@@ -28,60 +30,95 @@ let controls: OrbitControls;
 let loop: Loop;
 let isRunning: boolean;
 class World {
-  constructor(container: HTMLCanvasElement) {
-    camera = createCamera();
+    constructor(container: HTMLCanvasElement) {
+        camera = createCamera();
 
-    /**
-     * Set the scene's background color to the same as the container's
-     * background color in index.css to prevent flashing on load
-     * (src/styles/index.css #scene-container)
-     */
-    scene = createScene({ backgroundColor: 'transparent' });
-    renderer = createRenderer();
-    controls = createControls({ camera: camera, canvas: renderer.domElement });
-    loop = new Loop({ camera, scene, renderer });
-    container.append(renderer.domElement);
+        /**
+         * Set the scene's background color to the same as the container's
+         * background color in index.css to prevent flashing on load
+         * (src/styles/index.css #scene-container)
+         */
+        scene = createScene({ backgroundColor: config.COLOR_BACKGROUND });
+        renderer = createRenderer();
+        controls = createControls({ camera: camera, canvas: renderer.domElement });
+        loop = new Loop({ camera, scene, renderer });
+        loop.updatables.push(controls);
+        container.append(renderer.domElement);
 
-    const { mainLight, hemisphereLight } = createLights();
+        const { sunLight, ambientLight, hemisphereLight } = createLights();
+        scene.add(sunLight, ambientLight, hemisphereLight);
 
-    loop.updatables.push(controls);
-    scene.add(mainLight, hemisphereLight);
+        new Resizer({ container, camera, renderer });
+    }
 
-    new Resizer({ container, camera, renderer });
+    async init() {
+        // Create the sun
+        const sun = await createBody({ bodyType: "sun" });
+        controls.target.copy(sun.position);
+        loop.updatables.push(sun);
+        scene.add(sun);
 
-    const grid = createGridHelper();
-    const axes = createAxesHelper();
+        // Pick orbits and angles for all categories
+        let orbits: number[] = [];
+        let startAngle: number[] = [];
+        let velocities: number[] = [];
 
-    scene.add(grid, axes);
-  }
+        for (let i = 0; i < config.CONTENT.length; i++) {
+            var orbit = config.SCALE_PLANET_ORBIT * (0.2 + 0.8 * (i / config.CONTENT.length));
+            var angle = 2 * Math.PI * Math.random();
+            var velocity = Math.sqrt(config.GRAVITY / orbit);
 
-  async init() {
-    const { parrot } = await loadModels();
-    controls.target.copy(parrot.position);
+            orbits.push(orbit);
+            startAngle.push(angle);
+            velocities.push(velocity);
+        }
 
-    loop.updatables.push(parrot);
-    scene.add(parrot);
-  }
+        // Create all categories
+        for (let i = 0; i < config.CONTENT.length; i++) {
+            let orbit: number[] = [orbits[i]];
+            let startA: number[] = [startAngle[i]];
+            let velocit: number[] = [velocities[i]];
+            const categoryBody = await createBody({ bodyType: "planet", orbit: orbit, startAngle: startA, velocities: velocit });
+            loop.updatables.push(categoryBody);
+            scene.add(categoryBody);
 
-  // for apps that update occasionally
-  render() {
-    renderer.render(scene, camera);
-  }
+            // Create all projects as moons of the category
+            let numMoons = config.CONTENT[i].projects.length;
+            for (let j = 0; j < config.CONTENT[i].projects.length; j++) {
+                let orbitMoon: number = config.SCALE_MOON_ORBIT * (0.25 + 0.75 * (j / numMoons));
+                let startAngleMoon: number = 2 * Math.PI * Math.random();
+                let velocityMoon: number = Math.sqrt(config.GRAVITY / orbitMoon);
 
-  // for apps with constant animation
-  start() {
-    loop.start();
-    isRunning = true;
-  }
+                orbit = [orbits[i], orbitMoon];
+                startA = [startAngle[i], startAngleMoon];
+                velocit = [velocities[i], velocityMoon];
 
-  stop() {
-    loop.stop();
-    isRunning = false;
-  }
+                const projectBody = await createBody({ bodyType: "moon", orbit: orbit, startAngle: startA, velocities: velocit });
+                loop.updatables.push(projectBody);
+                scene.add(projectBody);
+            }
+        }
+    }
 
-  isRunning() {
-    return isRunning;
-  }
+    // for apps that update occasionally
+    render() {
+        renderer.render(scene, camera);
+    }
+
+    // for apps with constant animation
+    start() {
+        loop.start();
+        isRunning = true;
+    }
+
+    stop() {
+        loop.stop();
+        isRunning = false;
+    }
+
+    isRunning() {
+        return isRunning;
+    }
 }
 
 export { World };

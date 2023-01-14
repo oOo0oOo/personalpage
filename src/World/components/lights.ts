@@ -1,35 +1,35 @@
 import {
-  AmbientLight,
-  DirectionalLight,
-  HemisphereLight,
-  MathUtils,
+    AmbientLight,
+    PointLight,
+    HemisphereLight,
+    MathUtils,
 } from 'three';
 
+import { config } from '../../main';
+
 interface lightTypes {
-  mainLight: DirectionalLight;
-  ambientLight: AmbientLight;
-  hemisphereLight: HemisphereLight;
+    sunLight: PointLight;
+    ambientLight: AmbientLight;
+    hemisphereLight: HemisphereLight;
 }
 
 function createLights(): lightTypes {
-  const mainLight = new DirectionalLight('white', 8);
-  mainLight.position.set(10, 10, 10);
+    const sunLight = new PointLight('white', 4, 1000, 0.1);
 
-  const ambientLight = new AmbientLight('white', 2);
+    if (config.SHADOWS) {
+        sunLight.castShadow = true;
+        sunLight.shadow.mapSize.width = 2048;
+        sunLight.shadow.mapSize.height = 2048;
+        sunLight.shadow.camera.near = 3;
+        sunLight.shadow.camera.far = 1000;
+    }
 
-  // uses a bright sky color and a dark ground color
-  const hemisphereLight = new HemisphereLight('white', 'darkslategray', 4);
+    const ambientLight = new AmbientLight('white', 0.35);
 
-  const radiansPerSecond = MathUtils.degToRad(90);
+    // uses a bright sky color and a dark ground color
+    const hemisphereLight = new HemisphereLight('white', 'darkslategray', 0);
 
-  // @ts-ignore
-  mainLight.tick = (delta: number) => {
-    // light.position.z += radiansPerSecond * delta;
-    mainLight.position.x += radiansPerSecond * delta;
-    // light.position.y += radiansPerSecond * delta;
-  };
-
-  return { mainLight, ambientLight, hemisphereLight };
+    return { sunLight, ambientLight, hemisphereLight };
 }
 
 export { createLights };
