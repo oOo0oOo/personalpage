@@ -36,7 +36,6 @@ export class Label {
 
         // Rotate the line upwards if not down
         if (down) {
-            console.log('rotating');
             // Rotate around origin (30 pixels up)
             this.lineElement.style.transformOrigin = '0 -30px';
             this.lineElement.style.transform = 'rotate(180deg)';

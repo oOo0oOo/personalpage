@@ -5,7 +5,8 @@ import {
     Scene,
     WebGL1Renderer,
     WebGLRenderer,
-    Vector2
+    Vector2,
+    CircleGeometry
 } from 'three';
 
 import { createCamera } from './components/camera';
@@ -22,6 +23,7 @@ import { FocusControls } from './systems/controls';
 
 import { config } from '../main';
 import { Label } from './components/objects/label';
+import { createCircle } from './components/objects/circle';
 
 /**
  * If two instances of the World class are created, the second instance will
@@ -85,15 +87,20 @@ class World {
         for (let i = 0; i < config.CONTENT.length; i++) {
             var orbit = config.SCALE_PLANET_ORBIT * (0.2 + 0.8 * (i / config.CONTENT.length));
             var angle = 2 * Math.PI * Math.random();
-            var velocity = Math.sqrt(config.GRAVITY / orbit);
+            var velocity = -1 * Math.sqrt(config.GRAVITY / orbit);
 
             orbits.push(orbit);
             startAngle.push(angle);
             velocities.push(velocity);
+
+            // Create orbit circle
+            const circle = createCircle(orbit);
+            scene.add(circle);
         }
 
         // Create all categories
         for (let i = 0; i < config.CONTENT.length; i++) {
+            // Create the planet (category)
             let orbit: number[] = [orbits[i]];
             let startA: number[] = [startAngle[i]];
             let velocit: number[] = [velocities[i]];
@@ -102,12 +109,12 @@ class World {
             loop.updatables.push(categoryBody);
             scene.add(categoryBody);
 
-            // Create all projects as moons of the category
+            // Create all projects as moons of the planet
             let numMoons = config.CONTENT[i].projects.length;
             for (let j = 0; j < config.CONTENT[i].projects.length; j++) {
                 let orbitMoon: number = config.SCALE_MOON_ORBIT * (0.25 + 0.75 * (j / numMoons));
                 let startAngleMoon: number = 2 * Math.PI * Math.random();
-                let velocityMoon: number = Math.sqrt(config.GRAVITY / orbitMoon);
+                let velocityMoon: number = -1 * Math.sqrt(config.GRAVITY / orbitMoon);
                 let id = catId + "." + config.CONTENT[i].projects[j].id;
 
                 orbit = [orbits[i], orbitMoon];
@@ -182,24 +189,28 @@ class World {
         for (const intersect of intersects) {
             let id = intersect.object.name;
 
-            if (id !== "sun" && currentFocus == id) {
-                if (categoryIds.includes(id)) {
+            if (id === "") continue;
+
+            let sameId = id === currentFocus;
+            currentFocus = id;
+
+            if (currentFocus !== "sun" && sameId) {
+                if (categoryIds.includes(currentFocus)) {
+                    currentFocus = "sun";
                     let parentObject = scene.getObjectByName("sun");
                     if (parentObject === undefined) break;
                     camera.setFocusObject(parentObject, config.DISTANCE_SUN);
                     controls.setTargetObject(parentObject);
-                    currentFocus = "sun";
                 } else {
                     // Find parent Object3D  id is "category.project"
                     let parent = id.split(".")[0];
+                    currentFocus = parent;
                     let parentObject = scene.getObjectByName(parent);
                     if (parentObject === undefined) break;
                     camera.setFocusObject(parentObject, config.DISTANCE_PLANET);
                     controls.setTargetObject(parentObject);
-                    currentFocus = parent;
                 }
             } else {
-                currentFocus = id;
                 if (currentFocus === "sun") {
                     camera.setFocusObject(intersect.object, config.DISTANCE_SUN);
                 } else {
@@ -253,6 +264,7 @@ class World {
         else {
             for (let i = 0; i < labels.length; i++) {
                 if (i === 0) {
+                    console.log(currentFocus);
                     let title = currentFocus.split(".")[1];
                     // Capitalize first letter
                     title = title.charAt(0).toUpperCase() + title.slice(1);
