@@ -1,5 +1,3 @@
-
-
 export interface Config {
     COLOR_BACKGROUND: string;
     COLOR_SUN: string;

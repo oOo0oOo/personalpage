@@ -1,4 +1,4 @@
-import { OrthographicCamera, PerspectiveCamera, Object3D } from 'three';
+import { Object3D } from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { FocusCamera } from '../components/camera';
 

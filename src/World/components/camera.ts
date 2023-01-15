@@ -1,5 +1,10 @@
+
+import {
+    Object3D,
+    PerspectiveCamera
+} from 'three';
+
 import { config } from '../../main';
-import { MathUtils, Object3D, PerspectiveCamera, Vector3 } from 'three';
 
 export class FocusCamera extends PerspectiveCamera {
     focusObject: Object3D = new Object3D();

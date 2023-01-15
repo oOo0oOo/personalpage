@@ -1,11 +1,8 @@
 import {
-    BoxGeometry,
-    MathUtils,
     Mesh,
     MeshBasicMaterial,
     MeshStandardMaterial,
     SphereGeometry,
-    Texture,
 } from 'three';
 
 import { config } from "../../../main";
@@ -81,67 +78,3 @@ function createBody(body: Body): Mesh {
 }
 
 export { createBody };
-
-
-// function create_body(body_config, orbit) {
-//     var radius_range;
-//     var color;
-//     var scaled_orbit;
-//     orbit += Math.random() * 2 * CONFIG.ORBIT_RANDOM - CONFIG.ORBIT_RANDOM;
-
-//     if (body_config.parent) {
-//         radius_range = CONFIG.RADIUS_MOON;
-//         color = CONFIG.COLOR_MOON;
-//         scaled_orbit = CONFIG.SCALE_MOON_ORBIT * (0.3 + 0.7 * orbit);
-//     } else {
-//         radius_range = CONFIG.RADIUS_PLANET;
-//         color = CONFIG.COLOR_PLANET;
-//         scaled_orbit = CONFIG.SCALE_PLANET_ORBIT * (0.2 + 0.8 * orbit);
-//     }
-
-//     var radius = radius_range[0] + Math.random() * (radius_range[1] - radius_range[0]);
-//     const geometry = new THREE.SphereGeometry(radius, 16, 16);
-//     const material = new THREE.MeshBasicMaterial({ color: color });
-//     const body = new THREE.Mesh(geometry, material);
-//     body.name = body_config.id;
-//     scene.add(body);
-
-//     if (body_config.parent == null) {
-//         // Create trailing curve for the body
-//         var curve = new THREE.EllipseCurve(
-//             0, 0,            // ax, aY
-//             scaled_orbit, scaled_orbit,           // xRadius, yRadius
-//             0, 2 * Math.PI,  // aStartAngle, aEndAngle
-//             false,            // aClockwise
-//             0                 // aRotation
-//         );
-
-//         const num_points = 50 + Math.floor(orbit * 50);
-//         const points = curve.getPoints(num_points);
-
-//         // Convert 2D points to 3D points with z = y
-//         for (var i = 0; i < points.length; i++) {
-//             points[i].z = points[i].y;
-//             points[i].y = 0;
-//         }
-
-//         const geometryCurve = new THREE.BufferGeometry().setFromPoints(points);
-//         const materialCurve = new THREE.LineBasicMaterial({ color: CONFIG.COLOR_ORBIT });
-
-//         // Create the final object to add to the scene
-//         const ellipse = new THREE.Line(geometryCurve, materialCurve);
-
-//         scene.add(ellipse);
-//     };
-
-//     var body_config = {
-//         body: body,
-//         curve: curve,
-//         config: body_config,
-//         orbit: scaled_orbit,
-//         angular_velocity: Math.sqrt(CONFIG.GRAVITY / scaled_orbit),
-//         angle: 2 * Math.PI * Math.random(),
-//     };
-
-//     return body_config;
-// };

@@ -1,9 +1,6 @@
 import {
     Clock,
-    Mesh,
     Object3D,
-    OrthographicCamera,
-    PerspectiveCamera,
     Scene,
     WebGL1Renderer,
     WebGLRenderer,

@@ -7,9 +7,8 @@ import {
     WebGLRenderer,
     Vector2
 } from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+
 import { createCamera } from './components/camera';
-import { createAxesHelper, createGridHelper } from './components/helpers';
 import { createLights } from './components/lights';
 import { createBody } from './components/objects/body';
 import { createScene } from './components/scene';
