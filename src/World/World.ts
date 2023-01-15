@@ -41,6 +41,11 @@ let currentFocus: string;
 let categoryIds: string[];
 let labels: Label[];
 let centerLabel: HTMLDivElement;
+let infoBox: HTMLDivElement;
+let infoTitle: HTMLDivElement;
+let infoDescription: HTMLDivElement;
+let infoLink: HTMLDivElement;
+let infoMedia: HTMLDivElement;
 
 class World {
     constructor(container: HTMLCanvasElement) {
@@ -75,7 +80,17 @@ class World {
         // The center label from #center_label
         centerLabel = document.getElementById("center_label") as HTMLDivElement;
         centerLabel.style.opacity = "0";
-        centerLabel.style.display = "block";
+
+        // The info box from #info_box
+        infoBox = document.getElementById("info_box") as HTMLDivElement;
+        infoBox.style.opacity = "0";
+        infoBox.style.display = "block";
+
+        // All elements of the info box
+        infoTitle = document.getElementById("info_title") as HTMLDivElement;
+        infoDescription = document.getElementById("info_description") as HTMLDivElement;
+        infoLink = document.getElementById("info_link") as HTMLDivElement;
+        infoMedia = document.getElementById("info_media") as HTMLDivElement;
     }
 
     async init() {
@@ -244,8 +259,9 @@ class World {
                     labels[i].hideAnnotation();
                 }
             }
-            // Hide center label div
+            // Hide center label div and info box
             centerLabel.style.opacity = "0";
+            infoBox.style.opacity = "0";
         }
         // If a category is currentFocus: label all projects
         else if (categoryIds.includes(currentFocus)) {
@@ -254,8 +270,10 @@ class World {
 
             // Fade in label using a css transition
             centerLabel.style.opacity = "1";
-
             centerLabel.innerHTML = config.CONTENT[index].title;
+
+            // Hide info box
+            infoBox.style.opacity = "0";
 
             for (let i = 0; i < labels.length; i++) {
                 if (i < config.CONTENT[index].projects.length) {
@@ -271,24 +289,47 @@ class World {
         }
         // If a project is currentFocus: label only this project
         else {
-            for (let i = 0; i < labels.length; i++) {
-                if (i === 0) {
-                    console.log(currentFocus);
-                    let title = currentFocus.split(".")[1];
-                    // Capitalize first letter
-                    title = title.charAt(0).toUpperCase() + title.slice(1);
 
-                    let obj = scene.getObjectByName(currentFocus);
-                    if (obj === undefined) break;
-                    labels[i].setTargetBody(obj, title);
-                } else {
-                    // Hide unused labels
-                    labels[i].hideAnnotation();
+            centerLabel.style.opacity = "0";
+
+            // Show info box
+            infoBox.style.opacity = "1";
+
+            let el = currentFocus.split(".")[1];
+            let info = this.getProjectInfo(el);
+
+            infoTitle.innerHTML = info[0];
+            infoDescription.innerHTML = info[1];
+
+            for (let i = 0; i < labels.length; i++) {
+                // Hide unused labels
+                labels[i].hideAnnotation();
+            }
+        }
+    }
+
+    getCategoryInfo(id: string): string[] {
+        // Find the category with the given id
+        let info: string[] = [];
+        for (let i = 0; i < config.CONTENT.length; i++) {
+            if (config.CONTENT[i].id === id) {
+                info = [config.CONTENT[i].title];
+            }
+        }
+        return info;
+    }
+
+    getProjectInfo(id: string): string[] {
+        // Find the project with the given id
+        let info: string[] = [];
+        for (let i = 0; i < config.CONTENT.length; i++) {
+            for (let j = 0; j < config.CONTENT[i].projects.length; j++) {
+                if (config.CONTENT[i].projects[j].id === id) {
+                    info = [config.CONTENT[i].projects[j].title, config.CONTENT[i].projects[j].description, config.CONTENT[i].projects[j].url];
                 }
             }
-            // Hide center label div
-            centerLabel.style.opacity = "0";
         }
+        return info;
     }
 }
 export { World };

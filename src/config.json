@@ -37,15 +37,21 @@
             "projects": [
                 {
                     "id": "vectorflow",
-                    "title": "Vector Flow"
+                    "title": "Vector Flow",
+                    "description": "Casually roll balls towards enemies. Pick the correct position to eliminate all targets.<br><br>Unlock specials to increase your chances!",
+                    "url": "https://oli.show"
                 },
                 {
                     "id": "takeoff",
-                    "title": "Ready for takeoff"
+                    "title": "Ready for takeoff",
+                    "description": "Casually roll balls towards enemies. Pick the correct position to eliminate all targets.<br><br>Unlock specials to increase your chances!",
+                    "url": "https://oli.show"
                 },
                 {
                     "id": "rocketkite",
-                    "title": "Rocket Kite"
+                    "title": "Rocket Kite",
+                    "description": "Casually roll balls towards enemies. Pick the correct position to eliminate all targets.<br><br>Unlock specials to increase your chances!",
+                    "url": "https://oli.show"
                 }
             ]
         },
@@ -55,11 +61,15 @@
             "projects": [
                 {
                     "id": "freesound",
-                    "title": "Freesound"
+                    "title": "Freesound",
+                    "description": "Casually roll balls towards enemies. Pick the correct position to eliminate all targets.<br><br>Unlock specials to increase your chances!",
+                    "url": "https://oli.show"
                 },
                 {
                     "id": "proofofgroove",
-                    "title": "Proof of Groove"
+                    "title": "Proof of Groove",
+                    "description": "Casually roll balls towards enemies. Pick the correct position to eliminate all targets.<br><br>Unlock specials to increase your chances!",
+                    "url": "https://oli.show"
                 }
             ]
         },
@@ -69,11 +79,15 @@
             "projects": [
                 {
                     "id": "winnietack",
-                    "title": "Winnie & Tack"
+                    "title": "Winnie & Tack",
+                    "description": "Casually roll balls towards enemies. Pick the correct position to eliminate all targets.<br><br>Unlock specials to increase your chances!",
+                    "url": "https://oli.show"
                 },
                 {
                     "id": "thelist",
-                    "title": "The List"
+                    "title": "The List",
+                    "description": "Casually roll balls towards enemies. Pick the correct position to eliminate all targets.<br><br>Unlock specials to increase your chances!",
+                    "url": "https://oli.show"
                 }
             ]
         },
@@ -83,7 +97,9 @@
             "projects": [
                 {
                     "id": "patterns",
-                    "title": "Patterns from Randomness"
+                    "title": "Patterns from Randomness",
+                    "description": "Casually roll balls towards enemies. Pick the correct position to eliminate all targets.<br><br>Unlock specials to increase your chances!",
+                    "url": "https://oli.show"
                 }
             ]
         },
@@ -93,11 +109,15 @@
             "projects": [
                 {
                     "id": "contact",
-                    "title": "Contact"
+                    "title": "Contact",
+                    "description": "Casually roll balls towards enemies. Pick the correct position to eliminate all targets.<br><br>Unlock specials to increase your chances!",
+                    "url": "https://oli.show"
                 },
                 {
                     "id": "about",
-                    "title": "About"
+                    "title": "About",
+                    "description": "Casually roll balls towards enemies. Pick the correct position to eliminate all targets.<br><br>Unlock specials to increase your chances!",
+                    "url": "https://oli.show"
                 }
             ]
         }
