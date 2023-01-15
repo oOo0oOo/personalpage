@@ -40,6 +40,7 @@ let raycaster: Raycaster;
 let currentFocus: string;
 let categoryIds: string[];
 let labels: Label[];
+let centerLabel: HTMLDivElement;
 
 class World {
     constructor(container: HTMLCanvasElement) {
@@ -70,6 +71,11 @@ class World {
         for (let i = 0; i < config.CONTENT.length; i++) {
             categoryIds.push(config.CONTENT[i].id);
         }
+
+        // The center label from #center_label
+        centerLabel = document.getElementById("center_label") as HTMLDivElement;
+        centerLabel.style.opacity = "0";
+        centerLabel.style.display = "block";
     }
 
     async init() {
@@ -224,6 +230,7 @@ class World {
     }
 
     updateLabels() {
+
         // If sun is currentFocus: label all categories
         if (currentFocus === "sun") {
             for (let i = 0; i < labels.length; i++) {
@@ -237,26 +244,28 @@ class World {
                     labels[i].hideAnnotation();
                 }
             }
+            // Hide center label div
+            centerLabel.style.opacity = "0";
         }
         // If a category is currentFocus: label all projects
         else if (categoryIds.includes(currentFocus)) {
 
-            // label the category
-            let title = currentFocus;
-            let obj = scene.getObjectByName(currentFocus);
-            // @ts-ignore
-            labels[0].setTargetBody(obj, title);
-
             let index = categoryIds.indexOf(currentFocus);
-            for (let i = 0; i < labels.length - 1; i++) {
+
+            // Fade in label using a css transition
+            centerLabel.style.opacity = "1";
+
+            centerLabel.innerHTML = config.CONTENT[index].title;
+
+            for (let i = 0; i < labels.length; i++) {
                 if (i < config.CONTENT[index].projects.length) {
                     let title = config.CONTENT[index].projects[i].title;
                     let obj = scene.getObjectByName(currentFocus + "." + config.CONTENT[index].projects[i].id);
                     if (obj === undefined) break;
-                    labels[i + 1].setTargetBody(obj, title);
+                    labels[i].setTargetBody(obj, title);
                 } else {
                     // Hide unused labels
-                    labels[i + 1].hideAnnotation();
+                    labels[i].hideAnnotation();
                 }
             }
         }
@@ -277,6 +286,8 @@ class World {
                     labels[i].hideAnnotation();
                 }
             }
+            // Hide center label div
+            centerLabel.style.opacity = "0";
         }
     }
 }
