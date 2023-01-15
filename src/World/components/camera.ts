@@ -23,7 +23,6 @@ export class FocusCamera extends PerspectiveCamera {
         if (this.focusDist === 0) { return };
 
         let focusPos = this.focusObject.position.clone();
-        this.lookAt(focusPos);
 
         // Move camera towards focusDist if we are not too close already
         var current_distance = this.position.distanceTo(focusPos);

@@ -157,13 +157,15 @@ class World {
             if (id !== "sun" && currentFocus == id) {
                 currentFocus = id;
                 if (categoryIds.includes(id)) {
-                    camera.setFocusObject(intersect.object, config.DISTANCE_SUN);
-                    controls.setTargetObject(intersect.object);
+                    let parentObject = scene.getObjectByName("sun");
+                    if (parentObject === undefined) break;
+                    camera.setFocusObject(parentObject, config.DISTANCE_SUN);
+                    controls.setTargetObject(parentObject);
                 } else {
                     // Find parent Object3D  id is "category.project"
                     let parent = id.split(".")[0];
                     let parentObject = scene.getObjectByName(parent);
-                    if (parentObject === undefined) return;
+                    if (parentObject === undefined) break;
                     camera.setFocusObject(parentObject, config.DISTANCE_PLANET);
                     controls.setTargetObject(parentObject);
                 }

@@ -25,8 +25,9 @@ export class FocusControls extends OrbitControls {
     tick(timeElapsed: number) {
         if (this.targetObject === null) { return };
 
+        // Move target towards targetObjects position
         let focusPos = this.targetObject.position.clone();
-        this.target.copy(focusPos);
+        this.target.add(focusPos.sub(this.target).multiplyScalar(0.07));
         this.update();
     }
 }
