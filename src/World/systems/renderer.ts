@@ -3,7 +3,13 @@ import { WebGLRenderer, PCFShadowMap } from 'three';
 import { config } from '../../main';
 
 function createRenderer() {
-    const renderer = new WebGLRenderer({ antialias: true });
+    let pixelRatio = window.devicePixelRatio
+    let AA = true
+    if (pixelRatio > 1) {
+        AA = false
+    }
+
+    const renderer = new WebGLRenderer({ antialias: AA, powerPreference: 'high-performance' });
     renderer.physicallyCorrectLights = true;
     renderer.setClearColor(config.COLOR_BACKGROUND);
 

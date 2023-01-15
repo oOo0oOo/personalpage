@@ -1,12 +1,9 @@
 import {
-    OrthographicCamera,
-    PerspectiveCamera,
     Raycaster,
     Scene,
     WebGL1Renderer,
     WebGLRenderer,
     Vector2,
-    CircleGeometry
 } from 'three';
 
 import { createCamera } from './components/camera';
@@ -83,8 +80,8 @@ class World {
 
         // The info box from #info_box
         infoBox = document.getElementById("info_box") as HTMLDivElement;
+        infoBox.style.display = "none";
         infoBox.style.opacity = "0";
-        infoBox.style.display = "block";
 
         // All elements of the info box
         infoTitle = document.getElementById("info_title") as HTMLDivElement;
@@ -175,12 +172,10 @@ class World {
         }
     }
 
-    // for apps that update occasionally
     render() {
         renderer.render(scene, camera);
     }
 
-    // for apps with constant animation
     start() {
         loop.start();
         this.updateLabels();
@@ -245,7 +240,6 @@ class World {
     }
 
     updateLabels() {
-
         // If sun is currentFocus: label all categories
         if (currentFocus === "sun") {
             for (let i = 0; i < labels.length; i++) {
@@ -262,6 +256,7 @@ class World {
             // Hide center label div and info box
             centerLabel.style.opacity = "0";
             infoBox.style.opacity = "0";
+            infoBox.style.display = "none";
         }
         // If a category is currentFocus: label all projects
         else if (categoryIds.includes(currentFocus)) {
@@ -274,6 +269,7 @@ class World {
 
             // Hide info box
             infoBox.style.opacity = "0";
+            infoBox.style.display = "none";
 
             for (let i = 0; i < labels.length; i++) {
                 if (i < config.CONTENT[index].projects.length) {
@@ -294,6 +290,7 @@ class World {
 
             // Show info box
             infoBox.style.opacity = "1";
+            infoBox.style.display = "block";
 
             let el = currentFocus.split(".")[1];
             let info = this.getProjectInfo(el);

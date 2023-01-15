@@ -23,7 +23,7 @@
     "SCALE_MOON_ORBIT": 2.0,
 
     "LABEL_SIZE":  [512 , 512],
-    "LABEL_Y_OFFSETS": [300, -300],
+    "LABEL_Y_OFFSETS": [200, -200],
     "LABEL_Y_STEP": 90,
 
     "GRAVITY": 0.1,
@@ -49,6 +49,36 @@
                 },
                 {
                     "id": "rocketkite",
+                    "title": "Rocket Kite",
+                    "description": "Casually roll balls towards enemies. Pick the correct position to eliminate all targets.<br><br>Unlock specials to increase your chances!",
+                    "url": "https://oli.show"
+                },
+                {
+                    "id": "rocketkite2",
+                    "title": "Rocket Kite",
+                    "description": "Casually roll balls towards enemies. Pick the correct position to eliminate all targets.<br><br>Unlock specials to increase your chances!",
+                    "url": "https://oli.show"
+                },
+                {
+                    "id": "rocketkite3",
+                    "title": "Rocket Kite",
+                    "description": "Casually roll balls towards enemies. Pick the correct position to eliminate all targets.<br><br>Unlock specials to increase your chances!",
+                    "url": "https://oli.show"
+                },
+                {
+                    "id": "rocketkite4",
+                    "title": "Rocket Kite",
+                    "description": "Casually roll balls towards enemies. Pick the correct position to eliminate all targets.<br><br>Unlock specials to increase your chances!",
+                    "url": "https://oli.show"
+                },
+                {
+                    "id": "rocketkite5",
+                    "title": "Rocket Kite",
+                    "description": "Casually roll balls towards enemies. Pick the correct position to eliminate all targets.<br><br>Unlock specials to increase your chances!",
+                    "url": "https://oli.show"
+                },
+                {
+                    "id": "rocketkite6",
                     "title": "Rocket Kite",
                     "description": "Casually roll balls towards enemies. Pick the correct position to eliminate all targets.<br><br>Unlock specials to increase your chances!",
                     "url": "https://oli.show"
