@@ -1,9 +1,11 @@
 import {
     OrthographicCamera,
     PerspectiveCamera,
+    Raycaster,
     Scene,
     WebGL1Renderer,
     WebGLRenderer,
+    Vector2
 } from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { createCamera } from './components/camera';
@@ -16,6 +18,9 @@ import { Loop } from './systems/Loop';
 import { createRenderer } from './systems/renderer';
 import { Resizer } from './systems/Resizer';
 
+import { FocusCamera } from './components/camera';
+import { FocusControls } from './systems/controls';
+
 import { config } from '../main';
 
 /**
@@ -23,15 +28,21 @@ import { config } from '../main';
  * overwrite the module scoped variables below from the first instance.
  * Accordingly, only one World class should be used at a time.
  */
-let camera: PerspectiveCamera | OrthographicCamera;
+let camera: FocusCamera;
 let scene: Scene;
 let renderer: WebGLRenderer | WebGL1Renderer;
-let controls: OrbitControls;
+let controls: FocusControls;
 let loop: Loop;
 let isRunning: boolean;
+let raycaster: Raycaster;
+let currentFocus: string;
+let categoryIds: string[];
+
 class World {
     constructor(container: HTMLCanvasElement) {
         camera = createCamera();
+        raycaster = new Raycaster();
+        currentFocus = "sun";
 
         /**
          * Set the scene's background color to the same as the container's
@@ -43,17 +54,24 @@ class World {
         controls = createControls({ camera: camera, canvas: renderer.domElement });
         loop = new Loop({ camera, scene, renderer });
         loop.updatables.push(controls);
+        loop.updatables.push(camera);
         container.append(renderer.domElement);
 
         const { sunLight, ambientLight } = createLights();
         scene.add(sunLight, ambientLight);
 
         new Resizer({ container, camera, renderer });
+
+        // Get all category ids
+        categoryIds = [];
+        for (let i = 0; i < config.CONTENT.length; i++) {
+            categoryIds.push(config.CONTENT[i].id);
+        }
     }
 
     async init() {
         // Create the sun
-        const sun = await createBody({ bodyType: "sun" });
+        const sun = await createBody({ bodyType: "sun", id: "sun" });
         controls.target.copy(sun.position);
         loop.updatables.push(sun);
         scene.add(sun);
@@ -78,7 +96,8 @@ class World {
             let orbit: number[] = [orbits[i]];
             let startA: number[] = [startAngle[i]];
             let velocit: number[] = [velocities[i]];
-            const categoryBody = await createBody({ bodyType: "planet", orbit: orbit, startAngle: startA, velocities: velocit });
+            let catId = config.CONTENT[i].id;
+            const categoryBody = await createBody({ id: catId, bodyType: "planet", orbit: orbit, startAngle: startA, velocities: velocit });
             loop.updatables.push(categoryBody);
             scene.add(categoryBody);
 
@@ -88,12 +107,13 @@ class World {
                 let orbitMoon: number = config.SCALE_MOON_ORBIT * (0.25 + 0.75 * (j / numMoons));
                 let startAngleMoon: number = 2 * Math.PI * Math.random();
                 let velocityMoon: number = Math.sqrt(config.GRAVITY / orbitMoon);
+                let id = catId + "." + config.CONTENT[i].projects[j].id;
 
                 orbit = [orbits[i], orbitMoon];
                 startA = [startAngle[i], startAngleMoon];
                 velocit = [velocities[i], velocityMoon];
 
-                const projectBody = await createBody({ bodyType: "moon", orbit: orbit, startAngle: startA, velocities: velocit });
+                const projectBody = await createBody({ id: id, bodyType: "moon", orbit: orbit, startAngle: startA, velocities: velocit });
                 loop.updatables.push(projectBody);
                 scene.add(projectBody);
             }
@@ -118,6 +138,46 @@ class World {
 
     isRunning() {
         return isRunning;
+    }
+
+    onMouseDown(evt: MouseEvent) {
+        // Check if any of the objects in the scene have been clicked
+        const mouse = new Vector2();
+        mouse.x = (evt.clientX / window.innerWidth) * 2 - 1;
+        mouse.y = -(evt.clientY / window.innerHeight) * 2 + 1;
+
+        raycaster.setFromCamera(mouse, camera);
+
+        const intersects = raycaster.intersectObjects(scene.children, true);
+
+        if (intersects.length === 0) return;
+        for (const intersect of intersects) {
+            let id = intersect.object.name;
+
+            if (id !== "sun" && currentFocus == id) {
+                currentFocus = id;
+                if (categoryIds.includes(id)) {
+                    camera.setFocusObject(intersect.object, config.DISTANCE_SUN);
+                    controls.setTargetObject(intersect.object);
+                } else {
+                    // Find parent Object3D  id is "category.project"
+                    let parent = id.split(".")[0];
+                    let parentObject = scene.getObjectByName(parent);
+                    if (parentObject === undefined) return;
+                    camera.setFocusObject(parentObject, config.DISTANCE_PLANET);
+                    controls.setTargetObject(parentObject);
+                }
+            } else {
+                currentFocus = id;
+                if (currentFocus === "sun") {
+                    camera.setFocusObject(intersect.object, config.DISTANCE_SUN);
+                } else {
+                    camera.setFocusObject(intersect.object, config.DISTANCE_PLANET);
+                }
+                controls.setTargetObject(intersect.object);
+            }
+            break;
+        }
     }
 }
 

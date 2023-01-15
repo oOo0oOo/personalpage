@@ -16,13 +16,9 @@ async function main() {
     await world.init();
     world.start();
 
-    // addEventListener('click', () => {
-    //   if (world.isRunning() === false) {
-    //     world.start();
-    //   } else {
-    //     world.stop();
-    //   }
-    // });
+    addEventListener('mousedown', (evt) => {
+        world.onMouseDown(evt);
+    });
 }
 
 main().catch((err) => {

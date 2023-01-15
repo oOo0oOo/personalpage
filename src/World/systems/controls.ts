@@ -1,23 +1,38 @@
-import { OrthographicCamera, PerspectiveCamera } from 'three';
+import { OrthographicCamera, PerspectiveCamera, Object3D } from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { FocusCamera } from '../components/camera';
 
 interface controlsTypes {
-    camera: PerspectiveCamera | OrthographicCamera;
+    camera: FocusCamera;
     canvas: HTMLCanvasElement;
 }
 
-function createControls({ camera, canvas }: controlsTypes): OrbitControls {
-    const controls = new OrbitControls(camera, canvas);
-    controls.minDistance = 1;
-    controls.maxDistance = 95;
-    controls.enablePan = false;
-    // damping & auto rotation require the controls to be updated each frame
-    //   controls.enableDamping = true;
+export class FocusControls extends OrbitControls {
+    targetObject: Object3D;
+    constructor(camera: FocusCamera, canvas: HTMLCanvasElement) {
+        super(camera, canvas);
+        this.minDistance = 0.1;
+        this.maxDistance = 1000;
+        this.enablePan = false;
 
-    // @ts-ignore
-    controls.tick = () => { }; // controls.update();
+        this.targetObject = new Object3D();
+    }
 
-    return controls;
+    setTargetObject(object: Object3D) {
+        this.targetObject = object;
+    }
+
+    tick(timeElapsed: number) {
+        if (this.targetObject === null) { return };
+
+        let focusPos = this.targetObject.position.clone();
+        this.target.copy(focusPos);
+        this.update();
+    }
+}
+
+function createControls({ camera, canvas }: controlsTypes): FocusControls {
+    return new FocusControls(camera, canvas);
 }
 
 export { createControls };

@@ -11,6 +11,7 @@ import {
 import { config } from "../../../main";
 
 interface Body {
+    id: string;
     bodyType: 'sun' | 'planet' | 'moon';
     orbit?: number[];
     startAngle?: number[];
@@ -41,7 +42,6 @@ function createMaterial(body: Body) {
 }
 
 function createBody(body: Body): Mesh {
-
     // Create the bodies basend on their type
     let radius: number = 0;
 
@@ -56,6 +56,7 @@ function createBody(body: Body): Mesh {
     const geometry = new SphereGeometry(radius, 32, 16);
     const material = createMaterial(body);
     const sphere = new Mesh(geometry, material);
+    sphere.name = body.id;
 
     if (body.bodyType !== 'sun' && config.SHADOWS) {
         sphere.castShadow = true;

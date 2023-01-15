@@ -1,5 +1,7 @@
 import {
     Clock,
+    Mesh,
+    Object3D,
     OrthographicCamera,
     PerspectiveCamera,
     Scene,
@@ -8,8 +10,10 @@ import {
 } from 'three';
 import Stats from 'three/examples/jsm/libs/stats.module';
 
+import { FocusCamera } from '../components/camera';
+
 interface LoopTypes {
-    camera: PerspectiveCamera | OrthographicCamera;
+    camera: FocusCamera;
     scene: Scene;
     renderer: WebGLRenderer | WebGL1Renderer;
 }
@@ -22,6 +26,7 @@ class Loop {
     updatables: any[];
     stats: Stats;
     elapsedTime: number;
+    currentFocus: Object3D;
 
     constructor({ camera, scene, renderer }: LoopTypes) {
         this.camera = camera;
@@ -30,6 +35,7 @@ class Loop {
         this.updatables = [];
         this.stats = Stats();
         this.elapsedTime = 0;
+        this.currentFocus = new Object3D();
 
         document.body.appendChild(this.stats.dom);
     }
@@ -53,6 +59,10 @@ class Loop {
             // @ts-ignore
             object.tick(this.elapsedTime);
         }
+    }
+
+    setCurrentFocus(mesh: Object3D) {
+        this.currentFocus = mesh;
     }
 }
 
