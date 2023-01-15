@@ -21,13 +21,14 @@ import { FocusCamera } from './components/camera';
 import { FocusControls } from './systems/controls';
 
 import { config } from '../main';
+import { Label } from './components/objects/label';
 
 /**
  * If two instances of the World class are created, the second instance will
  * overwrite the module scoped variables below from the first instance.
  * Accordingly, only one World class should be used at a time.
  */
-let camera: FocusCamera;
+export let camera: FocusCamera;
 let scene: Scene;
 let renderer: WebGLRenderer | WebGL1Renderer;
 let controls: FocusControls;
@@ -36,6 +37,7 @@ let isRunning: boolean;
 let raycaster: Raycaster;
 let currentFocus: string;
 let categoryIds: string[];
+let labels: Label[];
 
 class World {
     constructor(container: HTMLCanvasElement) {
@@ -46,7 +48,7 @@ class World {
         /**
          * Set the scene's background color to the same as the container's
          * background color in index.css to prevent flashing on load
-         * (src/styles/index.css #scene-container)
+         * (src/styles/index.css #scene_container)
          */
         scene = createScene({ backgroundColor: config.COLOR_BACKGROUND });
         renderer = createRenderer();
@@ -117,6 +119,32 @@ class World {
                 scene.add(projectBody);
             }
         }
+
+        // Find the maximal number of projects in a category
+        let maxProjects = 0;
+        for (let i = 0; i < config.CONTENT.length; i++) {
+            if (config.CONTENT[i].projects.length > maxProjects) {
+                maxProjects = config.CONTENT[i].projects.length;
+            }
+        }
+
+        maxProjects = Math.max(maxProjects + 1, config.CONTENT.length);
+
+        // Create labels (we will alter them later)
+        // The y position of the labels alternates between the LABEL_Y_OFFSETS
+        labels = [];
+        let label_y_offset = 0;
+        for (let i = 0; i < maxProjects; i++) {
+            var extra = config.LABEL_Y_STEP * Math.floor(i / 2);
+            if (i % 2 != 0) {
+                extra *= -1;
+            }
+            let yPos = config.LABEL_Y_OFFSETS[label_y_offset] + extra;
+            label_y_offset = (label_y_offset + 1) % config.LABEL_Y_OFFSETS.length;
+            let label = new Label(yPos, i % 2 == 0);
+            loop.updatables.push(label);
+            labels.push(label);
+        }
     }
 
     // for apps that update occasionally
@@ -127,6 +155,7 @@ class World {
     // for apps with constant animation
     start() {
         loop.start();
+        this.updateLabels();
         isRunning = true;
     }
 
@@ -154,12 +183,12 @@ class World {
             let id = intersect.object.name;
 
             if (id !== "sun" && currentFocus == id) {
-                currentFocus = id;
                 if (categoryIds.includes(id)) {
                     let parentObject = scene.getObjectByName("sun");
                     if (parentObject === undefined) break;
                     camera.setFocusObject(parentObject, config.DISTANCE_SUN);
                     controls.setTargetObject(parentObject);
+                    currentFocus = "sun";
                 } else {
                     // Find parent Object3D  id is "category.project"
                     let parent = id.split(".")[0];
@@ -167,6 +196,7 @@ class World {
                     if (parentObject === undefined) break;
                     camera.setFocusObject(parentObject, config.DISTANCE_PLANET);
                     controls.setTargetObject(parentObject);
+                    currentFocus = parent;
                 }
             } else {
                 currentFocus = id;
@@ -179,7 +209,63 @@ class World {
             }
             break;
         }
+        this.updateLabels();
+    }
+
+    updateLabels() {
+        // If sun is currentFocus: label all categories
+        if (currentFocus === "sun") {
+            for (let i = 0; i < labels.length; i++) {
+                if (i < config.CONTENT.length) {
+                    let title = config.CONTENT[i].title;
+                    let obj = scene.getObjectByName(config.CONTENT[i].id);
+                    if (obj === undefined) break;
+                    labels[i].setTargetBody(obj, title);
+                } else {
+                    // Hide unused labels
+                    labels[i].hideAnnotation();
+                }
+            }
+        }
+        // If a category is currentFocus: label all projects
+        else if (categoryIds.includes(currentFocus)) {
+
+            // label the category
+            let title = currentFocus;
+            let obj = scene.getObjectByName(currentFocus);
+            // @ts-ignore
+            labels[0].setTargetBody(obj, title);
+
+            let index = categoryIds.indexOf(currentFocus);
+            for (let i = 0; i < labels.length - 1; i++) {
+                if (i < config.CONTENT[index].projects.length) {
+                    let title = config.CONTENT[index].projects[i].title;
+                    let obj = scene.getObjectByName(currentFocus + "." + config.CONTENT[index].projects[i].id);
+                    if (obj === undefined) break;
+                    labels[i + 1].setTargetBody(obj, title);
+                } else {
+                    // Hide unused labels
+                    labels[i + 1].hideAnnotation();
+                }
+            }
+        }
+        // If a project is currentFocus: label only this project
+        else {
+            for (let i = 0; i < labels.length; i++) {
+                if (i === 0) {
+                    let title = currentFocus.split(".")[1];
+                    // Capitalize first letter
+                    title = title.charAt(0).toUpperCase() + title.slice(1);
+
+                    let obj = scene.getObjectByName(currentFocus);
+                    if (obj === undefined) break;
+                    labels[i].setTargetBody(obj, title);
+                } else {
+                    // Hide unused labels
+                    labels[i].hideAnnotation();
+                }
+            }
+        }
     }
 }
-
 export { World };

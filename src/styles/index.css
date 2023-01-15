@@ -8,8 +8,10 @@ body {
   font-size: 12px;
   font-family: Sans-Serif;
 
-  /* color text */
-  color: #444;
+  /* font style */
+  font-family: Barlow;
+  font-weight: 300;
+  font-size: 32pt;
 }
 
 h1 {
@@ -21,7 +23,7 @@ h1 {
   z-index: 1;
 }
 
-#scene-container {
+#scene_container {
   /* tell our scene container to take up the full page */
   position: absolute;
   width: 100%;
@@ -33,4 +35,32 @@ h1 {
     (src/World/components/scene.ts)
   */
   background-color: #090A0F;
+}
+
+.annotation {
+    position: absolute;
+    /* top: 0;
+    left: 0; */
+    /* z-index: 1; */
+    /* margin-left: 30px;
+    margin-top: 30px; */
+    /* padding: 1em; */
+
+    color: #fafafa;
+    /* background: rgba(255, 255, 255, 0.01); */
+}
+
+.annotation-title {
+    margin-left: -11px;
+    height: 52px;
+}
+
+.annotation-line { background-image: linear-gradient(#fafafa, #fafafa01); 
+    width: 2px;
+    left: -2px;
+    margin-top: 6px;
+}
+
+#hidden {
+    /* display: none; */
 }
