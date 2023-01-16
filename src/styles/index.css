@@ -32,6 +32,7 @@ body {
     height: 34px;
     white-space: nowrap;
     font-size: 18pt;
+    cursor: pointer;
 }
 
 .annotation-line { background-image: linear-gradient(#fafafa66, #fafafa01); 

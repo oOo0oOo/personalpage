@@ -204,7 +204,6 @@ class World {
         if (intersects.length === 0) return;
         for (const intersect of intersects) {
             let id = intersect.object.name;
-
             if (id === "") continue;
 
             let sameId = id === currentFocus;
@@ -212,27 +211,14 @@ class World {
 
             if (currentFocus !== "sun" && sameId) {
                 if (categoryIds.includes(currentFocus)) {
-                    currentFocus = "sun";
-                    let parentObject = scene.getObjectByName("sun");
-                    if (parentObject === undefined) break;
-                    camera.setFocusObject(parentObject, config.DISTANCE_SUN);
-                    controls.setTargetObject(parentObject);
+                    this.changeCurrentFocus("sun");
                 } else {
                     // Find parent Object3D  id is "category.project"
                     let parent = id.split(".")[0];
-                    currentFocus = parent;
-                    let parentObject = scene.getObjectByName(parent);
-                    if (parentObject === undefined) break;
-                    camera.setFocusObject(parentObject, config.DISTANCE_PLANET);
-                    controls.setTargetObject(parentObject);
+                    this.changeCurrentFocus(parent);
                 }
             } else {
-                if (currentFocus === "sun") {
-                    camera.setFocusObject(intersect.object, config.DISTANCE_SUN);
-                } else {
-                    camera.setFocusObject(intersect.object, config.DISTANCE_PLANET);
-                }
-                controls.setTargetObject(intersect.object);
+                this.changeCurrentFocus(currentFocus);
             }
             break;
         }
@@ -245,9 +231,10 @@ class World {
             for (let i = 0; i < labels.length; i++) {
                 if (i < config.CONTENT.length) {
                     let title = config.CONTENT[i].title;
-                    let obj = scene.getObjectByName(config.CONTENT[i].id);
+                    let id = config.CONTENT[i].id;
+                    let obj = scene.getObjectByName(id);
                     if (obj === undefined) break;
-                    labels[i].setTargetBody(obj, title);
+                    labels[i].setTargetBody(obj, title, id);
                 } else {
                     // Hide unused labels
                     labels[i].hideAnnotation();
@@ -274,9 +261,10 @@ class World {
             for (let i = 0; i < labels.length; i++) {
                 if (i < config.CONTENT[index].projects.length) {
                     let title = config.CONTENT[index].projects[i].title;
-                    let obj = scene.getObjectByName(currentFocus + "." + config.CONTENT[index].projects[i].id);
+                    let projectId = currentFocus + "." + config.CONTENT[index].projects[i].id;
+                    let obj = scene.getObjectByName(projectId);
                     if (obj === undefined) break;
-                    labels[i].setTargetBody(obj, title);
+                    labels[i].setTargetBody(obj, title, projectId);
                 } else {
                     // Hide unused labels
                     labels[i].hideAnnotation();
@@ -291,8 +279,7 @@ class World {
             infoBox.style.opacity = "1";
             infoBox.style.display = "block";
 
-            let el = currentFocus.split(".")[1];
-            let info = this.getProjectInfo(el);
+            let info = this.getProjectInfo(currentFocus);
 
             infoTitle.innerHTML = info[0];
             infoDescription.innerHTML = info[1];
@@ -307,13 +294,26 @@ class World {
     hideInfo(){
         // Hide info box and focus on the parent object
         infoBox.style.opacity = "0";
-
         let parent = currentFocus.split(".")[0];
-        currentFocus = parent;
-        let parentObject = scene.getObjectByName(parent);
-        if (parentObject === undefined) return;
-        camera.setFocusObject(parentObject, config.DISTANCE_PLANET);
-        controls.setTargetObject(parentObject);
+        this.changeCurrentFocus(parent);
+    }
+
+    changeCurrentFocus(id: string) {
+        currentFocus = id;
+
+        let distance;
+        if (id === "sun") {
+            distance = config.DISTANCE_SUN;
+        } else if(categoryIds.includes(id)){
+            distance = config.DISTANCE_PLANET;
+        } else {
+            distance = config.DISTANCE_MOON;
+        }
+        
+        let focusObject = scene.getObjectByName(currentFocus);
+        if (focusObject === undefined) return;
+        camera.setFocusObject(focusObject, distance);
+        controls.setTargetObject(focusObject);
         this.updateLabels();
     }
 
@@ -329,6 +329,7 @@ class World {
     }
 
     getProjectInfo(id: string): string[] {
+        id = id.split(".")[1];
         // Find the project with the given id
         let info: string[] = [];
         for (let i = 0; i < config.CONTENT.length; i++) {

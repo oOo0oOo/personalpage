@@ -17,13 +17,20 @@ async function main() {
         world.onMouseDown(evt);
     });
 
-    // Detect click on info_hide
-    const info_hide = document.querySelector('#info_hide');
-
-    // @ts-ignore
-    info_hide.addEventListener('click', (evt) => {
+    document.querySelector('#info_hide')?.addEventListener('click', (evt) => {
         world.hideInfo();
     });
+
+    // Detect click on annotation title
+    let annotationTitles = document.querySelectorAll(".annotation-title");
+    for (let i = 0; i < annotationTitles.length; i++) {
+        annotationTitles[i].addEventListener('click', (evt) => {
+            // Get id from data attribute
+            const id = (evt.target as HTMLDivElement).dataset.id;
+            // @ts-ignore
+            world.changeCurrentFocus(id);
+        });
+    }
 }
 
 main().catch((err) => {

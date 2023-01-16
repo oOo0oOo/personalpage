@@ -144,8 +144,14 @@
                     "url": "https://oli.show"
                 },
                 {
-                    "id": "about",
-                    "title": "About",
+                    "id": "bio",
+                    "title": "Bio",
+                    "description": "Casually roll balls towards enemies. Pick the correct position to eliminate all targets.<br><br>Unlock specials to increase your chances!",
+                    "url": "https://oli.show"
+                },
+                {
+                    "id": "portfolio",
+                    "title": "This Page",
                     "description": "Casually roll balls towards enemies. Pick the correct position to eliminate all targets.<br><br>Unlock specials to increase your chances!",
                     "url": "https://oli.show"
                 }

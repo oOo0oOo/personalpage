@@ -45,9 +45,11 @@ export class Label {
         }
     }
 
-    setTargetBody(body: Object3D, title: string) {
+    setTargetBody(body: Object3D, title: string, id: string) {
         this.targetBody = body;
         this.titleElement.innerHTML = title;
+        // Save id in data attribute
+        this.titleElement.dataset.id = id;
         this.domElement.style.display = 'block';
         this.visible = true;
     }
