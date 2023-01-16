@@ -5,15 +5,21 @@ export interface Config {
     COLOR_MOON: string;
     COLOR_PLANET: string;
 
-    DISTANCE_SUN: number;
     DISTANCE_PLANET: number;
     DISTANCE_MOON: number;
+
+    HEIGHT_SUN: number;
+    HEIGHT_PLANET: number;
+    HEIGHT_MOON: number;
+
     PAN_SPEED: number;
     ZOOM_SPEED: number;
 
     EXTRA_RADIUS: number;
 
-    ORBIT_RANDOM: number;
+    ORBIT_PLANET_RANDOM: number;
+    ORBIT_MOON_RANDOM: number;
+
     SCALE_MOON_ORBIT: number;
     SCALE_PLANET_ORBIT: number;
 
@@ -36,7 +42,14 @@ export interface Config {
             id: string;
             title: string;
             description: string;
-            url: string;
+            link?: {
+                url: string;
+                text: string;
+            };
+            media?: {
+                type: "img" | "video" | "audio";
+                url: string;
+            };
         }[],
     }[];
 }

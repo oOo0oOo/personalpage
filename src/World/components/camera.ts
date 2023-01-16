@@ -1,7 +1,8 @@
 
 import {
     Object3D,
-    PerspectiveCamera
+    PerspectiveCamera,
+    Vector3
 } from 'three';
 
 import { config } from '../../main';
@@ -9,6 +10,8 @@ import { config } from '../../main';
 export class FocusCamera extends PerspectiveCamera {
     focusObject: Object3D = new Object3D();
     focusDist: number = 0;
+    focusHeight: number = 0;
+    doAutoMove: boolean = true;
 
     constructor() {
         super(
@@ -19,24 +22,32 @@ export class FocusCamera extends PerspectiveCamera {
         );
     }
 
-    setFocusObject(object: Object3D, distance: number) {
+    setFocusObject(object: Object3D, distance: number, height: number) {
         this.focusObject = object;
         this.focusDist = distance;
+        this.focusHeight = height;
+        this.doAutoMove = true;
     }
 
     tick(timeElapsed: number) {
-        if (this.focusDist === 0) { return };
+        if (this.focusHeight === 0 || !this.doAutoMove) { return };
 
-        let focusPos = this.focusObject.position.clone();
-
+        let focusPos;
+        if (this.focusHeight === config.HEIGHT_SUN){
+            focusPos = new Vector3(0, 10, 50);
+        } else {
+            focusPos = this.focusObject.position.clone();
+            focusPos.y = this.focusHeight;
+        }
+            
         // Move camera towards focusDist if we are not too close already
         var current_distance = this.position.distanceTo(focusPos);
         var distance_diff = this.focusDist - current_distance;
-        if (Math.abs(distance_diff) > 0.1) {
-            var direction = this.position.clone().sub(focusPos).normalize();
-            this.position.add(direction.multiplyScalar(config.ZOOM_SPEED * distance_diff));
-            this.updateProjectionMatrix();
-        }
+        var direction = this.position.clone().sub(focusPos).normalize();
+
+        this.position.add(direction.multiplyScalar(config.ZOOM_SPEED * distance_diff));
+        this.updateProjectionMatrix();
+
     }
 }
 

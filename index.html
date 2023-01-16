@@ -7,7 +7,7 @@
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;300;400;500&display=swap');
     </style>
-    <link href="./src/styles/index.css" rel="stylesheet" type="text/css" />
+    <link href="./public/styles/index.css" rel="stylesheet" type="text/css" />
     <script type="module" src="./dist/bundle.js"></script>
   </head>
 
@@ -17,7 +17,7 @@
     <div id="center_label"></div>
     <div id="info_box">
         <div id="info_title"></div>
-        <div id="info_hide">X</div>
+        <div id="info_hide">x</div>
         <div id="side_by_side">
             <div id="info_description"></div>
             <div id="info_media"></div>
@@ -30,5 +30,12 @@
             <div id="annotation_line" class="annotation-line"></div>
         </div>
     </div>
+    <noscript>
+      <div class="noscript">
+        Since you have disabled JavaScript,<br>
+        you might as well parse this website yourself:<br><br>
+        <embed id="json-embed" src="./public/config.json" type="text/json" />
+      </div>
+    </noscript>
   </body>
 </html>

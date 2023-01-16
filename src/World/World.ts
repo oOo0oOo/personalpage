@@ -104,6 +104,7 @@ class World {
 
         for (let i = 0; i < config.CONTENT.length; i++) {
             var orbit = config.SCALE_PLANET_ORBIT * (0.2 + 0.8 * (i / config.CONTENT.length));
+            orbit += 2 * Math.random() * config.ORBIT_PLANET_RANDOM - config.ORBIT_PLANET_RANDOM;
             var angle = 2 * Math.PI * Math.random();
             var velocity = -1 * Math.sqrt(config.GRAVITY / orbit);
 
@@ -131,6 +132,7 @@ class World {
             let numMoons = config.CONTENT[i].projects.length;
             for (let j = 0; j < config.CONTENT[i].projects.length; j++) {
                 let orbitMoon: number = config.SCALE_MOON_ORBIT * (0.25 + 0.75 * (j / numMoons));
+                orbitMoon += 2 * Math.random() * config.ORBIT_MOON_RANDOM - config.ORBIT_MOON_RANDOM;
                 let startAngleMoon: number = 2 * Math.PI * Math.random();
                 let velocityMoon: number = -1 * Math.sqrt(config.GRAVITY / orbitMoon);
                 let id = catId + "." + config.CONTENT[i].projects[j].id;
@@ -276,13 +278,8 @@ class World {
             centerLabel.style.opacity = "0";
 
             // Show info box
-            infoBox.style.opacity = "1";
-            infoBox.style.display = "block";
-
             let info = this.getProjectInfo(currentFocus);
-
-            infoTitle.innerHTML = info[0];
-            infoDescription.innerHTML = info[1];
+            this.showInfoBox(info);
 
             for (let i = 0; i < labels.length; i++) {
                 // Hide unused labels
@@ -291,7 +288,48 @@ class World {
         }
     }
 
-    hideInfo(){
+    showInfoBox(info: (string|undefined)[]){
+        if (info[0]){
+            infoTitle.innerHTML = info[0];
+        }
+        if (info[1]){
+            infoDescription.innerHTML = info[1];
+        }
+
+        // Show or hide link button
+        if (info[2] && info[3]){
+            infoLink.innerHTML = info[3];
+            // Set link onclick this div
+            infoLink.onclick = () => {
+                window.open(info[2], "_blank");
+            }
+            infoLink.style.display = "block";
+        } else {
+            infoLink.style.display = "none";
+        }
+
+        // Show media
+        if (info[4] && info[5]){
+            infoMedia.style.display = "block";
+
+            let str: string = "";
+            if (info[4] === "img"){
+                str = `<img class="media-img" src="public/media/${info[5]}" alt="Project image ${info[0]}">`;
+            } else if (info[4] === "video"){
+                str = `<video controls class="media-video"><source src="public/media/${info[5]}" type="video/mp4"></video>`;
+            } else if (info[4] === "audio"){
+                str = `<audio controls class="media-audio"><source src="public/media/${info[5]}" type="audio/mpeg"></audio>`;
+            }
+            infoMedia.innerHTML = str;
+        } else {
+            infoMedia.style.display = "none";
+        }
+
+        infoBox.style.opacity = "1";
+        infoBox.style.display = "block";
+    }
+
+    hideInfoBox(){
         // Hide info box and focus on the parent object
         infoBox.style.opacity = "0";
         let parent = currentFocus.split(".")[0];
@@ -302,19 +340,34 @@ class World {
         currentFocus = id;
 
         let distance;
+        let height;
         if (id === "sun") {
-            distance = config.DISTANCE_SUN;
+            distance = 0;
+            height = config.HEIGHT_SUN;
         } else if(categoryIds.includes(id)){
             distance = config.DISTANCE_PLANET;
+            height = config.HEIGHT_PLANET;
         } else {
             distance = config.DISTANCE_MOON;
+            height = config.HEIGHT_MOON;
         }
-        
+
         let focusObject = scene.getObjectByName(currentFocus);
         if (focusObject === undefined) return;
-        camera.setFocusObject(focusObject, distance);
+        camera.setFocusObject(focusObject, distance, height);
         controls.setTargetObject(focusObject);
         this.updateLabels();
+    }
+
+    onDrag(){
+        // If current focus is the sun, stop auto move
+        if (currentFocus === "sun"){
+            camera.doAutoMove = false;
+        }
+    }
+
+    onScroll(){
+        camera.doAutoMove = false;
     }
 
     getCategoryInfo(id: string): string[] {
@@ -328,14 +381,20 @@ class World {
         return info;
     }
 
-    getProjectInfo(id: string): string[] {
+    getProjectInfo(id: string): (string|undefined)[] {
         id = id.split(".")[1];
         // Find the project with the given id
-        let info: string[] = [];
+        let info: (string|undefined)[] = [];
         for (let i = 0; i < config.CONTENT.length; i++) {
             for (let j = 0; j < config.CONTENT[i].projects.length; j++) {
                 if (config.CONTENT[i].projects[j].id === id) {
-                    info = [config.CONTENT[i].projects[j].title, config.CONTENT[i].projects[j].description, config.CONTENT[i].projects[j].url];
+                    let project = config.CONTENT[i].projects[j];
+                    let link = project.link?.url;
+                    let linkText = project.link?.text;
+                    let mediaType = project.media?.type;
+                    let mediaUrl = project.media?.url;
+
+                    info = [project.title, project.description, link, linkText, mediaType, mediaUrl];
                 }
             }
         }

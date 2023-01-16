@@ -1,5 +1,5 @@
 import { Config } from './config';
-export let config: Config = require('./config.json');
+export let config: Config = require('../public/config.json');
 
 import { World } from './World/World';
 
@@ -18,7 +18,7 @@ async function main() {
     });
 
     document.querySelector('#info_hide')?.addEventListener('click', (evt) => {
-        world.hideInfo();
+        world.hideInfoBox();
     });
 
     // Detect click on annotation title
@@ -31,6 +31,30 @@ async function main() {
             world.changeCurrentFocus(id);
         });
     }
+
+    // Detect dragging and wheel to stop camera auto movement
+    let dragging = false;
+    let mouseDown = false;
+
+    addEventListener('mousedown', (evt) => {
+        mouseDown = true;
+    });
+
+    addEventListener('mouseup', (evt) => {
+        mouseDown = false;
+        dragging = false;
+    });
+
+    addEventListener('mousemove', (evt) => {
+        if (!dragging && mouseDown) {
+            dragging = true;
+            world.onDrag();
+        }
+    });
+
+    addEventListener('wheel', (evt) => {
+        world.onScroll();
+    });
 }
 
 main().catch((err) => {
