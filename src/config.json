@@ -23,8 +23,8 @@
     "SCALE_MOON_ORBIT": 2.0,
 
     "LABEL_SIZE":  [512 , 512],
-    "LABEL_Y_OFFSETS": [180, -180],
-    "LABEL_Y_STEP": 60,
+    "LABEL_Y_OFFSETS": [170, -170],
+    "LABEL_Y_STEP": 32,
 
     "GRAVITY": 0.1,
 
@@ -134,8 +134,8 @@
             ]
         },
         {
-            "id": "bio",
-            "title": "Bio",
+            "id": "about",
+            "title": "About",
             "projects": [
                 {
                     "id": "contact",

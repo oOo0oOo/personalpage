@@ -15,11 +15,14 @@ export class Label {
     lineElement: HTMLDivElement;
     visible = false;
     yPos: number;
-    down: boolean;
+    lineUp: boolean;
+    labelDown: boolean;
 
-    constructor(yPos: number, down: boolean) {
+    constructor(yPos: number) {
         this.targetBody = new Object3D();
-        this.down = down;
+
+        this.labelDown = yPos > 0;
+        this.lineUp = this.labelDown;
 
         // Copy element from contents of #template_annotation, only use innerHTML
         this.domElement = document.querySelector('#annotation_template')?.cloneNode(true) as HTMLDivElement;
@@ -35,9 +38,9 @@ export class Label {
         this.domElement.style.top = `${this.yPos}px`;
 
         // Rotate the line upwards if not down
-        if (down) {
+        if (this.lineUp) {
             // Rotate around origin (30 pixels up)
-            this.lineElement.style.transformOrigin = '0 -30px';
+            this.lineElement.style.transformOrigin = '0 -20px';
             this.lineElement.style.transform = 'rotate(180deg)';
         }
     }
@@ -64,9 +67,26 @@ export class Label {
 
             // Check the y distance between the label and the body
             let y = (screenPos.y + 1) / 2 * window.innerHeight;
-            let yDiff = Math.abs(y - this.yPos) - 100;
-            if (this.down) {
-                yDiff += 60
+            let yDiff = y - this.yPos;
+
+            // We might switch the label from up to down or vice versa
+            if (yDiff < 0 != this.lineUp) {
+                this.lineUp = !this.lineUp;
+
+                if (this.lineUp) {
+                    this.lineElement.style.transformOrigin = '0 -20px';
+                    this.lineElement.style.transform = 'rotate(180deg)';
+                } else {
+                    this.lineElement.style.transformOrigin = '0 0';
+                    this.lineElement.style.transform = '';
+                }
+            }
+
+            yDiff = Math.abs(yDiff);
+            if (this.lineUp){
+                yDiff -= 20;
+            } else {
+                yDiff -= 60;
             }
             this.lineElement.style.height = `${yDiff}px`;
         }

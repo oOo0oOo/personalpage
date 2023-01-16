@@ -166,7 +166,7 @@ class World {
             }
             let yPos = config.LABEL_Y_OFFSETS[label_y_offset] + extra;
             label_y_offset = (label_y_offset + 1) % config.LABEL_Y_OFFSETS.length;
-            let label = new Label(yPos, i % 2 == 0);
+            let label = new Label(yPos);
             loop.updatables.push(label);
             labels.push(label);
         }
@@ -285,7 +285,6 @@ class World {
         }
         // If a project is currentFocus: label only this project
         else {
-
             centerLabel.style.opacity = "0";
 
             // Show info box
