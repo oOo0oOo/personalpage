@@ -305,6 +305,19 @@ class World {
         }
     }
 
+    hideInfo(){
+        // Hide info box and focus on the parent object
+        infoBox.style.opacity = "0";
+
+        let parent = currentFocus.split(".")[0];
+        currentFocus = parent;
+        let parentObject = scene.getObjectByName(parent);
+        if (parentObject === undefined) return;
+        camera.setFocusObject(parentObject, config.DISTANCE_PLANET);
+        controls.setTargetObject(parentObject);
+        this.updateLabels();
+    }
+
     getCategoryInfo(id: string): string[] {
         // Find the category with the given id
         let info: string[] = [];

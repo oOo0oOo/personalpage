@@ -12,8 +12,17 @@ async function main() {
     await world.init();
     world.start();
 
+    // Various events
     addEventListener('mousedown', (evt) => {
         world.onMouseDown(evt);
+    });
+
+    // Detect click on info_hide
+    const info_hide = document.querySelector('#info_hide');
+
+    // @ts-ignore
+    info_hide.addEventListener('click', (evt) => {
+        world.hideInfo();
     });
 }
 

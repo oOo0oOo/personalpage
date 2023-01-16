@@ -23,8 +23,8 @@
     "SCALE_MOON_ORBIT": 2.0,
 
     "LABEL_SIZE":  [512 , 512],
-    "LABEL_Y_OFFSETS": [200, -200],
-    "LABEL_Y_STEP": 90,
+    "LABEL_Y_OFFSETS": [180, -180],
+    "LABEL_Y_STEP": 60,
 
     "GRAVITY": 0.1,
 

@@ -3,15 +3,10 @@ body {
   margin: 0;
   overflow: hidden;
 
-  /* style text */
-  text-align: center;
-  font-size: 12px;
-  font-family: Sans-Serif;
-
   /* font style */
   font-family: Barlow;
   font-weight: 300;
-  font-size: 32pt;
+  font-size: 24pt;
 }
 
 #scene_container {
@@ -87,7 +82,6 @@ body {
     font-size: 21pt;
     font-family: Barlow;
     font-weight: 400;
-    color: #101010;
     text-align: center;
     text-align: left;
     flex: 300px;
@@ -116,4 +110,17 @@ body {
 
 #info_link:hover{
     background: #88A47C88;
+}
+
+#info_hide{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 20pt;
+}
+
+#info_hide:hover{
+    color: #88A47C;
 }
