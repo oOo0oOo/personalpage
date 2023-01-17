@@ -36,23 +36,23 @@ async function main() {
     let dragging = false;
     let mouseDown = false;
 
-    addEventListener('mousedown', (evt) => {
+    addEventListener('mousedown', () => {
         mouseDown = true;
     });
 
-    addEventListener('mouseup', (evt) => {
+    addEventListener('mouseup', () => {
         mouseDown = false;
         dragging = false;
     });
 
-    addEventListener('mousemove', (evt) => {
+    addEventListener('mousemove', () => {
         if (!dragging && mouseDown) {
             dragging = true;
             world.onDrag();
         }
     });
 
-    addEventListener('wheel', (evt) => {
+    addEventListener('wheel', () => {
         world.onScroll();
     });
 }
