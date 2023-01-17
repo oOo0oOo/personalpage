@@ -2,7 +2,7 @@ import { WebGLRenderer, PCFShadowMap } from 'three';
 
 import { config } from '../../main';
 
-function createRenderer() {
+function createRenderer(isMobile: boolean) {
     let pixelRatio = window.devicePixelRatio
     let AA = true
     if (pixelRatio > 1) {
@@ -10,10 +10,10 @@ function createRenderer() {
     }
 
     const renderer = new WebGLRenderer({ antialias: AA, powerPreference: 'high-performance' });
-    renderer.physicallyCorrectLights = true;
     renderer.setClearColor(config.COLOR_BACKGROUND);
 
-    if (config.SHADOWS) {
+    if (!isMobile) {
+        renderer.physicallyCorrectLights = true;
         renderer.shadowMap.enabled = true;
         renderer.shadowMap.type = PCFShadowMap; // options: BasicShadowMap, PCFShadowMap, PCFSoftShadowMap
     }

@@ -33,8 +33,6 @@ export interface Config {
 
     GRAVITY: number;
 
-    SHADOWS: boolean;
-
     CONTENT: {
         id: string;
         title: string;

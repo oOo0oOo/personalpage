@@ -14,16 +14,16 @@ export class FocusCamera extends PerspectiveCamera {
     doAutoMove: boolean = true;
     startPos: Vector3 = new Vector3(0, 10, 50);
 
-    constructor() {
+    constructor(isMobile: boolean) {
         super(
-            35, // fov = Field Of View
+            40, // fov = Field Of View
             1, // aspect ratio (dummy value)
-            1, // near clipping plane
+            0.1, // near clipping plane
             1000 // far clipping plane
         );
 
-        // Check if the screen width is small (mobile) --> start further away to show everything
-        if (window.innerWidth < 600) {
+        // Mobile --> start further away to show everything
+        if (isMobile) {
             this.startPos = new Vector3(0, 15, 100);
         };
 
@@ -55,12 +55,11 @@ export class FocusCamera extends PerspectiveCamera {
 
         this.position.add(direction.multiplyScalar(config.ZOOM_SPEED * distance_diff));
         this.updateProjectionMatrix();
-
     }
 }
 
-function createCamera(): FocusCamera {
-    const camera = new FocusCamera();
+function createCamera(isMobile: boolean): FocusCamera {
+    const camera = new FocusCamera(isMobile);
     return camera;
 }
 

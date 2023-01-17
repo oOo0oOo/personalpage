@@ -16,13 +16,18 @@ interface Body {
     velocities?: number[];
 }
 
+// High performance (not mobile)
 const sunMaterial = new MeshBasicMaterial({ color: config.COLOR_SUN });
 const planetMaterial = new MeshStandardMaterial({ color: config.COLOR_PLANET });
 const moonMaterial = new MeshStandardMaterial({ color: config.COLOR_MOON });
-
 const sphereGeometry = new SphereGeometry(1, 32, 16);
 
-function createBody(body: Body): Mesh {
+// Fast
+const planetMaterialFast = new MeshBasicMaterial({ color: config.COLOR_PLANET });
+const moonMaterialFast = new MeshBasicMaterial({ color: config.COLOR_MOON });
+const sphereGeometryFast = new SphereGeometry(1, 16, 16);
+
+function createBody(body: Body, isMobile: boolean): Mesh {
     // Create the bodies basend on their type
     let radius: number = 0;
 
@@ -30,20 +35,32 @@ function createBody(body: Body): Mesh {
 
     if (body.bodyType == "sun") {
         radius = config.RADIUS_SUN;
-        sphere = new Mesh(sphereGeometry, sunMaterial);
+        if (isMobile){
+            sphere = new Mesh(sphereGeometryFast, sunMaterial);
+        } else {
+            sphere = new Mesh(sphereGeometry, sunMaterial);
+        }
     } else if (body.bodyType == "planet") {
         radius = config.RADIUS_PLANET[0] + Math.random() * (config.RADIUS_PLANET[1] - config.RADIUS_PLANET[0]);
-        sphere = new Mesh(sphereGeometry, planetMaterial);
+        if (isMobile){
+            sphere = new Mesh(sphereGeometryFast, planetMaterialFast);
+        } else {
+            sphere = new Mesh(sphereGeometry, planetMaterial);
+        }
     } else {
         radius = config.RADIUS_MOON[0] + Math.random() * (config.RADIUS_MOON[1] - config.RADIUS_MOON[0]);
-        sphere = new Mesh(sphereGeometry, moonMaterial);
+        if (isMobile){
+            sphere = new Mesh(sphereGeometryFast, moonMaterialFast);
+        } else {
+            sphere = new Mesh(sphereGeometry, moonMaterial);
+        }
     }
 
     // Scale the mesh
     sphere.scale.set(radius, radius, radius);
     sphere.name = body.id;
 
-    if (body.bodyType !== 'sun' && config.SHADOWS) {
+    if (body.bodyType !== 'sun' && !isMobile) {
         sphere.castShadow = true;
         sphere.receiveShadow = true;
     }

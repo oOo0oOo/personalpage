@@ -33,8 +33,6 @@
 
     "GRAVITY": 0.1,
 
-    "SHADOWS": true,
-
     "CONTENT": [
         {
             "id": "games",

@@ -43,10 +43,16 @@ let infoTitle: HTMLDivElement;
 let infoDescription: HTMLDivElement;
 let infoLink: HTMLDivElement;
 let infoMedia: HTMLDivElement;
+let isMobile: boolean;
 
 class World {
     constructor(container: HTMLCanvasElement) {
-        camera = createCamera();
+        // Mobile: 
+        // Camera sun position is further away to show everything
+        // No lights and shadows to improve performance
+        isMobile = window.innerWidth < 768 || window.innerHeight < 768;
+
+        camera = createCamera(isMobile);
         raycaster = new Raycaster();
         currentFocus = "sun";
 
@@ -56,15 +62,17 @@ class World {
          * (src/styles/index.css #scene_container)
          */
         scene = createScene({ backgroundColor: config.COLOR_BACKGROUND });
-        renderer = createRenderer();
+        renderer = createRenderer(isMobile);
         controls = createControls({ camera: camera, canvas: renderer.domElement });
         loop = new Loop({ camera, scene, renderer });
         loop.updatables.push(controls);
         loop.updatables.push(camera);
         container.append(renderer.domElement);
 
-        const { sunLight, ambientLight } = createLights();
-        scene.add(sunLight, ambientLight);
+        if (!isMobile){
+            const { sunLight, ambientLight } = createLights();
+            scene.add(sunLight, ambientLight);
+        }
 
         new Resizer({ container, camera, renderer });
 
@@ -92,7 +100,7 @@ class World {
 
     async init() {
         // Create the sun
-        const sun = await createBody({ bodyType: "sun", id: "sun" });
+        const sun = await createBody({ bodyType: "sun", id: "sun" }, isMobile);
         controls.target.copy(sun.position);
         loop.updatables.push(sun);
         scene.add(sun);
@@ -124,7 +132,7 @@ class World {
             let startA: number[] = [startAngle[i]];
             let velocit: number[] = [velocities[i]];
             let catId = config.CONTENT[i].id;
-            const categoryBody = await createBody({ id: catId, bodyType: "planet", orbit: orbit, startAngle: startA, velocities: velocit });
+            const categoryBody = await createBody({ id: catId, bodyType: "planet", orbit: orbit, startAngle: startA, velocities: velocit }, isMobile);
             loop.updatables.push(categoryBody);
             scene.add(categoryBody);
 
@@ -141,7 +149,7 @@ class World {
                 startA = [startAngle[i], startAngleMoon];
                 velocit = [velocities[i], velocityMoon];
 
-                const projectBody = await createBody({ id: id, bodyType: "moon", orbit: orbit, startAngle: startA, velocities: velocit });
+                const projectBody = await createBody({ id: id, bodyType: "moon", orbit: orbit, startAngle: startA, velocities: velocit }, isMobile);
                 loop.updatables.push(projectBody);
                 scene.add(projectBody);
             }

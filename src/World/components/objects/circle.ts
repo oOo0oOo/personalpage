@@ -8,6 +8,8 @@ import {
 
 import { config } from "../../../main";
 
+const materialCurve = new LineBasicMaterial({ color: config.COLOR_ORBIT, linewidth: 0.5 });
+
 function createCircle(radius: number): Line {
     // Create trailing curve for the body
     var curve = new EllipseCurve(
@@ -18,7 +20,7 @@ function createCircle(radius: number): Line {
         0                 // aRotation
     );
 
-    const num_points = 50 + Math.floor(radius * 50);
+    const num_points = 50 + Math.floor(radius * 20);
     const points = curve.getPoints(num_points);
 
     // Convert 2D points to 3D points with z = y
@@ -28,7 +30,6 @@ function createCircle(radius: number): Line {
     }
 
     const geometryCurve = new BufferGeometry().setFromPoints(points3D);
-    const materialCurve = new LineBasicMaterial({ color: config.COLOR_ORBIT, linewidth: 0.5 });
     const ellipse = new Line(geometryCurve, materialCurve);
 
     return ellipse;
