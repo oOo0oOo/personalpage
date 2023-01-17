@@ -135,7 +135,7 @@ class World {
                 orbitMoon += 2 * Math.random() * config.ORBIT_MOON_RANDOM - config.ORBIT_MOON_RANDOM;
                 let startAngleMoon: number = 2 * Math.PI * Math.random();
                 let velocityMoon: number = -1 * Math.sqrt(config.GRAVITY / orbitMoon);
-                let id = catId + "." + config.CONTENT[i].projects[j].id;
+                let id = catId + "_" + config.CONTENT[i].projects[j].id;
 
                 orbit = [orbits[i], orbitMoon];
                 startA = [startAngle[i], startAngleMoon];
@@ -216,7 +216,7 @@ class World {
                     this.changeCurrentFocus("sun");
                 } else {
                     // Find parent Object3D  id is "category.project"
-                    let parent = id.split(".")[0];
+                    let parent = id.split("_")[0];
                     this.changeCurrentFocus(parent);
                 }
             } else {
@@ -263,7 +263,7 @@ class World {
             for (let i = 0; i < labels.length; i++) {
                 if (i < config.CONTENT[index].projects.length) {
                     let title = config.CONTENT[index].projects[i].title;
-                    let projectId = currentFocus + "." + config.CONTENT[index].projects[i].id;
+                    let projectId = currentFocus + "_" + config.CONTENT[index].projects[i].id;
                     let obj = scene.getObjectByName(projectId);
                     if (obj === undefined) break;
                     labels[i].setTargetBody(obj, title, projectId);
@@ -332,7 +332,7 @@ class World {
     hideInfoBox(){
         // Hide info box and focus on the parent object
         infoBox.style.opacity = "0";
-        let parent = currentFocus.split(".")[0];
+        let parent = currentFocus.split("_")[0];
         this.changeCurrentFocus(parent);
     }
 
@@ -356,6 +356,14 @@ class World {
         if (focusObject === undefined) return;
         camera.setFocusObject(focusObject, distance, height);
         controls.setTargetObject(focusObject);
+
+        // Set hash url
+        if (currentFocus !== "sun"){
+            window.location.hash = currentFocus;
+        } else {
+            window.location.hash = "";
+        }
+
         this.updateLabels();
     }
 
@@ -382,7 +390,7 @@ class World {
     }
 
     getProjectInfo(id: string): (string|undefined)[] {
-        id = id.split(".")[1];
+        id = id.split("_")[1];
         // Find the project with the given id
         let info: (string|undefined)[] = [];
         for (let i = 0; i < config.CONTENT.length; i++) {

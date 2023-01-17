@@ -55,6 +55,14 @@ async function main() {
     addEventListener('wheel', () => {
         world.onScroll();
     });
+
+    // Get current #url and focus directly if it is set
+    const url = new URL(window.location.href);
+    const focus = url.hash.substring(1);
+    if (focus) {
+        // @ts-ignore
+        world.changeCurrentFocus(focus);
+    }
 }
 
 main().catch((err) => {
