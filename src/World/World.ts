@@ -326,11 +326,11 @@ class World {
 
             let str: string = "";
             if (info[4] === "img"){
-                str = `<img class="media-img" src="public/media/${info[5]}">`;
+                str = `<img class="media-img" src="static/media/${info[5]}">`;
             } else if (info[4] === "video"){
-                str = `<video controls class="media-video"><source src="public/media/${info[5]}" type="video/mp4"></video>`;
+                str = `<video controls class="media-video"><source src="static/media/${info[5]}" type="video/mp4"></video>`;
             } else if (info[4] === "audio"){
-                str = `<audio controls class="media-audio"><source src="public/media/${info[5]}" type="audio/mpeg"></audio>`;
+                str = `<audio controls class="media-audio"><source src="static/media/${info[5]}" type="audio/mpeg"></audio>`;
             }
             infoMedia.innerHTML = str;
         } else {

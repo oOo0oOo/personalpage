@@ -362,7 +362,7 @@
                     "title": "This Page",
                     "description": "This interactive portfolio page was made using three.js and TypeScript.<br><br>Quite a few projects didn't fit anymore, so I might have to change it soon.<br><br>This page is probably not very up-to-date. Let me know if you find any bugs ;-)",
                     "link": {
-                        "url": "/public/config.json",
+                        "url": "/static/config.json",
                         "text": "JSON Format"
                     },
                     "media": {

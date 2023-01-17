@@ -1,5 +1,5 @@
 import { Config } from './config';
-export let config: Config = require('../public/config.json');
+export let config: Config = require('../static/config.json');
 
 import { World } from './World/World';
 

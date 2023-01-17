@@ -3,7 +3,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "public/": ["public/*"]
+      "static/": ["static/*"]
     },
     "lib": ["es2015", "dom"],
     "target": "es6",
