@@ -2,8 +2,6 @@ import {
     Object3D
 } from 'three';
 
-import { config } from "../../../main";
-
 import { camera } from "../../World";
 
 let centerY = window.innerHeight / 2;

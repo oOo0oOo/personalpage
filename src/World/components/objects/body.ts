@@ -20,12 +20,13 @@ interface Body {
 const sunMaterial = new MeshBasicMaterial({ color: config.COLOR_SUN });
 const planetMaterial = new MeshStandardMaterial({ color: config.COLOR_PLANET });
 const moonMaterial = new MeshStandardMaterial({ color: config.COLOR_MOON });
-const sphereGeometry = new SphereGeometry(1, 32, 16);
 
-// Fast
+// Fast (mobile)
 const planetMaterialFast = new MeshBasicMaterial({ color: config.COLOR_PLANET });
 const moonMaterialFast = new MeshBasicMaterial({ color: config.COLOR_MOON });
-const sphereGeometryFast = new SphereGeometry(1, 16, 16);
+
+const sphereGeometry = new SphereGeometry(1, 32, 16);
+const sphereGeometryFast = new SphereGeometry(1, 16, 12);
 
 function createBody(body: Body, isMobile: boolean): Mesh {
     // Create the bodies basend on their type
@@ -35,11 +36,7 @@ function createBody(body: Body, isMobile: boolean): Mesh {
 
     if (body.bodyType == "sun") {
         radius = config.RADIUS_SUN;
-        if (isMobile){
-            sphere = new Mesh(sphereGeometryFast, sunMaterial);
-        } else {
-            sphere = new Mesh(sphereGeometry, sunMaterial);
-        }
+        sphere = new Mesh(sphereGeometry, sunMaterial);
     } else if (body.bodyType == "planet") {
         radius = config.RADIUS_PLANET[0] + Math.random() * (config.RADIUS_PLANET[1] - config.RADIUS_PLANET[0]);
         if (isMobile){
@@ -52,7 +49,7 @@ function createBody(body: Body, isMobile: boolean): Mesh {
         if (isMobile){
             sphere = new Mesh(sphereGeometryFast, moonMaterialFast);
         } else {
-            sphere = new Mesh(sphereGeometry, moonMaterial);
+            sphere = new Mesh(sphereGeometryFast, moonMaterial);
         }
     }
 

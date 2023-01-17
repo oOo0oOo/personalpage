@@ -3,8 +3,6 @@ import {
     PointLight
 } from 'three';
 
-import { config } from '../../main';
-
 interface lightTypes {
     sunLight: PointLight;
     ambientLight: AmbientLight;

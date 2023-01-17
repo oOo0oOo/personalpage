@@ -18,9 +18,10 @@ import { Resizer } from './systems/Resizer';
 import { FocusCamera } from './components/camera';
 import { FocusControls } from './systems/controls';
 
-import { config } from '../main';
 import { Label } from './components/objects/label';
 import { createCircle } from './components/objects/circle';
+
+import { config } from '../main';
 
 /**
  * If two instances of the World class are created, the second instance will
@@ -202,6 +203,9 @@ class World {
     }
 
     onMouseDown(evt: MouseEvent) {
+        // If controls disabled (looking at project) do nothing
+        if (!controls.enabled) return;
+
         // Check if any of the objects in the scene have been clicked
         const mouse = new Vector2();
         mouse.x = (evt.clientX / window.innerWidth) * 2 - 1;
@@ -322,7 +326,7 @@ class World {
 
             let str: string = "";
             if (info[4] === "img"){
-                str = `<img class="media-img" src="public/media/${info[5]}" alt="Project image ${info[0]}">`;
+                str = `<img class="media-img" src="public/media/${info[5]}">`;
             } else if (info[4] === "video"){
                 str = `<video controls class="media-video"><source src="public/media/${info[5]}" type="video/mp4"></video>`;
             } else if (info[4] === "audio"){
@@ -352,12 +356,16 @@ class World {
         if (id === "sun") {
             distance = 0;
             height = config.HEIGHT_SUN;
+            controls.enabled = true;
         } else if(categoryIds.includes(id)){
             distance = config.DISTANCE_PLANET;
             height = config.HEIGHT_PLANET;
+            controls.enabled = true;
         } else {
             distance = config.DISTANCE_MOON;
             height = config.HEIGHT_MOON;
+            // Disable orbit controls
+            controls.enabled = false;
         }
 
         let focusObject = scene.getObjectByName(currentFocus);

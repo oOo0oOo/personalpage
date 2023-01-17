@@ -20,7 +20,7 @@ function createCircle(radius: number): Line {
         0                 // aRotation
     );
 
-    const num_points = 50 + Math.floor(radius * 20);
+    const num_points = 50 + Math.floor(radius * 8);
     const points = curve.getPoints(num_points);
 
     // Convert 2D points to 3D points with z = y

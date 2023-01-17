@@ -147,7 +147,11 @@ body {
     right: 20px;
     cursor: pointer;
     font-weight: 500;
-    font-size: 18pt;
+    font-size: 20pt;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 22px;
 }
 
 #info_hide:hover{

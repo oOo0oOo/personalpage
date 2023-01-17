@@ -16,7 +16,10 @@ module.exports = {
     publicPath: '/dist/'
   },
   resolve: {
-    extensions: ['.ts', '.js']
+    extensions: ['.ts', '.js'],
+    alias: {
+      three: path.resolve('./node_modules/three')
+    },
   },
   module: {
     rules: [
