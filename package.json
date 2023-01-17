@@ -2,6 +2,7 @@
   "name": "portfolio-page-oliver-dressler",
   "version": "1.0.0",
   "author": "Oliver Dressler",
+  "license": "UNLICENSED",
   "scripts": {
     "start": "webpack serve",
     "start:open": "webpack serve --open",
