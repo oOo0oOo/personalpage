@@ -12,32 +12,14 @@ async function main() {
     await world.init();
     world.start();
 
-    // Various events
-    addEventListener('mousedown', (evt) => {
-        world.onMouseDown(evt);
-    });
-
-    document.querySelector('#info_hide')?.addEventListener('click', (evt) => {
-        world.hideInfoBox();
-    });
-
-    // Detect click on annotation title
-    let annotationTitles = document.querySelectorAll(".annotation-title");
-    for (let i = 0; i < annotationTitles.length; i++) {
-        annotationTitles[i].addEventListener('click', (evt) => {
-            // Get id from data attribute
-            const id = (evt.target as HTMLDivElement).dataset.id;
-            // @ts-ignore
-            world.changeCurrentFocus(id);
-        });
-    }
-
+    // Various events on overlay
     // Detect dragging and wheel to stop camera auto movement
     let dragging = false;
     let mouseDown = false;
 
-    addEventListener('mousedown', () => {
+    addEventListener('mousedown', (evt) => {
         mouseDown = true;
+        world.onMouseDown(evt);
     });
 
     addEventListener('mouseup', () => {
@@ -54,6 +36,21 @@ async function main() {
 
     addEventListener('wheel', () => {
         world.onScroll();
+    });
+
+    // Detect click on annotation title
+    let annotationTitles = document.querySelectorAll(".annotation-title");
+    for (let i = 0; i < annotationTitles.length; i++) {
+        annotationTitles[i].addEventListener('click', (evt) => {
+            // Get id from data attribute
+            const id = (evt.target as HTMLDivElement).dataset.id;
+            // @ts-ignore
+            world.changeCurrentFocus(id);
+        });
+    }
+
+    document.querySelector('#info_hide')?.addEventListener('click', (evt) => {
+        world.hideInfoBox();
     });
 
     // Get current #url and focus directly if it is set

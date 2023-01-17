@@ -12,6 +12,7 @@ export class FocusCamera extends PerspectiveCamera {
     focusDist: number = 0;
     focusHeight: number = 0;
     doAutoMove: boolean = true;
+    startPos: Vector3 = new Vector3(0, 10, 50);
 
     constructor() {
         super(
@@ -20,6 +21,13 @@ export class FocusCamera extends PerspectiveCamera {
             1, // near clipping plane
             1000 // far clipping plane
         );
+
+        // Check if the screen width is small (mobile) --> start further away to show everything
+        if (window.innerWidth < 600) {
+            this.startPos = new Vector3(0, 15, 100);
+        };
+
+        this.position.copy(this.startPos);
     }
 
     setFocusObject(object: Object3D, distance: number, height: number) {
@@ -53,7 +61,6 @@ export class FocusCamera extends PerspectiveCamera {
 
 function createCamera(): FocusCamera {
     const camera = new FocusCamera();
-    camera.position.set(0, 10, 50);
     return camera;
 }
 

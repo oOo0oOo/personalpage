@@ -31,7 +31,7 @@ export class Label {
         this.lineElement = this.domElement.querySelector('#annotation_line') as HTMLDivElement;
 
         // Add to DOM
-        document.querySelector('#annotations')?.append(this.domElement);
+        document.querySelector('#overlay')?.append(this.domElement);
 
         // Set height via css pos
         this.yPos = centerY + yPos;
