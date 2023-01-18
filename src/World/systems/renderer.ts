@@ -1,8 +1,8 @@
 import { WebGLRenderer, PCFShadowMap } from 'three';
 
-import { config } from '../../main';
+import { config, isMobile } from '../../main';
 
-function createRenderer(isMobile: boolean) {
+function createRenderer() {
     let pixelRatio = window.devicePixelRatio
     let AA = true
     if (pixelRatio > 1) {

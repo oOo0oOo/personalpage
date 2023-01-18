@@ -30,10 +30,13 @@ class Loop {
         this.scene = scene;
         this.renderer = renderer;
         this.updatables = [];
-        this.stats = Stats();
         this.elapsedTime = 0;
         this.currentFocus = new Object3D();
 
+        // Create FPS stats panel, use custom css class, then add to dom
+        this.stats = Stats();
+        this.stats.dom.classList.add('stats');
+        this.stats.dom.removeAttribute('style');
         document.body.appendChild(this.stats.dom);
     }
 

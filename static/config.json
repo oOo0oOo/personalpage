@@ -338,7 +338,7 @@
                 {
                     "id": "contact",
                     "title": "Contact",
-                    "description": "Do you have any interesting input?<br><br>I might be available for freelance software development work.<br><br>Feel free to contact me via email at:<br><br><b>hey [at] oli.show</b>",
+                    "description": "Hi, I am Oliver Dressler.<br><br>Do you have any interesting input?<br><br>I might be available for freelance software development work.<br><br>Feel free to contact me via email at:<br><br><a href='m&#97;&#105;lto&#58;&#104;ey&#64;%&#54;&#70;li&#46;sh&#111;w'>h&#101;y&#64;oli&#46;sho&#119;</a>",
                     "media": {
                         "type": "img",
                         "url": "contact.png"

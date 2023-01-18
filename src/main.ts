@@ -1,5 +1,10 @@
 import { Config } from './config';
-export let config: Config = require('../static/config.json');
+export const config: Config = require('../static/config.json');
+
+// Mobile: 
+// Camera sun position is further away to show everything
+// No lights and shadows to improve performance
+export const isMobile = window.innerWidth < 768 || window.innerHeight < 768;
 
 import { World } from './World/World';
 

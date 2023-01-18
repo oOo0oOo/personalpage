@@ -5,7 +5,7 @@ import {
     Vector3
 } from 'three';
 
-import { config } from '../../main';
+import { config, isMobile } from '../../main';
 
 export class FocusCamera extends PerspectiveCamera {
     focusObject: Object3D = new Object3D();
@@ -14,7 +14,7 @@ export class FocusCamera extends PerspectiveCamera {
     doAutoMove: boolean = true;
     startPos: Vector3 = new Vector3(0, 10, 50);
 
-    constructor(isMobile: boolean) {
+    constructor() {
         super(
             40, // fov = Field Of View
             1, // aspect ratio (dummy value)
@@ -58,8 +58,8 @@ export class FocusCamera extends PerspectiveCamera {
     }
 }
 
-function createCamera(isMobile: boolean): FocusCamera {
-    const camera = new FocusCamera(isMobile);
+function createCamera(): FocusCamera {
+    const camera = new FocusCamera();
     return camera;
 }
 
