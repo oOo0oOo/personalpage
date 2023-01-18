@@ -202,14 +202,20 @@ class World {
         return isRunning;
     }
 
-    onMouseDown(evt: MouseEvent) {
+    onMouseDown(evt: MouseEvent | TouchEvent) {
         // If controls disabled (looking at project) do nothing
         if (!controls.enabled) return;
 
         // Check if any of the objects in the scene have been clicked
         const mouse = new Vector2();
-        mouse.x = (evt.clientX / window.innerWidth) * 2 - 1;
-        mouse.y = -(evt.clientY / window.innerHeight) * 2 + 1;
+
+        if (evt instanceof MouseEvent) {
+            mouse.x = (evt.clientX / window.innerWidth) * 2 - 1;
+            mouse.y = -(evt.clientY / window.innerHeight) * 2 + 1;
+        } else {
+            mouse.x = (evt.touches[0].clientX / window.innerWidth) * 2 - 1;
+            mouse.y = -(evt.touches[0].clientY / window.innerHeight) * 2 + 1;
+        }
 
         raycaster.setFromCamera(mouse, camera);
 

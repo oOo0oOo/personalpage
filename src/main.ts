@@ -38,6 +38,24 @@ async function main() {
         world.onScroll();
     });
 
+    // Detect touch events on mobile (ignore zoom gesture for now)
+    addEventListener('touchstart', (evt) => {
+        mouseDown = true;
+        world.onMouseDown(evt);
+    });
+
+    addEventListener('touchend', () => {
+        mouseDown = false;
+        dragging = false;
+    });
+
+    addEventListener('touchmove', (evt) => {
+        if (!dragging && mouseDown) {
+            dragging = true;
+            world.onDrag();
+        }
+    });
+
     // Detect click on annotation title
     let annotationTitles = document.querySelectorAll(".annotation-title");
     for (let i = 0; i < annotationTitles.length; i++) {
