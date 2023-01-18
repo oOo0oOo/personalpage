@@ -21,8 +21,8 @@
     "ORBIT_MOON_RANDOM": 0.02,
 
     "RADIUS_SUN": 0.8,
-    "RADIUS_PLANET": [0.1, 0.35],
-    "RADIUS_MOON": [0.04, 0.08],
+    "RADIUS_PLANET": [0.125, 0.35],
+    "RADIUS_MOON": [0.05, 0.08],
 
     "SCALE_PLANET_ORBIT": 25.0,
     "SCALE_MOON_ORBIT": 2.0,
@@ -362,8 +362,8 @@
                     "title": "This Page",
                     "description": "This interactive portfolio page was made using three.js, TypeScript and published via Github Actions.<br><br>Quite a few projects didn't fit anymore, so I might have to change it soon.<br><br>This page is probably not very up-to-date. Let me know if you find any bugs ;-)",
                     "link": {
-                        "url": "/static/config.json",
-                        "text": "JSON Format"
+                        "url": "static/config.json",
+                        "text": "JSON Content"
                     },
                     "media": {
                         "type": "img",
