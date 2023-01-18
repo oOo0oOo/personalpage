@@ -35,5 +35,15 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: oli.show/public_html/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/src/**
+            package.json
+            README.md
+            tsconfig.json
+            webpack.config.js
+            yarn.lock
 
       - run: echo "This job's status is ${{ job.status }}."

@@ -7,3 +7,5 @@ yarn
 yarn run build
 yarn start
 ```
+
+Pushing to github automatically builds and uploads via FTP using Github Actions.
