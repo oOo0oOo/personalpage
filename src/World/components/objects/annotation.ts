@@ -1,12 +1,10 @@
-import {
-    Object3D
-} from 'three';
+import { Object3D } from 'three';
 
 import { camera } from "../../World";
 
 let centerY = window.innerHeight / 2;
 
-export class Label {
+export class Annotation {
     domElement: HTMLDivElement;
     titleElement: HTMLDivElement;
     targetBody: Object3D;

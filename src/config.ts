@@ -25,10 +25,9 @@ export interface Config {
     RADIUS_SUN: number;
     RADIUS_PLANET: number[];
     RADIUS_MOON: number[];
-
-    LABEL_SIZE: number[];
-    LABEL_Y_OFFSETS: number[];
-    LABEL_Y_STEP: number;
+    
+    ANNOTATION_Y_OFFSETS: number[];
+    ANNOTATION_Y_STEP: number;
 
     GRAVITY: number;
 
@@ -55,13 +54,3 @@ export interface Config {
         }[],
     }[];
 }
-
-// export const COLOR_SCHEME = [
-//     0x404040,
-//     // 0x1C315E,
-//     0x090A0F,
-//     0x227C70,
-//     0x88A47C,
-//     0xE6E2C3,
-//     0xF2F2F2,
-// ]

@@ -11,23 +11,16 @@ import { createLights } from './components/lights';
 import { createBody } from './components/objects/body';
 import { createScene } from './components/scene';
 import { createControls } from './systems/controls';
-import { Loop } from './systems/Loop';
 import { createRenderer } from './systems/renderer';
+import { createCircle } from './components/objects/circle';
+import { Loop } from './systems/Loop';
 import { Resizer } from './systems/Resizer';
-
 import { FocusCamera } from './components/camera';
 import { FocusControls } from './systems/controls';
-
-import { Label } from './components/objects/label';
-import { createCircle } from './components/objects/circle';
-
+import { Annotation } from './components/objects/annotation';
 import { config, isMobile } from '../main';
 
-/**
- * If two instances of the World class are created, the second instance will
- * overwrite the module scoped variables below from the first instance.
- * Accordingly, only one World class should be used at a time.
- */
+
 export let camera: FocusCamera;
 let scene: Scene;
 let renderer: WebGLRenderer | WebGL1Renderer;
@@ -35,9 +28,9 @@ let controls: FocusControls;
 let loop: Loop;
 let isRunning: boolean;
 let raycaster: Raycaster;
-let currentFocus: string;
+let currentFocus: string = "sun";
 let categoryIds: string[];
-let labels: Label[];
+let annotations: Annotation[];
 let centerLabel: HTMLDivElement;
 let infoBox: HTMLDivElement;
 let infoTitle: HTMLDivElement;
@@ -49,13 +42,6 @@ class World {
     constructor(container: HTMLCanvasElement) {
         camera = createCamera();
         raycaster = new Raycaster();
-        currentFocus = "sun";
-
-        /**
-         * Set the scene's background color to the same as the container's
-         * background color in index.css to prevent flashing on load
-         * (src/styles/index.css #scene_container)
-         */
         scene = createScene({ backgroundColor: config.COLOR_BACKGROUND });
         renderer = createRenderer();
         controls = createControls({ camera: camera, canvas: renderer.domElement });
@@ -160,20 +146,20 @@ class World {
 
         maxProjects = Math.max(maxProjects + 1, config.CONTENT.length);
 
-        // Create labels (we will alter them later)
-        // The y position of the labels alternates between the LABEL_Y_OFFSETS
-        labels = [];
-        let label_y_offset = 0;
+        // Create annotations (we will alter them later)
+        // The y position of the annotations alternates between the ANNOTATION_Y_OFFSETS
+        annotations = [];
+        let y_offset = 0;
         for (let i = 0; i < maxProjects; i++) {
-            var extra = config.LABEL_Y_STEP * Math.floor(i / 2);
+            var extra = config.ANNOTATION_Y_STEP * Math.floor(i / 2);
             if (i % 2 != 0) {
                 extra *= -1;
             }
-            let yPos = config.LABEL_Y_OFFSETS[label_y_offset] + extra;
-            label_y_offset = (label_y_offset + 1) % config.LABEL_Y_OFFSETS.length;
-            let label = new Label(yPos);
-            loop.updatables.push(label);
-            labels.push(label);
+            let yPos = config.ANNOTATION_Y_OFFSETS[y_offset] + extra;
+            y_offset = (y_offset + 1) % config.ANNOTATION_Y_OFFSETS.length;
+            let annotation = new Annotation(yPos);
+            loop.updatables.push(annotation);
+            annotations.push(annotation);
         }
     }
 
@@ -183,7 +169,7 @@ class World {
 
     start() {
         loop.start();
-        this.updateLabels();
+        this.updateAnnotations();
         isRunning = true;
     }
 
@@ -236,22 +222,22 @@ class World {
             }
             break;
         }
-        this.updateLabels();
+        this.updateAnnotations();
     }
 
-    updateLabels() {
-        // If sun is currentFocus: label all categories
+    updateAnnotations() {
+        // If sun is currentFocus: Annotate all categories
         if (currentFocus === "sun") {
-            for (let i = 0; i < labels.length; i++) {
+            for (let i = 0; i < annotations.length; i++) {
                 if (i < config.CONTENT.length) {
                     let title = config.CONTENT[i].title;
                     let id = config.CONTENT[i].id;
                     let obj = scene.getObjectByName(id);
                     if (obj === undefined) break;
-                    labels[i].setTargetBody(obj, title, id);
+                    annotations[i].setTargetBody(obj, title, id);
                 } else {
-                    // Hide unused labels
-                    labels[i].hideAnnotation();
+                    // Hide unused annotations
+                    annotations[i].hideAnnotation();
                 }
             }
             // Hide center label div and info box
@@ -259,7 +245,7 @@ class World {
             infoBox.style.opacity = "0";
             infoBox.style.display = "none";
         }
-        // If a category is currentFocus: label all projects
+        // If a category is currentFocus: Annotate all projects
         else if (categoryIds.includes(currentFocus)) {
 
             let index = categoryIds.indexOf(currentFocus);
@@ -272,20 +258,20 @@ class World {
             infoBox.style.opacity = "0";
             infoBox.style.display = "none";
 
-            for (let i = 0; i < labels.length; i++) {
+            for (let i = 0; i < annotations.length; i++) {
                 if (i < config.CONTENT[index].projects.length) {
                     let title = config.CONTENT[index].projects[i].title;
                     let projectId = currentFocus + "_" + config.CONTENT[index].projects[i].id;
                     let obj = scene.getObjectByName(projectId);
                     if (obj === undefined) break;
-                    labels[i].setTargetBody(obj, title, projectId);
+                    annotations[i].setTargetBody(obj, title, projectId);
                 } else {
-                    // Hide unused labels
-                    labels[i].hideAnnotation();
+                    // Hide unused annotations
+                    annotations[i].hideAnnotation();
                 }
             }
         }
-        // If a project is currentFocus: label only this project
+        // If a project is currentFocus: Annotate only this project
         else {
             centerLabel.style.opacity = "0";
 
@@ -293,9 +279,9 @@ class World {
             let info = this.getProjectInfo(currentFocus);
             this.showInfoBox(info);
 
-            for (let i = 0; i < labels.length; i++) {
-                // Hide unused labels
-                labels[i].hideAnnotation();
+            // Hide all annotations
+            for (let i = 0; i < annotations.length; i++) {
+                annotations[i].hideAnnotation();
             }
         }
     }
@@ -380,7 +366,7 @@ class World {
             window.location.hash = "";
         }
 
-        this.updateLabels();
+        this.updateAnnotations();
     }
 
     onDrag(){

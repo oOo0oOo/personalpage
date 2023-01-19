@@ -1,399 +1,398 @@
 {
-    "CONTENT": [
+  "CONTENT": [
+    {
+      "id": "games",
+      "title": "Games",
+      "projects": [
         {
-            "id": "games",
-            "title": "Games",
-            "projects": [
-                {
-                    "id": "vectorflow",
-                    "title": "Vector Flow",
-                    "description": "Casually roll balls towards enemies. Pick the correct position to eliminate all targets.<br><br>Unlock specials to increase your chances!<br><br>Published on itch.io and Android.",
-                    "link": {
-                        "url": "https://code-box.itch.io/vector-flow",
-                        "text": "Flow Now!"
-                    },
-                    "media": {
-                        "type": "img",
-                        "url": "vectorflow.png"
-                    }
-                },
-                {
-                    "id": "rocketkite",
-                    "title": "Rocket Kite",
-                    "description": "Fly your rocket kite among the planets. Use gravity and collect all checkpoints.<br><br>Made with Python and kivy.<br>Published on Google Play.",
-                    "link": {
-                        "url": "https://play.google.com/store/apps/details?id=rocketkite.rocketkite",
-                        "text": "Fly Now!"
-                    },
-                    "media": {
-                        "type": "img",
-                        "url": "rocketkite.png"
-                    }
-                },
-                {
-                    "id": "takeoff",
-                    "title": "Ready for Takeoff",
-                    "description": "Manage a small airport with your friends. Help the passengers to reach their destination.<br><br>This real-time, multiplayer game requires a lot of teamwork!<br><br>Made using Godot and published on Google Play.",
-                    "link": {
-                        "url": "https://play.google.com/store/apps/details?id=com.slingshotmedia.readyfortakeoff",
-                        "text": "Fly Now!"
-                    },
-                    "media": {
-                        "type": "img",
-                        "url": "takeoff.png"
-                    }
-                },
-                {
-                    "id": "cloudtower",
-                    "title": "Cloud Tower",
-                    "description": "Build a tower of clouds and reach new heights in this small game.<br><br>Made using Godot and published on Google Play.",
-                    "link": {
-                        "url": "https://play.google.com/store/apps/details?id=org.godotengine.towermaster",
-                        "text": "Stack Now!"
-                    },
-                    "media": {
-                        "type": "img",
-                        "url": "cloudtower.png"
-                    }
-                },
-                {
-                    "id": "scurry",
-                    "title": "Scurry",
-                    "description": "Keep your rabbits save by whistling. Just chill and whistle...<br><br>Developed for a game jam using Godot.",
-                    "link": {
-                        "url": "https://code-box.itch.io/scurry",
-                        "text": "Whistle Now!"
-                    },
-                    "media": {
-                        "type": "img",
-                        "url": "scurry.png"
-                    }
-                },
-                {
-                    "id": "wikihike",
-                    "title": "Wiki Hike",
-                    "description": "Find the connection between two random articles on wikipedia. Keep moving forwards.<br><br>There are quite a few surprising links.",
-                    "link": {
-                        "url": "https://oli.show/wikihike/",
-                        "text": "Hike Now!"
-                    },
-                    "media": {
-                        "type": "img",
-                        "url": "wikihike.png"
-                    }
-                },
-                {
-                    "id": "bite",
-                    "title": "Bite",
-                    "description": "A short game about a hungry vampire with aquarel art.<br><br>Drink enough blood to survive 2 years.<br><br>Don't kill the parents.",
-                    "link": {
-                        "url": "https://oli.show/bite/",
-                        "text": "Drink Now!"
-                    },
-                    "media": {
-                        "type": "img",
-                        "url": "bite.png"
-                    }
-                },
-                {
-                    "id": "infinitea",
-                    "title": "Infinitea",
-                    "description": "Do you feel like having a tea? Then this is the game for you.<br><br>Just keep on brewing!<br><br>Our try at an incremental game.",
-                    "link": {
-                        "url": "https://oli.show/tea/",
-                        "text": "Brew Now!"
-                    },
-                    "media": {
-                        "type": "img",
-                        "url": "infinitea.png"
-                    }
-                }
-            ]
+          "id": "vectorflow",
+          "title": "Vector Flow",
+          "description": "Casually roll balls towards enemies. Pick the correct position to eliminate all targets.<br><br>Unlock specials to increase your chances!<br><br>Published on itch.io and Android.",
+          "link": {
+            "url": "https://code-box.itch.io/vector-flow",
+            "text": "Flow Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "vectorflow.png"
+          }
         },
         {
-            "id": "music",
-            "title": "Music",
-            "projects": [
-                {
-                    "id": "soundtracks",
-                    "title": "Soundtracks",
-                    "description": "A collection of over 50 short soundtracks for games, audio books and animations.<br><br>Composed and rendered using Ableton Live.<br><br>Released to the public domain and available for download on freesound.org.",
-                    "link": {
-                        "url": "https://freesound.org/people/code_box/",
-                        "text": "Listen Now!"
-                    },
-                    "media": {
-                        "type": "img",
-                        "url": "soundtracks.png"
-                    }
-                },
-                {
-                    "id": "floatingseconds",
-                    "title": "The Floating Seconds",
-                    "description": "For many years we have developed our unique blend of instrumental progressive rock.<br><br>Unfortunately this band is no longer active but you can still listen to our music for free on Soundcloud.<br><br>In this live recording I was playing synth and was involved with composition and 'mastering'.",
-                    "link": {
-                        "url": "https://soundcloud.com/thefloatingseconds/sets/satans-bbq-at-mehrspur",
-                        "text": "Listen Now!"
-                    },
-                    "media": {
-                        "type": "img",
-                        "url": "floatingseconds.png"
-                    }
-                },
-                {
-                    "id": "proofofgroove",
-                    "title": "Proof of Groove",
-                    "description": "We move together<br>We groove together<br><br>Proof of Groove is an NFT, generated using a fully decentralized synthesizer.<br><br>I was responsible for the automatic composition and rendering of the audio-visual experience using Webassembly.",
-                    "link": {
-                        "url": "https://proofofgroove.com/",
-                        "text": "Groove Now!"
-                    },
-                    "media": {
-                        "type": "img",
-                        "url": "proofofgroove.png"
-                    }
-                }
-            ]
+          "id": "rocketkite",
+          "title": "Rocket Kite",
+          "description": "Fly your rocket kite among the planets. Use gravity and collect all checkpoints.<br><br>Made with Python and kivy.<br>Published on Google Play.",
+          "link": {
+            "url": "https://play.google.com/store/apps/details?id=rocketkite.rocketkite",
+            "text": "Fly Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "rocketkite.png"
+          }
         },
         {
-            "id": "software",
-            "title": "Software",
-            "projects": [
-                {
-                    "id": "winnietack",
-                    "title": "Winnie & Tack",
-                    "description": "Go on a hike and experience an interactive adventure with Winnie and Tack.<br><br>Listen to the audio book and make your own decisions.<br><br>Developed using Unity and published on Android and iOS.",
-                    "link": {
-                        "url": "https://abenteuerweg.ch/",
-                        "text": "Experience Now!"
-                    },
-                    "media": {
-                        "type": "img",
-                        "url": "winnietack.png"
-                    }
-                },
-                {
-                    "id": "cocrafty",
-                    "title": "CoCrafty",
-                    "description": "Develop startup ideas. Easy. Together.<br><br>CoCrafty is a collaboration platform for developing startup ideas.",
-                    "link": {
-                        "url": "http://cocrafty.com/",
-                        "text": "Collaborate Now!"
-                    },
-                    "media": {
-                        "type": "img",
-                        "url": "cocrafty.png"
-                    }
-                },
-                {
-                    "id": "digitalliteracy",
-                    "title": "Digital Literacy",
-                    "description": "Strengthening digital opinion-forming with simulations.<br><br>Developed for <a href='https://www.dezentrum.ch/en/'>Dezentrum</a> and the <a href='https://www.risiko-dialog.ch/en/'>Risk Dialogue Foundation</a>.",
-                    "link": {
-                        "url": "https://www.digital-literacy.live/",
-                        "text": "Discuss Now!"
-                    },
-                    "media": {
-                        "type": "img",
-                        "url": "digitalliteracy.png"
-                    }
-                },
-                {
-                    "id": "pixeldemocracy",
-                    "title": "The Pixel Democracy",
-                    "description": "Majority rules, period!<br><br>Collaborative drawing board. You decide where the line goes next!",
-                    "link": {
-                        "url": "http://www.thepixeldemocracy.com/",
-                        "text": "Draw Now!"
-                    },
-                    "media": {
-                        "type": "img",
-                        "url": "pixeldemocracy.png"
-                    }
-                },
-                {
-                    "id": "spiderbox",
-                    "title": "Spider Box",
-                    "description": "A small AR experiment of a spider living in a box behind your screen.<br><br>Seem spretty real thanks to face tracking and parallax projection.<br><br>Developed using Unity and AR Core.",
-                    "link": {
-                        "url": "https://github.com/oOo0oOo/SpiderBox",
-                        "text": "Contain Now!"
-                    },
-                    "media": {
-                        "type": "img",
-                        "url": "spiderbox.gif"
-                    }
-                },
-                {
-                    "id": "thelist",
-                    "title": "The List",
-                    "description": "There is only one list. The list is forever. Pay any amount of money to add your name to the list.<br><br>What are you waiting for?",
-                    "link": {
-                        "url": "https://oli.show/thelist/",
-                        "text": "Get listed now!"
-                    },
-                    "media": {
-                        "type": "img",
-                        "url": "thelist.png"
-                    }
-                },
-                {
-                    "id": "proofofgroove",
-                    "title": "Proof of Groove",
-                    "description": "We move together<br>We groove together<br><br>Proof of Groove is an NFT, generated using a fully decentralized synthesizer.<br><br>I was responsible for the automatic composition and rendering of the audio-visual experience using Webassembly.",
-                    "link": {
-                        "url": "https://proofofgroove.com/",
-                        "text": "Groove Now!"
-                    },
-                    "media": {
-                        "type": "img",
-                        "url": "proofofgroove.png"
-                    }
-                },
-                {
-                    "id": "humanedge",
-                    "title": "Human Edge",
-                    "description": "The next step in asset management.<br><br>Human Edge provides systematic investment solutions.<br><br>I develop the webapp and investment algorithms.",
-                    "link": {
-                        "url": "https://www.human-edge.ch/",
-                        "text": "Invest Now!"
-                    },
-                    "media": {
-                        "type": "img",
-                        "url": "humanedge.png"
-                    }
-                }
-            ]
+          "id": "takeoff",
+          "title": "Ready for Takeoff",
+          "description": "Manage a small airport with your friends. Help the passengers to reach their destination.<br><br>This real-time, multiplayer game requires a lot of teamwork!<br><br>Made using Godot and published on Google Play.",
+          "link": {
+            "url": "https://play.google.com/store/apps/details?id=com.slingshotmedia.readyfortakeoff",
+            "text": "Fly Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "takeoff.png"
+          }
         },
         {
-            "id": "various",
-            "title": "Various",
-            "projects": [
-                {
-                    "id": "ffhs",
-                    "title": "Lecturing at FFHS",
-                    "description": "I lecture at the Fernfachhochschule Schweiz, a university of applied sciences.<br><br>My main focus is on blockchain technology and software development.",
-                    "link": {
-                        "url": "https://www.ffhs.ch/en/ffhs/people-finder/person/dressler-oliver",
-                        "text": "Learn Now!"
-                    },
-                    "media": {
-                        "type": "img",
-                        "url": "ffhs.png"
-                    }
-                },
-                {
-                    "id": "phd",
-                    "title": "PhD in Chemical Engineering",
-                    "description": "I completed my PhD in Chemical Engineering at the ETH Zurich.<br><br>My research focused microfluidic technology and how to control it using machine learning.",
-                    "link": {
-                        "url": "https://www.research-collection.ethz.ch/handle/20.500.11850/269520",
-                        "text": "Doctoral Thesis"
-                    },
-                    "media": {
-                        "type": "img",
-                        "url": "phd.png"
-                    }
-                }
-            ]
+          "id": "cloudtower",
+          "title": "Cloud Tower",
+          "description": "Build a tower of clouds and reach new heights in this small game.<br><br>Made using Godot and published on Google Play.",
+          "link": {
+            "url": "https://play.google.com/store/apps/details?id=org.godotengine.towermaster",
+            "text": "Stack Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "cloudtower.png"
+          }
         },
         {
-            "id": "about",
-            "title": "About",
-            "projects": [
-                {
-                    "id": "contact",
-                    "title": "Contact",
-                    "description": "Hi, I am Oliver Dressler.<br><br>Do you have any interesting input?<br><br>I might be available for freelance software development work.<br><br>Feel free to contact me via email at:<br><br><a href='m&#97;&#105;lto&#58;&#104;ey&#64;%&#54;&#70;li&#46;sh&#111;w'>h&#101;y&#64;oli&#46;sho&#119;</a>",
-                    "media": {
-                        "type": "img",
-                        "url": "contact.png"
-                    }
-                },
-                {
-                    "id": "biography",
-                    "title": "Biography",
-                    "description": "Hi, I am Oliver Dressler.<br><br>Passionate about data, technology and software development.<br><br>Located in Switzerland and currently working as CTO at Human Edge.",
-                    "link": {
-                        "url": "https://oli.show",
-                        "text": "My Resume"
-                    },
-                    "media": {
-                        "type": "img",
-                        "url": "biography.png"
-                    }
-                },
-                {
-                    "id": "this",
-                    "title": "This Page",
-                    "description": "This interactive portfolio page was made using three.js, TypeScript and published via Github Actions.<br><br>Quite a few projects didn't fit anymore, so I might have to change it soon.<br><br>This page is probably not very up-to-date. Let me know if you find any bugs ;-)",
-                    "link": {
-                        "url": "static/config.json",
-                        "text": "JSON Content"
-                    },
-                    "media": {
-                        "type": "img",
-                        "url": "this.png"
-                    }
-                }
-            ]
+          "id": "scurry",
+          "title": "Scurry",
+          "description": "Keep your rabbits save by whistling. Just chill and whistle...<br><br>Developed for a game jam using Godot.",
+          "link": {
+            "url": "https://code-box.itch.io/scurry",
+            "text": "Whistle Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "scurry.png"
+          }
+        },
+        {
+          "id": "wikihike",
+          "title": "Wiki Hike",
+          "description": "Find the connection between two random articles on wikipedia. Keep moving forwards.<br><br>There are quite a few surprising links.",
+          "link": {
+            "url": "https://oli.show/wikihike/",
+            "text": "Hike Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "wikihike.png"
+          }
+        },
+        {
+          "id": "bite",
+          "title": "Bite",
+          "description": "A short game about a hungry vampire with aquarel art.<br><br>Drink enough blood to survive 2 years.<br><br>Don't kill the parents.",
+          "link": {
+            "url": "https://oli.show/bite/",
+            "text": "Drink Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "bite.png"
+          }
+        },
+        {
+          "id": "infinitea",
+          "title": "Infinitea",
+          "description": "Do you feel like having a tea? Then this is the game for you.<br><br>Just keep on brewing!<br><br>Our try at an incremental game.",
+          "link": {
+            "url": "https://oli.show/tea/",
+            "text": "Brew Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "infinitea.png"
+          }
         }
-    ],
-    
-    "COLOR_BACKGROUND": "#090A0F",
-    "COLOR_SUN": "#E6E2C3",
-    "COLOR_ORBIT": "#252525",
-    "COLOR_BODIES": [
-        "#3630b4",
-        "#ec508d",
-        "#ff7858",
-        "#e1b360",
-        "#94a5d8",
-        "#3fc5b0",
-        "#39e3fb",
-        "#ccbc5e",
-        "#53da8e",
-        "#227C70",
-        "#174779",
-        "#9c1a32",
-        "#f8ae00",
-        "#26bc9e",
-        "#c6c936",
-        "#10a97d",
-        "#f6ce41",
-        "#f4d400"
-    ],
+      ]
+    },
+    {
+      "id": "music",
+      "title": "Music",
+      "projects": [
+        {
+          "id": "soundtracks",
+          "title": "Soundtracks",
+          "description": "A collection of over 50 short soundtracks for games, audio books and animations.<br><br>Composed and rendered using Ableton Live.<br><br>Released to the public domain and available for download on freesound.org.",
+          "link": {
+            "url": "https://freesound.org/people/code_box/",
+            "text": "Listen Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "soundtracks.png"
+          }
+        },
+        {
+          "id": "floatingseconds",
+          "title": "The Floating Seconds",
+          "description": "For many years we have developed our unique blend of instrumental progressive rock.<br><br>Unfortunately this band is no longer active but you can still listen to our music for free on Soundcloud.<br><br>In this live recording I was playing synth and was involved with composition and 'mastering'.",
+          "link": {
+            "url": "https://soundcloud.com/thefloatingseconds/sets/satans-bbq-at-mehrspur",
+            "text": "Listen Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "floatingseconds.png"
+          }
+        },
+        {
+          "id": "proofofgroove",
+          "title": "Proof of Groove",
+          "description": "We move together<br>We groove together<br><br>Proof of Groove is an NFT, generated using a fully decentralized synthesizer.<br><br>I was responsible for the automatic composition and rendering of the audio-visual experience using Webassembly.",
+          "link": {
+            "url": "https://proofofgroove.com/",
+            "text": "Groove Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "proofofgroove.png"
+          }
+        }
+      ]
+    },
+    {
+      "id": "software",
+      "title": "Software",
+      "projects": [
+        {
+          "id": "winnietack",
+          "title": "Winnie & Tack",
+          "description": "Go on a hike and experience an interactive adventure with Winnie and Tack.<br><br>Listen to the audio book and make your own decisions.<br><br>Developed using Unity and published on Android and iOS.",
+          "link": {
+            "url": "https://abenteuerweg.ch/",
+            "text": "Experience Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "winnietack.png"
+          }
+        },
+        {
+          "id": "cocrafty",
+          "title": "CoCrafty",
+          "description": "Develop startup ideas. Easy. Together.<br><br>CoCrafty is a collaboration platform for developing startup ideas.",
+          "link": {
+            "url": "http://cocrafty.com/",
+            "text": "Collaborate Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "cocrafty.png"
+          }
+        },
+        {
+          "id": "digitalliteracy",
+          "title": "Digital Literacy",
+          "description": "Strengthening digital opinion-forming with simulations.<br><br>Developed for <a href='https://www.dezentrum.ch/en/'>Dezentrum</a> and the <a href='https://www.risiko-dialog.ch/en/'>Risk Dialogue Foundation</a>.",
+          "link": {
+            "url": "https://www.digital-literacy.live/",
+            "text": "Discuss Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "digitalliteracy.png"
+          }
+        },
+        {
+          "id": "pixeldemocracy",
+          "title": "The Pixel Democracy",
+          "description": "Majority rules, period!<br><br>Collaborative drawing board. You decide where the line goes next!",
+          "link": {
+            "url": "http://www.thepixeldemocracy.com/",
+            "text": "Draw Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "pixeldemocracy.png"
+          }
+        },
+        {
+          "id": "spiderbox",
+          "title": "Spider Box",
+          "description": "A small AR experiment of a spider living in a box behind your screen.<br><br>Seem spretty real thanks to face tracking and parallax projection.<br><br>Developed using Unity and AR Core.",
+          "link": {
+            "url": "https://github.com/oOo0oOo/SpiderBox",
+            "text": "Contain Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "spiderbox.gif"
+          }
+        },
+        {
+          "id": "thelist",
+          "title": "The List",
+          "description": "There is only one list. The list is forever. Pay any amount of money to add your name to the list.<br><br>What are you waiting for?",
+          "link": {
+            "url": "https://oli.show/thelist/",
+            "text": "Get listed now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "thelist.png"
+          }
+        },
+        {
+          "id": "proofofgroove",
+          "title": "Proof of Groove",
+          "description": "We move together<br>We groove together<br><br>Proof of Groove is an NFT, generated using a fully decentralized synthesizer.<br><br>I was responsible for the automatic composition and rendering of the audio-visual experience using Webassembly.",
+          "link": {
+            "url": "https://proofofgroove.com/",
+            "text": "Groove Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "proofofgroove.png"
+          }
+        },
+        {
+          "id": "humanedge",
+          "title": "Human Edge",
+          "description": "The next step in asset management.<br><br>Human Edge provides systematic investment solutions.<br><br>I develop the webapp and investment algorithms.",
+          "link": {
+            "url": "https://www.human-edge.ch/",
+            "text": "Invest Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "humanedge.png"
+          }
+        }
+      ]
+    },
+    {
+      "id": "various",
+      "title": "Various",
+      "projects": [
+        {
+          "id": "ffhs",
+          "title": "Lecturing at FFHS",
+          "description": "I lecture at the Fernfachhochschule Schweiz, a university of applied sciences.<br><br>My main focus is on blockchain technology and software development.",
+          "link": {
+            "url": "https://www.ffhs.ch/en/ffhs/people-finder/person/dressler-oliver",
+            "text": "Learn Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "ffhs.png"
+          }
+        },
+        {
+          "id": "phd",
+          "title": "PhD in Chemical Engineering",
+          "description": "I completed my PhD in Chemical Engineering at the ETH Zurich.<br><br>My research focused microfluidic technology and how to control it using machine learning.",
+          "link": {
+            "url": "https://www.research-collection.ethz.ch/handle/20.500.11850/269520",
+            "text": "Doctoral Thesis"
+          },
+          "media": {
+            "type": "img",
+            "url": "phd.png"
+          }
+        }
+      ]
+    },
+    {
+      "id": "about",
+      "title": "About",
+      "projects": [
+        {
+          "id": "contact",
+          "title": "Contact",
+          "description": "Hi, I am Oliver Dressler.<br><br>Do you have any interesting input?<br><br>I might be available for freelance software development work.<br><br>Feel free to contact me via email at:<br><br><a href='m&#97;&#105;lto&#58;&#104;ey&#64;%&#54;&#70;li&#46;sh&#111;w'>h&#101;y&#64;oli&#46;sho&#119;</a>",
+          "media": {
+            "type": "img",
+            "url": "contact.png"
+          }
+        },
+        {
+          "id": "biography",
+          "title": "Biography",
+          "description": "Hi, I am Oliver Dressler.<br><br>Passionate about data, technology and software development.<br><br>Located in Switzerland and currently working as CTO at Human Edge.",
+          "link": {
+            "url": "https://oli.show",
+            "text": "My Resume"
+          },
+          "media": {
+            "type": "img",
+            "url": "biography.png"
+          }
+        },
+        {
+          "id": "this",
+          "title": "This Page",
+          "description": "This interactive portfolio page was made using three.js, TypeScript and published via Github Actions.<br><br>Quite a few projects didn't fit anymore, so I might have to change it soon.<br><br>Let me know if you find any bugs ;-)",
+          "link": {
+            "url": "static/config.json",
+            "text": "JSON Content"
+          },
+          "media": {
+            "type": "img",
+            "url": "this.png"
+          }
+        }
+      ]
+    }
+  ],
+  
+  "COLOR_BACKGROUND": "#090A0F",
+  "COLOR_SUN": "#E6E2C3",
+  "COLOR_ORBIT": "#252525",
+  "COLOR_BODIES": [
+    "#3630b4",
+    "#ec508d",
+    "#ff7858",
+    "#e1b360",
+    "#94a5d8",
+    "#3fc5b0",
+    "#39e3fb",
+    "#ccbc5e",
+    "#53da8e",
+    "#227C70",
+    "#174779",
+    "#9c1a32",
+    "#f8ae00",
+    "#26bc9e",
+    "#c6c936",
+    "#10a97d",
+    "#f6ce41",
+    "#f4d400"
+  ],
 
-    "DISTANCE_PLANET": 5,
-    "DISTANCE_MOON": 3,
+  "DISTANCE_PLANET": 5,
+  "DISTANCE_MOON": 3,
 
-    "HEIGHT_SUN": 666,
-    "HEIGHT_PLANET": 3,
-    "HEIGHT_MOON": 2,
+  "HEIGHT_SUN": 666,
+  "HEIGHT_PLANET": 3,
+  "HEIGHT_MOON": 2,
 
-    "PAN_SPEED": 0.022,
-    "ZOOM_SPEED": 0.02,
+  "PAN_SPEED": 0.022,
+  "ZOOM_SPEED": 0.02,
 
-    "EXTRA_RADIUS": 2,
+  "EXTRA_RADIUS": 2,
 
-    "ORBIT_PLANET_RANDOM": 1,
-    "ORBIT_MOON_RANDOM": 0.02,
+  "ORBIT_PLANET_RANDOM": 1,
+  "ORBIT_MOON_RANDOM": 0.02,
 
-    "RADIUS_SUN": 0.8,
-    "RADIUS_PLANET": [0.125, 0.35],
-    "RADIUS_MOON": [0.05, 0.08],
+  "RADIUS_SUN": 0.8,
+  "RADIUS_PLANET": [0.125, 0.35],
+  "RADIUS_MOON": [0.05, 0.08],
 
-    "SCALE_PLANET_ORBIT": 25.0,
-    "SCALE_MOON_ORBIT": 2.0,
+  "SCALE_PLANET_ORBIT": 25.0,
+  "SCALE_MOON_ORBIT": 2.0,
+  
+  "ANNOTATION_Y_OFFSETS": [170, -170],
+  "ANNOTATION_Y_STEP": 32,
 
-    "LABEL_SIZE":  [512 , 512],
-    "LABEL_Y_OFFSETS": [170, -170],
-    "LABEL_Y_STEP": 32,
+  "GRAVITY": 0.09,
 
-    "GRAVITY": 0.09,
+  "LIGHT_AMBIENT": 0.75,
+  "LIGHT_SUN": 3.5,
 
-    "LIGHT_AMBIENT": 0.75,
-    "LIGHT_SUN": 3.5,
-
-    "SHADOW_MAP": 2048
+  "SHADOW_MAP": 2048
 }

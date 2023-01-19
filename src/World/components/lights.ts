@@ -1,7 +1,4 @@
-import {
-    AmbientLight,
-    PointLight
-} from 'three';
+import { AmbientLight, PointLight } from 'three';
 
 import { config } from "../../main";
 
