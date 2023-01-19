@@ -16,7 +16,6 @@ interface Body {
     velocities?: number[];
 }
 
-
 // Change geometry based on performance (mobile has simpler shapes and no lighting)
 const sunGeometry = new SphereGeometry(1, 32, 16);
 let planetGeometry: SphereGeometry;
