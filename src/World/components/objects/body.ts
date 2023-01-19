@@ -16,22 +16,15 @@ interface Body {
     velocities?: number[];
 }
 
-const sunMaterial = new MeshBasicMaterial({ color: config.COLOR_SUN });
-const sunGeometry = new SphereGeometry(1, 32, 16);
 
-// Change material and geometry based on performance (mobile has simpler shapes and no lighting)
-let planetMaterial: MeshStandardMaterial | MeshBasicMaterial;
-let moonMaterial: MeshStandardMaterial | MeshBasicMaterial;
+// Change geometry based on performance (mobile has simpler shapes and no lighting)
+const sunGeometry = new SphereGeometry(1, 32, 16);
 let planetGeometry: SphereGeometry;
 let moonGeometry: SphereGeometry;
 if (!isMobile) {
-    planetMaterial = new MeshStandardMaterial({ color: config.COLOR_PLANET });
-    moonMaterial = new MeshStandardMaterial({ color: config.COLOR_MOON });
     planetGeometry = new SphereGeometry(1, 32, 16);
     moonGeometry = new SphereGeometry(1, 32, 16);
 } else {
-    planetMaterial = new MeshBasicMaterial({ color: config.COLOR_PLANET });
-    moonMaterial = new MeshBasicMaterial({ color: config.COLOR_MOON });
     planetGeometry = new SphereGeometry(1, 16, 12);
     moonGeometry = new SphereGeometry(1, 12, 8);
 }
@@ -42,15 +35,28 @@ function createBody(body: Body): Mesh {
 
     let sphere: Mesh;
 
+    let sphereMaterial: MeshStandardMaterial | MeshBasicMaterial;
+
+    if (body.bodyType == "sun") {
+        sphereMaterial = new MeshBasicMaterial({ color: config.COLOR_SUN });
+    } else {
+        let color = config.COLOR_BODIES[Math.floor(Math.random() * config.COLOR_BODIES.length)];
+        if (!isMobile) {
+            sphereMaterial = new MeshStandardMaterial({ color: color });
+        } else {
+            sphereMaterial = new MeshBasicMaterial({ color: color });
+        }
+    }
+
     if (body.bodyType == "sun") {
         radius = config.RADIUS_SUN;
-        sphere = new Mesh(sunGeometry, sunMaterial);
+        sphere = new Mesh(sunGeometry, sphereMaterial);
     } else if (body.bodyType == "planet") {
         radius = config.RADIUS_PLANET[0] + Math.random() * (config.RADIUS_PLANET[1] - config.RADIUS_PLANET[0]);
-        sphere = new Mesh(planetGeometry, planetMaterial);
+        sphere = new Mesh(planetGeometry, sphereMaterial);
     } else {
         radius = config.RADIUS_MOON[0] + Math.random() * (config.RADIUS_MOON[1] - config.RADIUS_MOON[0]);
-        sphere = new Mesh(moonGeometry, moonMaterial);
+        sphere = new Mesh(moonGeometry, sphereMaterial);
     }
 
     // Scale the mesh

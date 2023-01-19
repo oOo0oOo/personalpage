@@ -13,7 +13,7 @@ let materialCurve: LineBasicMaterial;
 if (isMobile){
     materialCurve = new LineBasicMaterial({ color: config.COLOR_ORBIT, linewidth: 2 });
 } else {
-    materialCurve = new LineBasicMaterial({ color: config.COLOR_ORBIT, linewidth: 1 });
+    materialCurve = new LineBasicMaterial({ color: config.COLOR_ORBIT, linewidth: 2 });
 }
 
 function createCircle(radius: number): Line {

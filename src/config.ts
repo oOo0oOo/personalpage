@@ -2,8 +2,7 @@ export interface Config {
     COLOR_BACKGROUND: string;
     COLOR_SUN: string;
     COLOR_ORBIT: string;
-    COLOR_MOON: string;
-    COLOR_PLANET: string;
+    COLOR_BODIES: string[];
 
     DISTANCE_PLANET: number;
     DISTANCE_MOON: number;
@@ -32,6 +31,11 @@ export interface Config {
     LABEL_Y_STEP: number;
 
     GRAVITY: number;
+
+    LIGHT_AMBIENT: number;
+    LIGHT_SUN: number;
+
+    SHADOW_MAP: number;
 
     CONTENT: {
         id: string;

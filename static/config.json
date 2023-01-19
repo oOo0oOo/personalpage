@@ -1,38 +1,4 @@
 {
-    "COLOR_BACKGROUND": "#090A0F",
-    "COLOR_SUN": "#E6E2C3",
-    "COLOR_ORBIT": "#202020",
-    "COLOR_MOON": "#227C70",
-    "COLOR_PLANET": "#88A47C",
-
-    "DISTANCE_PLANET": 5,
-    "DISTANCE_MOON": 3,
-
-    "HEIGHT_SUN": 666,
-    "HEIGHT_PLANET": 3,
-    "HEIGHT_MOON": 2,
-
-    "PAN_SPEED": 0.022,
-    "ZOOM_SPEED": 0.02,
-
-    "EXTRA_RADIUS": 2,
-
-    "ORBIT_PLANET_RANDOM": 1,
-    "ORBIT_MOON_RANDOM": 0.02,
-
-    "RADIUS_SUN": 0.8,
-    "RADIUS_PLANET": [0.125, 0.35],
-    "RADIUS_MOON": [0.05, 0.08],
-
-    "SCALE_PLANET_ORBIT": 25.0,
-    "SCALE_MOON_ORBIT": 2.0,
-
-    "LABEL_SIZE":  [512 , 512],
-    "LABEL_Y_OFFSETS": [170, -170],
-    "LABEL_Y_STEP": 32,
-
-    "GRAVITY": 0.1,
-
     "CONTENT": [
         {
             "id": "games",
@@ -372,5 +338,62 @@
                 }
             ]
         }
-    ]
+    ],
+    
+    "COLOR_BACKGROUND": "#090A0F",
+    "COLOR_SUN": "#E6E2C3",
+    "COLOR_ORBIT": "#252525",
+    "COLOR_BODIES": [
+        "#3630b4",
+        "#ec508d",
+        "#ff7858",
+        "#e1b360",
+        "#94a5d8",
+        "#3fc5b0",
+        "#39e3fb",
+        "#ccbc5e",
+        "#53da8e",
+        "#227C70",
+        "#174779",
+        "#9c1a32",
+        "#f8ae00",
+        "#26bc9e",
+        "#c6c936",
+        "#10a97d",
+        "#f6ce41",
+        "#f4d400"
+    ],
+
+    "DISTANCE_PLANET": 5,
+    "DISTANCE_MOON": 3,
+
+    "HEIGHT_SUN": 666,
+    "HEIGHT_PLANET": 3,
+    "HEIGHT_MOON": 2,
+
+    "PAN_SPEED": 0.022,
+    "ZOOM_SPEED": 0.02,
+
+    "EXTRA_RADIUS": 2,
+
+    "ORBIT_PLANET_RANDOM": 1,
+    "ORBIT_MOON_RANDOM": 0.02,
+
+    "RADIUS_SUN": 0.8,
+    "RADIUS_PLANET": [0.125, 0.35],
+    "RADIUS_MOON": [0.05, 0.08],
+
+    "SCALE_PLANET_ORBIT": 25.0,
+    "SCALE_MOON_ORBIT": 2.0,
+
+    "LABEL_SIZE":  [512 , 512],
+    "LABEL_Y_OFFSETS": [170, -170],
+    "LABEL_Y_STEP": 32,
+
+    "GRAVITY": 0.1,
+
+    "LIGHT_AMBIENT": 0.75,
+    "LIGHT_SUN": 3.5,
+
+    "SHADOW_MAP": 2048
 }
