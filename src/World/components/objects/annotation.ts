@@ -4,6 +4,12 @@ import { camera } from "../../World";
 
 let centerY = window.innerHeight / 2;
 
+// Get dimensions of scene container
+let sceneLeft = document.querySelector('#scene_container')?.getBoundingClientRect().left || 0;
+let sceneTop = document.querySelector('#scene_container')?.getBoundingClientRect().top || 0;
+let sceneWidth = document.querySelector('#scene_container')?.clientWidth || 0;
+let sceneHeight = document.querySelector('#scene_container')?.clientHeight || 0;
+
 export class Annotation {
     domElement: HTMLDivElement;
     titleElement: HTMLDivElement;
@@ -59,12 +65,11 @@ export class Annotation {
         if (this.visible) {
             // Set CSS pos
             let screenPos = this.targetBody.position.clone().project(camera);
-            screenPos.y *= -1;
-            let x = (screenPos.x + 1) / 2 * window.innerWidth;
+            let x = sceneLeft + (screenPos.x + 1) / 2 * sceneWidth;
             this.domElement.style.left = `${x}px`;
 
             // Check the y distance between the label and the body
-            let y = (screenPos.y + 1) / 2 * window.innerHeight;
+            let y = sceneTop + (-1 * screenPos.y + 1) / 2 * sceneHeight;
             let yDiff = y - this.yPos;
 
             // We might switch the label from up to down or vice versa

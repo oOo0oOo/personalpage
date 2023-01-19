@@ -23,7 +23,7 @@ export class FocusCamera extends PerspectiveCamera {
 
         // Mobile --> start further away to show everything
         if (isMobile) {
-            this.startPos = new Vector3(0, 15, 100);
+            this.startPos = new Vector3(0, 16, 120);
         };
 
         this.position.copy(this.startPos);
@@ -41,7 +41,7 @@ export class FocusCamera extends PerspectiveCamera {
 
         let focusPos;
         if (this.focusHeight === config.HEIGHT_SUN){
-            focusPos = new Vector3(0, 10, 50);
+            focusPos = this.startPos;
         } else {
             focusPos = this.focusObject.position.clone();
             focusPos.y = this.focusHeight;
