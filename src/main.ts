@@ -20,10 +20,12 @@ async function main() {
     // Various events on overlay
     // Detect dragging and wheel to stop camera auto movement
     let dragging = false;
+    let dragDistance = 0;
     let mouseDown = false;
 
     addEventListener('mousedown', (evt) => {
         mouseDown = true;
+        dragDistance = 0;
         world.onMouseDown(evt);
     });
 
@@ -32,8 +34,11 @@ async function main() {
         dragging = false;
     });
 
-    addEventListener('mousemove', () => {
-        if (!dragging && mouseDown) {
+    addEventListener('mousemove', (evt) => {
+        if (mouseDown) {
+            dragDistance += Math.abs(evt.movementX) + Math.abs(evt.movementY);
+        }
+        if (!dragging && mouseDown && dragDistance > 8) {
             dragging = true;
             world.onDrag();
         }
@@ -54,7 +59,8 @@ async function main() {
         dragging = false;
     });
 
-    addEventListener('touchmove', (evt) => {
+    addEventListener('touchmove', () => {
+        // There is no evt.movementX/Y on mobile
         if (!dragging && mouseDown) {
             dragging = true;
             world.onDrag();
@@ -85,6 +91,12 @@ async function main() {
     }
 }
 
-main().catch((err) => {
-    console.log(err);
-});
+// Log errors in development mode
+const isDev = process.env.NODE_ENV === 'development';
+if (isDev) {
+    main().catch((err) => {
+        console.log(err);
+    });
+} else {
+    main();
+}
