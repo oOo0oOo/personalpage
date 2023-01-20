@@ -3,6 +3,7 @@ export interface Config {
     COLOR_SUN: string;
     COLOR_ORBIT: string;
     COLOR_BODIES: string[];
+    COLOR_TECHNOLOGIES: string;
 
     DISTANCE_PLANET: number;
     DISTANCE_MOON: number;
@@ -25,7 +26,7 @@ export interface Config {
     RADIUS_SUN: number;
     RADIUS_PLANET: number[];
     RADIUS_MOON: number[];
-    
+
     ANNOTATION_Y_OFFSETS: number[];
     ANNOTATION_Y_STEP: number;
 
@@ -36,6 +37,12 @@ export interface Config {
 
     SHADOW_MAP: number;
 
+    TECHNOLOGIES: {
+        id: string,
+        icon: string,
+        title?: string,
+    }[],
+
     CONTENT: {
         id: string;
         title: string;
@@ -44,13 +51,15 @@ export interface Config {
             title: string;
             description: string;
             link?: {
-                url: string;
                 text: string;
+                url: string;
             };
             media?: {
                 type: "img" | "video" | "audio";
                 url: string;
             };
+            technologies?: string[];
+            tasks?: string[];
         }[],
     }[];
 }

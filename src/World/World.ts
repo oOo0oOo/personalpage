@@ -37,6 +37,8 @@ let infoTitle: HTMLDivElement;
 let infoDescription: HTMLDivElement;
 let infoLink: HTMLDivElement;
 let infoMedia: HTMLDivElement;
+let technologyTemplates: Map<string, HTMLDivElement>;
+
 
 class World {
     constructor(container: HTMLCanvasElement) {
@@ -50,7 +52,7 @@ class World {
         loop.updatables.push(camera);
         container.append(renderer.domElement);
 
-        if (!isMobile){
+        if (!isMobile) {
             const { sunLight, ambientLight } = createLights();
             scene.add(sunLight, ambientLight);
         }
@@ -77,6 +79,14 @@ class World {
         infoDescription = document.getElementById("info_description") as HTMLDivElement;
         infoLink = document.getElementById("info_link") as HTMLDivElement;
         infoMedia = document.getElementById("info_media") as HTMLDivElement;
+
+        // Create all technologies from templates
+        technologyTemplates = new Map();
+        for (let i = 0; i < config.TECHNOLOGIES.length; i++) {
+            let tech = config.TECHNOLOGIES[i];
+            let template = document.getElementById("tech_" + tech.id) as HTMLDivElement;
+            technologyTemplates.set(tech.id, template);
+        }
     }
 
     async init() {
@@ -288,16 +298,16 @@ class World {
         }
     }
 
-    showInfoBox(info: (string|undefined)[]){
-        if (info[0]){
+    showInfoBox(info: (string | undefined)[]) {
+        if (info[0]) {
             infoTitle.innerHTML = info[0];
         }
-        if (info[1]){
+        if (info[1]) {
             infoDescription.innerHTML = info[1];
         }
 
         // Show or hide link button
-        if (info[2] && info[3]){
+        if (info[2] && info[3]) {
             infoLink.innerHTML = info[3];
             // Set link onclick this div
             infoLink.onclick = () => {
@@ -309,15 +319,15 @@ class World {
         }
 
         // Show media
-        if (info[4] && info[5]){
+        if (info[4] && info[5]) {
             infoMedia.style.display = "block";
 
             let str: string = "";
-            if (info[4] === "img"){
+            if (info[4] === "img") {
                 str = `<img class="media-img" src="static/media/${info[5]}">`;
-            } else if (info[4] === "video"){
+            } else if (info[4] === "video") {
                 str = `<video controls class="media-video"><source src="static/media/${info[5]}" type="video/mp4"></video>`;
-            } else if (info[4] === "audio"){
+            } else if (info[4] === "audio") {
                 str = `<audio controls class="media-audio"><source src="static/media/${info[5]}" type="audio/mpeg"></audio>`;
             }
             infoMedia.innerHTML = str;
@@ -325,11 +335,38 @@ class World {
             infoMedia.style.display = "none";
         }
 
+        // Remove all previous divs in #info_technologies
+        let infoTechnologies = document.getElementById("info_technologies");
+        if (infoTechnologies !== null) {
+            while (infoTechnologies.firstChild) {
+                infoTechnologies.removeChild(infoTechnologies.firstChild);
+            }
+        }
+
+        // Add technologies
+        if (info.length > 6) {
+            for (let i = 6; i < info.length; i++) {
+                // @ts-ignore
+                let templ = technologyTemplates.get(info[i])?.cloneNode(true);
+
+                // @ts-ignore
+                infoTechnologies.appendChild(templ);
+            };
+
+            // Show infoTechnologies div
+            // @ts-ignore
+            infoTechnologies.style.display = "flex";
+        } else {
+            // Hide infoTechnologies div
+            // @ts-ignore
+            infoTechnologies.style.display = "none";
+        }
+
         infoBox.style.opacity = "1";
         infoBox.style.display = "block";
     }
 
-    hideInfoBox(){
+    hideInfoBox() {
         // Hide info box and focus on the parent object
         infoBox.style.opacity = "0";
         let parent = currentFocus.split("_")[0];
@@ -345,7 +382,7 @@ class World {
             distance = 0;
             height = config.HEIGHT_SUN;
             controls.enabled = true;
-        } else if(categoryIds.includes(id)){
+        } else if (categoryIds.includes(id)) {
             distance = config.DISTANCE_PLANET;
             height = config.HEIGHT_PLANET;
             controls.enabled = true;
@@ -362,7 +399,7 @@ class World {
         controls.setTargetObject(focusObject);
 
         // Set hash url
-        if (currentFocus !== "sun"){
+        if (currentFocus !== "sun") {
             window.location.hash = currentFocus;
         } else {
             window.location.hash = "";
@@ -371,14 +408,14 @@ class World {
         this.updateAnnotations();
     }
 
-    onDrag(){
+    onDrag() {
         // If current focus is the sun, stop auto move
-        if (currentFocus === "sun"){
+        if (currentFocus === "sun") {
             camera.doAutoMove = false;
         }
     }
 
-    onScroll(){
+    onScroll() {
         camera.doAutoMove = false;
     }
 
@@ -393,10 +430,10 @@ class World {
         return info;
     }
 
-    getProjectInfo(id: string): (string|undefined)[] {
+    getProjectInfo(id: string): (string | undefined)[] {
         id = id.split("_")[1];
         // Find the project with the given id
-        let info: (string|undefined)[] = [];
+        let info: (string | undefined)[] = [];
         for (let i = 0; i < config.CONTENT.length; i++) {
             for (let j = 0; j < config.CONTENT[i].projects.length; j++) {
                 if (config.CONTENT[i].projects[j].id === id) {
@@ -407,6 +444,14 @@ class World {
                     let mediaUrl = project.media?.url;
 
                     info = [project.title, project.description, link, linkText, mediaType, mediaUrl];
+
+                    // Add technologies to the list
+                    if (project.technologies) {
+                        for (let tech in project.technologies) {
+                            info.push(project.technologies[tech]);
+                        }
+                    }
+                    break
                 }
             }
         }

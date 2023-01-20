@@ -15,7 +15,10 @@
           "media": {
             "type": "img",
             "url": "vectorflow.png"
-          }
+          },
+          "technologies": [
+            "godot", "android", "html5"
+          ]
         },
         {
           "id": "rocketkite",
@@ -28,7 +31,10 @@
           "media": {
             "type": "img",
             "url": "rocketkite.png"
-          }
+          },
+          "technologies": [
+            "python", "kivy", "android"
+          ]
         },
         {
           "id": "takeoff",
@@ -41,7 +47,10 @@
           "media": {
             "type": "img",
             "url": "takeoff.png"
-          }
+          },
+          "technologies": [
+            "godot", "cloud", "android"
+          ]
         },
         {
           "id": "cloudtower",
@@ -54,7 +63,10 @@
           "media": {
             "type": "img",
             "url": "cloudtower.png"
-          }
+          },
+          "technologies": [
+            "godot", "android"
+          ]
         },
         {
           "id": "scurry",
@@ -67,7 +79,10 @@
           "media": {
             "type": "img",
             "url": "scurry.png"
-          }
+          },
+          "technologies": [
+            "godot", "html5", "ableton"
+          ]
         },
         {
           "id": "wikihike",
@@ -80,7 +95,10 @@
           "media": {
             "type": "img",
             "url": "wikihike.png"
-          }
+          },
+          "technologies": [
+            "javascript", "browser"
+          ]
         },
         {
           "id": "bite",
@@ -93,7 +111,10 @@
           "media": {
             "type": "img",
             "url": "bite.png"
-          }
+          },
+          "technologies": [
+            "brush", "javascript", "browser"
+          ]
         },
         {
           "id": "infinitea",
@@ -106,7 +127,10 @@
           "media": {
             "type": "img",
             "url": "infinitea.png"
-          }
+          },
+          "technologies": [
+            "javascript", "browser"
+          ]
         }
       ]
     },
@@ -125,7 +149,10 @@
           "media": {
             "type": "img",
             "url": "soundtracks.png"
-          }
+          },
+            "technologies": [
+                "music", "ableton"
+            ]
         },
         {
           "id": "floatingseconds",
@@ -138,7 +165,10 @@
           "media": {
             "type": "img",
             "url": "floatingseconds.png"
-          }
+          },
+          "technologies": [
+            "synth", "ableton", "drums"
+          ]
         },
         {
           "id": "proofofgroove",
@@ -151,7 +181,10 @@
           "media": {
             "type": "img",
             "url": "proofofgroove.png"
-          }
+          },
+          "technologies": [
+            "music", "webassembly", "solidity"
+          ]
         }
       ]
     },
@@ -170,7 +203,10 @@
           "media": {
             "type": "img",
             "url": "winnietack.png"
-          }
+          },
+          "technologies": [
+            "unity", "android", "ios", "csharp"
+          ]
         },
         {
           "id": "cocrafty",
@@ -183,7 +219,10 @@
           "media": {
             "type": "img",
             "url": "cocrafty.png"
-          }
+          },
+            "technologies": [
+                "flask", "javascript", "cloud"
+            ]
         },
         {
           "id": "digitalliteracy",
@@ -196,7 +235,10 @@
           "media": {
             "type": "img",
             "url": "digitalliteracy.png"
-          }
+          },
+          "technologies": [
+            "flask", "vue", "socketio", "cloud"
+          ]
         },
         {
           "id": "pixeldemocracy",
@@ -209,7 +251,10 @@
           "media": {
             "type": "img",
             "url": "pixeldemocracy.png"
-          }
+          },
+          "technologies": [
+            "flask", "javascript", "socketio"
+          ]
         },
         {
           "id": "spiderbox",
@@ -222,7 +267,10 @@
           "media": {
             "type": "img",
             "url": "spiderbox.gif"
-          }
+          },
+          "technologies": [
+            "unity", "arcore", "android", "csharp"
+          ]
         },
         {
           "id": "thelist",
@@ -235,7 +283,10 @@
           "media": {
             "type": "img",
             "url": "thelist.png"
-          }
+          },
+          "technologies": [
+            "javascript", "browser"
+          ]
         },
         {
           "id": "proofofgroove",
@@ -248,7 +299,10 @@
           "media": {
             "type": "img",
             "url": "proofofgroove.png"
-          }
+          },
+          "technologies": [
+            "music", "webassembly", "solidity", "react"
+          ]
         },
         {
           "id": "humanedge",
@@ -261,7 +315,10 @@
           "media": {
             "type": "img",
             "url": "humanedge.png"
-          }
+          },
+          "technologies": [
+            "python_scientific", "machinelearning", "cloud"
+          ]
         }
       ]
     },
@@ -280,7 +337,10 @@
           "media": {
             "type": "img",
             "url": "ffhs.png"
-          }
+          },
+          "technologies": [
+            "blockchain", "solidity"
+          ]
         },
         {
           "id": "phd",
@@ -293,7 +353,10 @@
           "media": {
             "type": "img",
             "url": "phd.png"
-          }
+          },
+          "technologies": [
+            "microfluidics", "machinelearning", "python"
+          ]
         }
       ]
     },
@@ -304,7 +367,7 @@
         {
           "id": "contact",
           "title": "Contact",
-          "description": "Hi, I am Oliver Dressler.<br><br>Do you have any interesting input?<br><br>I might be available for freelance software development work.<br><br>Feel free to contact me via email at:<br><br><a href='m&#97;&#105;lto&#58;&#104;ey&#64;%&#54;&#70;li&#46;sh&#111;w'>h&#101;y&#64;oli&#46;sho&#119;</a>",
+          "description": "Do you have any interesting input?<br><br>I might be available for freelance software development work.<br><br>Feel free to contact me via email at:<br><br><a href='m&#97;&#105;lto&#58;&#104;ey&#64;%&#54;&#70;li&#46;sh&#111;w'>h&#101;y&#64;oli&#46;sho&#119;</a>",
           "media": {
             "type": "img",
             "url": "contact.png"
@@ -334,9 +397,177 @@
           "media": {
             "type": "img",
             "url": "this.png"
-          }
+          },
+          "technologies": [
+            "typescript", "three"
+          ]
         }
       ]
+    }
+  ],
+
+  "TECHNOLOGIES": [
+    {
+        "id": "python",
+        "icon": "mdi/language-python",
+        "title": "Python"
+    },
+    {
+        "id": "javascript",
+        "icon": "mdi/language-javascript",
+        "title": "JavaScript"
+    },
+    {
+        "id": "typescript",
+        "icon": "mdi/language-typescript",
+        "title": "TypeScript"
+    },
+    {
+        "id": "sql",
+        "icon": "carbon/sql"
+    },
+    {
+        "id": "solidity",
+        "icon": "vscode-icons/file-type-light-solidity",
+        "title": "Solidity"
+    },
+    {
+        "id": "webassembly",
+        "icon": "simple-icons/webassembly",
+        "title": "WebAssembly"
+    },
+    {
+        "id": "csharp",
+        "icon": "tabler/c-sharp"
+    },
+    {
+        "id": "python_scientific",
+        "icon": "simple-icons/scipy",
+        "title": "Scipy et al."
+    },
+    {
+        "id": "pandas",
+        "icon": "simple-icons/pandas",
+        "title": "Pandas"
+    },
+    {
+        "id": "flask",
+        "icon": "file-icons/test-python",
+        "title": "Flask"
+    },
+    {
+        "id": "vue",
+        "icon": "mdi/vuejs",
+        "title": "Vue.js"
+    },
+    {
+        "id": "react",
+        "icon": "mdi/react",
+        "title": "React"
+    },
+    {
+        "id": "socketio",
+        "icon": "cib/socket-io",
+        "title": "Socket.io"
+    },
+    {
+        "id": "subgraph",
+        "icon": "mdi/graph-outline",
+        "title": "Subgraph"
+    },
+    {
+        "id": "unity",
+        "icon": "mdi/unity",
+        "title": "Unity"
+    },
+    {
+        "id": "arcore",
+        "icon": "material-symbols/view-in-ar-outline",
+        "title": "AR Core"
+    },
+    {
+        "id": "android",
+        "icon": "mdi/android",
+        "title": "Android"
+    },
+    {
+        "id": "ios",
+        "icon": "mdi/apple-ios"
+    },
+    {
+        "id": "mobile",
+        "icon": "material-symbols/smartphone",
+        "title": "Mobile"
+    },
+    {
+        "id": "html5",
+        "icon": "mdi/language-html5",
+        "title": "HTML5"
+    },
+    {
+        "id": "cloud",
+        "icon": "material-symbols/cloud",
+        "title": "Cloud"
+    },
+    {
+        "id": "microfluidics",
+        "icon": "ic/outline-water-drop",
+        "title": "Microfluidics"
+    },
+    {
+        "id": "three",
+        "icon": "tabler/brand-threejs",
+        "title": "Three.js"
+    },
+    {
+        "id": "ableton",
+        "icon": "skill-icons/ableton-dark",
+        "title": "Ableton Live"
+    },
+    {
+        "id": "drums",
+        "icon": "nimbus/drums",
+        "title": "Drums"
+    },
+    {
+        "id": "synth",
+        "icon": "material-symbols/piano",
+        "title": "Synth"
+    },
+    {
+        "id": "music",
+        "icon": "material-symbols/music-note",
+        "title": "Music"
+    },
+    {
+        "id": "godot",
+        "icon": "cib/godot-engine",
+        "title": "Godot"
+    },
+    {
+        "id": "kivy",
+        "icon": "vscode-icons/file-type-kivy",
+        "title": "Kivy"
+    },
+    {
+        "id": "brush",
+        "icon": "bi/brush",
+        "title": "Painting"
+    },
+    {
+        "id": "blockchain",
+        "icon": "mdi/file-document-boxes",
+        "title": "Blockchain"
+    },
+    {
+        "id": "machinelearning",
+        "icon": "ph/graph-bold",
+        "title": "Machine Learning"
+    },
+    {
+        "id": "browser",
+        "icon": "ph/browser-fill",
+        "title": "Browser"
     }
   ],
   
@@ -363,6 +594,7 @@
     "#f6ce41",
     "#f4d400"
   ],
+  "COLOR_TECHNOLOGIES": "%23252525",
 
   "DISTANCE_PLANET": 5,
   "DISTANCE_MOON": 3,

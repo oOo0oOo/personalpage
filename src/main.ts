@@ -8,7 +8,36 @@ export const isMobile = window.innerWidth < 768 || window.innerHeight < 768;
 
 import { World } from './World/World';
 
+export let technologyTemplates: Map<string, HTMLDivElement>[];
+
 async function main() {
+    let color = config.COLOR_TECHNOLOGIES;
+
+    // Create all technologyTemplates from config
+    for (const tech of config.TECHNOLOGIES) {
+        let el = document.querySelector("#technology_template")?.cloneNode(true) as HTMLDivElement;
+
+        // Set title
+        if (tech.title !== undefined) {
+            // @ts-ignore
+            el.querySelector("#technology_title")?.innerHTML = tech.title;
+        };
+
+
+        // Set icon
+        // @ts-ignore
+        let url = `https://api.iconify.design/${tech.icon}.svg?color=${color}`;
+        el.querySelector("#technology_icon")?.setAttribute("src", url);
+
+        // Set element id
+        el.id = "tech_" + tech.id;
+
+        // Add to DOM
+        document.querySelector("#technology_container")?.append(el);
+    }
+
+
+    // Setup the three js scene
     const container = document.querySelector(
         '#scene_container'
     ) as HTMLCanvasElement;
@@ -87,7 +116,7 @@ async function main() {
     document.querySelector('#info_hide')?.addEventListener('click', () => {
         world.hideInfoBox();
     });
-    
+
     document.querySelector('#info_hide')?.addEventListener('touchstart', () => {
         world.hideInfoBox();
     });
