@@ -70,7 +70,13 @@ async function main() {
     // Detect click on annotation title
     let annotationTitles = document.querySelectorAll(".annotation-title");
     for (let i = 0; i < annotationTitles.length; i++) {
-        annotationTitles[i].addEventListener('click', (evt) => {
+        annotationTitles[i].addEventListener('mousedown', (evt) => {
+            // Get id from data attribute
+            const id = (evt.target as HTMLDivElement).dataset.id;
+            // @ts-ignore
+            world.changeCurrentFocus(id);
+        });
+        annotationTitles[i].addEventListener('touchstart', (evt) => {
             // Get id from data attribute
             const id = (evt.target as HTMLDivElement).dataset.id;
             // @ts-ignore
@@ -78,7 +84,11 @@ async function main() {
         });
     }
 
-    document.querySelector('#info_hide')?.addEventListener('click', (evt) => {
+    document.querySelector('#info_hide')?.addEventListener('click', () => {
+        world.hideInfoBox();
+    });
+    
+    document.querySelector('#info_hide')?.addEventListener('touchstart', () => {
         world.hideInfoBox();
     });
 

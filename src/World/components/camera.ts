@@ -6,12 +6,14 @@ import {
 
 import { config, isMobile } from '../../main';
 
+const cameraDirection = new Vector3(0, 0.2, 1);
+
 export class FocusCamera extends PerspectiveCamera {
     focusObject: Object3D = new Object3D();
     focusDist: number = 0;
     focusHeight: number = 0;
     doAutoMove: boolean = true;
-    startPos: Vector3 = new Vector3(0, 10, 50);
+    startPos: Vector3 = cameraDirection.clone();
 
     constructor() {
         super(
@@ -20,12 +22,15 @@ export class FocusCamera extends PerspectiveCamera {
             0.1, // near clipping plane
             1000 // far clipping plane
         );
+    }
 
-        // Mobile --> start further away to show everything
+    setStartDistance(){
+        // TODO: Dependent on display width
         if (isMobile) {
-            this.startPos = new Vector3(0, 16, 120);
-        };
-
+            this.startPos.copy(cameraDirection.multiplyScalar(130));
+        } else {
+            this.startPos.copy(cameraDirection.multiplyScalar(60));
+        }
         this.position.copy(this.startPos);
     }
 

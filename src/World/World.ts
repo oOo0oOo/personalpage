@@ -106,6 +106,8 @@ class World {
             scene.add(circle);
         }
 
+        camera.setStartDistance();
+
         // Create all categories
         for (let i = 0; i < config.CONTENT.length; i++) {
             // Create the planet (category)

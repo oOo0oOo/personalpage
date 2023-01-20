@@ -176,8 +176,10 @@ body {
     }
 
     #info_media {
-        width: 300px;
-        margin-left: calc((96vw - 300px) / 2);
+        height: 220px;
+        width: 220px;
+        flex: 0 220px;
+        margin-left: calc((96vw - 220px) / 2);
     }
 
     #info_extras {
