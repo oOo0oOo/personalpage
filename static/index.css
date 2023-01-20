@@ -1,6 +1,6 @@
 /* CSS for oli.show */
 
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400&family=Vidaloka&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400&family=Montserrat:wght@500&display=swap');
 
 body {
     width: 100%;
@@ -95,9 +95,11 @@ body {
 }
 
 #info_title {
-    font-family: Vidaloka;
+    font-family: Montserrat;
     font-size: 24pt;
     margin-bottom: 20px;
+    margin-top: 2px;
+    font-weight: 500;
 }
 
 .side_by_side {
@@ -152,6 +154,7 @@ body {
 
 .technology-title {
     margin-top: 5px;
+    font-size: 12pt;
 }
 
 #info_link {
