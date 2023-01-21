@@ -367,7 +367,6 @@ class World {
             infoExtras.style.display = "none";
         }
 
-
         // Show the highlights as a <ul>
         let highlights = document.getElementById("info_highlights");
         if (highlights !== null && project.highlights) {

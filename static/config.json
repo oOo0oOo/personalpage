@@ -68,7 +68,7 @@
         {
           "id": "cloudtower",
           "title": "Cloud Tower",
-          "description": "Build a tower of clouds and reach new heights in this small game.<br><br>First godot game published on android.",
+          "description": "Build a tower of clouds and reach new heights in this small game.<br><br>First Godot game published on Android.",
           "link": {
             "url": "https://play.google.com/store/apps/details?id=org.godotengine.towermaster",
             "text": "Stack Now!"
@@ -236,8 +236,8 @@
           ],
           "highlights": [
             "Already 2 adventures available!",
-            "User downloads adventures as separate asset bundles.",
-            "During the adventure no internet connection is required."
+            "Users download adventures as separate asset bundles.",
+            "During the adventure no internet connectivity is required."
           ]
         },
         {
@@ -313,7 +313,7 @@
             "unity", "arcore", "android", "csharp"
           ],
           "highlights": [
-            "Uses ARCore to track the face",
+            "Uses ARCore to track face position relative to the screen.",
             "Parallax projection produces a convincing depth illusion."
           ]
         },
