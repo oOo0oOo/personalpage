@@ -37,6 +37,7 @@ let infoTitle: HTMLDivElement;
 let infoDescription: HTMLDivElement;
 let infoLink: HTMLDivElement;
 let infoMedia: HTMLDivElement;
+let infoExtras: HTMLDivElement;
 let technologyTemplates: Map<string, HTMLDivElement>;
 
 
@@ -79,6 +80,7 @@ class World {
         infoDescription = document.getElementById("info_description") as HTMLDivElement;
         infoLink = document.getElementById("info_link") as HTMLDivElement;
         infoMedia = document.getElementById("info_media") as HTMLDivElement;
+        infoExtras = document.getElementById("info_extras") as HTMLDivElement;
 
         // Create all technologies from templates
         technologyTemplates = new Map();
@@ -288,8 +290,8 @@ class World {
             centerLabel.style.opacity = "0";
 
             // Show info box
-            let info = this.getProjectInfo(currentFocus);
-            this.showInfoBox(info);
+            // let info = this.getProjectInfo(currentFocus);
+            this.showInfoBox(currentFocus);
 
             // Hide all annotations
             for (let i = 0; i < annotations.length; i++) {
@@ -298,20 +300,20 @@ class World {
         }
     }
 
-    showInfoBox(info: (string | undefined)[]) {
-        if (info[0]) {
-            infoTitle.innerHTML = info[0];
-        }
-        if (info[1]) {
-            infoDescription.innerHTML = info[1];
-        }
+    showInfoBox(projectId: string) {
+        let project = this.getProject(projectId);
+
+        if (project === undefined) return;
+
+        infoTitle.innerHTML = project.title;
+        infoDescription.innerHTML = project.description;
 
         // Show or hide link button
-        if (info[2] && info[3]) {
-            infoLink.innerHTML = info[3];
+        if (project.link) {
+            infoLink.innerHTML = project.link.text;
             // Set link onclick this div
             infoLink.onclick = () => {
-                window.open(info[2], "_blank");
+                window.open(project?.link?.url, "_blank");
             }
             infoLink.style.display = "block";
         } else {
@@ -319,16 +321,19 @@ class World {
         }
 
         // Show media
-        if (info[4] && info[5]) {
-            infoMedia.style.display = "block";
+        if (project.media) {
+            infoMedia.style.display = "flex 1 1 0px";
+
+            let type = project.media.type;
+            let url = project.media.url;
 
             let str: string = "";
-            if (info[4] === "img") {
-                str = `<img class="media-img" src="static/media/${info[5]}">`;
-            } else if (info[4] === "video") {
-                str = `<video controls class="media-video"><source src="static/media/${info[5]}" type="video/mp4"></video>`;
-            } else if (info[4] === "audio") {
-                str = `<audio controls class="media-audio"><source src="static/media/${info[5]}" type="audio/mpeg"></audio>`;
+            if (type === "img") {
+                str = `<img class="media-img" src="static/media/${url}">`;
+            } else if (type === "video") {
+                str = `<video controls class="media-video"><source src="static/media/${url}" type="video/mp4"></video>`;
+            } else if (type === "audio") {
+                str = `<audio controls class="media-audio"><source src="static/media/${url}" type="audio/mpeg"></audio>`;
             }
             infoMedia.innerHTML = str;
         } else {
@@ -344,10 +349,10 @@ class World {
         }
 
         // Add technologies
-        if (info.length > 6) {
-            for (let i = 6; i < info.length; i++) {
+        if (project.technologies) {
+            for (let i = 0; i < project.technologies.length; i++) {
                 // @ts-ignore
-                let templ = technologyTemplates.get(info[i])?.cloneNode(true);
+                let templ = technologyTemplates.get(project.technologies[i])?.cloneNode(true);
 
                 // @ts-ignore
                 infoTechnologies.appendChild(templ);
@@ -355,11 +360,26 @@ class World {
 
             // Show infoTechnologies div
             // @ts-ignore
-            infoTechnologies.style.display = "flex";
+            infoExtras.style.display = "block";
         } else {
             // Hide infoTechnologies div
             // @ts-ignore
-            infoTechnologies.style.display = "none";
+            infoExtras.style.display = "none";
+        }
+
+
+        // Show the highlights as a <ul>
+        let highlights = document.getElementById("info_highlights");
+        if (highlights !== null && project.highlights) {
+            let str = "<ul>";
+            for (let i = 0; i < project.highlights.length; i++) {
+                str += `<li>${project.highlights[i]}</li>`;
+            }
+            str += "</ul>";
+            highlights.innerHTML = str;
+            highlights.style.display = "block";
+        } else if (highlights !== null) {
+            highlights.style.display = "none";
         }
 
         infoBox.style.opacity = "1";
@@ -430,7 +450,7 @@ class World {
         return info;
     }
 
-    getProjectInfo(id: string): (string | undefined)[] {
+    getProject(id: string) {
         id = id.split("_")[1];
         // Find the project with the given id
         let info: (string | undefined)[] = [];
@@ -438,24 +458,10 @@ class World {
             for (let j = 0; j < config.CONTENT[i].projects.length; j++) {
                 if (config.CONTENT[i].projects[j].id === id) {
                     let project = config.CONTENT[i].projects[j];
-                    let link = project.link?.url;
-                    let linkText = project.link?.text;
-                    let mediaType = project.media?.type;
-                    let mediaUrl = project.media?.url;
-
-                    info = [project.title, project.description, link, linkText, mediaType, mediaUrl];
-
-                    // Add technologies to the list
-                    if (project.technologies) {
-                        for (let tech in project.technologies) {
-                            info.push(project.technologies[tech]);
-                        }
-                    }
-                    break
+                    return project;
                 }
             }
         }
-        return info;
     }
 }
 export { World };

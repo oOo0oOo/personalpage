@@ -97,7 +97,7 @@ body {
 #info_title {
     font-family: Montserrat;
     font-size: 24pt;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     margin-top: 2px;
     font-weight: 500;
 }
@@ -134,13 +134,28 @@ body {
     object-fit: cover;
 }
 
-#info_technologies {
-    display: flex;
-    margin-top: 26px;
+#info_extras {
+    margin-top: 28px;
     padding: 26px;
-    flex-direction: row;
     border: 2px solid #252525;
     border-radius: 14px;
+}
+
+#info_technologies {
+    display: flex;
+    flex-direction: row;
+}
+
+#info_hightlights {
+
+}
+
+ul {
+    margin: 32px 0px 0px 0px;
+}
+
+li {
+    margin: 10px 0;
 }
 
 .technology {

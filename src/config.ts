@@ -59,7 +59,7 @@ export interface Config {
                 url: string;
             };
             technologies?: string[];
-            tasks?: string[];
+            highlights?: string[];
         }[],
     }[];
 }

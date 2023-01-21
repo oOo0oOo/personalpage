@@ -7,7 +7,7 @@
         {
           "id": "vectorflow",
           "title": "Vector Flow",
-          "description": "Casually roll balls towards enemies. Pick the correct position to eliminate all targets.<br><br>Unlock specials to increase your chances!<br><br>Published on itch.io and Android.",
+          "description": "Casually roll balls towards enemies. Pick the correct position to eliminate all targets.<br><br>Unlock specials to increase your chances!",
           "link": {
             "url": "https://code-box.itch.io/vector-flow",
             "text": "Flow Now!"
@@ -18,12 +18,16 @@
           },
           "technologies": [
             "godot", "android", "html5"
+          ],
+          "highlights": [
+            "Patchinko with enemies!",
+            "Required lots of level design."
           ]
         },
         {
           "id": "rocketkite",
           "title": "Rocket Kite",
-          "description": "Fly your rocket kite among the planets. Use gravity and collect all checkpoints.<br><br>Made with Python and kivy.<br>Published on Google Play.",
+          "description": "Fly your rocket kite among the planets.<br><br>Use gravity and collect all checkpoints.",
           "link": {
             "url": "https://play.google.com/store/apps/details?id=rocketkite.rocketkite",
             "text": "Fly Now!"
@@ -34,12 +38,17 @@
           },
           "technologies": [
             "python", "kivy", "android"
+          ],
+          "highlights": [
+            "Multi-body physics simulation.",
+            "Monochrome with varying color schemes.",
+            "Published for Android using buildozer."
           ]
         },
         {
           "id": "takeoff",
           "title": "Ready for Takeoff",
-          "description": "Manage a small airport with your friends. Help the passengers to reach their destination.<br><br>This real-time, multiplayer game requires a lot of teamwork!<br><br>Made using Godot and published on Google Play.",
+          "description": "Manage a small airport with your friends. Help passengers reach their destination.<br><br>This real-time, multiplayer game requires a lot of teamwork!",
           "link": {
             "url": "https://play.google.com/store/apps/details?id=com.slingshotmedia.readyfortakeoff",
             "text": "Fly Now!"
@@ -50,12 +59,16 @@
           },
           "technologies": [
             "godot", "cloud", "android"
+          ],
+          "highlights": [
+            "Real-time multiplayer using Godot remote procedural calls.",
+            "A server (also Godot) runs all current instances of the game."
           ]
         },
         {
           "id": "cloudtower",
           "title": "Cloud Tower",
-          "description": "Build a tower of clouds and reach new heights in this small game.<br><br>Made using Godot and published on Google Play.",
+          "description": "Build a tower of clouds and reach new heights in this small game.<br><br>First godot game published on android.",
           "link": {
             "url": "https://play.google.com/store/apps/details?id=org.godotengine.towermaster",
             "text": "Stack Now!"
@@ -71,7 +84,7 @@
         {
           "id": "scurry",
           "title": "Scurry",
-          "description": "Keep your rabbits save by whistling. Just chill and whistle...<br><br>Developed for a game jam using Godot.",
+          "description": "Keep your rabbits save by whistling. Just chill and whistle...<br><br>Developed for a <a target='blank_' href='https://itch.io/jam/trijam-123/rate/1071357'>game jam</a> using Godot.",
           "link": {
             "url": "https://code-box.itch.io/scurry",
             "text": "Whistle Now!"
@@ -82,6 +95,10 @@
           },
           "technologies": [
             "godot", "html5", "ableton"
+          ],
+          "highlights": [
+            "This mini-game took 15h.",
+            "Custom soundtrack: <a target='blank_' href='https://freesound.org/people/code_box/sounds/575759/'>Rabbit Bop</a>."
           ]
         },
         {
@@ -98,12 +115,17 @@
           },
           "technologies": [
             "javascript", "browser"
+          ],
+          "highlights": [
+            "Required reducing the complete simple wikipedia down to 4.2MB adjacencies.",
+            "User downloads the complete data set.",
+            "Game runs locally in the browser."
           ]
         },
         {
           "id": "bite",
           "title": "Bite",
-          "description": "A short game about a hungry vampire with aquarel art.<br><br>Drink enough blood to survive 2 years.<br><br>Don't kill the parents.",
+          "description": "A short game about a hungry vampire with water color art.<br><br>Drink enough blood to survive 2 years.<br><br>Don't kill the parents.",
           "link": {
             "url": "https://oli.show/bite/",
             "text": "Drink Now!"
@@ -173,7 +195,7 @@
         {
           "id": "proofofgroove",
           "title": "Proof of Groove",
-          "description": "We move together<br>We groove together<br><br>Proof of Groove is an NFT, generated using a fully decentralized synthesizer.<br><br>I was responsible for the automatic composition and rendering of the audio-visual experience using Webassembly.",
+          "description": "We move together<br>We groove together<br><br>Proof of Groove is an NFT, generated using a fully decentralized synthesizer.",
           "link": {
             "url": "https://proofofgroove.com/",
             "text": "Groove Now!"
@@ -183,7 +205,12 @@
             "url": "proofofgroove.png"
           },
           "technologies": [
-            "music", "webassembly", "solidity"
+            "music", "webassembly", "solidity", "react"
+          ],
+          "highlights": [
+            "Uses a subgraph to create NFTs fully decentralized.",
+            "Each NFT is a unique SVGs with embedded raw WAV signals.",
+            "Complete procedural generation in WebAssembly."
           ]
         }
       ]
@@ -195,7 +222,7 @@
         {
           "id": "winnietack",
           "title": "Winnie & Tack",
-          "description": "Go on a hike and experience an interactive adventure with Winnie and Tack.<br><br>Listen to the audio book and make your own decisions.<br><br>Developed using Unity and published on Android and iOS.",
+          "description": "Go on a hike and experience an interactive adventure with Winnie and Tack.<br><br>Listen to the audio book and make your own decisions.",
           "link": {
             "url": "https://abenteuerweg.ch/",
             "text": "Experience Now!"
@@ -206,6 +233,11 @@
           },
           "technologies": [
             "unity", "android", "ios", "csharp"
+          ],
+          "highlights": [
+            "Already 2 adventures available!",
+            "User downloads adventures as separate asset bundles.",
+            "During the adventure no internet connection is required."
           ]
         },
         {
@@ -220,14 +252,18 @@
             "type": "img",
             "url": "cocrafty.png"
           },
-            "technologies": [
-                "flask", "javascript", "cloud"
-            ]
+          "technologies": [
+            "flask", "javascript", "cloud", "socketio"
+          ],
+          "highlights": [
+            "A variety of collaborative real-time tools: Mind-mapping, chat, ...",
+            "No longer actively maintained. Use it while it's still online!"
+          ]
         },
         {
           "id": "digitalliteracy",
           "title": "Digital Literacy",
-          "description": "Strengthening digital opinion-forming with simulations.<br><br>Developed for <a href='https://www.dezentrum.ch/en/'>Dezentrum</a> and the <a href='https://www.risiko-dialog.ch/en/'>Risk Dialogue Foundation</a>.",
+          "description": "Strengthening digital opinion-forming with simulations.<br><br>Developed with <a href='https://www.dezentrum.ch/en/'>Dezentrum</a> and the <a href='https://www.risiko-dialog.ch/en/'>Risk Dialogue Foundation</a>.",
           "link": {
             "url": "https://www.digital-literacy.live/",
             "text": "Discuss Now!"
@@ -238,6 +274,11 @@
           },
           "technologies": [
             "flask", "vue", "socketio", "cloud"
+          ],
+          "highlights": [
+            "Experience online phenomena and risks in this simulation.",
+            "Real-time chat using socket.io.",
+            "Simple access to simulations via link."
           ]
         },
         {
@@ -259,7 +300,7 @@
         {
           "id": "spiderbox",
           "title": "Spider Box",
-          "description": "A small AR experiment of a spider living in a box behind your screen.<br><br>Seem spretty real thanks to face tracking and parallax projection.<br><br>Developed using Unity and AR Core.",
+          "description": "A small AR experiment of a spider living in a box behind your screen.<br><br>Maybe I'll turn it into a scary tamagotchi one day.",
           "link": {
             "url": "https://github.com/oOo0oOo/SpiderBox",
             "text": "Contain Now!"
@@ -270,6 +311,10 @@
           },
           "technologies": [
             "unity", "arcore", "android", "csharp"
+          ],
+          "highlights": [
+            "Uses ARCore to track the face",
+            "Parallax projection produces a convincing depth illusion."
           ]
         },
         {
@@ -289,25 +334,30 @@
           ]
         },
         {
-          "id": "proofofgroove",
-          "title": "Proof of Groove",
-          "description": "We move together<br>We groove together<br><br>Proof of Groove is an NFT, generated using a fully decentralized synthesizer.<br><br>I was responsible for the automatic composition and rendering of the audio-visual experience using Webassembly.",
-          "link": {
+        "id": "proofofgroove",
+        "title": "Proof of Groove",
+        "description": "We move together<br>We groove together<br><br>Proof of Groove is an NFT, generated using a fully decentralized synthesizer.",
+        "link": {
             "url": "https://proofofgroove.com/",
             "text": "Groove Now!"
-          },
-          "media": {
+        },
+        "media": {
             "type": "img",
             "url": "proofofgroove.png"
-          },
-          "technologies": [
+        },
+        "technologies": [
             "music", "webassembly", "solidity", "react"
-          ]
+        ],
+        "highlights": [
+            "Uses a subgraph to create NFTs fully decentralized.",
+            "Each NFT is a unique SVGs with embedded raw WAV signals.",
+            "Complete procedural generation in WebAssembly."
+        ]
         },
         {
           "id": "humanedge",
           "title": "Human Edge",
-          "description": "The next step in asset management.<br><br>Human Edge provides systematic investment solutions.<br><br>I develop the webapp and investment algorithms.",
+          "description": "The next step in asset management.<br><br>Human Edge provides systematic investment solutions.",
           "link": {
             "url": "https://www.human-edge.ch/",
             "text": "Invest Now!"
@@ -318,6 +368,10 @@
           },
           "technologies": [
             "python_scientific", "machinelearning", "cloud"
+          ],
+          "highlights": [
+            "I develop and maintain our webapp and investment algorithms.",
+            "Responsible for technical decisions and architecture."
           ]
         }
       ]
@@ -340,6 +394,10 @@
           },
           "technologies": [
             "blockchain", "solidity"
+          ],
+          "highlights": [
+            "I lecture on technical aspects of blockchain technology.",
+            "Intro to Solidity and smart contracts."
           ]
         },
         {
@@ -356,6 +414,11 @@
           },
           "technologies": [
             "microfluidics", "machinelearning", "python"
+          ],
+          "highlights": [
+            "Using droplet microfluidics on lab-on-a-chip devices.",
+            "3D printing of microfluidic devices for larger scale devices.",
+            "Application of reinforcement learning from image data for real-time microfluidic control."
           ]
         }
       ]
@@ -389,7 +452,7 @@
         {
           "id": "this",
           "title": "This Page",
-          "description": "This interactive portfolio page was made using three.js, TypeScript and published via Github Actions.<br><br>Quite a few projects didn't fit anymore, so I might have to change it soon.<br><br>Let me know if you find any bugs ;-)",
+          "description": "Solar system 3D portfolio page.<br><br>Quite a few projects didn't fit anymore, so I might have to change it soon.<br><br>Let me know if you find any bugs ;-)",
           "link": {
             "url": "static/config.json",
             "text": "JSON Content"
@@ -400,6 +463,11 @@
           },
           "technologies": [
             "typescript", "three"
+          ],
+          "highlights": [
+            "Interactive 3D visualization using three.js.",
+            "Easily configurable using <a href='static/config.json'>JSON</a>.",
+            "CI/CD via Github Actions."
           ]
         }
       ]
