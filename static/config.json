@@ -344,7 +344,7 @@
           "description": "There is only one list. The list is forever. Pay any amount of money to add your name to the list.<br><br>What are you waiting for?",
           "link": {
             "url": "https://oli.show/thelist/",
-            "text": "Get listed now!"
+            "text": "Get Listed Now!"
           },
           "media": {
             "type": "img",
@@ -473,7 +473,7 @@
         {
           "id": "this2",
           "title": "This Page",
-          "description": "Solar system 3D portfolio page.<br><br>Let me know if you find any bugs ;-)<br><br><a id='stats_btn' onclick='document.getElementById(\"stats\").style.display=\"block\"'>Show FPS</a>",
+          "description": "Solar system 3D portfolio page.<br><br>Let me know if you find any bugs ;-)<br><br><a id='stats_btn' onclick='document.getElementById(\"stats\").style.display=\"block\"'>Show Stats</a>",
           "link": {
             "url": "static/config.json",
             "text": "JSON Content"

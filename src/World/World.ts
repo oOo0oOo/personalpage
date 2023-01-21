@@ -21,6 +21,11 @@ import { Annotation } from './components/objects/annotation';
 import { config, isMobile } from '../main';
 
 
+const FADEOUT = "fadeout 0.2s ease-in-out 1 forwards";
+const FADEIN = "fadein 3s ease-in-out 1 forwards";
+const FADEINFAST = "fadein 1.5s ease-in-out 1 forwards";
+
+
 export let camera: FocusCamera;
 let scene: Scene;
 let renderer: WebGLRenderer | WebGL1Renderer;
@@ -72,8 +77,6 @@ class World {
 
         // The info box from #info_box
         infoBox = document.getElementById("info_box") as HTMLDivElement;
-        infoBox.style.display = "none";
-        infoBox.style.opacity = "0";
 
         // All elements of the info box
         infoTitle = document.getElementById("info_title") as HTMLDivElement;
@@ -255,9 +258,8 @@ class World {
                 }
             }
             // Hide center label div and info box
-            centerLabel.style.opacity = "0";
-            infoBox.style.opacity = "0";
-            infoBox.style.display = "none";
+            centerLabel.style.animation = FADEOUT;
+            infoBox.style.animation = FADEOUT;
         }
         // If a category is currentFocus: Annotate all projects
         else if (categoryIds.includes(currentFocus)) {
@@ -265,12 +267,11 @@ class World {
             let index = categoryIds.indexOf(currentFocus);
 
             // Fade in label using a css transition
-            centerLabel.style.opacity = "1";
+            centerLabel.style.animation = FADEIN;
             centerLabel.innerHTML = config.CONTENT[index].title;
 
             // Hide info box
-            infoBox.style.opacity = "0";
-            infoBox.style.display = "none";
+            infoBox.style.animation = FADEOUT;
 
             for (let i = 0; i < annotations.length; i++) {
                 if (i < config.CONTENT[index].projects.length) {
@@ -287,10 +288,9 @@ class World {
         }
         // If a project is currentFocus: Annotate only this project
         else {
-            centerLabel.style.opacity = "0";
+            centerLabel.style.animation = FADEOUT;
 
             // Show info box
-            // let info = this.getProjectInfo(currentFocus);
             this.showInfoBox(currentFocus);
 
             // Hide all annotations
@@ -381,8 +381,7 @@ class World {
             highlights.style.display = "none";
         }
 
-        infoBox.style.opacity = "1";
-        infoBox.style.display = "block";
+        infoBox.style.animation = FADEINFAST;
     }
 
     hideInfoBox() {
