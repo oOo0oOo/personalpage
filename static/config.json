@@ -62,7 +62,7 @@
           ],
           "highlights": [
             "Real-time multiplayer using Godot remote procedural calls.",
-            "A server (also Godot) runs all current instances of the game."
+            "A server (also coded in GDScript) runs all current instances of the game."
           ]
         },
         {
@@ -97,7 +97,7 @@
             "godot", "html5", "ableton"
           ],
           "highlights": [
-            "This mini-game took 15h.",
+            "Developed in 15h.",
             "Custom soundtrack: <a target='blank_' href='https://freesound.org/people/code_box/sounds/575759/'>Rabbit Bop</a>."
           ]
         },
@@ -117,7 +117,7 @@
             "javascript", "browser"
           ],
           "highlights": [
-            "Required reducing the complete simple wikipedia down to 4.2MB adjacencies.",
+            "Required reducing the complete simple wikipedia down to 4.2MB of adjacencies.",
             "User downloads the complete data set.",
             "Game runs locally in the browser."
           ]
@@ -301,10 +301,6 @@
           "id": "this",
           "title": "This Page",
           "description": "Solar system 3D portfolio page.<br><br>Let me know if you find any bugs ;-)<br><br><a id='stats_btn' onclick='document.getElementById(\"stats\").style.display=\"block\"'>Show FPS</a>",
-          "link": {
-            "url": "static/config.json",
-            "text": "JSON Content"
-          },
           "media": {
             "type": "img",
             "url": "this.png"
@@ -417,7 +413,7 @@
             "blockchain", "solidity"
           ],
           "highlights": [
-            "I lecture on technical aspects of blockchain technology.",
+            "Lecturing on technical aspects of blockchain technology.",
             "Intro to Solidity and smart contracts."
           ]
         },
@@ -437,8 +433,8 @@
             "microfluidics", "machinelearning", "python"
           ],
           "highlights": [
-            "Using droplet microfluidics on lab-on-a-chip devices.",
-            "3D printing of microfluidic devices for larger scale devices.",
+            "Droplet microfluidics using lab-on-a-chip devices.",
+            "3D-printing of fluidic structures for larger scale devices.",
             "Application of reinforcement learning from image data for real-time microfluidic control."
           ]
         }
@@ -461,10 +457,6 @@
           "id": "biography",
           "title": "Biography",
           "description": "Hi, I am Oliver Dressler.<br><br>Passionate about data, technology and software development.<br><br>Located in Switzerland and currently working as CTO at Human Edge.",
-          "link": {
-            "url": "https://oli.show",
-            "text": "My Resume"
-          },
           "media": {
             "type": "img",
             "url": "biography.png"
@@ -474,10 +466,6 @@
           "id": "this2",
           "title": "This Page",
           "description": "Solar system 3D portfolio page.<br><br>Let me know if you find any bugs ;-)<br><br><a id='stats_btn' onclick='document.getElementById(\"stats\").style.display=\"block\"'>Show Stats</a>",
-          "link": {
-            "url": "static/config.json",
-            "text": "JSON Content"
-          },
           "media": {
             "type": "img",
             "url": "this.png"
