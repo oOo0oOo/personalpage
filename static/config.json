@@ -205,10 +205,10 @@
             "url": "proofofgroove.png"
           },
           "technologies": [
-            "music", "webassembly", "solidity", "react"
+            "thegraph", "webassembly", "solidity", "react"
           ],
           "highlights": [
-            "Uses a subgraph to create NFTs fully decentralized.",
+            "Uses a <a href='https://thegraph.com/docs/en/developing/assemblyscript-api' target='blank_'>custom subgraph</a> to create NFTs fully decentralized.",
             "Each NFT is a unique SVGs with embedded raw WAV signals.",
             "Complete procedural generation in WebAssembly."
           ]
@@ -370,7 +370,7 @@
             "music", "webassembly", "solidity", "react"
         ],
         "highlights": [
-            "Uses a subgraph to create NFTs fully decentralized.",
+            "Uses a <a href='https://thegraph.com/docs/en/developing/assemblyscript-api' target='blank_'>custom subgraph</a> to create NFTs fully decentralized.",
             "Each NFT is a unique SVGs with embedded raw WAV signals.",
             "Complete procedural generation in WebAssembly."
         ]
@@ -391,7 +391,7 @@
             "python_scientific", "machinelearning", "cloud"
           ],
           "highlights": [
-            "I develop and maintain our webapp and investment algorithms.",
+            "Develop and maintain our webapp and investment algorithms.",
             "Responsible for technical decisions and architecture."
           ]
         }
@@ -657,6 +657,11 @@
         "id": "browser",
         "icon": "ph/browser-fill",
         "title": "Browser"
+    },
+    {
+        "id": "thegraph",
+        "icon": "mdi/graph-outline",
+        "title": "The Graph"
     }
   ],
   
@@ -685,12 +690,10 @@
   ],
   "COLOR_TECHNOLOGIES": "%23252525",
 
-  "DISTANCE_PLANET": 5,
-  "DISTANCE_MOON": 3,
-
-  "HEIGHT_SUN": 666,
-  "HEIGHT_PLANET": 3,
-  "HEIGHT_MOON": 2,
+  "CAMERA_PLANET": [10, 5],
+  "CAMERA_MOON": [4, 2],
+  "CAMERA_PLANET_MOBILE": [17, 7],
+  "CAMERA_MOON_MOBILE": [5, 2],
 
   "PAN_SPEED": 0.022,
   "ZOOM_SPEED": 0.02,

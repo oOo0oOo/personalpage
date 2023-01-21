@@ -24,7 +24,7 @@ export class FocusCamera extends PerspectiveCamera {
         );
     }
 
-    setStartDistance(){
+    setStartDistance() {
         // TODO: Dependent on display width
         if (isMobile) {
             this.startPos.copy(cameraDirection.multiplyScalar(130));
@@ -32,6 +32,13 @@ export class FocusCamera extends PerspectiveCamera {
             this.startPos.copy(cameraDirection.multiplyScalar(60));
         }
         this.position.copy(this.startPos);
+    }
+
+    setFocusSun() {
+        this.focusObject = new Object3D();
+        this.focusDist = 0;
+        this.focusHeight = 0;
+        this.doAutoMove = true;
     }
 
     setFocusObject(object: Object3D, distance: number, height: number) {
@@ -42,22 +49,26 @@ export class FocusCamera extends PerspectiveCamera {
     }
 
     tick(timeElapsed: number) {
-        if (this.focusHeight === 0 || !this.doAutoMove) { return };
+        if (!this.doAutoMove) { return };
 
         let focusPos;
-        if (this.focusHeight === config.HEIGHT_SUN){
+        if (this.focusHeight === 0) {
             focusPos = this.startPos;
         } else {
             focusPos = this.focusObject.position.clone();
             focusPos.y = this.focusHeight;
         }
-            
+
         // Move camera towards focusDist if we are not too close already
         var current_distance = this.position.distanceTo(focusPos);
         var distance_diff = this.focusDist - current_distance;
-        var direction = this.position.clone().sub(focusPos).normalize();
+        var direction = focusPos.clone().sub(this.position).normalize();
 
-        this.position.add(direction.multiplyScalar(config.ZOOM_SPEED * distance_diff));
+        if (distance_diff > 0 && this.position.y < focusPos.y) {
+            direction.y *= -1;
+        }
+
+        this.position.add(direction.multiplyScalar(-1 * config.ZOOM_SPEED * distance_diff));
         this.updateProjectionMatrix();
     }
 }

@@ -4,6 +4,7 @@ import {
     WebGL1Renderer,
     WebGLRenderer,
     Vector2,
+    Object3D,
 } from 'three';
 
 import { createCamera } from './components/camera';
@@ -33,7 +34,7 @@ let controls: FocusControls;
 let loop: Loop;
 let isRunning: boolean;
 let raycaster: Raycaster;
-let currentFocus: string = "sun";
+let currentFocus: string = "";
 let categoryIds: string[];
 let annotations: Annotation[];
 let centerLabel: HTMLDivElement;
@@ -178,6 +179,8 @@ class World {
             loop.updatables.push(annotation);
             annotations.push(annotation);
         }
+
+        this.changeCurrentFocus("sun");
     }
 
     render() {
@@ -223,7 +226,6 @@ class World {
             if (id === "") continue;
 
             let sameId = id === currentFocus;
-            currentFocus = id;
 
             if (currentFocus !== "sun" && sameId) {
                 if (categoryIds.includes(currentFocus)) {
@@ -234,7 +236,7 @@ class World {
                     this.changeCurrentFocus(parent);
                 }
             } else {
-                this.changeCurrentFocus(currentFocus);
+                this.changeCurrentFocus(id);
             }
             break;
         }
@@ -391,30 +393,38 @@ class World {
         this.changeCurrentFocus(parent);
     }
 
-    changeCurrentFocus(id: string) {
-        currentFocus = id;
+    changeCurrentFocus(newFocus: string) {
+        if (newFocus === currentFocus) return;
 
-        let distance;
-        let height;
-        if (id === "sun") {
-            distance = 0;
-            height = config.HEIGHT_SUN;
-            controls.enabled = true;
-        } else if (categoryIds.includes(id)) {
-            distance = config.DISTANCE_PLANET;
-            height = config.HEIGHT_PLANET;
+        currentFocus = newFocus;
+
+        if (currentFocus === "sun") {
+            camera.setFocusSun();
+            controls.setTargetObject(new Object3D());
             controls.enabled = true;
         } else {
-            distance = config.DISTANCE_MOON;
-            height = config.HEIGHT_MOON;
-            // Disable orbit controls
-            controls.enabled = false;
+            let cam: number[] = [];
+            if (categoryIds.includes(currentFocus)) {
+                controls.enabled = true;
+                if (isMobile) {
+                    cam = config.CAMERA_PLANET_MOBILE;
+                } else {
+                    cam = config.CAMERA_PLANET;
+                }
+            } else {
+                if (isMobile) {
+                    cam = config.CAMERA_MOON_MOBILE;
+                } else {
+                    cam = config.CAMERA_MOON;
+                }
+                controls.enabled = false;
+            }
+            let focusObject = scene.getObjectByName(currentFocus);
+            if (focusObject !== undefined) {
+                camera.setFocusObject(focusObject, cam[0], cam[1]);
+                controls.setTargetObject(focusObject);
+            }
         }
-
-        let focusObject = scene.getObjectByName(currentFocus);
-        if (focusObject === undefined) return;
-        camera.setFocusObject(focusObject, distance, height);
-        controls.setTargetObject(focusObject);
 
         // Set hash url
         if (currentFocus !== "sun") {

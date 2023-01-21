@@ -5,12 +5,10 @@ export interface Config {
     COLOR_BODIES: string[];
     COLOR_TECHNOLOGIES: string;
 
-    DISTANCE_PLANET: number;
-    DISTANCE_MOON: number;
-
-    HEIGHT_SUN: number;
-    HEIGHT_PLANET: number;
-    HEIGHT_MOON: number;
+    CAMERA_PLANET: number[];
+    CAMERA_PLANET_MOBILE: number[];
+    CAMERA_MOON: number[];
+    CAMERA_MOON_MOBILE: number[];
 
     PAN_SPEED: number;
     ZOOM_SPEED: number;

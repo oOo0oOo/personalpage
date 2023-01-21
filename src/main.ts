@@ -102,18 +102,21 @@ async function main() {
     // Detect click on annotation title
     let annotationTitles = document.querySelectorAll(".annotation-title");
     for (let i = 0; i < annotationTitles.length; i++) {
-        annotationTitles[i].addEventListener('mousedown', (evt) => {
-            // Get id from data attribute
-            const id = (evt.target as HTMLDivElement).dataset.id;
-            // @ts-ignore
-            world.changeCurrentFocus(id);
-        });
-        annotationTitles[i].addEventListener('touchstart', (evt) => {
-            // Get id from data attribute
-            const id = (evt.target as HTMLDivElement).dataset.id;
-            // @ts-ignore
-            world.changeCurrentFocus(id);
-        });
+        if (!isMobile) {
+            annotationTitles[i].addEventListener('mousedown', (evt) => {
+                // Get id from data attribute
+                const id = (evt.target as HTMLDivElement).dataset.id;
+                // @ts-ignore
+                world.changeCurrentFocus(id);
+            });
+        } else {
+            annotationTitles[i].addEventListener('touchstart', (evt) => {
+                // Get id from data attribute
+                const id = (evt.target as HTMLDivElement).dataset.id;
+                // @ts-ignore
+                world.changeCurrentFocus(id);
+            });
+        }
     }
 
     document.querySelector('#info_hide')?.addEventListener('click', () => {
