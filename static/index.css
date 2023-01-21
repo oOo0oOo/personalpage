@@ -230,10 +230,12 @@ li {
 /* Change info box on mobile */
 @media (max-width: 740px) {
     #info_box{
-        width: 94vw;
-        padding: 5vw 3vw 5vw 3vw;
-        top: 10vw;
-        max-height: 86vh;
+        width: 90vw;
+        padding: 10px 3vw 10px 3vw;
+        top: 5vh;
+        max-height: calc(90vh - 20px);
+        margin-left: 2vw;
+        margin-right: 2vw;
         overflow-y: auto;
         overflow-x: hidden;
     }
@@ -250,7 +252,7 @@ li {
         height: 220px;
         width: 220px;
         flex: 0 220px;
-        margin-left: calc((94vw - 220px) / 2);
+        margin-left: calc((90vw - 220px) / 2);
     }
 
     #info_left {
@@ -263,8 +265,9 @@ li {
     }
 
     #info_link {
-        margin-left: calc((94vw - 280px) / 4);
+        width: 100%;
         margin-top: 20px;
+        padding: 10px 0px 10px 0px;
     }
 
     #info_hide {
