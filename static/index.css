@@ -13,13 +13,27 @@ body {
     background-color: #090A0F;
 }
 
-.stats {
+#stats {
     position: fixed;
     left: 0px;
     bottom: 0px;
     opacity: 0.9;
     cursor: pointer;
     z-index: 10000;
+    display: none;
+}
+
+#stats_btn {
+    padding: 10px 20px 10px 20px;
+    background: #97c2b9;
+    text-align: center;
+    font-size: 16pt;
+    cursor: pointer;
+    border-radius: 14px;
+}
+
+#stats_btn:hover {
+    background: #f8ae0099;
 }
 
 #scene_container {

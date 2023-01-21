@@ -298,6 +298,27 @@
           ]
         },
         {
+          "id": "this",
+          "title": "This Page",
+          "description": "Solar system 3D portfolio page.<br><br>Let me know if you find any bugs ;-)<br><br><a id='stats_btn' onclick='document.getElementById(\"stats\").style.display=\"block\"'>Show FPS</a>",
+          "link": {
+            "url": "static/config.json",
+            "text": "JSON Content"
+          },
+          "media": {
+            "type": "img",
+            "url": "this.png"
+          },
+          "technologies": [
+            "typescript", "three"
+          ],
+          "highlights": [
+            "Interactive 3D visualization using three.js.",
+            "Easily configurable using <a href='static/config.json'>JSON</a>.",
+            "CI/CD via Github Actions."
+          ]
+        },
+        {
           "id": "spiderbox",
           "title": "Spider Box",
           "description": "A small AR experiment of a spider living in a box behind your screen.<br><br>Maybe I'll turn it into a scary tamagotchi one day.",
@@ -334,7 +355,7 @@
           ]
         },
         {
-        "id": "proofofgroove",
+        "id": "proofofgroove2",
         "title": "Proof of Groove",
         "description": "We move together<br>We groove together<br><br>Proof of Groove is an NFT, generated using a fully decentralized synthesizer.",
         "link": {
@@ -450,9 +471,9 @@
           }
         },
         {
-          "id": "this",
+          "id": "this2",
           "title": "This Page",
-          "description": "Solar system 3D portfolio page.<br><br>Quite a few projects didn't fit anymore, so I might have to change it soon.<br><br>Let me know if you find any bugs ;-)",
+          "description": "Solar system 3D portfolio page.<br><br>Let me know if you find any bugs ;-)<br><br><a id='stats_btn' onclick='document.getElementById(\"stats\").style.display=\"block\"'>Show FPS</a>",
           "link": {
             "url": "static/config.json",
             "text": "JSON Content"
