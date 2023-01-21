@@ -51,48 +51,52 @@ async function main() {
     let dragDistance = 0;
     let mouseDown = false;
 
-    addEventListener('mousedown', (evt) => {
-        mouseDown = true;
-        dragDistance = 0;
-        world.onMouseDown(evt);
-    });
+    // Events for mouse or touch
+    if (!isMobile) {
+        // Detect mouse events on desktop
+        addEventListener('mousedown', (evt) => {
+            mouseDown = true;
+            dragDistance = 0;
+            world.onMouseDown(evt);
+        });
 
-    addEventListener('mouseup', () => {
-        mouseDown = false;
-        dragging = false;
-    });
+        addEventListener('mouseup', () => {
+            mouseDown = false;
+            dragging = false;
+        });
 
-    addEventListener('mousemove', (evt) => {
-        if (mouseDown) {
-            dragDistance += Math.abs(evt.movementX) + Math.abs(evt.movementY);
-        }
-        if (!dragging && mouseDown && dragDistance > 8) {
-            dragging = true;
-            world.onDrag();
-        }
-    });
+        addEventListener('mousemove', (evt) => {
+            if (mouseDown) {
+                dragDistance += Math.abs(evt.movementX) + Math.abs(evt.movementY);
+                if (!dragging && dragDistance > 8) {
+                    dragging = true;
+                    world.onDrag();
+                }
+            }
+        });
+    } else {
+        // Detect touch events on mobile (ignore zoom gesture for now)
+        addEventListener('touchstart', (evt) => {
+            mouseDown = true;
+            world.onMouseDown(evt);
+        });
+
+        addEventListener('touchend', () => {
+            mouseDown = false;
+            dragging = false;
+        });
+
+        addEventListener('touchmove', () => {
+            // There is no evt.movementX/Y on mobile
+            if (!dragging && mouseDown) {
+                dragging = true;
+                world.onDrag();
+            }
+        });
+    }
 
     addEventListener('wheel', () => {
         world.onScroll();
-    });
-
-    // Detect touch events on mobile (ignore zoom gesture for now)
-    addEventListener('touchstart', (evt) => {
-        mouseDown = true;
-        world.onMouseDown(evt);
-    });
-
-    addEventListener('touchend', () => {
-        mouseDown = false;
-        dragging = false;
-    });
-
-    addEventListener('touchmove', () => {
-        // There is no evt.movementX/Y on mobile
-        if (!dragging && mouseDown) {
-            dragging = true;
-            world.onDrag();
-        }
     });
 
     // Detect click on annotation title

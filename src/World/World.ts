@@ -218,7 +218,6 @@ class World {
 
         const intersects = raycaster.intersectObjects(scene.children, true);
 
-        if (intersects.length === 0) return;
         for (const intersect of intersects) {
             let id = intersect.object.name;
             if (id === "") continue;
@@ -259,7 +258,7 @@ class World {
             }
             // Hide center label div and info box
             centerLabel.style.animation = FADEOUT;
-            infoBox.style.animation = FADEOUT;
+            infoBox.style.display = "none";
         }
         // If a category is currentFocus: Annotate all projects
         else if (categoryIds.includes(currentFocus)) {
@@ -271,7 +270,7 @@ class World {
             centerLabel.innerHTML = config.CONTENT[index].title;
 
             // Hide info box
-            infoBox.style.animation = FADEOUT;
+            infoBox.style.display = "none";
 
             for (let i = 0; i < annotations.length; i++) {
                 if (i < config.CONTENT[index].projects.length) {
@@ -381,6 +380,7 @@ class World {
             highlights.style.display = "none";
         }
 
+        infoBox.style.display = "block";
         infoBox.style.animation = FADEINFAST;
     }
 
