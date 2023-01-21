@@ -46,7 +46,6 @@ async function main() {
     await world.init();
     world.start();
 
-    // Various events on overlay
     // Detect dragging and wheel to stop camera auto movement
     let dragging = false;
     let dragDistance = 0;
@@ -121,13 +120,25 @@ async function main() {
         world.hideInfoBox();
     });
 
-    // Get current #url and focus directly if it is set
+    // On page load: Get current #url and focus directly if it is set
     const url = new URL(window.location.href);
     const focus = url.hash.substring(1);
     if (focus) {
         // @ts-ignore
         world.changeCurrentFocus(focus);
     }
+
+    // Detect hashchange (usually back button in browser)
+    window.addEventListener('hashchange', () => {
+        const url = new URL(window.location.href);
+        const focus = url.hash.substring(1);
+        if (focus) {
+            // @ts-ignore
+            world.changeCurrentFocus(focus);
+        } else {
+            world.changeCurrentFocus("sun");
+        }
+    });
 }
 
 // Log errors in development mode
