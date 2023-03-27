@@ -25,24 +25,19 @@
           ]
         },
         {
-          "id": "rocketkite",
-          "title": "Rocket Kite",
-          "description": "Fly your rocket kite among the planets.<br><br>Use gravity and collect all checkpoints.",
+          "id": "infinitea",
+          "title": "Infinitea",
+          "description": "Do you feel like having a tea? Then this is the game for you.<br><br>Just keep on brewing!<br><br>Our try at an incremental game.",
           "link": {
-            "url": "https://play.google.com/store/apps/details?id=rocketkite.rocketkite",
-            "text": "Fly Now!"
+            "url": "https://oli.show/tea/",
+            "text": "Brew Now!"
           },
           "media": {
             "type": "img",
-            "url": "rocketkite.png"
+            "url": "infinitea.png"
           },
           "technologies": [
-            "python", "kivy", "android"
-          ],
-          "highlights": [
-            "Multi-body physics simulation.",
-            "Monochrome with varying color schemes.",
-            "Published for Android using buildozer."
+            "javascript", "browser"
           ]
         },
         {
@@ -66,39 +61,24 @@
           ]
         },
         {
-          "id": "cloudtower",
-          "title": "Cloud Tower",
-          "description": "Build a tower of clouds and reach new heights in this small game.<br><br>First Godot game published on Android.",
+          "id": "rocketkite",
+          "title": "Rocket Kite",
+          "description": "Fly your rocket kite among the planets.<br><br>Use gravity and collect all checkpoints.",
           "link": {
-            "url": "https://play.google.com/store/apps/details?id=org.godotengine.towermaster",
-            "text": "Stack Now!"
+            "url": "https://play.google.com/store/apps/details?id=rocketkite.rocketkite",
+            "text": "Fly Now!"
           },
           "media": {
             "type": "img",
-            "url": "cloudtower.png"
+            "url": "rocketkite.png"
           },
           "technologies": [
-            "godot", "android"
-          ]
-        },
-        {
-          "id": "scurry",
-          "title": "Scurry",
-          "description": "Keep your rabbits save by whistling. Just chill and whistle...<br><br>Developed for a <a target='blank_' href='https://itch.io/jam/trijam-123/rate/1071357'>game jam</a> using Godot.",
-          "link": {
-            "url": "https://code-box.itch.io/scurry",
-            "text": "Whistle Now!"
-          },
-          "media": {
-            "type": "img",
-            "url": "scurry.png"
-          },
-          "technologies": [
-            "godot", "html5", "ableton"
+            "python", "kivy", "android"
           ],
           "highlights": [
-            "Developed in 15h.",
-            "Custom soundtrack: <a target='blank_' href='https://freesound.org/people/code_box/sounds/575759/'>Rabbit Bop</a>."
+            "Multi-body physics simulation.",
+            "Monochrome with varying color schemes.",
+            "Published for Android using buildozer."
           ]
         },
         {
@@ -123,6 +103,22 @@
           ]
         },
         {
+          "id": "cloudtower",
+          "title": "Cloud Tower",
+          "description": "Build a tower of clouds and reach new heights in this small game.<br><br>First Godot game published on Android.",
+          "link": {
+            "url": "https://play.google.com/store/apps/details?id=org.godotengine.towermaster",
+            "text": "Stack Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "cloudtower.png"
+          },
+          "technologies": [
+            "godot", "android"
+          ]
+        },
+        {
           "id": "bite",
           "title": "Bite",
           "description": "A short game about a hungry vampire with water color art.<br><br>Drink enough blood to survive 2 years.<br><br>Don't kill the parents.",
@@ -139,19 +135,23 @@
           ]
         },
         {
-          "id": "infinitea",
-          "title": "Infinitea",
-          "description": "Do you feel like having a tea? Then this is the game for you.<br><br>Just keep on brewing!<br><br>Our try at an incremental game.",
+          "id": "scurry",
+          "title": "Scurry",
+          "description": "Keep your rabbits save by whistling. Just chill and whistle...<br><br>Developed for a <a target='blank_' href='https://itch.io/jam/trijam-123/rate/1071357'>game jam</a> using Godot.",
           "link": {
-            "url": "https://oli.show/tea/",
-            "text": "Brew Now!"
+            "url": "https://code-box.itch.io/scurry",
+            "text": "Whistle Now!"
           },
           "media": {
             "type": "img",
-            "url": "infinitea.png"
+            "url": "scurry.png"
           },
           "technologies": [
-            "javascript", "browser"
+            "godot", "html5", "ableton"
+          ],
+          "highlights": [
+            "Developed in 15h.",
+            "Custom soundtrack: <a target='blank_' href='https://freesound.org/people/code_box/sounds/575759/'>Rabbit Bop</a>."
           ]
         }
       ]
@@ -177,22 +177,6 @@
             ]
         },
         {
-          "id": "floatingseconds",
-          "title": "The Floating Seconds",
-          "description": "For many years we have developed our unique blend of instrumental progressive rock.<br><br>Unfortunately this band is no longer active but you can still listen to our music for free on Soundcloud.<br><br>In this live recording I was playing synth and was involved with composition and 'mastering'.",
-          "link": {
-            "url": "https://soundcloud.com/thefloatingseconds/sets/satans-bbq-at-mehrspur",
-            "text": "Listen Now!"
-          },
-          "media": {
-            "type": "img",
-            "url": "floatingseconds.png"
-          },
-          "technologies": [
-            "synth", "ableton", "drums"
-          ]
-        },
-        {
           "id": "proofofgroove",
           "title": "Proof of Groove",
           "description": "We move together<br>We groove together<br><br>Proof of Groove is an NFT, generated using a fully decentralized synthesizer.",
@@ -212,6 +196,22 @@
             "Each NFT is a unique SVGs with embedded raw WAV signals.",
             "Complete procedural generation in WebAssembly."
           ]
+        },
+        {
+          "id": "floatingseconds",
+          "title": "The Floating Seconds",
+          "description": "For many years we have developed our unique blend of instrumental progressive rock.<br><br>Unfortunately this band is no longer active but you can still listen to our music for free on Soundcloud.<br><br>In this live recording I was playing synth and was involved with composition and 'mastering'.",
+          "link": {
+            "url": "https://soundcloud.com/thefloatingseconds/sets/satans-bbq-at-mehrspur",
+            "text": "Listen Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "floatingseconds.png"
+          },
+          "technologies": [
+            "synth", "ableton", "drums"
+          ]
         }
       ]
     },
@@ -219,6 +219,26 @@
       "id": "software",
       "title": "Software",
       "projects": [
+        {
+          "id": "humanedge",
+          "title": "Human Edge",
+          "description": "The next step in asset management.<br><br>Human Edge provides systematic investment solutions.",
+          "link": {
+            "url": "https://www.human-edge.ch/",
+            "text": "Invest Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "humanedge.png"
+          },
+          "technologies": [
+            "python_scientific", "machinelearning", "cloud"
+          ],
+          "highlights": [
+            "Develop and maintain our webapp and investment algorithms.",
+            "Responsible for technical decisions and architecture."
+          ]
+        },
         {
           "id": "winnietack",
           "title": "Winnie & Tack",
@@ -238,26 +258,6 @@
             "Already 2 adventures available!",
             "Users download adventures as separate asset bundles.",
             "During the adventure no internet connectivity is required."
-          ]
-        },
-        {
-          "id": "cocrafty",
-          "title": "CoCrafty",
-          "description": "Develop startup ideas. Easy. Together.<br><br>CoCrafty is a collaboration platform for developing startup ideas.",
-          "link": {
-            "url": "http://cocrafty.com/",
-            "text": "Collaborate Now!"
-          },
-          "media": {
-            "type": "img",
-            "url": "cocrafty.png"
-          },
-          "technologies": [
-            "flask", "javascript", "cloud", "socketio"
-          ],
-          "highlights": [
-            "A variety of collaborative real-time tools: Mind-mapping, chat, ...",
-            "No longer actively maintained. Use it while it's still online!"
           ]
         },
         {
@@ -282,20 +282,25 @@
           ]
         },
         {
-          "id": "pixeldemocracy",
-          "title": "The Pixel Democracy",
-          "description": "Majority rules, period!<br><br>Collaborative drawing board. You decide where the line goes next!",
-          "link": {
-            "url": "http://www.thepixeldemocracy.com/",
-            "text": "Draw Now!"
-          },
-          "media": {
+        "id": "proofofgroove2",
+        "title": "Proof of Groove",
+        "description": "We move together<br>We groove together<br><br>Proof of Groove is an NFT, generated using a fully decentralized synthesizer.",
+        "link": {
+            "url": "https://proofofgroove.com/",
+            "text": "Groove Now!"
+        },
+        "media": {
             "type": "img",
-            "url": "pixeldemocracy.png"
-          },
-          "technologies": [
-            "flask", "javascript", "socketio"
-          ]
+            "url": "proofofgroove.png"
+        },
+        "technologies": [
+            "music", "webassembly", "solidity", "react"
+        ],
+        "highlights": [
+            "Uses a <a href='https://thegraph.com/docs/en/developing/assemblyscript-api' target='blank_'>custom subgraph</a> to create NFTs fully decentralized.",
+            "Each NFT is a unique SVGs with embedded raw WAV signals.",
+            "Complete procedural generation in WebAssembly."
+        ]
         },
         {
           "id": "this",
@@ -335,6 +340,42 @@
           ]
         },
         {
+          "id": "cocrafty",
+          "title": "CoCrafty",
+          "description": "Develop startup ideas. Easy. Together.<br><br>CoCrafty is a collaboration platform for developing startup ideas.",
+          "link": {
+            "url": "http://cocrafty.com/",
+            "text": "Collaborate Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "cocrafty.png"
+          },
+          "technologies": [
+            "flask", "javascript", "cloud", "socketio"
+          ],
+          "highlights": [
+            "A variety of collaborative real-time tools: Mind-mapping, chat, ...",
+            "No longer actively maintained. Use it while it's still online!"
+          ]
+        },
+        {
+          "id": "pixeldemocracy",
+          "title": "The Pixel Democracy",
+          "description": "Majority rules, period!<br><br>Collaborative drawing board. You decide where the line goes next!",
+          "link": {
+            "url": "http://www.thepixeldemocracy.com/",
+            "text": "Draw Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "pixeldemocracy.png"
+          },
+          "technologies": [
+            "flask", "javascript", "socketio"
+          ]
+        },
+        {
           "id": "thelist",
           "title": "The List",
           "description": "There is only one list. The list is forever. Pay any amount of money to add your name to the list.<br><br>What are you waiting for?",
@@ -348,47 +389,6 @@
           },
           "technologies": [
             "javascript", "browser"
-          ]
-        },
-        {
-        "id": "proofofgroove2",
-        "title": "Proof of Groove",
-        "description": "We move together<br>We groove together<br><br>Proof of Groove is an NFT, generated using a fully decentralized synthesizer.",
-        "link": {
-            "url": "https://proofofgroove.com/",
-            "text": "Groove Now!"
-        },
-        "media": {
-            "type": "img",
-            "url": "proofofgroove.png"
-        },
-        "technologies": [
-            "music", "webassembly", "solidity", "react"
-        ],
-        "highlights": [
-            "Uses a <a href='https://thegraph.com/docs/en/developing/assemblyscript-api' target='blank_'>custom subgraph</a> to create NFTs fully decentralized.",
-            "Each NFT is a unique SVGs with embedded raw WAV signals.",
-            "Complete procedural generation in WebAssembly."
-        ]
-        },
-        {
-          "id": "humanedge",
-          "title": "Human Edge",
-          "description": "The next step in asset management.<br><br>Human Edge provides systematic investment solutions.",
-          "link": {
-            "url": "https://www.human-edge.ch/",
-            "text": "Invest Now!"
-          },
-          "media": {
-            "type": "img",
-            "url": "humanedge.png"
-          },
-          "technologies": [
-            "python_scientific", "machinelearning", "cloud"
-          ],
-          "highlights": [
-            "Develop and maintain our webapp and investment algorithms.",
-            "Responsible for technical decisions and architecture."
           ]
         }
       ]
@@ -445,15 +445,6 @@
       "title": "About",
       "projects": [
         {
-          "id": "contact",
-          "title": "Contact",
-          "description": "Do you have any interesting input?<br><br>I might be available for freelance software development work.<br><br>Feel free to contact me via email at:<br><br><a href='m&#97;&#105;lto&#58;&#104;ey&#64;%&#54;&#70;li&#46;sh&#111;w'>h&#101;y&#64;oli&#46;sho&#119;</a>",
-          "media": {
-            "type": "img",
-            "url": "contact.png"
-          }
-        },
-        {
           "id": "biography",
           "title": "Biography",
           "description": "Hi, I am Oliver Dressler.<br><br>Passionate about data, technology and software development.<br><br>Located in Switzerland and currently working as CTO at Human Edge.",
@@ -478,6 +469,15 @@
             "Easily configurable using <a href='static/config.json'>JSON</a>.",
             "CI/CD via Github Actions."
           ]
+        },
+        {
+          "id": "contact",
+          "title": "Contact",
+          "description": "Do you have any interesting input?<br><br>I might be available for freelance software development work.<br><br>Feel free to contact me via email at:<br><br><a href='m&#97;&#105;lto&#58;&#104;ey&#64;%&#54;&#70;li&#46;sh&#111;w'>h&#101;y&#64;oli&#46;sho&#119;</a>",
+          "media": {
+            "type": "img",
+            "url": "contact.png"
+          }
         }
       ]
     }
