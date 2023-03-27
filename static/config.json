@@ -310,6 +310,10 @@
           "id": "this",
           "title": "This Page",
           "description": "Solar system 3D portfolio page.<br><br>Let me know if you find any bugs ;-)<br><br><a id='stats_btn' onclick='document.getElementById(\"stats\").style.display=\"block\"'>Show FPS</a>",
+          "link": {
+            "url": "https://github.com/oOo0oOo/personalpage",
+            "text": "Repository"
+          },
           "media": {
             "type": "img",
             "url": "this.png"
@@ -461,6 +465,10 @@
           "id": "this2",
           "title": "This Page",
           "description": "Solar system 3D portfolio page.<br><br>Let me know if you find any bugs ;-)<br><br><a id='stats_btn' onclick='document.getElementById(\"stats\").style.display=\"block\"'>Show Stats</a>",
+          "link": {
+            "url": "https://github.com/oOo0oOo/personalpage",
+            "text": "Repository"
+          },
           "media": {
             "type": "img",
             "url": "this.png"
