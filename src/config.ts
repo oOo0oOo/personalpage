@@ -25,7 +25,7 @@ export interface Config {
     RADIUS_PLANET: number[];
     RADIUS_MOON: number[];
 
-    ANNOTATION_Y_OFFSETS: number[];
+    ANNOTATION_Y_OFFSET: number;
     ANNOTATION_Y_STEP: number;
 
     GRAVITY: number;

@@ -23,7 +23,6 @@ async function main() {
             el.querySelector("#technology_title")?.innerHTML = tech.title;
         };
 
-
         // Set icon
         // @ts-ignore
         let url = `https://api.iconify.design/${tech.icon}.svg?color=${color}`;

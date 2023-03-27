@@ -165,17 +165,21 @@ class World {
         maxProjects = Math.max(maxProjects + 1, config.CONTENT.length);
 
         // Create annotations (we will alter them later)
-        // The y position of the annotations alternates between the ANNOTATION_Y_OFFSETS
+        // The y position of the annotations alternates
+        let perSide = Math.floor(maxProjects / 2);
+        let annotationY = [];
+
+        for (let i = 0; i < perSide; i++) {
+            annotationY.push(-config.ANNOTATION_Y_OFFSET - config.ANNOTATION_Y_STEP * i);
+        }
+        annotationY.reverse();
+        for (let i = 0; i < perSide; i++) {
+            annotationY.push(config.ANNOTATION_Y_OFFSET + config.ANNOTATION_Y_STEP * i);
+        }
+
         annotations = [];
-        let y_offset = 0;
         for (let i = 0; i < maxProjects; i++) {
-            var extra = config.ANNOTATION_Y_STEP * Math.floor(i / 2);
-            if (i % 2 != 0) {
-                extra *= -1;
-            }
-            let yPos = config.ANNOTATION_Y_OFFSETS[y_offset] + extra;
-            y_offset = (y_offset + 1) % config.ANNOTATION_Y_OFFSETS.length;
-            let annotation = new Annotation(yPos);
+            let annotation = new Annotation(annotationY[i]);
             loop.updatables.push(annotation);
             annotations.push(annotation);
         }
@@ -246,18 +250,26 @@ class World {
     updateAnnotations() {
         // If sun is currentFocus: Annotate all categories
         if (currentFocus === "sun") {
-            for (let i = 0; i < annotations.length; i++) {
-                if (i < config.CONTENT.length) {
-                    let title = config.CONTENT[i].title;
-                    let id = config.CONTENT[i].id;
-                    let obj = scene.getObjectByName(id);
-                    if (obj === undefined) break;
-                    annotations[i].setTargetBody(obj, title, id);
-                } else {
-                    // Hide unused annotations
-                    annotations[i].hideAnnotation();
-                }
+
+            let numCategories = config.CONTENT.length;
+            let startIndex = Math.floor((annotations.length / 2) - (numCategories / 2));
+
+            for (let i = 0; i < numCategories; i++) {
+                let title = config.CONTENT[i].title;
+                let id = config.CONTENT[i].id;
+                let obj = scene.getObjectByName(id);
+                if (obj === undefined) break;
+                annotations[i + startIndex].setTargetBody(obj, title, id);
             }
+
+            // Hide unused annotations
+            for (let i = 0; i < startIndex; i++) {
+                annotations[i].hideAnnotation();
+            }
+            for (let i = startIndex + numCategories; i < annotations.length; i++) {
+                annotations[i].hideAnnotation();
+            }
+
             // Hide center label div and info box
             centerLabel.style.animation = FADEOUT;
             infoBox.style.display = "none";
@@ -274,17 +286,23 @@ class World {
             // Hide info box
             infoBox.style.display = "none";
 
-            for (let i = 0; i < annotations.length; i++) {
-                if (i < config.CONTENT[index].projects.length) {
-                    let title = config.CONTENT[index].projects[i].title;
-                    let projectId = currentFocus + "_" + config.CONTENT[index].projects[i].id;
-                    let obj = scene.getObjectByName(projectId);
-                    if (obj === undefined) break;
-                    annotations[i].setTargetBody(obj, title, projectId);
-                } else {
-                    // Hide unused annotations
-                    annotations[i].hideAnnotation();
-                }
+            let numProjects = config.CONTENT[index].projects.length;
+            let startIndex = Math.floor((annotations.length / 2) - (numProjects / 2));
+
+            for (let i = 0; i < numProjects; i++) {
+                let title = config.CONTENT[index].projects[i].title;
+                let projectId = currentFocus + "_" + config.CONTENT[index].projects[i].id;
+                let obj = scene.getObjectByName(projectId);
+                if (obj === undefined) break;
+                annotations[i + startIndex].setTargetBody(obj, title, projectId);
+            }
+
+            // Hide unused annotations
+            for (let i = 0; i < startIndex; i++) {
+                annotations[i].hideAnnotation();
+            }
+            for (let i = startIndex + numProjects; i < annotations.length; i++) {
+                annotations[i].hideAnnotation();
             }
         }
         // If a project is currentFocus: Annotate only this project
