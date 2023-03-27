@@ -163,7 +163,7 @@
         {
           "id": "soundtracks",
           "title": "Soundtracks",
-          "description": "A collection of over 50 short soundtracks for games, audio books and animations.<br><br>Composed and rendered using Ableton Live.<br><br>Released to the public domain and available for download on freesound.org.",
+          "description": "A collection of over 50 short soundtracks for games, audio books and animations.<br><br>Composed and rendered using Ableton Live.<br><br>Free download available on freesound.org.",
           "link": {
             "url": "https://freesound.org/people/code_box/",
             "text": "Listen Now!"
@@ -174,6 +174,10 @@
           },
             "technologies": [
                 "music", "ableton"
+            ],
+            "highlights": [
+                "All tracks are released to the public domain under <a href='https://creativecommons.org/share-your-work/public-domain/cc0/' target='blank_'>CC0</a>.",
+                "Variety of styles, whatever I feel like :D"
             ]
         },
         {
@@ -256,14 +260,14 @@
           ],
           "highlights": [
             "Already 2 adventures available!",
-            "Users download adventures as separate asset bundles.",
+            "Cross-platform app released on <a href='https://play.google.com/store/apps/details?id=ch.abenteuerweg.adventure' target='blank_'>Android</a> and <a href='https://apps.apple.com/us/app/abenteuerweg-mit-winnie-tack/id1558362365' target='blank_'>iOS</a>.",
             "During the adventure no internet connectivity is required."
           ]
         },
         {
           "id": "digitalliteracy",
           "title": "Digital Literacy",
-          "description": "Strengthening digital opinion-forming with simulations.<br><br>Developed with <a href='https://www.dezentrum.ch/en/'>Dezentrum</a> and the <a href='https://www.risiko-dialog.ch/en/'>Risk Dialogue Foundation</a>.",
+          "description": "Strengthening digital opinion-forming with simulations.<br><br>Developed with <a href='https://www.dezentrum.ch/en/' target='blank_'>Dezentrum</a> and the <a href='https://www.risiko-dialog.ch/en/' target='blank_'>Risk Dialogue Foundation</a>.",
           "link": {
             "url": "https://www.digital-literacy.live/",
             "text": "Discuss Now!"
@@ -315,7 +319,7 @@
           ],
           "highlights": [
             "Interactive 3D visualization using three.js.",
-            "Easily configurable using <a href='static/config.json'>JSON</a>.",
+            "Easily configurable using <a href='static/config.json' target='blank_'>JSON</a>.",
             "CI/CD via Github Actions."
           ]
         },
@@ -466,7 +470,7 @@
           ],
           "highlights": [
             "Interactive 3D visualization using three.js.",
-            "Easily configurable using <a href='static/config.json'>JSON</a>.",
+            "Easily configurable using <a href='static/config.json' target='blank_'>JSON</a>.",
             "CI/CD via Github Actions."
           ]
         },
