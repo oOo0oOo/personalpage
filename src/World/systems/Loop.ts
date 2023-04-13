@@ -21,6 +21,8 @@ class Loop {
     scene: LoopTypes['scene'];
     renderer: LoopTypes['renderer'];
     updatables: any[];
+    attracting: any[];
+    attractRadius: number[];
     stats: Stats;
     elapsedTime: number;
     currentFocus: Object3D;
@@ -30,6 +32,8 @@ class Loop {
         this.scene = scene;
         this.renderer = renderer;
         this.updatables = [];
+        this.attracting = [];
+        this.attractRadius = [];
         this.elapsedTime = 0;
         this.currentFocus = new Object3D();
 
@@ -41,6 +45,9 @@ class Loop {
     }
 
     start() {
+        // Collect all attract radii
+        this.attractRadius = this.attracting.map((obj) => obj.userData.radius);
+
         this.renderer.setAnimationLoop(() => {
             this.tick();
             this.renderer.render(this.scene, this.camera);
@@ -53,11 +60,15 @@ class Loop {
     }
 
     tick() {
-        this.elapsedTime += clock.getDelta();
+        let delta = clock.getDelta();
+        this.elapsedTime += delta;
+
+        // Get the positions of the objects to attract to
+        const attractPositions = this.attracting.map((obj) => obj.position);
 
         for (const object of this.updatables) {
             // @ts-ignore
-            object.tick(this.elapsedTime);
+            object.tick(this.elapsedTime, delta, attractPositions, this.attractRadius);
         }
     }
 

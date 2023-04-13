@@ -5,11 +5,14 @@ import {
     WebGLRenderer,
     Vector2,
     Object3D,
+    Plane,
+    Vector3,
 } from 'three';
 
 import { createCamera } from './components/camera';
 import { createLights } from './components/lights';
 import { createBody } from './components/objects/body';
+import { createComet } from './components/objects/comet';
 import { createScene } from './components/scene';
 import { createControls } from './systems/controls';
 import { createRenderer } from './systems/renderer';
@@ -20,6 +23,7 @@ import { FocusCamera } from './components/camera';
 import { FocusControls } from './systems/controls';
 import { Annotation } from './components/objects/annotation';
 import { config, isMobile } from '../main';
+import { randFloat } from 'three/src/math/MathUtils';
 
 
 const FADEOUT = "fadeout 0.2s ease-in-out 1 forwards";
@@ -99,7 +103,8 @@ class World {
         // Create the sun
         const sun = await createBody({ bodyType: "sun", id: "sun" });
         controls.target.copy(sun.position);
-        loop.updatables.push(sun);
+        // loop.updatables.push(sun);
+        loop.attracting.push(sun);
         scene.add(sun);
 
         // Pick orbits and angles for all categories
@@ -133,6 +138,7 @@ class World {
             let catId = config.CONTENT[i].id;
             const categoryBody = await createBody({ id: catId, bodyType: "planet", orbit: orbit, startAngle: startA, velocities: velocit });
             loop.updatables.push(categoryBody);
+            loop.attracting.push(categoryBody);
             scene.add(categoryBody);
 
             // Create all projects as moons of the planet
@@ -151,6 +157,10 @@ class World {
                 const projectBody = await createBody({ id: id, bodyType: "moon", orbit: orbit, startAngle: startA, velocities: velocit });
                 loop.updatables.push(projectBody);
                 scene.add(projectBody);
+
+                if (!isMobile) {
+                    loop.attracting.push(projectBody);
+                }
             }
         }
 
@@ -225,6 +235,8 @@ class World {
 
         const intersects = raycaster.intersectObjects(scene.children, true);
 
+        let foundIntersect = false;
+
         for (const intersect of intersects) {
             let id = intersect.object.name;
             if (id === "") continue;
@@ -242,9 +254,43 @@ class World {
             } else {
                 this.changeCurrentFocus(id);
             }
+            foundIntersect = true;
             break;
         }
         this.updateAnnotations();
+
+        // Spawn some comets
+        if (!foundIntersect) {
+            // Intersect click with solar system plane y=0
+            const plane = new Plane(new Vector3(0, 1, 0), 0);
+            const ray = new Raycaster();
+            ray.setFromCamera(mouse, camera);
+            const point = new Vector3();
+            ray.ray.intersectPlane(plane, point);
+
+            // Check if point is in solar system (largest orbit)
+            if (point.length() > 30) return;
+
+            // Spawn comet with random velocity with random sign
+            const randFloat = () => (0.5 + 0.5 * Math.random());
+
+            let numComets = 12;
+            if (isMobile) numComets = 3;
+
+            for (let i = 0; i < numComets; i++) {
+                let velocity = new Vector3(randFloat(), 0, 0);
+                velocity.applyAxisAngle(new Vector3(0, 1, 0), 4 * Math.random() * Math.PI);
+                let comet = createComet({ position: point, velocity: velocity });
+                scene.add(comet);
+                loop.updatables.push(comet);
+
+                // Remove comet after 10 seconds
+                setTimeout(() => {
+                    scene.remove(comet);
+                    loop.updatables.splice(loop.updatables.indexOf(comet), 1);
+                }, Math.random() * 4000 + 10000);
+            }
+        }
     }
 
     updateAnnotations() {

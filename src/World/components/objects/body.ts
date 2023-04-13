@@ -61,6 +61,7 @@ function createBody(body: Body): Mesh {
     // Scale the mesh
     sphere.scale.set(radius, radius, radius);
     sphere.name = body.id;
+    sphere.userData = { radius: radius };
 
     if (body.bodyType !== 'sun' && !isMobile) {
         sphere.castShadow = true;

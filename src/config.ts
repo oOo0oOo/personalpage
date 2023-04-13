@@ -25,10 +25,14 @@ export interface Config {
     RADIUS_PLANET: number[];
     RADIUS_MOON: number[];
 
+    RADIUS_COMET: number;
+    COLOR_COMET: string;
+
     ANNOTATION_Y_OFFSET: number;
     ANNOTATION_Y_STEP: number;
 
     GRAVITY: number;
+    GRAVITY_COMET: number;
 
     LIGHT_AMBIENT: number;
     LIGHT_SUN: number;
