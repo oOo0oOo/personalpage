@@ -396,7 +396,7 @@ class World {
 
             let str: string = "";
             if (type === "img") {
-                str = `<img class="media-img" src="static/media/${url}">`;
+                str = `<img class="media-img" src="static/media/${url}" onload="this.style.opacity=1">`;
             } else if (type === "video") {
                 str = `<video controls class="media-video"><source src="static/media/${url}" type="video/mp4"></video>`;
             } else if (type === "audio") {
