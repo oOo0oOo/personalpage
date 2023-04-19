@@ -23,11 +23,10 @@ import { FocusCamera } from './components/camera';
 import { FocusControls } from './systems/controls';
 import { Annotation } from './components/objects/annotation';
 import { config, isMobile } from '../main';
-import { randFloat } from 'three/src/math/MathUtils';
 
 
 const FADEOUT = "fadeout 0.2s ease-in-out 1 forwards";
-const FADEIN = "fadein 3s ease-in-out 1 forwards";
+const FADEIN = "fadein 6s ease-in-out 1 forwards";
 const FADEINFAST = "fadein 1.5s ease-in-out 1 forwards";
 
 
@@ -79,6 +78,7 @@ class World {
         // The center label from #center_label
         centerLabel = document.getElementById("center_label") as HTMLDivElement;
         centerLabel.style.opacity = "0";
+        centerLabel.innerHTML = "back";
 
         // The info box from #info_box
         infoBox = document.getElementById("info_box") as HTMLDivElement;
@@ -330,7 +330,6 @@ class World {
 
             // Fade in label using a css transition
             centerLabel.style.animation = FADEIN;
-            centerLabel.innerHTML = config.CONTENT[index].title;
 
             // Hide info box
             infoBox.style.display = "none";
