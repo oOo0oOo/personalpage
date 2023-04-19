@@ -3,6 +3,7 @@ export interface Config {
     COLOR_SUN: string;
     COLOR_ORBIT: string;
     COLOR_BODIES: string[];
+    COLOR_COMETS: string[];
     COLOR_TECHNOLOGIES: string;
 
     CAMERA_PLANET: number[];
@@ -26,7 +27,8 @@ export interface Config {
     RADIUS_MOON: number[];
 
     RADIUS_COMET: number;
-    COLOR_COMET: string;
+    NUM_COMET: number;
+    NUM_COMET_MOBILE: number;
 
     ANNOTATION_Y_OFFSET: number;
     ANNOTATION_Y_STEP: number;

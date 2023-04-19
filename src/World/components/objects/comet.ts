@@ -13,12 +13,17 @@ interface Comet {
     velocity: Vector3;
 }
 
-// Change geometry based on performance (mobile has simpler shapes and no lighting)
-let material = new MeshBasicMaterial({ color: config.COLOR_COMET });
+// Create comet materials (from colors)
+const materials: MeshBasicMaterial[] = []
+for (let i = 0; i < config.COLOR_COMETS.length; i++) {
+    let color = config.COLOR_COMETS[i];
+    materials.push(new MeshBasicMaterial({ color: color }));
+}
 
 function createComet(comet: Comet): Mesh {
     // Scale the mesh
-    const geometry = new SphereGeometry(config.RADIUS_COMET, 8, 6);
+    const geometry = new SphereGeometry(config.RADIUS_COMET * (0.7 + Math.random() * 0.4), 8, 6);
+    const material = materials[Math.floor(Math.random() * materials.length)];
     const sphere = new Mesh(geometry, material);
 
     sphere.position.x = comet.position.x;

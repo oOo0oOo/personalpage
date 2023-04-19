@@ -271,25 +271,28 @@ class World {
             // Check if point is in solar system (largest orbit)
             if (point.length() > 30) return;
 
-            // Spawn comet with random velocity with random sign
-            const randFloat = () => (0.5 + 0.5 * Math.random());
+            this.spawnComets(point);
+        }
+    }
 
-            let numComets = 12;
-            if (isMobile) numComets = 3;
+    spawnComets(position: Vector3) {
+        // Target velocity is orbital velocity for bodies at this position
+        let targetVelocity = Math.sqrt(config.GRAVITY_COMET / position.length()) * 1.5;  // No idea why this magic factor is needed
 
-            for (let i = 0; i < numComets; i++) {
-                let velocity = new Vector3(randFloat(), 0, 0);
-                velocity.applyAxisAngle(new Vector3(0, 1, 0), 4 * Math.random() * Math.PI);
-                let comet = createComet({ position: point, velocity: velocity });
-                scene.add(comet);
-                loop.updatables.push(comet);
+        let numComets = isMobile ? config.NUM_COMET_MOBILE: config.NUM_COMET;
 
-                // Remove comet after 10 seconds
-                setTimeout(() => {
-                    scene.remove(comet);
-                    loop.updatables.splice(loop.updatables.indexOf(comet), 1);
-                }, Math.random() * 4000 + 10000);
-            }
+        for (let i = 0; i < numComets; i++) {
+            let velocity = new Vector3(targetVelocity * (0.2 + Math.random()), 0, 0);
+            velocity.applyAxisAngle(new Vector3(0, 1, 0), 4 * Math.random() * Math.PI);
+            let comet = createComet({ position: position, velocity: velocity });
+            scene.add(comet);
+            loop.updatables.push(comet);
+
+            // Remove comet after 20 seconds
+            setTimeout(() => {
+                scene.remove(comet);
+                loop.updatables.splice(loop.updatables.indexOf(comet), 1);
+            }, Math.random() * 4000 + 20000);
         }
     }
 

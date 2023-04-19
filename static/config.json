@@ -688,6 +688,17 @@
     "#f6ce41",
     "#f4d400"
   ],
+  "COLOR_COMETS": [
+    "#fafafa",
+    "#f0f0f0",
+    "#eaeaea",
+    "#e0e0e0",
+    "#d0d0d0",
+    "#c0c0c0",
+    "#ffbf00",
+    "#f28c28",
+    "#ffa500"
+  ],
   "COLOR_TECHNOLOGIES": "%23252525",
 
   "CAMERA_PLANET": [10, 5],
@@ -708,7 +719,8 @@
   "RADIUS_MOON": [0.05, 0.08],
 
   "RADIUS_COMET": 0.025,
-  "COLOR_COMET": "#E1F3FF",
+  "NUM_COMET": 12,
+  "NUM_COMET_MOBILE": 3,
 
   "SCALE_PLANET_ORBIT": 25.0,
   "SCALE_MOON_ORBIT": 2.0,
