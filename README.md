@@ -18,8 +18,7 @@ yarn start
 yarn run build  
 ```
 
-Base on a template from:
-[https://github.com/winstonrc/threejs-typescript-template](https://github.com/winstonrc/threejs-typescript-template)
+Based on this [template](https://github.com/winstonrc/threejs-typescript-template).
 
 ## Deploy It
 

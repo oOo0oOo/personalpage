@@ -259,7 +259,7 @@
             "unity", "android", "ios", "csharp"
           ],
           "highlights": [
-            "Already 2 adventures available!",
+            "Two adventures available, two new ones coming soon!",
             "Cross-platform app released on <a href='https://play.google.com/store/apps/details?id=ch.abenteuerweg.adventure' target='blank_'>Android</a> and <a href='https://apps.apple.com/us/app/abenteuerweg-mit-winnie-tack/id1558362365' target='blank_'>iOS</a>.",
             "During the adventure no internet connectivity is required."
           ]
@@ -408,7 +408,7 @@
         {
           "id": "ffhs",
           "title": "Lecturing at FFHS",
-          "description": "I lecture at the Fernfachhochschule Schweiz, a university of applied sciences.<br><br>My main focus is on blockchain technology and software development.",
+          "description": "I lecture multiple courses at the Fernfachhochschule Schweiz, a university of applied sciences.<br><br>My focus is on applications of large language models, blockchain technology and software development in general.",
           "link": {
             "url": "https://www.ffhs.ch/en/ffhs/people-finder/person/dressler-oliver",
             "text": "Learn Now!"
@@ -418,11 +418,11 @@
             "url": "ffhs.png"
           },
           "technologies": [
-            "blockchain", "solidity"
+            "llm", "blockchain", "solidity"
           ],
           "highlights": [
-            "Lecturing on technical aspects of blockchain technology.",
-            "Intro to Solidity and smart contracts."
+            "Lecturing on practical applications of LLMs.",
+            "Teaching technical aspects of blockchain technology."
           ]
         },
         {
@@ -662,6 +662,11 @@
         "id": "thegraph",
         "icon": "mdi/graph-outline",
         "title": "The Graph"
+    },
+    {
+        "id": "llm",
+        "icon": "eos-icons/neural-network",
+        "title": "LLM"
     }
   ],
   
