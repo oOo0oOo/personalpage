@@ -61,6 +61,27 @@
           ]
         },
         {
+          "id": "cinemoji",
+          "title": "Cinemoji",
+          "description": "Think of a movie.<br><br>I will guess your movie based on emojis.",
+          "link": {
+            "url": "https://oli.show/cinemoji/",
+            "text": "Try Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "cinemojis.png"
+          },
+          "technologies": [
+            "llm", "typescript", "browser"
+          ],
+          "highlights": [
+            "Use ChatBot for \"level\" <a href='https://github.com/oOo0oOo/cinemojis/blob/main/scripts/emojify.py#L28'>generation</a>.",
+            "No API calls needed during play.",
+            "Suggest emojis based on likely movies."
+          ]
+        },
+        {
           "id": "rocketkite",
           "title": "Rocket Kite",
           "description": "Fly your rocket kite among the planets.<br><br>Use gravity and collect all checkpoints.",
