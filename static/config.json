@@ -61,6 +61,27 @@
           ]
         },
         {
+          "id": "macromate",
+          "title": "Macro Mate",
+          "description": "Multiplayer chess on a map!<br><br>Proof of concept for a single player<br>(+ bots) version of the game.",
+          "link": {
+            "url": "https://github.com/oOo0oOo/macromate",
+            "text": "Play Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "macromate.png"
+          },
+          "technologies": [
+            "python", "python_scientific"
+          ],
+          "highlights": [
+            "Many more game states than chess.",
+            "Required heavy <a href='https://github.com/oOo0oOo/macromate#bots'>simplifications</a> to make an AI feasible.",
+            "Tree search with alpha-beta pruning."
+          ]
+        },
+        {
           "id": "cinemoji",
           "title": "Cinemoji",
           "description": "Think of a movie.<br><br>I will guess your movie based on emojis.",
@@ -326,6 +347,27 @@
             "Each NFT is a unique SVGs with embedded raw WAV signals.",
             "Complete procedural generation in WebAssembly."
         ]
+        },
+        {
+          "id": "scrapsters",
+          "title": "Scrapsters",
+          "description": "Sustainable Shopping with Scrapsters<br><br>Winning project for the HackZurich 2023 Migros challenge!",
+          "link": {
+            "url": "https://devpost.com/software/scrapsters",
+            "text": "Devpost"
+          },
+          "media": {
+            "type": "img",
+            "url": "scrapsters.png"
+          },
+          "technologies": [
+            "upcycling", "vue", "flask", "llm"
+          ],
+          "highlights": [
+            "A sustainable Migros MANIA.",
+            "Kids can upcycle packaging into toys, decorated with QR code stickers.",
+            "The QR codes lead to custom generated audiobooks about this scrapster."
+          ]
         },
         {
           "id": "this",
@@ -688,6 +730,11 @@
         "id": "llm",
         "icon": "eos-icons/neural-network",
         "title": "LLM"
+    },
+    {
+        "id": "upcycling",
+        "icon": "fluent-mdl2:empty-recycle-bin",
+        "title": "Upcycling"
     }
   ],
   
@@ -748,8 +795,8 @@
   "NUM_COMET": 12,
   "NUM_COMET_MOBILE": 3,
 
-  "SCALE_PLANET_ORBIT": 25.0,
-  "SCALE_MOON_ORBIT": 2.0,
+  "SCALE_PLANET_ORBIT": 40.0,
+  "SCALE_MOON_ORBIT": 3.0,
   
   "ANNOTATION_Y_OFFSET": 170,
   "ANNOTATION_Y_STEP": 32,

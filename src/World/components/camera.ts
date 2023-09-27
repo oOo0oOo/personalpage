@@ -27,9 +27,9 @@ export class FocusCamera extends PerspectiveCamera {
     setStartDistance() {
         // TODO: Dependent on display width
         if (isMobile) {
-            this.startPos.copy(cameraDirection.multiplyScalar(130));
+            this.startPos.copy(cameraDirection.multiplyScalar(200));
         } else {
-            this.startPos.copy(cameraDirection.multiplyScalar(60));
+            this.startPos.copy(cameraDirection.multiplyScalar(80));
         }
         this.position.copy(this.startPos);
     }
