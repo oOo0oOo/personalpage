@@ -194,7 +194,11 @@ class World {
             annotations.push(annotation);
         }
 
-        this.changeCurrentFocus("sun");
+        // Focus on sun if no hash is set
+        const url = new URL(window.location.href);
+        if (!url.hash.substring(1)) {
+            this.changeCurrentFocus("sun");
+        }
     }
 
     render() {
