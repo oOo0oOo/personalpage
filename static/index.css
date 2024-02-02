@@ -27,7 +27,7 @@ body {
     padding: 10px 20px 10px 20px;
     background: #97c2b9;
     text-align: center;
-    font-size: 14pt;
+    font-size: 12pt;
     cursor: pointer;
     border-radius: 10px;
 }
@@ -121,7 +121,7 @@ body {
 
 #info_title {
     font-family: Montserrat;
-    font-size: 24pt;
+    font-size: 22pt;
     margin-bottom: 25px;
     font-weight: 500;
 }
@@ -148,7 +148,7 @@ body {
 }
 
 #info_description {
-    font-size: 16pt;
+    font-size: 14pt;
 }
 
 .media-img {
@@ -203,7 +203,7 @@ li {
     padding: 10px;
     background: #97c2b9;
     text-align: center;
-    font-size: 20pt;
+    font-size: 18pt;
     cursor: pointer;
     width: 280px;
     border-radius: 10px;
@@ -218,11 +218,12 @@ li {
 
 #info_hide {
     position: absolute;
-    top: 10px;
-    right: 20px;
+    top: 14px;
+    right: 24px;
     cursor: pointer;
     font-size: 21pt;
-    font-weight: 600;
+    font-weight: 400;
+    font-family: sans-serif;
     width: 30px;
     height: 30px;
     text-align: right;
@@ -236,10 +237,10 @@ li {
 /* Change info box on mobile */
 @media (max-width: 740px) {
     #info_box{
-        width: 90vw;
-        padding: 10px 3vw 10px 3vw;
-        top: 5vh;
-        max-height: calc(90vh - 20px);
+        width: 86vw;
+        padding: 10px 5vw 10px 5vw;
+        top: 2.5vh;
+        max-height: 93vh;
         margin-left: 2vw;
         margin-right: 2vw;
         overflow-y: auto;
@@ -252,6 +253,7 @@ li {
 
     #info_description {
         margin-right: 0px;
+        font-size: 12pt;
     }
 
     #info_media {
@@ -274,6 +276,7 @@ li {
         width: 100%;
         margin-top: 20px;
         padding: 10px 0px 10px 0px;
+        font-size: 16pt;
     }
 
     #info_hide {
@@ -281,7 +284,7 @@ li {
     }
 
     #info_title {
-        font-size: 20pt;
+        font-size: 18pt;
     }
 
     #info_extras {
