@@ -266,68 +266,6 @@
       "title": "Software",
       "projects": [
         {
-          "id": "humanedge",
-          "title": "Human Edge",
-          "description": "The next step in asset management.<br><br>Human Edge provides systematic investment solutions.",
-          "link": {
-            "url": "https://www.human-edge.ch/",
-            "text": "Invest Now!"
-          },
-          "media": {
-            "type": "img",
-            "url": "humanedge.png"
-          },
-          "technologies": [
-            "python_scientific", "machinelearning", "cloud"
-          ],
-          "highlights": [
-            "Develop and maintain our webapp and investment algorithms.",
-            "Responsible for technical decisions and architecture."
-          ]
-        },
-        {
-          "id": "winnietack",
-          "title": "Winnie & Tack",
-          "description": "Go on a hike and experience an interactive adventure with Winnie and Tack.<br><br>Listen to the audio book and make your own decisions.",
-          "link": {
-            "url": "https://abenteuerweg.ch/",
-            "text": "Experience Now!"
-          },
-          "media": {
-            "type": "img",
-            "url": "winnietack.png"
-          },
-          "technologies": [
-            "unity", "android", "ios", "csharp"
-          ],
-          "highlights": [
-            "Two adventures available, two new ones coming soon!",
-            "Cross-platform app released on <a href='https://play.google.com/store/apps/details?id=ch.abenteuerweg.adventure' target='blank_'>Android</a> and <a href='https://apps.apple.com/us/app/abenteuerweg-mit-winnie-tack/id1558362365' target='blank_'>iOS</a>.",
-            "During the adventure no internet connectivity is required."
-          ]
-        },
-        {
-          "id": "digitalliteracy",
-          "title": "Digital Literacy",
-          "description": "Strengthening digital opinion-forming with simulations.<br><br>Developed with <a href='https://www.dezentrum.ch/en/' target='blank_'>Dezentrum</a> and the <a href='https://www.risiko-dialog.ch/en/' target='blank_'>Risk Dialogue Foundation</a>.",
-          "link": {
-            "url": "https://www.digital-literacy.live/",
-            "text": "Discuss Now!"
-          },
-          "media": {
-            "type": "img",
-            "url": "digitalliteracy.png"
-          },
-          "technologies": [
-            "flask", "vue", "socketio", "cloud"
-          ],
-          "highlights": [
-            "Experience online phenomena and risks in this simulation.",
-            "Real-time chat using socket.io.",
-            "Simple access to simulations via link."
-          ]
-        },
-        {
         "id": "proofofgroove2",
         "title": "Proof of Groove",
         "description": "We move together<br>We groove together<br><br>Proof of Groove is an NFT, generated using a fully decentralized synthesizer.",
@@ -465,9 +403,29 @@
       ]
     },
     {
-      "id": "various",
-      "title": "Various",
+      "id": "work",
+      "title": "Work",
       "projects": [
+        {
+          "id": "humanedge",
+          "title": "Human Edge",
+          "description": "The next step in asset management.<br><br>Human Edge provides systematic investment solutions.",
+          "link": {
+            "url": "https://www.human-edge.ch/",
+            "text": "Invest Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "humanedge.png"
+          },
+          "technologies": [
+            "python_scientific", "machinelearning", "cloud"
+          ],
+          "highlights": [
+            "Responsible for technical decisions and architecture (CTO).",
+            "Develop and maintain our investment algorithms and web app."
+          ]
+        },
         {
           "id": "ffhs",
           "title": "Lecturing at FFHS",
@@ -486,6 +444,48 @@
           "highlights": [
             "Lecturing on practical applications of LLMs.",
             "Teaching technical aspects of blockchain technology."
+          ]
+        },
+        {
+          "id": "winnietack",
+          "title": "Winnie & Tack",
+          "description": "Go on a hike and experience an interactive adventure with Winnie and Tack.<br><br>Listen to the audio book and make your own decisions.",
+          "link": {
+            "url": "https://abenteuerweg.ch/",
+            "text": "Experience Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "winnietack.png"
+          },
+          "technologies": [
+            "unity", "android", "ios", "csharp"
+          ],
+          "highlights": [
+            "Two adventures available, two new ones coming soon!",
+            "Cross-platform app released on <a href='https://play.google.com/store/apps/details?id=ch.abenteuerweg.adventure' target='blank_'>Android</a> and <a href='https://apps.apple.com/us/app/abenteuerweg-mit-winnie-tack/id1558362365' target='blank_'>iOS</a>.",
+            "During the adventure no internet connectivity is required."
+          ]
+        },
+        {
+          "id": "digitalliteracy",
+          "title": "Digital Literacy",
+          "description": "Strengthening digital opinion-forming with simulations.<br><br>Developed with <a href='https://www.dezentrum.ch/en/' target='blank_'>Dezentrum</a> and the <a href='https://www.risiko-dialog.ch/en/' target='blank_'>Risk Dialogue Foundation</a>.",
+          "link": {
+            "url": "https://www.digital-literacy.live/",
+            "text": "Discuss Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "digitalliteracy.png"
+          },
+          "technologies": [
+            "flask", "vue", "socketio", "cloud"
+          ],
+          "highlights": [
+            "Experience online phenomena and risks in this simulation.",
+            "Real-time chat using socket.io.",
+            "Simple access to simulations via link."
           ]
         },
         {
@@ -518,7 +518,7 @@
         {
           "id": "biography",
           "title": "Biography",
-          "description": "Hi, I am Oliver Dressler.<br><br>Passionate about data, technology and software development.<br><br>Located in Switzerland and currently working as CTO at Human Edge.",
+          "description": "Hi, I am Oliver Dressler.<br><br>Passionate about data, technology, games and software development in general.<br><br>Located in Switzerland.<br><br>Check out my current <a href='#work'>work</a>.",
           "media": {
             "type": "img",
             "url": "biography.png"
