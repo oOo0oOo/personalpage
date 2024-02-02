@@ -66,4 +66,6 @@ export interface Config {
             highlights?: string[];
         }[],
     }[];
+
+    HOSTED_PROJECTS: string[];
 }

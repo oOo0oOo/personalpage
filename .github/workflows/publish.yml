@@ -27,6 +27,11 @@ jobs:
         uses: borales/actions-yarn@v4
         with:
           cmd: run build # will run `yarn run build` command
+
+      - name: Generate sitemap.txt
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: run generate-sitemap # will run `yarn generate-sitemap` command
       
       - name: Sync files via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.3

@@ -737,6 +737,17 @@
         "title": "Upcycling"
     }
   ],
+
+  "HOSTED_PROJECTS": [
+    "bite",
+    "cinemoji",
+    "old_portfolio",
+    "tea",
+    "thelist",
+    "teams/Team%20Shuffler.html",
+    "vector/vectorflow.html",
+    "wikihike"
+  ],
   
   "COLOR_BACKGROUND": "#090A0F",
   "COLOR_SUN": "#E6E2C3",
