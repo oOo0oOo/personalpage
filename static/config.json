@@ -1,6 +1,303 @@
 {
   "CONTENT": [
     {
+      "id": "software",
+      "title": "Software",
+      "projects": [
+        {
+          "id": "pynanite",
+          "title": "pynanite",
+          "description": "Automatic level of details for 3D models.<br><br>Implementation in Python based on Unreal Engine's LOD system.",
+          "link": {
+              "url": "https://github.com/oOo0oOo/pynanite",
+              "text": "Render Triangles Now!"
+          },
+          "media": {
+              "type": "img",
+              "url": "pynanite.png"
+          },
+          "technologies": [
+              "python", "python_scientific", "rendering"
+          ],
+          "highlights": [
+              "Automatic level of details for 3D models without artist input.",
+              "Relatively performant for a Python implementation.",
+              "Algorithm based on graph partitioning."
+          ]
+        },
+        {
+          "id": "winerymap",
+          "title": "Winery Map",
+          "description": "Explore 31k+ wineries in this interactive map.<br><br>Find your next wine tasting destination!",
+          "link": {
+              "url": "https://oli.show/wine/",
+              "text": "Taste Now!"
+          },
+          "media": {
+              "type": "img",
+              "url": "winemap.png"
+          },
+          "technologies": [
+            "typescript", "browser", "datascience"
+          ],
+          "highlights": [
+            "Scraping worldwide winery data.",
+            "Assigning wineries to their correct region.",
+            "Ensure good performance even on mobile."
+          ]
+        },
+        {
+          "id": "proofofgroove2",
+          "title": "Proof of Groove",
+          "description": "We move together<br>We groove together<br><br>Proof of Groove is an NFT, generated using a fully decentralized synthesizer.",
+          "link": {
+              "url": "https://proofofgroove.com/",
+              "text": "Groove Now!"
+          },
+          "media": {
+              "type": "img",
+              "url": "proofofgroove.png"
+          },
+          "technologies": [
+              "music", "webassembly", "solidity", "react"
+          ],
+          "highlights": [
+              "Uses a <a href='https://thegraph.com/docs/en/developing/assemblyscript-api' target='blank_'>custom subgraph</a> to create NFTs fully decentralized.",
+              "Each NFT is a unique SVGs with embedded raw WAV signals.",
+              "Complete procedural generation in WebAssembly."
+          ]
+        },
+        {
+          "id": "scrapsters",
+          "title": "Scrapsters",
+          "description": "Sustainable Shopping with Scrapsters<br><br>Winning project for the HackZurich 2023 Migros challenge!",
+          "link": {
+            "url": "https://devpost.com/software/scrapsters",
+            "text": "Devpost"
+          },
+          "media": {
+            "type": "img",
+            "url": "scrapsters.png"
+          },
+          "technologies": [
+            "upcycling", "vue", "flask", "llm"
+          ],
+          "highlights": [
+            "A sustainable Migros MANIA.",
+            "Kids can upcycle packaging into toys, decorated with QR code stickers.",
+            "The QR codes lead to custom generated audiobooks about this scrapster."
+          ]
+        },
+        {
+          "id": "this",
+          "title": "This Page",
+          "description": "Solar system 3D portfolio page.<br><br>Let me know if you find any bugs ;-)<br><br><a id='stats_btn' onclick='document.getElementById(\"stats\").style.display=\"block\"'>Show FPS</a>",
+          "link": {
+            "url": "https://github.com/oOo0oOo/personalpage",
+            "text": "Repository"
+          },
+          "media": {
+            "type": "img",
+            "url": "this.png"
+          },
+          "technologies": [
+            "typescript", "three"
+          ],
+          "highlights": [
+            "Interactive 3D visualization using three.js.",
+            "Easily configurable using <a href='static/config.json' target='blank_'>JSON</a>.",
+            "CI/CD via Github Actions."
+          ]
+        },
+        {
+          "id": "spiderbox",
+          "title": "Spider Box",
+          "description": "A small AR experiment of a spider living in a box behind your screen.<br><br>Maybe I'll turn it into a scary tamagotchi one day.",
+          "link": {
+            "url": "https://github.com/oOo0oOo/SpiderBox",
+            "text": "Contain Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "spiderbox.gif"
+          },
+          "technologies": [
+            "unity", "arcore", "android", "csharp"
+          ],
+          "highlights": [
+            "Uses ARCore to track face position relative to the screen.",
+            "Parallax projection produces a convincing depth illusion."
+          ]
+        },
+        {
+          "id": "cocrafty",
+          "title": "CoCrafty",
+          "description": "Develop startup ideas. Easy. Together.<br><br>CoCrafty is a collaboration platform for developing startup ideas.",
+          "link": {
+            "url": "http://cocrafty.com/",
+            "text": "Collaborate Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "cocrafty.png"
+          },
+          "technologies": [
+            "flask", "javascript", "cloud", "socketio"
+          ],
+          "highlights": [
+            "A variety of collaborative real-time tools: Mind-mapping, chat, ...",
+            "No longer actively maintained. Use it while it's still online!"
+          ]
+        },
+        {
+          "id": "pixeldemocracy",
+          "title": "The Pixel Democracy",
+          "description": "Majority rules, period!<br><br>Collaborative drawing board. You decide where the line goes next!",
+          "link": {
+            "url": "http://www.thepixeldemocracy.com/",
+            "text": "Draw Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "pixeldemocracy.png"
+          },
+          "technologies": [
+            "flask", "javascript", "socketio"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "work",
+      "title": "Work",
+      "projects": [
+        {
+          "id": "humanedge",
+          "title": "Human Edge",
+          "description": "The next step in asset management.<br><br>Human Edge provides systematic investment solutions.",
+          "link": {
+            "url": "https://www.human-edge.ch/",
+            "text": "Invest Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "humanedge.png"
+          },
+          "technologies": [
+            "python_scientific", "machinelearning", "cloud"
+          ],
+          "highlights": [
+            "Responsible for technical decisions and architecture (CTO).",
+            "Train machine learning models for investment strategies.",
+            "Develop and maintain our Flask-based web app."
+          ]
+        },
+        {
+          "id": "ffhs",
+          "title": "Lecturing at FFHS",
+          "description": "I lecture multiple courses at the Fernfachhochschule Schweiz, a university of applied sciences.<br><br>My focus is on applications of large language models, blockchain technology and software development in general.",
+          "link": {
+            "url": "https://www.ffhs.ch/en/ffhs/people-finder/person/dressler-oliver",
+            "text": "Learn Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "ffhs.png"
+          },
+          "technologies": [
+            "llm", "blockchain", "solidity"
+          ],
+          "highlights": [
+            "Lecturing on practical applications of LLMs.",
+            "Teaching technical aspects of blockchain technology."
+          ]
+        },
+        {
+          "id": "quickpool",
+          "title": "Quickpool by Ardeo",
+          "description": "<a href='https://ardeo.ch'>Ardeo</a> is providing cutting edge shift planning solutions.<br><br>I support them as a freelancer with software development and technical decisions.",
+          "link": {
+            "url": "https://quickpool.ch/",
+            "text": "Optimize Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "ardeo.png"
+          },
+          "technologies": [
+            "angular", "ruby", "clojure", "machinelearning"
+          ],
+          "highlights": [
+            "Developed shift validation system.",
+            "Integrated and customized automatic shift planning."
+          ]
+        },
+        {
+          "id": "winnietack",
+          "title": "Winnie & Tack",
+          "description": "Go on a hike and experience an interactive adventure with Winnie and Tack.<br><br>Listen to the audio book and make your own decisions.",
+          "link": {
+            "url": "https://abenteuerweg.ch/",
+            "text": "Experience Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "winnietack.png"
+          },
+          "technologies": [
+            "unity", "android", "ios", "csharp"
+          ],
+          "highlights": [
+            "Two adventures available, two new ones coming soon!",
+            "Cross-platform app released on <a href='https://play.google.com/store/apps/details?id=ch.abenteuerweg.adventure' target='blank_'>Android</a> and <a href='https://apps.apple.com/us/app/abenteuerweg-mit-winnie-tack/id1558362365' target='blank_'>iOS</a>.",
+            "During the adventure no internet connectivity is required."
+          ]
+        },
+        {
+          "id": "digitalliteracy",
+          "title": "Digital Literacy",
+          "description": "Strengthening digital opinion-forming with simulations.<br><br>Developed with <a href='https://www.dezentrum.ch/en/' target='blank_'>Dezentrum</a> and the <a href='https://www.risiko-dialog.ch/en/' target='blank_'>Risk Dialogue Foundation</a>.",
+          "link": {
+            "url": "https://www.digital-literacy.live/",
+            "text": "Discuss Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "digitalliteracy.png"
+          },
+          "technologies": [
+            "flask", "vue", "socketio", "cloud"
+          ],
+          "highlights": [
+            "Experience online phenomena and risks in this simulation.",
+            "Real-time chat using socket.io.",
+            "Simple access to simulations via link."
+          ]
+        },
+        {
+          "id": "phd",
+          "title": "PhD in Chemical Engineering",
+          "description": "I completed my PhD in Chemical Engineering at the ETH Zurich.<br><br>My research focused microfluidic technology and how to control it using machine learning.",
+          "link": {
+            "url": "https://www.research-collection.ethz.ch/handle/20.500.11850/269520",
+            "text": "Doctoral Thesis"
+          },
+          "media": {
+            "type": "img",
+            "url": "phd.png"
+          },
+          "technologies": [
+            "microfluidics", "machinelearning", "python"
+          ],
+          "highlights": [
+            "Droplet microfluidics using lab-on-a-chip devices.",
+            "3D-printing of fluidic structures for larger scale devices.",
+            "Application of reinforcement learning from image data for real-time microfluidic control."
+          ]
+        }
+      ]
+    },
+    {
       "id": "games",
       "title": "Games",
       "projects": [
@@ -262,256 +559,6 @@
       ]
     },
     {
-      "id": "software",
-      "title": "Software",
-      "projects": [
-        {
-        "id": "proofofgroove2",
-        "title": "Proof of Groove",
-        "description": "We move together<br>We groove together<br><br>Proof of Groove is an NFT, generated using a fully decentralized synthesizer.",
-        "link": {
-            "url": "https://proofofgroove.com/",
-            "text": "Groove Now!"
-        },
-        "media": {
-            "type": "img",
-            "url": "proofofgroove.png"
-        },
-        "technologies": [
-            "music", "webassembly", "solidity", "react"
-        ],
-        "highlights": [
-            "Uses a <a href='https://thegraph.com/docs/en/developing/assemblyscript-api' target='blank_'>custom subgraph</a> to create NFTs fully decentralized.",
-            "Each NFT is a unique SVGs with embedded raw WAV signals.",
-            "Complete procedural generation in WebAssembly."
-        ]
-        },
-        {
-          "id": "scrapsters",
-          "title": "Scrapsters",
-          "description": "Sustainable Shopping with Scrapsters<br><br>Winning project for the HackZurich 2023 Migros challenge!",
-          "link": {
-            "url": "https://devpost.com/software/scrapsters",
-            "text": "Devpost"
-          },
-          "media": {
-            "type": "img",
-            "url": "scrapsters.png"
-          },
-          "technologies": [
-            "upcycling", "vue", "flask", "llm"
-          ],
-          "highlights": [
-            "A sustainable Migros MANIA.",
-            "Kids can upcycle packaging into toys, decorated with QR code stickers.",
-            "The QR codes lead to custom generated audiobooks about this scrapster."
-          ]
-        },
-        {
-          "id": "this",
-          "title": "This Page",
-          "description": "Solar system 3D portfolio page.<br><br>Let me know if you find any bugs ;-)<br><br><a id='stats_btn' onclick='document.getElementById(\"stats\").style.display=\"block\"'>Show FPS</a>",
-          "link": {
-            "url": "https://github.com/oOo0oOo/personalpage",
-            "text": "Repository"
-          },
-          "media": {
-            "type": "img",
-            "url": "this.png"
-          },
-          "technologies": [
-            "typescript", "three"
-          ],
-          "highlights": [
-            "Interactive 3D visualization using three.js.",
-            "Easily configurable using <a href='static/config.json' target='blank_'>JSON</a>.",
-            "CI/CD via Github Actions."
-          ]
-        },
-        {
-          "id": "spiderbox",
-          "title": "Spider Box",
-          "description": "A small AR experiment of a spider living in a box behind your screen.<br><br>Maybe I'll turn it into a scary tamagotchi one day.",
-          "link": {
-            "url": "https://github.com/oOo0oOo/SpiderBox",
-            "text": "Contain Now!"
-          },
-          "media": {
-            "type": "img",
-            "url": "spiderbox.gif"
-          },
-          "technologies": [
-            "unity", "arcore", "android", "csharp"
-          ],
-          "highlights": [
-            "Uses ARCore to track face position relative to the screen.",
-            "Parallax projection produces a convincing depth illusion."
-          ]
-        },
-        {
-          "id": "cocrafty",
-          "title": "CoCrafty",
-          "description": "Develop startup ideas. Easy. Together.<br><br>CoCrafty is a collaboration platform for developing startup ideas.",
-          "link": {
-            "url": "http://cocrafty.com/",
-            "text": "Collaborate Now!"
-          },
-          "media": {
-            "type": "img",
-            "url": "cocrafty.png"
-          },
-          "technologies": [
-            "flask", "javascript", "cloud", "socketio"
-          ],
-          "highlights": [
-            "A variety of collaborative real-time tools: Mind-mapping, chat, ...",
-            "No longer actively maintained. Use it while it's still online!"
-          ]
-        },
-        {
-          "id": "pixeldemocracy",
-          "title": "The Pixel Democracy",
-          "description": "Majority rules, period!<br><br>Collaborative drawing board. You decide where the line goes next!",
-          "link": {
-            "url": "http://www.thepixeldemocracy.com/",
-            "text": "Draw Now!"
-          },
-          "media": {
-            "type": "img",
-            "url": "pixeldemocracy.png"
-          },
-          "technologies": [
-            "flask", "javascript", "socketio"
-          ]
-        },
-        {
-          "id": "thelist",
-          "title": "The List",
-          "description": "There is only one list. The list is forever. Pay any amount of money to add your name to the list.<br><br>What are you waiting for?",
-          "link": {
-            "url": "https://oli.show/thelist/",
-            "text": "Get Listed Now!"
-          },
-          "media": {
-            "type": "img",
-            "url": "thelist.png"
-          },
-          "technologies": [
-            "javascript", "browser"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "work",
-      "title": "Work",
-      "projects": [
-        {
-          "id": "humanedge",
-          "title": "Human Edge",
-          "description": "The next step in asset management.<br><br>Human Edge provides systematic investment solutions.",
-          "link": {
-            "url": "https://www.human-edge.ch/",
-            "text": "Invest Now!"
-          },
-          "media": {
-            "type": "img",
-            "url": "humanedge.png"
-          },
-          "technologies": [
-            "python_scientific", "machinelearning", "cloud"
-          ],
-          "highlights": [
-            "Responsible for technical decisions and architecture (CTO).",
-            "Develop and maintain our investment algorithms and web app."
-          ]
-        },
-        {
-          "id": "ffhs",
-          "title": "Lecturing at FFHS",
-          "description": "I lecture multiple courses at the Fernfachhochschule Schweiz, a university of applied sciences.<br><br>My focus is on applications of large language models, blockchain technology and software development in general.",
-          "link": {
-            "url": "https://www.ffhs.ch/en/ffhs/people-finder/person/dressler-oliver",
-            "text": "Learn Now!"
-          },
-          "media": {
-            "type": "img",
-            "url": "ffhs.png"
-          },
-          "technologies": [
-            "llm", "blockchain", "solidity"
-          ],
-          "highlights": [
-            "Lecturing on practical applications of LLMs.",
-            "Teaching technical aspects of blockchain technology."
-          ]
-        },
-        {
-          "id": "winnietack",
-          "title": "Winnie & Tack",
-          "description": "Go on a hike and experience an interactive adventure with Winnie and Tack.<br><br>Listen to the audio book and make your own decisions.",
-          "link": {
-            "url": "https://abenteuerweg.ch/",
-            "text": "Experience Now!"
-          },
-          "media": {
-            "type": "img",
-            "url": "winnietack.png"
-          },
-          "technologies": [
-            "unity", "android", "ios", "csharp"
-          ],
-          "highlights": [
-            "Two adventures available, two new ones coming soon!",
-            "Cross-platform app released on <a href='https://play.google.com/store/apps/details?id=ch.abenteuerweg.adventure' target='blank_'>Android</a> and <a href='https://apps.apple.com/us/app/abenteuerweg-mit-winnie-tack/id1558362365' target='blank_'>iOS</a>.",
-            "During the adventure no internet connectivity is required."
-          ]
-        },
-        {
-          "id": "digitalliteracy",
-          "title": "Digital Literacy",
-          "description": "Strengthening digital opinion-forming with simulations.<br><br>Developed with <a href='https://www.dezentrum.ch/en/' target='blank_'>Dezentrum</a> and the <a href='https://www.risiko-dialog.ch/en/' target='blank_'>Risk Dialogue Foundation</a>.",
-          "link": {
-            "url": "https://www.digital-literacy.live/",
-            "text": "Discuss Now!"
-          },
-          "media": {
-            "type": "img",
-            "url": "digitalliteracy.png"
-          },
-          "technologies": [
-            "flask", "vue", "socketio", "cloud"
-          ],
-          "highlights": [
-            "Experience online phenomena and risks in this simulation.",
-            "Real-time chat using socket.io.",
-            "Simple access to simulations via link."
-          ]
-        },
-        {
-          "id": "phd",
-          "title": "PhD in Chemical Engineering",
-          "description": "I completed my PhD in Chemical Engineering at the ETH Zurich.<br><br>My research focused microfluidic technology and how to control it using machine learning.",
-          "link": {
-            "url": "https://www.research-collection.ethz.ch/handle/20.500.11850/269520",
-            "text": "Doctoral Thesis"
-          },
-          "media": {
-            "type": "img",
-            "url": "phd.png"
-          },
-          "technologies": [
-            "microfluidics", "machinelearning", "python"
-          ],
-          "highlights": [
-            "Droplet microfluidics using lab-on-a-chip devices.",
-            "3D-printing of fluidic structures for larger scale devices.",
-            "Application of reinforcement learning from image data for real-time microfluidic control."
-          ]
-        }
-      ]
-    },
-    {
       "id": "about",
       "title": "About",
       "projects": [
@@ -735,6 +782,31 @@
         "id": "upcycling",
         "icon": "fluent-mdl2:empty-recycle-bin",
         "title": "Upcycling"
+    },
+    {
+        "id": "rendering",
+        "icon": "ph/graphics-card",
+        "title": "Rendering"
+    },
+    {
+        "id": "angular",
+        "icon": "mdi/angular",
+        "title": "Angular"
+    },
+    {
+        "id": "ruby",
+        "icon": "teenyicons/ruby-outline",
+        "title": "Ruby"
+    },
+    {
+        "id": "clojure",
+        "icon": "cib/clojure",
+        "title": "Clojure"
+    },
+    {
+        "id": "datascience",
+        "icon": "carbon/data-enrichment",
+        "title": "Data Science"
     }
   ],
 
@@ -746,7 +818,8 @@
     "thelist",
     "teams/Team%20Shuffler.html",
     "vector/vectorflow.html",
-    "wikihike"
+    "wikihike",
+    "wine"
   ],
   
   "COLOR_BACKGROUND": "#090A0F",
