@@ -1,9 +1,9 @@
-import { PerspectiveCamera, WebGL1Renderer, WebGLRenderer } from 'three';
+import { PerspectiveCamera, WebGLRenderer } from 'three';
 
 interface ResizerTypes {
   container: HTMLCanvasElement;
   camera: PerspectiveCamera;
-  renderer: WebGLRenderer | WebGL1Renderer;
+  renderer: WebGLRenderer;
 }
 
 const setSize = ({ container, camera, renderer }: ResizerTypes) => {

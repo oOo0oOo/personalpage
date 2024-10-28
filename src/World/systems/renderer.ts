@@ -13,9 +13,8 @@ function createRenderer() {
     renderer.setClearColor(config.COLOR_BACKGROUND);
 
     if (!isMobile) {
-        renderer.physicallyCorrectLights = true;
         renderer.shadowMap.enabled = true;
-        renderer.shadowMap.type = PCFShadowMap; // options: BasicShadowMap, PCFShadowMap, PCFSoftShadowMap
+        // renderer.shadowMap.type = PCFShadowMap; // options: BasicShadowMap, PCFShadowMap, PCFSoftShadowMap
     }
     return renderer;
 }

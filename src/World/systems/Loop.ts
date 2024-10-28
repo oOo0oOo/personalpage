@@ -2,7 +2,6 @@ import {
     Clock,
     Object3D,
     Scene,
-    WebGL1Renderer,
     WebGLRenderer,
 } from 'three';
 import Stats from 'three/examples/jsm/libs/stats.module';
@@ -12,7 +11,7 @@ import { FocusCamera } from '../components/camera';
 interface LoopTypes {
     camera: FocusCamera;
     scene: Scene;
-    renderer: WebGLRenderer | WebGL1Renderer;
+    renderer: WebGLRenderer;
 }
 
 const clock = new Clock();
@@ -38,7 +37,7 @@ class Loop {
         this.currentFocus = new Object3D();
 
         // Create FPS stats panel then add to dom
-        this.stats = Stats();
+        this.stats = new Stats();
         this.stats.dom.id = 'stats';
         this.stats.dom.removeAttribute('style');
         document.body.appendChild(this.stats.dom);

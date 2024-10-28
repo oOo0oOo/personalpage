@@ -1,7 +1,6 @@
 import {
     Raycaster,
     Scene,
-    WebGL1Renderer,
     WebGLRenderer,
     Vector2,
     Object3D,
@@ -32,7 +31,7 @@ const FADEINFAST = "fadein 1.5s ease-in-out 1 forwards";
 
 export let camera: FocusCamera;
 let scene: Scene;
-let renderer: WebGLRenderer | WebGL1Renderer;
+let renderer: WebGLRenderer;
 let controls: FocusControls;
 let loop: Loop;
 let isRunning: boolean;
