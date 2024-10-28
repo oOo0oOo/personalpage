@@ -6,6 +6,7 @@ import {
 } from 'three';
 
 import { FocusCamera } from '../components/camera';
+import { Annotation } from '../components/objects/annotation';
 
 interface LoopTypes {
     camera: FocusCamera;
@@ -59,6 +60,8 @@ class Loop {
             // @ts-ignore
             object.tick(this.elapsedTime, delta, attractPositions, this.attractRadius);
         }
+
+        Annotation.applyPendingUpdates();
     }
 
     setCurrentFocus(mesh: Object3D) {

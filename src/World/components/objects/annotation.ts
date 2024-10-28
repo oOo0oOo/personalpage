@@ -19,6 +19,7 @@ export class Annotation {
     yPos: number;
     lineUp: boolean;
     labelDown: boolean;
+    static pendingUpdates: (() => void)[] = [];
 
     constructor(yPos: number) {
         this.targetBody = new Object3D();
@@ -62,36 +63,35 @@ export class Annotation {
     }
 
     tick(elapsedTime: number) {
-        if (this.visible) {
-            // Set CSS pos
-            let screenPos = this.targetBody.position.clone().project(camera);
-            let x = sceneLeft + (screenPos.x + 1) / 2 * sceneWidth;
-            this.domElement.style.left = `${x}px`;
-
-            // Check the y distance between the label and the body
-            let y = sceneTop + (-1 * screenPos.y + 1) / 2 * sceneHeight;
-            let yDiff = y - this.yPos;
-
-            // We might switch the label from up to down or vice versa
-            if (yDiff < 0 != this.lineUp) {
-                this.lineUp = !this.lineUp;
-
-                if (this.lineUp) {
-                    this.lineElement.style.transformOrigin = '0 -20px';
-                    this.lineElement.style.transform = 'rotate(180deg)';
-                } else {
-                    this.lineElement.style.transformOrigin = '0 0';
-                    this.lineElement.style.transform = '';
-                }
-            }
-
-            yDiff = Math.abs(yDiff);
-            if (this.lineUp){
-                yDiff -= 20;
-            } else {
-                yDiff -= 60;
-            }
-            this.lineElement.style.height = `${yDiff}px`;
+        if (!this.visible) return;
+      
+        // Perform all calculations without touching the DOM
+        let screenPos = this.targetBody.position.clone().project(camera);
+        let x = sceneLeft + (screenPos.x + 1) / 2 * sceneWidth;
+        let y = sceneTop + (-1 * screenPos.y + 1) / 2 * sceneHeight;
+        let yDiff = y - this.yPos;
+      
+        // Determine if we need to switch the label orientation
+        if ((yDiff < 0) !== this.lineUp) {
+            this.lineUp = !this.lineUp;
         }
+        yDiff = Math.abs(yDiff);
+        yDiff -= this.lineUp ? 20 : 60;
+      
+        // Collect style updates without applying them yet
+        Annotation.pendingUpdates.push(() => {
+            this.domElement.style.transform = `translateX(${x}px)`;
+            this.lineElement.style.transformOrigin = this.lineUp ? '0 -20px' : '0 0';
+            this.lineElement.style.transform = this.lineUp ? 'rotate(180deg)' : '';
+            this.lineElement.style.height = `${yDiff}px`;
+        });
     }
+
+    static applyPendingUpdates() {
+        requestAnimationFrame(() => {
+            Annotation.pendingUpdates.forEach(update => update());
+            Annotation.pendingUpdates = [];
+        });
+    }
+
 }
