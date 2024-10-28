@@ -67,6 +67,7 @@ body {
 .annotation {
     position: absolute;
     color: #fafafa;
+    will-change: transform;
 }
 
 .annotation-title {

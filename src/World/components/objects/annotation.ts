@@ -80,18 +80,18 @@ export class Annotation {
       
         // Collect style updates without applying them yet
         Annotation.pendingUpdates.push(() => {
-            this.domElement.style.transform = `translateX(${x}px)`;
-            this.lineElement.style.transformOrigin = this.lineUp ? '0 -20px' : '0 0';
-            this.lineElement.style.transform = this.lineUp ? 'rotate(180deg)' : '';
-            this.lineElement.style.height = `${yDiff}px`;
+            this.domElement.style.transform = `translate3d(${x}px,0,0)`;
+            this.lineElement.style.cssText = `
+                transform-origin: ${this.lineUp ? '0 -20px' : '0 0'};
+                transform: ${this.lineUp ? 'rotate(180deg)' : ''};
+                height: ${yDiff}px;
+            `;
         });
     }
 
     static applyPendingUpdates() {
-        requestAnimationFrame(() => {
-            Annotation.pendingUpdates.forEach(update => update());
-            Annotation.pendingUpdates = [];
-        });
+        Annotation.pendingUpdates.forEach(update => update());
+        Annotation.pendingUpdates = [];
     }
 
 }

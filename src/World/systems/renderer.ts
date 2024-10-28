@@ -1,4 +1,4 @@
-import { WebGLRenderer, PCFShadowMap } from 'three';
+import { WebGLRenderer, BasicShadowMap } from 'three';
 
 import { config, isMobile } from '../../main';
 
@@ -14,7 +14,7 @@ function createRenderer() {
 
     if (!isMobile) {
         renderer.shadowMap.enabled = true;
-        // renderer.shadowMap.type = PCFShadowMap; // options: BasicShadowMap, PCFShadowMap, PCFSoftShadowMap
+        renderer.shadowMap.type = BasicShadowMap; // options: BasicShadowMap, PCFShadowMap, PCFSoftShadowMap
     }
     return renderer;
 }
