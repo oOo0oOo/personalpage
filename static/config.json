@@ -28,7 +28,7 @@
         {
           "id": "winerymap",
           "title": "Winery Map",
-          "description": "Explore 31k+ wineries in this interactive map.<br><br>Find your next wine tasting destination!",
+          "description": "Explore 31k+ wineries in this interactive map.<br><br>Find your next wine tasting destination!<br><br>Checkout the <a href='https://github.com/oOo0oOo/winerymap'>github repository</a>.",
           "link": {
               "url": "https://oli.show/wine/",
               "text": "Taste Now!"
