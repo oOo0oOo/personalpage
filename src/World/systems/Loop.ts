@@ -4,7 +4,6 @@ import {
     Scene,
     WebGLRenderer,
 } from 'three';
-import Stats from 'three/examples/jsm/libs/stats.module';
 
 import { FocusCamera } from '../components/camera';
 
@@ -22,7 +21,6 @@ class Loop {
     updatables: any[];
     attracting: any[];
     attractRadius: number[];
-    stats: Stats;
     elapsedTime: number;
     currentFocus: Object3D;
 
@@ -35,22 +33,14 @@ class Loop {
         this.attractRadius = [];
         this.elapsedTime = 0;
         this.currentFocus = new Object3D();
-
-        // Create FPS stats panel then add to dom
-        this.stats = new Stats();
-        this.stats.dom.id = 'stats';
-        this.stats.dom.removeAttribute('style');
-        document.body.appendChild(this.stats.dom);
     }
 
     start() {
         // Collect all attract radii
         this.attractRadius = this.attracting.map((obj) => obj.userData.radius);
-
         this.renderer.setAnimationLoop(() => {
             this.tick();
             this.renderer.render(this.scene, this.camera);
-            this.stats.update();
         });
     }
 
