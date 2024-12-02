@@ -279,8 +279,8 @@
           "title": "PhD in Chemical Engineering",
           "description": "I completed my PhD in Chemical Engineering at the ETH Zurich.<br><br>My research focused microfluidic technology and how to control it using machine learning.",
           "link": {
-            "url": "https://www.research-collection.ethz.ch/handle/20.500.11850/269520",
-            "text": "Doctoral Thesis"
+            "url": "#work_publications",
+            "text": "My Publications"
           },
           "media": {
             "type": "img",
@@ -291,7 +291,27 @@
           ],
           "highlights": [
             "Droplet microfluidics using lab-on-a-chip devices.",
-            "3D-printing of fluidic structures for larger scale devices.",
+            "Application of reinforcement learning from image data for real-time microfluidic control.",
+            "3D-printing of fluidic structures for larger scale devices."
+          ]
+        },
+        {
+          "id": "publications",
+          "title": "Publications",
+          "description": "A selection of publications written during my <a href='#work_phd'>PhD</a>:<ul><li><a href='https://pubs.acs.org/doi/10.1021/acsomega.8b01485'>Reinforcement Learning for Dynamic Microfluidic Control</a></li><li><a href='https://pubs.rsc.org/en/content/articlelanding/2015/ra/c5ra08044d'>Continuous and low error-rate passive synchronization of pre-formed droplets</a></li><li><a href='https://www.research-collection.ethz.ch/handle/20.500.11850/269520'>Doctoral Thesis</a></li></ul>",
+          "link": {
+            "url": "https://www.researchgate.net/scientific-contributions/Oliver-J-Dressler-2036925851",
+            "text": "All Publications"
+          },
+          "media": {
+            "type": "img",
+            "url": "phd.png"
+          },
+          "technologies": [
+            "microfluidics", "machinelearning", "python"
+          ],
+          "highlights": [
+            "Droplet microfluidics using lab-on-a-chip devices.",
             "Application of reinforcement learning from image data for real-time microfluidic control."
           ]
         }
