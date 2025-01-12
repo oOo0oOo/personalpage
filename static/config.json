@@ -5,6 +5,48 @@
       "title": "Software",
       "projects": [
         {
+          "id": "leanclient",
+          "title": "leanclient",
+          "description": "Python client to interact with the lean4 language server.",
+          "link": {
+              "url": "https://github.com/oOo0oOo/leanclient",
+              "text": "Interact Now!"
+          },
+          "media": {
+              "type": "img",
+              "url": "leanclient.png"
+          },
+          "technologies": [
+              "lean", "python"
+          ],
+          "highlights": [
+              "Interact: Query and change lean files via the LSP.",
+              "Fast: Typically more than 99% of time is spent waiting.",
+              "Parallel: Easy batch processing of files using all your cores."
+          ]
+        },
+        {
+          "id": "leanstructure",
+          "title": "Structure of Lean",
+          "description": "Visualizing the proof structure in Lean and Mathlib.",
+          "link": {
+              "url": "https://oli.show/leanstructure/",
+              "text": "Visualize Now!"
+          },
+          "media": {
+              "type": "img",
+              "url": "leanstructure.png"
+          },
+          "technologies": [
+              "svelte", "lean", "sigma"
+          ],
+          "highlights": [
+              "Visualizes the dependencies of lean4 and mathlib4 proofs on a theorem level.",
+              "Interactive graph visualization using sigma.js.",
+              "Static website, all content is loaded at page load."
+          ]
+        },
+        {
           "id": "pynanite",
           "title": "pynanite",
           "description": "Automatic level of details for 3D models.<br><br>Implementation in Python based on Unreal Engine's LOD system.",
@@ -827,6 +869,21 @@
         "id": "datascience",
         "icon": "carbon/data-enrichment",
         "title": "Data Science"
+    },
+    {
+        "id": "sigma",
+        "icon": "mdi/graph-outline",
+        "title": "sigma.js"
+    },
+    {
+        "id": "svelte",
+        "icon": "lineicons:svelte",
+        "title": "Svelte"
+    },
+    {
+        "id": "lean",
+        "icon": "tabler:letter-l",
+        "title": "Lean4"
     }
   ],
 
