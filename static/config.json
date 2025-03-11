@@ -5,6 +5,27 @@
       "title": "Software",
       "projects": [
         {
+          "id": "leanscribe",
+          "title": "Lean Scribe",
+          "description": "VSCode extension for rendering and running context-rich Lean 4 prompts using state-of-the-art LLMs.",
+          "link": {
+              "url": "https://github.com/oOo0oOo/lean-scribe",
+              "text": "Prompt Now!"
+          },
+          "media": {
+              "type": "img",
+              "url": "leanscribe.png"
+          },
+          "technologies": [
+              "vscode", "lean", "typescript"
+          ],
+          "highlights": [
+              "Render context-rich prompts using the current open Lean 4 file.",
+              "Query multiple state-of-the-art large language models.",
+              "Define prompts as shareable markdown files with Jinja templating."
+          ]
+        },
+        {
           "id": "leanclient",
           "title": "leanclient",
           "description": "Python client to interact with the lean4 language server.",
@@ -884,6 +905,11 @@
         "id": "lean",
         "icon": "tabler:letter-l",
         "title": "Lean4"
+    },
+    {
+        "id": "vscode",
+        "icon": "mdi/microsoft-visual-studio-code",
+        "title": "VSCode Extension"
     }
   ],
 
@@ -898,7 +924,7 @@
     "wikihike",
     "wine"
   ],
-  
+
   "COLOR_BACKGROUND": "#090A0F",
   "COLOR_SUN": "#E6E2C3",
   "COLOR_ORBIT": "#252525",
