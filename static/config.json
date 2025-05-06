@@ -5,6 +5,27 @@
       "title": "Software",
       "projects": [
         {
+          "id": "lean-lsp-mcp",
+          "title": "Lean Theorem Prover MCP",
+          "description": "<a target='blank_' href='https://modelcontextprotocol.io/introduction'>MCP</a> that allows agentic interaction with the <a target='blank_' href='https://lean-lang.org/'>Lean theorem prover</a> using <a target='blank_' href='https://github.com/oOo0oOo/leanclient'>leanclient</a>.",
+          "link": {
+            "url": "https://github.com/oOo0oOo/lean-lsp-mcp",
+            "text": "Interact Now!"
+          },
+          "media": {
+              "type": "img",
+              "url": "lean-lsp-mcp.png"
+          },
+          "technologies": [
+              "lean", "python", "llm"
+          ],
+          "highlights": [
+              "Agentic interaction with the Lean theorem prover.",
+              "Enables querying goal states, hover information, and <a target='blank_' href='https://leansearch.net'>leansearch.net</a>.",
+              "Supported in VSCode, Cursor, and across OSs."
+          ]
+        },
+        {
           "id": "leanscribe",
           "title": "Lean Scribe",
           "description": "VSCode extension for rendering and running context-rich Lean 4 prompts using state-of-the-art LLMs.",
@@ -47,27 +68,6 @@
           ]
         },
         {
-          "id": "leanstructure",
-          "title": "Structure of Lean",
-          "description": "Visualizing the proof structure in Lean and Mathlib.",
-          "link": {
-              "url": "https://oli.show/leanstructure/",
-              "text": "Visualize Now!"
-          },
-          "media": {
-              "type": "img",
-              "url": "leanstructure.png"
-          },
-          "technologies": [
-              "svelte", "lean", "sigma"
-          ],
-          "highlights": [
-              "Visualizes the dependencies of lean4 and mathlib4 proofs on a theorem level.",
-              "Interactive graph visualization using sigma.js.",
-              "Static website, all content is loaded at page load."
-          ]
-        },
-        {
           "id": "pynanite",
           "title": "pynanite",
           "description": "Automatic level of details for 3D models.<br><br>Implementation in Python based on Unreal Engine's LOD system.",
@@ -86,6 +86,27 @@
               "Automatic level of details for 3D models without artist input.",
               "Relatively performant for a Python implementation.",
               "Algorithm based on graph partitioning."
+          ]
+        },
+        {
+          "id": "leanstructure",
+          "title": "Structure of Lean",
+          "description": "Visualizing the proof structure in Lean and Mathlib.",
+          "link": {
+              "url": "https://oli.show/leanstructure/",
+              "text": "Visualize Now!"
+          },
+          "media": {
+              "type": "img",
+              "url": "leanstructure.png"
+          },
+          "technologies": [
+              "svelte", "lean", "sigma"
+          ],
+          "highlights": [
+              "Visualizes the dependencies of lean4 and mathlib4 proofs on a theorem level.",
+              "Interactive graph visualization using sigma.js.",
+              "Static website, all content is loaded at page load."
           ]
         },
         {
