@@ -28,6 +28,15 @@ if (!isMobile) {
     moonGeometry = new SphereGeometry(1, 12, 8);
 }
 
+// Materials are immutable here, so build them once and share them across bodies.
+const sunMaterial = new MeshBasicMaterial({ color: config.COLOR_SUN });
+
+const bodyMaterials: (MeshStandardMaterial | MeshBasicMaterial)[] = config.COLOR_BODIES.map(
+    (color) => isMobile
+        ? new MeshBasicMaterial({ color: color })
+        : new MeshStandardMaterial({ color: color })
+);
+
 function createBody(body: Body): Mesh {
     // Create the bodies basend on their type
     let radius: number = 0;
@@ -37,14 +46,12 @@ function createBody(body: Body): Mesh {
     let sphereMaterial: MeshStandardMaterial | MeshBasicMaterial;
 
     if (body.bodyType == "sun") {
-        sphereMaterial = new MeshBasicMaterial({ color: config.COLOR_SUN });
+        sphereMaterial = sunMaterial;
     } else {
-        let color = config.COLOR_BODIES[Math.floor(Math.random() * config.COLOR_BODIES.length)];
-        if (!isMobile) {
-            sphereMaterial = new MeshStandardMaterial({ color: color });
-        } else {
-            sphereMaterial = new MeshBasicMaterial({ color: color });
-        }
+        // Bodies only differ by colour, so share one material per palette entry.
+        // ~50 bodies drawn with 18 materials instead of 50 cuts GPU state changes.
+        let index = Math.floor(Math.random() * bodyMaterials.length);
+        sphereMaterial = bodyMaterials[index];
     }
 
     if (body.bodyType == "sun") {

@@ -69,7 +69,8 @@ export class FocusCamera extends PerspectiveCamera {
         }
 
         this.position.add(direction.multiplyScalar(-1 * config.ZOOM_SPEED * distance_diff));
-        this.updateProjectionMatrix();
+        // No updateProjectionMatrix() here: only position changed, and the
+        // projection matrix depends on fov/aspect/near/far. Resizer handles aspect.
     }
 }
 

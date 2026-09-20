@@ -30,44 +30,64 @@ function createComet(comet: Comet): Mesh {
     sphere.position.z = comet.position.z;
 
     const factor = (4 / 3) * Math.PI;
+
+    // Mass only depends on the attractor radius, which never changes, so the
+    // per-attractor masses are computed once on the first tick and reused.
+    let masses: number[] | null = null;
+
+    // Removing the mesh from the scene does not take the comet out of the
+    // Loop's updatables, so remember that it is gone and stop integrating.
+    let dead = false;
+
     // @ts-ignore
     sphere.tick = (elapsedTime: number, delta: number, attractPositions: Vector3[], attractRadii: number[]) => {
-        // Calculate overall gravity
-        let force = new Vector3();
+        if (dead) return;
+
+        if (masses === null) {
+            // Exponent 2.5 rather than 3 keeps the bodies closer in mass
+            masses = attractRadii.map((radius) => factor * Math.pow(radius, 2.5));
+        }
+
+        // The simulation is flat (y is always 0), so accumulate the force into
+        // two scalars instead of allocating Vector3s every frame for every comet.
+        let forceX = 0;
+        let forceZ = 0;
         let collision = false;
+
         for (let i = 0; i < attractPositions.length; i++) {
             let radius = attractRadii[i];
             let attractor = attractPositions[i];
             let dx = attractor.x - sphere.position.x;
             let dz = attractor.z - sphere.position.z;
-            let distance = Math.sqrt(dx * dx + dz * dz);
+            let distanceSq = dx * dx + dz * dz;
 
             // Check for collision
-            if (distance < radius) {
+            if (distanceSq < radius * radius) {
                 collision = true;
                 break
             }
 
-            // Mass is dependent on the radius of the sphere 
-            let mass = factor * Math.pow(radius, 2.5);  // Make them more equal instead of **3 for prop
-            let f = (config.GRAVITY_COMET * mass) / (distance * distance);
-            let direction = new Vector3(dx, 0, dz);
-            direction.normalize();
-            direction.multiplyScalar(f);
+            // f / distance folds the normalisation of (dx, dz) into the magnitude,
+            // so this is one sqrt per attractor instead of a normalize() call.
+            let distance = Math.sqrt(distanceSq);
+            let f = (config.GRAVITY_COMET * masses[i]) / (distanceSq * distance);
 
-            force.add(direction);
+            forceX += dx * f;
+            forceZ += dz * f;
         }
 
         // Delete the comet if it collides
         if (collision) {
+            dead = true;
             if (sphere.parent) {
                 sphere.parent.remove(sphere);
             }
+            return;
         }
 
         // Update velocity
-        comet.velocity.x += force.x * delta;
-        comet.velocity.z += force.z * delta;
+        comet.velocity.x += forceX * delta;
+        comet.velocity.z += forceZ * delta;
 
         // Update position
         sphere.position.x += comet.velocity.x * delta;
