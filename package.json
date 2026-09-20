@@ -8,7 +8,8 @@
     "start:open": "webpack serve --open",
     "build": "webpack --mode=production",
     "lint": "eslint \"**/*.ts\"",
-    "generate-sitemap": "ts-node ./src/generate_sitemap.ts"
+    "generate-sitemap": "ts-node ./src/generate_sitemap.ts",
+    "generate-static": "ts-node ./src/generate_static.ts"
   },
   "dependencies": {
     "terser-webpack-plugin": "^5.3.10",

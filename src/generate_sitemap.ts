@@ -15,6 +15,9 @@ for (const category of config.CONTENT){
     }
 }
 
+// Static text version of the portfolio
+sitemapContent += baseUrl + "projects.html\n";
+
 // Additional projects hosted on this domain
 for (const project of config.HOSTED_PROJECTS){
     sitemapContent += baseUrl + project + "\n";
