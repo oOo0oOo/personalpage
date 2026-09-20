@@ -1,7 +1,5 @@
 /* CSS for oli.show */
 
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400&family=Montserrat:wght@500&display=swap');
-
 body {
     width: 100%;
     height: 100%;
@@ -41,8 +39,6 @@ body {
   width: 100%;
   height: 100%;
   background-color: #090A0F;
-  max-width: 1920px;
-  max-height: 1080px;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -229,10 +225,65 @@ li {
     height: 30px;
     text-align: right;
     line-height: 22px;
+    background: none;
+    border: none;
+    padding: 0;
+    color: inherit;
 }
 
 #info_hide:hover {
     color: #88A47C;
+}
+
+/* --- 14: keyboard focus needs to be visible everywhere it can land --- */
+#info_hide:focus-visible,
+#info_link:focus-visible,
+#text_version:focus-visible,
+.annotation-title:focus-visible {
+    outline: 2px solid #f8ae00;
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+#text_version:focus-visible {
+    opacity: 0.9;
+}
+
+/* --- 11: cover the gap between first paint and the scene appearing --- */
+/* A transition rather than an animation: the hidden state is a real specified
+   value, so the loader still disappears if the transition never runs. */
+#loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fafafa;
+    font-family: Montserrat, system-ui, sans-serif;
+    font-size: 15pt;
+    letter-spacing: 0.15em;
+    opacity: 0.7;
+    pointer-events: none;
+    transition: opacity 0.8s ease-in-out;
+}
+
+#loader.loaded {
+    opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #loader {
+        transition: none;
+    }
+
+    #info_box,
+    #center_label {
+        animation: none !important;
+        opacity: 1 !important;
+    }
+
+    .media-img {
+        transition: none;
+    }
 }
 
 /* Change info box on mobile */
@@ -313,8 +364,17 @@ li {
     color: #fafafa;
 }
 
-#json-embed {
-    width: 100%;
-    height: 500px;
-    background-color: #fafafa;
+#text_version {
+    position: absolute;
+    right: 12px;
+    bottom: 10px;
+    font-size: 10pt;
+    color: #fafafa;
+    opacity: 0.35;
+    text-decoration: none;
+    z-index: 50;
+}
+
+#text_version:hover {
+    opacity: 0.9;
 }
