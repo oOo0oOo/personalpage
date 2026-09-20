@@ -8,16 +8,32 @@
     <meta name="author" content="Oliver Dressler" />
     <meta name="geo.region" content="CH" />
     <link href="static/media/favicon.png" rel="icon" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400&family=Montserrat:wght@500&display=swap" rel="stylesheet" />
     <link href="static/index.css" rel="stylesheet" type="text/css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Oliver Dressler",
+        "url": "https://www.oli.show/",
+        "jobTitle": "Software Engineer",
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "ETH Z\u00fcrich" },
+        "sameAs": ["https://github.com/oOo0oOo"]
+      }
+    </script>
     <script type="module" src="static/bundle.js"></script>
   </head>
   <body>
     <div id="scene_container"></div>
+    <div id="loader" class="unselectable">oli.show</div>
     <div id="center_label" class="unselectable"></div>
     <div id="overlay"></div>
-    <div id="info_box">
+    <a id="text_version" href="projects.html">text version</a>
+    <div id="info_box" role="dialog" aria-modal="false" aria-labelledby="info_title">
       <div id="info_title"></div>
-      <div id="info_hide" class="unselectable">x</div>
+      <button id="info_hide" class="unselectable" type="button" aria-label="Close">&times;</button>
       <div class="side_by_side">
         <div id="info_left">
           <div id="info_description"></div>
@@ -38,17 +54,17 @@
         <div id="annotation_line" class="annotation-line"></div>
       </div>
       <div id="technology_template" class="technology">
-        <img id="technology_icon" class="technology-icon">
+        <img id="technology_icon" class="technology-icon" alt="" loading="lazy">
         <div id="technology_title" class="technology-title"></div>
       </div>
       <div id="technology_container"></div>
     </div>
     <noscript>
       <div class="noscript">
-        Since you have disabled JavaScript,<br>
-        you might as well parse this website yourself.<br><br>
-        <a href="static/config.json">config.json</a>:<br><br>
-        <embed id="json-embed" src="static/config.json" type="text/json" />
+        This page renders an interactive scene, which needs JavaScript.<br><br>
+        Everything it contains is also available as plain text:<br><br>
+        <a href="projects.html">projects.html</a><br><br>
+        Or parse it yourself: <a href="static/config.json">config.json</a>
       </div>
     </noscript>
   </body>
