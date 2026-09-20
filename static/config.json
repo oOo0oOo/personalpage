@@ -7,7 +7,7 @@
         {
           "id": "lean-lsp-mcp",
           "title": "Lean Theorem Prover MCP",
-          "description": "<a target='blank_' href='https://modelcontextprotocol.io/introduction'>MCP</a> that allows agentic interaction with the <a target='blank_' href='https://lean-lang.org/'>Lean theorem prover</a> using <a target='blank_' href='https://github.com/oOo0oOo/leanclient'>leanclient</a>.",
+          "description": "<a target='_blank' href='https://modelcontextprotocol.io/introduction'>MCP</a> that allows agentic interaction with the <a target='_blank' href='https://lean-lang.org/'>Lean theorem prover</a> using <a target='_blank' href='https://github.com/oOo0oOo/leanclient'>leanclient</a>.",
           "link": {
             "url": "https://github.com/oOo0oOo/lean-lsp-mcp",
             "text": "Interact Now!"
@@ -21,7 +21,7 @@
           ],
           "highlights": [
               "Agentic interaction with the Lean theorem prover.",
-              "Enables querying goal states, hover information, and <a target='blank_' href='https://leansearch.net'>leansearch.net</a>.",
+              "Enables querying goal states, hover information, and <a target='_blank' href='https://leansearch.net'>leansearch.net</a>.",
               "Supported in VSCode, Cursor, and across OSs."
           ]
         },
@@ -146,7 +146,7 @@
               "music", "webassembly", "solidity", "react"
           ],
           "highlights": [
-              "Uses a <a href='https://thegraph.com/docs/en/developing/assemblyscript-api' target='blank_'>custom subgraph</a> to create NFTs fully decentralized.",
+              "Uses a <a href='https://thegraph.com/docs/en/developing/assemblyscript-api' target='_blank'>custom subgraph</a> to create NFTs fully decentralized.",
               "Each NFT is a unique SVGs with embedded raw WAV signals.",
               "Complete procedural generation in WebAssembly."
           ]
@@ -189,7 +189,7 @@
           ],
           "highlights": [
             "Interactive 3D visualization using three.js.",
-            "Easily configurable using <a href='static/config.json' target='blank_'>JSON</a>.",
+            "Easily configurable using <a href='static/config.json' target='_blank'>JSON</a>.",
             "CI/CD via Github Actions."
           ]
         },
@@ -255,6 +255,26 @@
       "id": "work",
       "title": "Work",
       "projects": [
+        {
+          "id": "mathinc",
+          "title": "Math, Inc.",
+          "description": "<a target='_blank' href='https://math.inc/'>Math, Inc.</a> builds AI systems for machine-checked mathematics.<br><br>As a Founding Research Engineer I worked on large-scale autoformalization in <a target='_blank' href='https://lean-lang.org/'>Lean 4</a>.",
+          "link": {
+            "url": "https://math.inc/",
+            "text": "Formalize Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "mathinc.png"
+          },
+          "technologies": [
+            "lean", "llm", "python"
+          ],
+          "highlights": [
+            "Agent tooling for AI-assisted formalization of mathematics.",
+            "Evaluation pipelines for machine-checked proofs at scale."
+          ]
+        },
         {
           "id": "humanedge",
           "title": "Human Edge",
@@ -333,14 +353,14 @@
           ],
           "highlights": [
             "Two adventures available, two new ones coming soon!",
-            "Cross-platform app released on <a href='https://play.google.com/store/apps/details?id=ch.abenteuerweg.adventure' target='blank_'>Android</a> and <a href='https://apps.apple.com/us/app/abenteuerweg-mit-winnie-tack/id1558362365' target='blank_'>iOS</a>.",
+            "Cross-platform app released on <a href='https://play.google.com/store/apps/details?id=ch.abenteuerweg.adventure' target='_blank'>Android</a> and <a href='https://apps.apple.com/us/app/abenteuerweg-mit-winnie-tack/id1558362365' target='_blank'>iOS</a>.",
             "During the adventure no internet connectivity is required."
           ]
         },
         {
           "id": "digitalliteracy",
           "title": "Digital Literacy",
-          "description": "Strengthening digital opinion-forming with simulations.<br><br>Developed with <a href='https://www.dezentrum.ch/en/' target='blank_'>Dezentrum</a> and the <a href='https://www.risiko-dialog.ch/en/' target='blank_'>Risk Dialogue Foundation</a>.",
+          "description": "Strengthening digital opinion-forming with simulations.<br><br>Developed with <a href='https://www.dezentrum.ch/en/' target='_blank'>Dezentrum</a> and the <a href='https://www.risiko-dialog.ch/en/' target='_blank'>Risk Dialogue Foundation</a>.",
           "link": {
             "url": "https://www.digital-literacy.live/",
             "text": "Discuss Now!"
@@ -580,7 +600,7 @@
         {
           "id": "scurry",
           "title": "Scurry",
-          "description": "Keep your rabbits save by whistling. Just chill and whistle...<br><br>Developed for a <a target='blank_' href='https://itch.io/jam/trijam-123/rate/1071357'>game jam</a> using Godot.",
+          "description": "Keep your rabbits save by whistling. Just chill and whistle...<br><br>Developed for a <a target='_blank' href='https://itch.io/jam/trijam-123/rate/1071357'>game jam</a> using Godot.",
           "link": {
             "url": "https://code-box.itch.io/scurry",
             "text": "Whistle Now!"
@@ -594,7 +614,7 @@
           ],
           "highlights": [
             "Developed in 15h.",
-            "Custom soundtrack: <a target='blank_' href='https://freesound.org/people/code_box/sounds/575759/'>Rabbit Bop</a>."
+            "Custom soundtrack: <a target='_blank' href='https://freesound.org/people/code_box/sounds/575759/'>Rabbit Bop</a>."
           ]
         }
       ]
@@ -619,7 +639,7 @@
                 "music", "ableton"
             ],
             "highlights": [
-                "All tracks are released to the public domain under <a href='https://creativecommons.org/share-your-work/public-domain/cc0/' target='blank_'>CC0</a>.",
+                "All tracks are released to the public domain under <a href='https://creativecommons.org/share-your-work/public-domain/cc0/' target='_blank'>CC0</a>.",
                 "Variety of styles, whatever I feel like :D"
             ]
         },
@@ -639,7 +659,7 @@
             "thegraph", "webassembly", "solidity", "react"
           ],
           "highlights": [
-            "Uses a <a href='https://thegraph.com/docs/en/developing/assemblyscript-api' target='blank_'>custom subgraph</a> to create NFTs fully decentralized.",
+            "Uses a <a href='https://thegraph.com/docs/en/developing/assemblyscript-api' target='_blank'>custom subgraph</a> to create NFTs fully decentralized.",
             "Each NFT is a unique SVGs with embedded raw WAV signals.",
             "Complete procedural generation in WebAssembly."
           ]
@@ -669,7 +689,7 @@
         {
           "id": "biography",
           "title": "Biography",
-          "description": "Hi, I am Oliver Dressler.<br><br>Passionate about data, technology, games and software development in general.<br><br>Located in Switzerland.<br><br>Check out my current <a href='#work'>work</a>.",
+          "description": "Hi, I am Oliver Dressler.<br><br>Software engineer with a PhD from ETH Zürich. I build systems where software meets hard problems: AI for machine-checked mathematics in <a target='_blank' href='https://lean-lang.org/'>Lean 4</a>, quantitative investment platforms and automated scientific instruments.<br><br>Located in Switzerland.<br><br>Check out my current <a href='#work'>work</a>.",
           "media": {
             "type": "img",
             "url": "biography.png"
@@ -692,14 +712,14 @@
           ],
           "highlights": [
             "Interactive 3D visualization using three.js.",
-            "Easily configurable using <a href='static/config.json' target='blank_'>JSON</a>.",
+            "Easily configurable using <a href='static/config.json' target='_blank'>JSON</a>.",
             "CI/CD via Github Actions."
           ]
         },
         {
           "id": "contact",
           "title": "Contact",
-          "description": "Do you have any interesting input?<br><br>I might be available for freelance software development work.<br><br>Feel free to contact me via email at:<br><br><a href='m&#97;&#105;lto&#58;&#104;ey&#64;%&#54;&#70;li&#46;sh&#111;w'>h&#101;y&#64;oli&#46;sho&#119;</a>",
+          "description": "Do you have any interesting input?<br><br>Feel free to contact me via email at:<br><br><a href='m&#97;&#105;lto&#58;&#104;ey&#64;%&#54;&#70;li&#46;sh&#111;w'>h&#101;y&#64;oli&#46;sho&#119;</a>",
           "media": {
             "type": "img",
             "url": "contact.png"
