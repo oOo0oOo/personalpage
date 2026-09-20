@@ -2,13 +2,13 @@ import { Object3D } from 'three';
 
 import { camera } from "../../World";
 
-let centerY = window.innerHeight / 2;
-
-// Get dimensions of scene container
-let sceneLeft = document.querySelector('#scene_container')?.getBoundingClientRect().left || 0;
-let sceneTop = document.querySelector('#scene_container')?.getBoundingClientRect().top || 0;
-let sceneWidth = document.querySelector('#scene_container')?.clientWidth || 0;
-let sceneHeight = document.querySelector('#scene_container')?.clientHeight || 0;
+// Cached scene container geometry. Reading it every frame for every annotation
+// would force a layout, so it is cached and refreshed on resize instead.
+let centerY = 0;
+let sceneLeft = 0;
+let sceneTop = 0;
+let sceneWidth = 0;
+let sceneHeight = 0;
 
 export class Annotation {
     domElement: HTMLDivElement;
@@ -17,12 +17,36 @@ export class Annotation {
     lineElement: HTMLDivElement;
     visible = false;
     yPos: number;
+    offsetY: number;
     lineUp: boolean;
     labelDown: boolean;
     static pendingUpdates: (() => void)[] = [];
+    static instances: Annotation[] = [];
+
+    // Re-read the container geometry and re-anchor every annotation to the new
+    // viewport centre. Called once at startup and on every resize.
+    static refreshViewport() {
+        const container = document.querySelector('#scene_container');
+        const rect = container?.getBoundingClientRect();
+
+        centerY = window.innerHeight / 2;
+        sceneLeft = rect?.left || 0;
+        sceneTop = rect?.top || 0;
+        sceneWidth = container?.clientWidth || 0;
+        sceneHeight = container?.clientHeight || 0;
+
+        for (const annotation of Annotation.instances) {
+            annotation.yPos = centerY + annotation.offsetY;
+            annotation.domElement.style.top = `${annotation.yPos}px`;
+        }
+    }
 
     constructor(yPos: number) {
+        // Make sure the cached geometry is populated before we position anything
+        if (sceneWidth === 0) Annotation.refreshViewport();
+
         this.targetBody = new Object3D();
+        this.offsetY = yPos;
 
         this.labelDown = yPos > 0;
         this.lineUp = this.labelDown;
@@ -46,6 +70,13 @@ export class Annotation {
             this.lineElement.style.transformOrigin = '0 -20px';
             this.lineElement.style.transform = 'rotate(180deg)';
         }
+
+        // Keyboard reachable: these labels are how you navigate the site
+        this.titleElement.setAttribute('role', 'link');
+        this.titleElement.setAttribute('tabindex', '0');
+
+        // Registered last, so refreshViewport() never sees a half-built instance
+        Annotation.instances.push(this);
     }
 
     setTargetBody(body: Object3D, title: string, id: string) {
@@ -53,12 +84,15 @@ export class Annotation {
         this.titleElement.innerHTML = title;
         // Save id in data attribute
         this.titleElement.dataset.id = id;
+        this.titleElement.setAttribute('tabindex', '0');
         this.domElement.style.display = 'block';
         this.visible = true;
     }
 
     hideAnnotation() {
         this.domElement.style.display = 'none';
+        // A hidden label must not stay in the tab order
+        this.titleElement.setAttribute('tabindex', '-1');
         this.visible = false;
     }
 

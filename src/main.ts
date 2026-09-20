@@ -118,12 +118,30 @@ async function main() {
         }
     }
 
+    // Annotations are focusable, so activate them from the keyboard too
+    for (let i = 0; i < annotationTitles.length; i++) {
+        annotationTitles[i].addEventListener('keydown', (evt) => {
+            const key = (evt as KeyboardEvent).key;
+            if (key !== 'Enter' && key !== ' ') return;
+            evt.preventDefault();
+            const id = (evt.target as HTMLDivElement).dataset.id;
+            // @ts-ignore
+            world.changeCurrentFocus(id);
+        });
+    }
+
     document.querySelector('#info_hide')?.addEventListener('click', () => {
         world.hideInfoBox();
     });
 
     document.querySelector('#info_hide')?.addEventListener('touchstart', () => {
         world.hideInfoBox();
+    });
+
+    // Escape closes the info box, then steps back out to the sun
+    addEventListener('keydown', (evt) => {
+        if (evt.key !== 'Escape') return;
+        world.onEscape();
     });
 
     // On page load: Get current #url and focus directly if it is set
@@ -133,6 +151,20 @@ async function main() {
         // @ts-ignore
         world.changeCurrentFocus(focus);
     }
+
+    // Rebuild if the viewport crosses the mobile threshold. isMobile is baked
+    // into geometry, materials and lighting at construction time, so the scene
+    // cannot be adjusted in place.
+    let resizeTimer: ReturnType<typeof setTimeout>;
+    addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            const nowMobile = window.innerWidth < 768 || window.innerHeight < 768;
+            if (nowMobile !== isMobile) {
+                window.location.reload();
+            }
+        }, 500);
+    });
 
     // Detect hashchange (usually back button in browser)
     window.addEventListener('hashchange', () => {

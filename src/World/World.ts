@@ -28,6 +28,11 @@ const FADEOUT = "fadeout 0.2s ease-in-out 1 forwards";
 const FADEIN = "fadein 6s ease-in-out 1 forwards";
 const FADEINFAST = "fadein 1.5s ease-in-out 1 forwards";
 
+// Escape a string for safe interpolation into an HTML attribute
+function escapeAttr(value: string): string {
+    return value.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
 
 export let camera: FocusCamera;
 let scene: Scene;
@@ -66,7 +71,11 @@ class World {
             scene.add(sunLight, ambientLight);
         }
 
-        new Resizer({ container, camera, renderer });
+        const resizer = new Resizer({ container, camera, renderer });
+        resizer.onResize = () => {
+            // Annotation positions are derived from the container geometry
+            Annotation.refreshViewport();
+        };
 
         // Get all category ids
         categoryIds = [];
@@ -205,6 +214,9 @@ class World {
     }
 
     start() {
+        // Scene is built: fade out the loading state
+        document.getElementById("loader")?.classList.add("loaded");
+
         loop.start();
         this.updateAnnotations();
         isRunning = true;
@@ -392,14 +404,14 @@ class World {
 
         // Show media
         if (project.media) {
-            infoMedia.style.display = "flex 1 1 0px";
+            infoMedia.style.display = "";
 
             let type = project.media.type;
             let url = project.media.url;
 
             let str: string = "";
             if (type === "img") {
-                str = `<img class="media-img" src="static/media/${url}" onload="this.style.opacity=1">`;
+                str = `<img class="media-img" src="static/media/${url}" alt="${escapeAttr(project.title)}" onload="this.style.opacity=1">`;
             } else if (type === "video") {
                 str = `<video controls class="media-video"><source src="static/media/${url}" type="video/mp4"></video>`;
             } else if (type === "audio") {
@@ -460,6 +472,17 @@ class World {
         infoBox.style.opacity = "0";
         let parent = currentFocus.split("_")[0];
         this.changeCurrentFocus(parent);
+    }
+
+    // Escape steps one level out: project -> category -> sun
+    onEscape() {
+        if (currentFocus === "" || currentFocus === "sun") return;
+
+        if (categoryIds.includes(currentFocus)) {
+            this.changeCurrentFocus("sun");
+        } else {
+            this.hideInfoBox();
+        }
     }
 
     changeCurrentFocus(newFocus: string) {
