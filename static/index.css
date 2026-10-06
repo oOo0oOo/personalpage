@@ -79,6 +79,10 @@ body {
 .annotation-line { background-image: linear-gradient(#fafafa66, #fafafa01); 
     width: 2px;
     left: -2px;
+    /* Stretched to length with a transform from annotation.ts */
+    height: 1px;
+    transform-origin: 0 0;
+    will-change: transform;
     pointer-events: none;
 }
 

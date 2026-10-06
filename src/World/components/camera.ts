@@ -8,6 +8,10 @@ import { config, isMobile } from '../../main';
 
 const cameraDirection = new Vector3(0, 0.2, 1);
 
+// Scratch vectors reused every tick to avoid per-frame allocations
+const focusScratch = new Vector3();
+const direction = new Vector3();
+
 export class FocusCamera extends PerspectiveCamera {
     focusObject: Object3D = new Object3D();
     focusDist: number = 0;
@@ -55,14 +59,14 @@ export class FocusCamera extends PerspectiveCamera {
         if (this.focusHeight === 0) {
             focusPos = this.startPos;
         } else {
-            focusPos = this.focusObject.position.clone();
+            focusPos = focusScratch.copy(this.focusObject.position);
             focusPos.y = this.focusHeight;
         }
 
         // Move camera towards focusDist if we are not too close already
         var current_distance = this.position.distanceTo(focusPos);
         var distance_diff = this.focusDist - current_distance;
-        var direction = focusPos.clone().sub(this.position).normalize();
+        direction.subVectors(focusPos, this.position).normalize();
 
         if (distance_diff > 0 && this.position.y < focusPos.y) {
             direction.y *= -1;

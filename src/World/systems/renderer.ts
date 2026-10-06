@@ -15,6 +15,8 @@ function createRenderer() {
     if (!isMobile) {
         renderer.shadowMap.enabled = true;
         renderer.shadowMap.type = BasicShadowMap; // options: BasicShadowMap, PCFShadowMap, PCFSoftShadowMap
+        // Loop decides which frames refresh the shadow map
+        renderer.shadowMap.autoUpdate = false;
     }
     return renderer;
 }

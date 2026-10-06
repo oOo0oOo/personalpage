@@ -26,8 +26,7 @@ export class FocusControls extends OrbitControls {
         if (this.targetObject === null) { return };
 
         // Move target towards targetObjects position
-        let focusPos = this.targetObject.position.clone();
-        this.target.add(focusPos.sub(this.target).multiplyScalar(0.07));
+        this.target.lerp(this.targetObject.position, 0.07);
         this.update();
     }
 }

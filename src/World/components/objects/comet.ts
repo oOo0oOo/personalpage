@@ -11,7 +11,12 @@ import { config, isMobile } from "../../../main";
 interface Comet {
     position: Vector3;
     velocity: Vector3;
+    onRemove: () => void;
 }
+
+// One shared unit sphere; each comet scales it. A geometry per comet was never
+// disposed, so every click leaked GPU buffers.
+const geometry = new SphereGeometry(1, 8, 6);
 
 // Create comet materials (from colors)
 const materials: MeshBasicMaterial[] = []
@@ -22,9 +27,9 @@ for (let i = 0; i < config.COLOR_COMETS.length; i++) {
 
 function createComet(comet: Comet): Mesh {
     // Scale the mesh
-    const geometry = new SphereGeometry(config.RADIUS_COMET * (0.7 + Math.random() * 0.4), 8, 6);
     const material = materials[Math.floor(Math.random() * materials.length)];
     const sphere = new Mesh(geometry, material);
+    sphere.scale.setScalar(config.RADIUS_COMET * (0.7 + Math.random() * 0.4));
 
     sphere.position.x = comet.position.x;
     sphere.position.z = comet.position.z;
@@ -35,8 +40,6 @@ function createComet(comet: Comet): Mesh {
     // per-attractor masses are computed once on the first tick and reused.
     let masses: number[] | null = null;
 
-    // Removing the mesh from the scene does not take the comet out of the
-    // Loop's updatables, so remember that it is gone and stop integrating.
     let dead = false;
 
     // @ts-ignore
@@ -79,9 +82,7 @@ function createComet(comet: Comet): Mesh {
         // Delete the comet if it collides
         if (collision) {
             dead = true;
-            if (sphere.parent) {
-                sphere.parent.remove(sphere);
-            }
+            comet.onRemove();
             return;
         }
 

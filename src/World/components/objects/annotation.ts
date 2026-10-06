@@ -1,4 +1,4 @@
-import { Object3D } from 'three';
+import { Object3D, Vector3 } from 'three';
 
 import { camera } from "../../World";
 
@@ -10,6 +10,8 @@ let sceneTop = 0;
 let sceneWidth = 0;
 let sceneHeight = 0;
 
+const projected = new Vector3();
+
 export class Annotation {
     domElement: HTMLDivElement;
     titleElement: HTMLDivElement;
@@ -20,7 +22,9 @@ export class Annotation {
     offsetY: number;
     lineUp: boolean;
     labelDown: boolean;
-    static pendingUpdates: (() => void)[] = [];
+    lastTransform = '';
+    lastLineTransform = '';
+    static pending: Annotation[] = [];
     static instances: Annotation[] = [];
 
     // Re-read the container geometry and re-anchor every annotation to the new
@@ -64,13 +68,6 @@ export class Annotation {
         this.yPos = centerY + yPos;
         this.domElement.style.top = `${this.yPos}px`;
 
-        // Rotate the line upwards if not down
-        if (this.lineUp) {
-            // Rotate around origin (30 pixels up)
-            this.lineElement.style.transformOrigin = '0 -20px';
-            this.lineElement.style.transform = 'rotate(180deg)';
-        }
-
         // Keyboard reachable: these labels are how you navigate the site
         this.titleElement.setAttribute('role', 'link');
         this.titleElement.setAttribute('tabindex', '0');
@@ -98,34 +95,38 @@ export class Annotation {
 
     tick(elapsedTime: number) {
         if (!this.visible) return;
-      
-        // Perform all calculations without touching the DOM
-        let screenPos = this.targetBody.position.clone().project(camera);
+
+        // Project into a scratch vector instead of cloning every frame
+        let screenPos = projected.copy(this.targetBody.position).project(camera);
         let x = sceneLeft + (screenPos.x + 1) / 2 * sceneWidth;
         let y = sceneTop + (-1 * screenPos.y + 1) / 2 * sceneHeight;
         let yDiff = y - this.yPos;
-      
-        // Determine if we need to switch the label orientation
-        if ((yDiff < 0) !== this.lineUp) {
-            this.lineUp = !this.lineUp;
+
+        this.lineUp = yDiff < 0;
+        let length = Math.max(0, Math.abs(yDiff) - (this.lineUp ? 20 : 60));
+
+        // The line is a 1px element stretched with a transform. Setting its
+        // height instead forces a layout every frame, which Firefox felt most.
+        // Pointing up mirrors it about y = -20px, as rotate(180deg) did.
+        let transform = `translate3d(${x.toFixed(1)}px,0,0)`;
+        let lineTransform = this.lineUp
+            ? `translateY(-40px) scale(-1,${(-length).toFixed(1)})`
+            : `scale(1,${length.toFixed(1)})`;
+
+        // Collect style updates without applying them yet, and skip unchanged ones
+        if (transform !== this.lastTransform || lineTransform !== this.lastLineTransform) {
+            this.lastTransform = transform;
+            this.lastLineTransform = lineTransform;
+            Annotation.pending.push(this);
         }
-        yDiff = Math.abs(yDiff);
-        yDiff -= this.lineUp ? 20 : 60;
-      
-        // Collect style updates without applying them yet
-        Annotation.pendingUpdates.push(() => {
-            this.domElement.style.transform = `translate3d(${x}px,0,0)`;
-            this.lineElement.style.cssText = `
-                transform-origin: ${this.lineUp ? '0 -20px' : '0 0'};
-                transform: ${this.lineUp ? 'rotate(180deg)' : ''};
-                height: ${yDiff}px;
-            `;
-        });
     }
 
     static applyPendingUpdates() {
-        Annotation.pendingUpdates.forEach(update => update());
-        Annotation.pendingUpdates = [];
+        for (const annotation of Annotation.pending) {
+            annotation.domElement.style.transform = annotation.lastTransform;
+            annotation.lineElement.style.transform = annotation.lastLineTransform;
+        }
+        Annotation.pending.length = 0;
     }
 
 }

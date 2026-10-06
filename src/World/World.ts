@@ -299,15 +299,17 @@ class World {
         for (let i = 0; i < numComets; i++) {
             let velocity = new Vector3(targetVelocity * (0.2 + Math.random()), 0, 0);
             velocity.applyAxisAngle(new Vector3(0, 1, 0), 4 * Math.random() * Math.PI);
-            let comet = createComet({ position: position, velocity: velocity });
+            // Idempotent: a comet that collides is removed before its timeout
+            const remove = () => {
+                scene.remove(comet);
+                loop.remove(comet);
+            };
+            const comet = createComet({ position: position, velocity: velocity, onRemove: remove });
             scene.add(comet);
             loop.updatables.push(comet);
 
             // Remove comet after 20 seconds
-            setTimeout(() => {
-                scene.remove(comet);
-                loop.updatables.splice(loop.updatables.indexOf(comet), 1);
-            }, Math.random() * 4000 + 20000);
+            setTimeout(remove, Math.random() * 4000 + 20000);
         }
     }
 
