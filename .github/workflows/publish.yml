@@ -38,7 +38,34 @@ jobs:
         with:
           cmd: run generate-static # will run `yarn generate-static` command
 
-      - name: Sync files via FTP
+      # The CDN caches assets for a year, and once cached a copy fetched while
+      # the upload was still running (a truncated bundle.js). Give the assets a
+      # new URL on every deploy so neither the CDN nor browsers reuse old copies.
+      - name: Version asset URLs
+        run: sed -i "s|static/bundle.js|static/bundle.js?v=${GITHUB_SHA::8}|; s|static/index.css|static/index.css?v=${GITHUB_SHA::8}|" index.html
+
+      # Upload the assets first and index.html last, so the new URLs are only
+      # requested once the files behind them are complete.
+      - name: Sync assets via FTP
+        uses: SamKirkland/FTP-Deploy-Action@4.3.3
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: oli.show/public_html/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/src/**
+            package.json
+            README.md
+            tsconfig.json
+            webpack.config.js
+            yarn.lock
+            index.html
+
+      - name: Sync index.html via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.3
         with:
           server: ${{ secrets.FTP_SERVER }}
