@@ -52,7 +52,7 @@ export class FocusCamera extends PerspectiveCamera {
         this.doAutoMove = true;
     }
 
-    tick(timeElapsed: number) {
+    tick(timeElapsed: number, delta: number) {
         if (!this.doAutoMove) { return };
 
         let focusPos;
@@ -72,7 +72,10 @@ export class FocusCamera extends PerspectiveCamera {
             direction.y *= -1;
         }
 
-        this.position.add(direction.multiplyScalar(-1 * config.ZOOM_SPEED * distance_diff));
+        // Preserve the original 60 Hz easing, but use elapsed time so missed
+        // frames and faster displays do not change the camera's follow speed.
+        const smoothing = 1 - Math.pow(1 - config.ZOOM_SPEED, delta * 60);
+        this.position.add(direction.multiplyScalar(-smoothing * distance_diff));
         // No updateProjectionMatrix() here: only position changed, and the
         // projection matrix depends on fov/aspect/near/far. Resizer handles aspect.
     }

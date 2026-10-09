@@ -22,11 +22,12 @@ export class FocusControls extends OrbitControls {
         this.targetObject = object;
     }
 
-    tick(timeElapsed: number) {
+    tick(timeElapsed: number, delta: number) {
         if (this.targetObject === null) { return };
 
         // Move target towards targetObjects position
-        this.target.lerp(this.targetObject.position, 0.07);
+        const smoothing = 1 - Math.pow(1 - 0.07, delta * 60);
+        this.target.lerp(this.targetObject.position, smoothing);
         this.update();
     }
 }

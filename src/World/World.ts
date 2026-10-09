@@ -61,9 +61,7 @@ class World {
         scene = createScene({ backgroundColor: config.COLOR_BACKGROUND });
         renderer = createRenderer();
         controls = createControls({ camera: camera, canvas: renderer.domElement });
-        loop = new Loop({ camera, scene, renderer });
-        loop.updatables.push(controls);
-        loop.updatables.push(camera);
+        loop = new Loop({ camera, scene, renderer, controls });
         container.append(renderer.domElement);
 
         if (!isMobile) {
@@ -198,7 +196,7 @@ class World {
         annotations = [];
         for (let i = 0; i < maxProjects; i++) {
             let annotation = new Annotation(annotationY[i]);
-            loop.updatables.push(annotation);
+            loop.annotations.push(annotation);
             annotations.push(annotation);
         }
 

@@ -6,11 +6,13 @@ import {
 
 import { FocusCamera } from '../components/camera';
 import { Annotation } from '../components/objects/annotation';
+import { FocusControls } from './controls';
 
 interface LoopTypes {
     camera: FocusCamera;
     scene: Scene;
     renderer: WebGLRenderer;
+    controls: FocusControls;
 }
 
 // Shadows only move as fast as the orbits, so refreshing the cube shadow map
@@ -21,7 +23,9 @@ class Loop {
     camera: LoopTypes['camera'];
     scene: LoopTypes['scene'];
     renderer: LoopTypes['renderer'];
+    controls: LoopTypes['controls'];
     updatables: any[];
+    annotations: Annotation[];
     attracting: any[];
     attractRadius: number[];
     elapsedTime: number;
@@ -30,11 +34,13 @@ class Loop {
     frame: number;
     removals: any[];
 
-    constructor({ camera, scene, renderer }: LoopTypes) {
+    constructor({ camera, scene, renderer, controls }: LoopTypes) {
         this.camera = camera;
         this.scene = scene;
         this.renderer = renderer;
+        this.controls = controls;
         this.updatables = [];
+        this.annotations = [];
         this.attracting = [];
         this.attractRadius = [];
         this.elapsedTime = 0;
@@ -91,6 +97,15 @@ class Loop {
         }
         this.removals.length = 0;
 
+        // Follow this frame's body positions, then project labels with the same
+        // camera matrices the renderer will use. Rendering used to update those
+        // matrices only after the labels had already used last frame's view.
+        this.camera.tick(this.elapsedTime, delta);
+        this.controls.tick(this.elapsedTime, delta);
+        this.camera.updateMatrixWorld();
+        for (const annotation of this.annotations) {
+            annotation.tick(this.elapsedTime);
+        }
         Annotation.applyPendingUpdates();
     }
 
