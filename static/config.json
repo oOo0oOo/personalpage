@@ -601,27 +601,6 @@
           ]
         },
         {
-          "id": "reaction",
-          "title": "Reaction",
-          "description": "Heat, cool and spark a liquid until A turns into B.<br><br>A small simulation prototype; every parameter can be tweaked.",
-          "link": {
-            "url": "https://oli.show/reaction/",
-            "text": "React Now!"
-          },
-          "media": {
-            "type": "img",
-            "url": "reaction.png"
-          },
-          "technologies": [
-            "javascript",
-            "browser"
-          ],
-          "highlights": [
-            "Energy, sparks and evaporation drive the reaction rate.",
-            "Sound effects for reaction, evaporation and explosions."
-          ]
-        },
-        {
           "id": "rocketkite",
           "title": "Rocket Kite",
           "description": "Fly your rocket kite among the planets.<br><br>Use gravity and collect all checkpoints.",
@@ -1076,7 +1055,6 @@
     "cinemoji/",
     "leanstructure/",
     "tea/",
-    "reaction/",
     "thelist/",
     "teams/Team%20Shuffler.html",
     "vector/vectorflow.html",
