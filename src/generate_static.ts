@@ -261,6 +261,13 @@ let llms = `# Oliver Dressler
 
 ${baseUrl} is Oliver's portfolio. The homepage is an interactive 3D scene (WebGL); the same content is available as plain text below.
 
+## Work with Oliver
+
+Open to freelance, contract and advising work: AI agents and MCP servers, Lean 4 and machine-checked mathematics, ChatGPT apps, machine learning and quantitative systems, lab and instrument automation.
+
+- Email: work@oli.show
+- Signal: [Not Quite Oliver](${baseUrl}assistant/), an AI assistant that answers questions about Oliver's public work and passes messages on to him
+
 ## This site
 
 - [Projects (Markdown)](${baseUrl}projects.md): every project, work and music entry with description, highlights, technologies and links
