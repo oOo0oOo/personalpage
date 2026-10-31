@@ -23,6 +23,8 @@ export class Annotation {
     lineUp: boolean;
     labelDown: boolean;
     lastTransform = '';
+    lastTitleTransform = '';
+    titleWidth = 0;
     lastLineTransform = '';
     static pending: Annotation[] = [];
     static instances: Annotation[] = [];
@@ -83,6 +85,8 @@ export class Annotation {
         this.titleElement.dataset.id = id;
         this.titleElement.setAttribute('tabindex', '0');
         this.domElement.style.display = 'block';
+        // Measured once per label, so labels can be kept inside the screen
+        this.titleWidth = this.titleElement.offsetWidth;
         this.visible = true;
     }
 
@@ -113,10 +117,17 @@ export class Annotation {
             ? `translateY(-40px) scale(-1,${(-length).toFixed(1)})`
             : `scale(1,${length.toFixed(1)})`;
 
+        // Keep the label text on screen; the line still points at the body
+        let left = x - 11;
+        let maxLeft = sceneLeft + sceneWidth - this.titleWidth - 8;
+        let shift = Math.min(Math.max(left, sceneLeft + 8), Math.max(maxLeft, sceneLeft + 8)) - left;
+        let titleTransform = shift ? `translateX(${shift.toFixed(1)}px)` : '';
+
         // Collect style updates without applying them yet, and skip unchanged ones
-        if (transform !== this.lastTransform || lineTransform !== this.lastLineTransform) {
+        if (transform !== this.lastTransform || lineTransform !== this.lastLineTransform || titleTransform !== this.lastTitleTransform) {
             this.lastTransform = transform;
             this.lastLineTransform = lineTransform;
+            this.lastTitleTransform = titleTransform;
             Annotation.pending.push(this);
         }
     }
@@ -125,6 +136,7 @@ export class Annotation {
         for (const annotation of Annotation.pending) {
             annotation.domElement.style.transform = annotation.lastTransform;
             annotation.lineElement.style.transform = annotation.lastLineTransform;
+            annotation.titleElement.style.transform = annotation.lastTitleTransform;
         }
         Annotation.pending.length = 0;
     }

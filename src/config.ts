@@ -53,6 +53,8 @@ export interface Config {
         projects: {
             id: string;
             title: string;
+            // Shorter name for the label in the scene (title when absent)
+            label?: string;
             description: string;
             link?: {
                 text: string;

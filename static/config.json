@@ -30,6 +30,7 @@
         {
           "id": "anatomy",
           "title": "Oliver's Anatomy",
+          "label": "Anatomy",
           "description": "A 3D anatomy atlas in the browser: muscles, bones, nerves, vessels and organs, where pain can come from, and the body moving.",
           "link": {
             "url": "https://anatomy.oli.show/",
@@ -53,6 +54,7 @@
         {
           "id": "lean-lsp-mcp",
           "title": "Lean Theorem Prover MCP",
+          "label": "Lean MCP",
           "description": "<a target='_blank' href='https://modelcontextprotocol.io/introduction'>MCP</a> that allows agentic interaction with the <a target='_blank' href='https://lean-lang.org/'>Lean theorem prover</a> using <a target='_blank' href='https://github.com/oOo0oOo/leanclient'>leanclient</a>.",
           "link": {
             "url": "https://github.com/oOo0oOo/lean-lsp-mcp",
@@ -170,6 +172,7 @@
         {
           "id": "leanstructure",
           "title": "Structure of Lean",
+          "label": "Lean Structure",
           "description": "Visualizing the proof structure in Lean and Mathlib.",
           "link": {
             "url": "https://oli.show/leanstructure/",
@@ -261,6 +264,7 @@
         {
           "id": "pixeldemocracy",
           "title": "The Pixel Democracy",
+          "label": "Pixel Democracy",
           "description": "Majority rules, period!<br><br>Collaborative drawing board. You decide where the line goes next!",
           "link": {
             "url": "https://pixel.oli.show/",
@@ -353,6 +357,7 @@
         {
           "id": "ffhs",
           "title": "Lecturing at FFHS",
+          "label": "FFHS",
           "description": "I lecture multiple courses at the Fernfachhochschule Schweiz, a university of applied sciences.<br><br>My focus is on applications of large language models, blockchain technology and software development in general.",
           "link": {
             "url": "https://www.ffhs.ch/en/ffhs/people-finder/person/dressler-oliver",
@@ -375,6 +380,7 @@
         {
           "id": "quickpool",
           "title": "QuickPool by Ardeo",
+          "label": "QuickPool",
           "description": "<a href='https://ardeo.ch'>Ardeo</a> is providing cutting edge shift planning solutions.<br><br>I support them as a freelancer with software development and technical decisions.",
           "link": {
             "url": "https://quickpool.ch/",
@@ -422,6 +428,7 @@
         {
           "id": "digitalliteracy",
           "title": "Digital Literacy",
+          "label": "Digital Literacy",
           "description": "Strengthening digital opinion-forming with simulations.<br><br>Developed with <a href='https://www.dezentrum.ch/en/' target='_blank'>Dezentrum</a> and the <a href='https://www.risiko-dialog.ch/en/' target='_blank'>Risk Dialogue Foundation</a>.",
           "link": {
             "url": "https://www.digital-literacy.live/",
@@ -446,6 +453,7 @@
         {
           "id": "phd",
           "title": "PhD in Chemical Engineering",
+          "label": "PhD",
           "description": "I completed my PhD in Chemical Engineering at the ETH Zurich.<br><br>My research focused microfluidic technology and how to control it using machine learning.",
           "link": {
             "url": "#work_publications",
@@ -752,6 +760,7 @@
         {
           "id": "floatingseconds",
           "title": "The Floating Seconds",
+          "label": "Floating Seconds",
           "description": "For many years we have developed our unique blend of instrumental progressive rock.<br><br>Unfortunately this band is no longer active but you can still listen to our music for free on Soundcloud.<br><br>In this live recording I was playing synth and was involved with composition and 'mastering'.",
           "link": {
             "url": "https://soundcloud.com/thefloatingseconds/sets/satans-bbq-at-mehrspur",

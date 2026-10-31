@@ -14,11 +14,14 @@
     <meta property="og:url" content="https://oli.show/" />
     <meta property="og:title" content="Oliver Dressler · oli.show" />
     <meta property="og:description" content="Oliver Dressler, software engineer with a PhD from ETH Zürich. Portfolio of software, work, games and music projects." />
+    <meta property="og:image" content="https://oli.show/static/media/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
     <!-- With JavaScript the scene shows the content; #site_index then stays for screen readers and crawlers only. -->
     <script>document.documentElement.classList.add("js");</script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400&family=Montserrat:wght@500&display=swap" rel="stylesheet" />
+    <link rel="preload" href="static/fonts/barlow-400.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="static/fonts/montserrat-500.woff2" as="font" type="font/woff2" crossorigin />
     <link href="static/index.css" rel="stylesheet" type="text/css" />
     <!-- jsonld:start -->
     <script type="application/ld+json">
@@ -63,11 +66,13 @@
   </head>
   <body>
     <div id="scene_container"></div>
-    <div id="loader" class="unselectable">oli.show</div>
+    <div id="loader" class="unselectable">Oliver Dressler</div>
+    <div id="site_name" class="unselectable">Oliver Dressler</div>
     <div id="center_label" class="unselectable"></div>
     <div id="overlay"></div>
     <a id="text_version" href="projects.html">text version</a>
     <div id="info_box" role="dialog" aria-modal="false" aria-labelledby="info_title">
+      <div id="info_eyebrow"></div>
       <div id="info_title"></div>
       <button id="info_hide" class="unselectable" type="button" aria-label="Close">&times;</button>
       <div class="side_by_side">

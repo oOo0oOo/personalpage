@@ -6,6 +6,8 @@ import {
     Object3D,
     Plane,
     Vector3,
+    Mesh,
+    MeshBasicMaterial,
 } from 'three';
 
 import { createCamera } from './components/camera';
@@ -27,6 +29,7 @@ import { config, isMobile } from '../main';
 const FADEOUT = "fadeout 0.2s ease-in-out 1 forwards";
 const FADEIN = "fadein 6s ease-in-out 1 forwards";
 const FADEINFAST = "fadein 1.5s ease-in-out 1 forwards";
+const CARDIN = "cardin 0.6s ease-out 1 forwards";
 
 // Escape a string for safe interpolation into an HTML attribute
 function escapeAttr(value: string): string {
@@ -47,6 +50,7 @@ let annotations: Annotation[];
 let centerLabel: HTMLDivElement;
 let infoBox: HTMLDivElement;
 let infoTitle: HTMLDivElement;
+let infoEyebrow: HTMLDivElement;
 let infoDescription: HTMLDivElement;
 let infoLink: HTMLDivElement;
 let infoMedia: HTMLDivElement;
@@ -91,6 +95,7 @@ class World {
 
         // All elements of the info box
         infoTitle = document.getElementById("info_title") as HTMLDivElement;
+        infoEyebrow = document.getElementById("info_eyebrow") as HTMLDivElement;
         infoDescription = document.getElementById("info_description") as HTMLDivElement;
         infoLink = document.getElementById("info_link") as HTMLDivElement;
         infoMedia = document.getElementById("info_media") as HTMLDivElement;
@@ -337,6 +342,7 @@ class World {
             // Hide center label div and info box
             centerLabel.style.animation = FADEOUT;
             infoBox.style.display = "none";
+            document.body.classList.remove("card-open");
         }
         // If a category is currentFocus: Annotate all projects
         else if (categoryIds.includes(currentFocus)) {
@@ -348,12 +354,13 @@ class World {
 
             // Hide info box
             infoBox.style.display = "none";
+            document.body.classList.remove("card-open");
 
             let numProjects = config.CONTENT[index].projects.length;
             let startIndex = Math.floor((annotations.length / 2) - (numProjects / 2));
 
             for (let i = 0; i < numProjects; i++) {
-                let title = config.CONTENT[index].projects[i].title;
+                let title = config.CONTENT[index].projects[i].label || config.CONTENT[index].projects[i].title;
                 let projectId = currentFocus + "_" + config.CONTENT[index].projects[i].id;
                 let obj = scene.getObjectByName(projectId);
                 if (obj === undefined) break;
@@ -389,6 +396,15 @@ class World {
 
         infoTitle.innerHTML = project.title;
         infoDescription.innerHTML = project.description;
+
+        // Section name above the title, with the project's own planet colour
+        let category = config.CONTENT.find((c) => c.id === projectId.split("_")[0]);
+        infoEyebrow.textContent = category ? category.title : "";
+        let body = scene.getObjectByName(projectId) as Mesh | undefined;
+        let material = body?.material as MeshBasicMaterial | undefined;
+        if (material?.color) {
+            infoBox.style.setProperty("--accent", "#" + material.color.getHexString());
+        }
 
         // Show or hide link button
         if (project.link) {
@@ -464,7 +480,8 @@ class World {
         }
 
         infoBox.style.display = "block";
-        infoBox.style.animation = FADEINFAST;
+        infoBox.style.animation = CARDIN;
+        document.body.classList.add("card-open");
     }
 
     hideInfoBox() {
