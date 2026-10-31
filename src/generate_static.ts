@@ -14,6 +14,10 @@ type Category = Config["CONTENT"][number];
 type Project = Category["projects"][number];
 
 const baseUrl = "https://oli.show/";
+
+// Honeypot for crawlers that ignore robots.txt (/archive/ is disallowed there
+// and tarpitted at the edge). Hidden from humans and assistive technology.
+const honeypot = `<a href="/archive/" hidden aria-hidden="true" tabindex="-1" rel="nofollow">Archive</a>`;
 const personId = baseUrl + "#person";
 
 // Descriptions use in-page anchors (#work_phd) that only resolve on the
@@ -214,6 +218,7 @@ ${jsonLd(itemList, "    ")}
         Also available as <a href="/projects.md">Markdown</a>.
       </p>
 ${sections}    </main>
+    ${honeypot}
   </body>
 </html>
 `;
@@ -320,7 +325,7 @@ for (const category of projectCategories) {
     }
     siteIndex += `      </ul>\n`;
 }
-siteIndex += `    </nav>`;
+siteIndex += `    </nav>\n    ${honeypot}`;
 
 function inject(html: string, marker: string, content: string): string {
     const pattern = new RegExp(`(<!-- ${marker}:start -->)[\\s\\S]*?(<!-- ${marker}:end -->)`);
