@@ -1000,7 +1000,7 @@
     },
     {
       "id": "upcycling",
-      "icon": "fluent-mdl2:empty-recycle-bin",
+      "icon": "fluent-mdl2/empty-recycle-bin",
       "title": "Upcycling"
     },
     {
@@ -1035,12 +1035,12 @@
     },
     {
       "id": "svelte",
-      "icon": "lineicons:svelte",
+      "icon": "lineicons/svelte",
       "title": "Svelte"
     },
     {
       "id": "lean",
-      "icon": "tabler:letter-l",
+      "icon": "tabler/letter-l",
       "title": "Lean4"
     },
     {
