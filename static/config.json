@@ -5,6 +5,52 @@
       "title": "Software",
       "projects": [
         {
+          "id": "diorama",
+          "title": "Diorama",
+          "description": "Describe a scene in ChatGPT and a 3D voxel diorama builds beside the chat.<br><br>Ask for changes and it rebuilds in place.",
+          "link": {
+            "url": "https://diorama.oli.show/",
+            "text": "Build Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "diorama.jpg"
+          },
+          "technologies": [
+            "llm",
+            "typescript",
+            "three"
+          ],
+          "highlights": [
+            "ChatGPT app built on the Model Context Protocol (MCP).",
+            "The model writes a small scene language; the scene grows block by block.",
+            "Free, no account, on the web and on phones."
+          ]
+        },
+        {
+          "id": "anatomy",
+          "title": "Oliver's Anatomy",
+          "description": "A 3D anatomy atlas in the browser: muscles, bones, nerves, vessels and organs, where pain can come from, and the body moving.",
+          "link": {
+            "url": "https://anatomy.oli.show/",
+            "text": "Explore Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "anatomy.jpg"
+          },
+          "technologies": [
+            "typescript",
+            "three",
+            "webassembly"
+          ],
+          "highlights": [
+            "Tap where it hurts to see possible causes: trigger points, nerve roots, organs.",
+            "The body posed and moving with a physics model (MuJoCo).",
+            "Every number names its source. For education, not medical advice."
+          ]
+        },
+        {
           "id": "lean-lsp-mcp",
           "title": "Lean Theorem Prover MCP",
           "description": "<a target='_blank' href='https://modelcontextprotocol.io/introduction'>MCP</a> that allows agentic interaction with the <a target='_blank' href='https://lean-lang.org/'>Lean theorem prover</a> using <a target='_blank' href='https://github.com/oOo0oOo/leanclient'>leanclient</a>.",
@@ -13,16 +59,19 @@
             "text": "Interact Now!"
           },
           "media": {
-              "type": "img",
-              "url": "lean-lsp-mcp.png"
+            "type": "img",
+            "url": "lean-lsp-mcp.png"
           },
           "technologies": [
-              "lean", "python", "llm"
+            "lean",
+            "python",
+            "llm"
           ],
           "highlights": [
-              "Agentic interaction with the Lean theorem prover.",
-              "Enables querying goal states, hover information, and <a target='_blank' href='https://leansearch.net'>leansearch.net</a>.",
-              "Supported in VSCode, Cursor, and across OSs."
+            "500+ stars on GitHub.",
+            "Agentic interaction with the Lean theorem prover.",
+            "Enables querying goal states, hover information, and <a target='_blank' href='https://leansearch.net'>leansearch.net</a>.",
+            "Supported in VSCode, Cursor, and across OSs."
           ]
         },
         {
@@ -30,20 +79,22 @@
           "title": "Lean Scribe",
           "description": "VSCode extension for rendering and running context-rich Lean 4 prompts using state-of-the-art LLMs.",
           "link": {
-              "url": "https://github.com/oOo0oOo/lean-scribe",
-              "text": "Prompt Now!"
+            "url": "https://github.com/oOo0oOo/lean-scribe",
+            "text": "Prompt Now!"
           },
           "media": {
-              "type": "img",
-              "url": "leanscribe.png"
+            "type": "img",
+            "url": "leanscribe.png"
           },
           "technologies": [
-              "vscode", "lean", "typescript"
+            "vscode",
+            "lean",
+            "typescript"
           ],
           "highlights": [
-              "Render context-rich prompts using the current open Lean 4 file.",
-              "Query multiple state-of-the-art large language models.",
-              "Define prompts as shareable markdown files with Jinja templating."
+            "Render context-rich prompts using the current open Lean 4 file.",
+            "Query multiple state-of-the-art large language models.",
+            "Define prompts as shareable markdown files with Jinja templating."
           ]
         },
         {
@@ -51,20 +102,46 @@
           "title": "leanclient",
           "description": "Python client to interact with the lean4 language server.",
           "link": {
-              "url": "https://github.com/oOo0oOo/leanclient",
-              "text": "Interact Now!"
+            "url": "https://github.com/oOo0oOo/leanclient",
+            "text": "Interact Now!"
           },
           "media": {
-              "type": "img",
-              "url": "leanclient.png"
+            "type": "img",
+            "url": "leanclient.png"
           },
           "technologies": [
-              "lean", "python"
+            "lean",
+            "python"
           ],
           "highlights": [
-              "Interact: Query and change lean files via the LSP.",
-              "Fast: Typically more than 99% of time is spent waiting.",
-              "Parallel: Easy batch processing of files using all your cores."
+            "Interact: Query and change lean files via the LSP.",
+            "Fast: Typically more than 99% of time is spent waiting.",
+            "Parallel: Easy batch processing of files using all your cores."
+          ]
+        },
+        {
+          "id": "leantooling",
+          "title": "Lean Tooling",
+          "description": "Small open-source libraries and tools around <a target='_blank' href='https://lean-lang.org/'>Lean 4</a>.",
+          "link": {
+            "url": "https://github.com/oOo0oOo?tab=repositories&q=lean",
+            "text": "Browse Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "leantooling.jpg"
+          },
+          "technologies": [
+            "lean",
+            "c",
+            "python"
+          ],
+          "highlights": [
+            "<a target='_blank' href='https://github.com/oOo0oOo/LeanDoomed'>LeanDoomed</a>: a raycasting game written in Lean with SDL3.",
+            "<a target='_blank' href='https://github.com/oOo0oOo/LeanSage'>LeanSage</a>: SageMath integration for Lean.",
+            "<a target='_blank' href='https://github.com/oOo0oOo/LeanSerde'>LeanSerde</a> (type-safe serialization) and <a target='_blank' href='https://github.com/oOo0oOo/LeanRPC'>LeanRPC</a> (Lean functions over HTTP).",
+            "<a target='_blank' href='https://github.com/oOo0oOo/LeanParanoia'>LeanParanoia</a>: proof verification without a reference.",
+            "<a target='_blank' href='https://github.com/oOo0oOo/mathmux'>mathmux</a>: a CLI for parallel agent work on Lean projects."
           ]
         },
         {
@@ -72,20 +149,22 @@
           "title": "pynanite",
           "description": "Automatic level of details for 3D models.<br><br>Implementation in Python based on Unreal Engine's LOD system.",
           "link": {
-              "url": "https://github.com/oOo0oOo/pynanite",
-              "text": "Render Triangles Now!"
+            "url": "https://github.com/oOo0oOo/pynanite",
+            "text": "Render Triangles Now!"
           },
           "media": {
-              "type": "img",
-              "url": "pynanite.png"
+            "type": "img",
+            "url": "pynanite.png"
           },
           "technologies": [
-              "python", "python_scientific", "rendering"
+            "python",
+            "python_scientific",
+            "rendering"
           ],
           "highlights": [
-              "Automatic level of details for 3D models without artist input.",
-              "Relatively performant for a Python implementation.",
-              "Algorithm based on graph partitioning."
+            "Automatic level of details for 3D models without artist input.",
+            "Relatively performant for a Python implementation.",
+            "Algorithm based on graph partitioning."
           ]
         },
         {
@@ -93,41 +172,46 @@
           "title": "Structure of Lean",
           "description": "Visualizing the proof structure in Lean and Mathlib.",
           "link": {
-              "url": "https://oli.show/leanstructure/",
-              "text": "Visualize Now!"
+            "url": "https://oli.show/leanstructure/",
+            "text": "Visualize Now!"
           },
           "media": {
-              "type": "img",
-              "url": "leanstructure.png"
+            "type": "img",
+            "url": "leanstructure.png"
           },
           "technologies": [
-              "svelte", "lean", "sigma"
+            "svelte",
+            "lean",
+            "sigma"
           ],
           "highlights": [
-              "Visualizes the dependencies of lean4 and mathlib4 proofs on a theorem level.",
-              "Interactive graph visualization using sigma.js.",
-              "Static website, all content is loaded at page load."
+            "Visualizes the dependencies of lean4 and mathlib4 proofs on a theorem level.",
+            "Interactive graph visualization using sigma.js.",
+            "Static website, all content is loaded at page load."
           ]
         },
         {
           "id": "winerymap",
           "title": "Winery Map",
-          "description": "Explore 31k+ wineries in this interactive map.<br><br>Find your next wine tasting destination!<br><br>Checkout the <a href='https://github.com/oOo0oOo/winerymap'>github repository</a>.",
+          "description": "Explore 90,000+ wineries in 95 countries on an interactive map.<br><br>Find your next wine tasting destination!",
           "link": {
-              "url": "https://wine.oli.show/",
-              "text": "Taste Now!"
+            "url": "https://wine.oli.show/",
+            "text": "Taste Now!"
           },
           "media": {
-              "type": "img",
-              "url": "winemap.png"
+            "type": "img",
+            "url": "winemap.jpg"
           },
           "technologies": [
-            "typescript", "browser", "datascience"
+            "typescript",
+            "maps",
+            "datascience",
+            "browser"
           ],
           "highlights": [
-            "Scraping worldwide winery data.",
-            "Assigning wineries to their correct region.",
-            "Ensure good performance even on mobile."
+            "2,786 appellations and 43,000 km² of vineyards from 333 open sources.",
+            "Filter by organic, grape and price; a page for every region.",
+            "Fast on phones: vector tiles read in small pieces (PMTiles)."
           ]
         },
         {
@@ -135,20 +219,23 @@
           "title": "Proof of Groove",
           "description": "We move together<br>We groove together<br><br>Proof of Groove is an NFT, generated using a fully decentralized synthesizer.",
           "link": {
-              "url": "https://proofofgroove.com/",
-              "text": "Groove Now!"
+            "url": "https://proofofgroove.com/",
+            "text": "Groove Now!"
           },
           "media": {
-              "type": "img",
-              "url": "proofofgroove.png"
+            "type": "img",
+            "url": "proofofgroove.png"
           },
           "technologies": [
-              "music", "webassembly", "solidity", "react"
+            "music",
+            "webassembly",
+            "solidity",
+            "react"
           ],
           "highlights": [
-              "Uses a <a href='https://thegraph.com/docs/en/developing/assemblyscript-api' target='_blank'>custom subgraph</a> to create NFTs fully decentralized.",
-              "Each NFT is a unique SVGs with embedded raw WAV signals.",
-              "Complete procedural generation in WebAssembly."
+            "Uses a <a href='https://thegraph.com/docs/en/developing/assemblyscript-api' target='_blank'>custom subgraph</a> to create NFTs fully decentralized.",
+            "Each NFT is a unique SVGs with embedded raw WAV signals.",
+            "Complete procedural generation in WebAssembly."
           ]
         },
         {
@@ -164,53 +251,15 @@
             "url": "scrapsters.png"
           },
           "technologies": [
-            "upcycling", "vue", "flask", "llm"
+            "upcycling",
+            "vue",
+            "flask",
+            "llm"
           ],
           "highlights": [
             "A sustainable Migros MANIA.",
             "Kids can upcycle packaging into toys, decorated with QR code stickers.",
             "The QR codes lead to custom generated audiobooks about this scrapster."
-          ]
-        },
-        {
-          "id": "this",
-          "title": "This Page",
-          "description": "Solar system 3D portfolio page.<br><br>Let me know if you find any bugs ;-)",
-          "link": {
-            "url": "https://github.com/oOo0oOo/personalpage",
-            "text": "Repository"
-          },
-          "media": {
-            "type": "img",
-            "url": "this.png"
-          },
-          "technologies": [
-            "typescript", "three"
-          ],
-          "highlights": [
-            "Interactive 3D visualization using three.js.",
-            "Easily configurable using <a href='static/config.json' target='_blank'>JSON</a>.",
-            "CI/CD via Github Actions."
-          ]
-        },
-        {
-          "id": "spiderbox",
-          "title": "Spider Box",
-          "description": "A small AR experiment of a spider living in a box behind your screen.<br><br>Maybe I'll turn it into a scary tamagotchi one day.",
-          "link": {
-            "url": "https://github.com/oOo0oOo/SpiderBox",
-            "text": "Contain Now!"
-          },
-          "media": {
-            "type": "img",
-            "url": "spiderbox.gif"
-          },
-          "technologies": [
-            "unity", "arcore", "android", "csharp"
-          ],
-          "highlights": [
-            "Uses ARCore to track face position relative to the screen.",
-            "Parallax projection produces a convincing depth illusion."
           ]
         },
         {
@@ -226,7 +275,10 @@
             "url": "cocrafty.png"
           },
           "technologies": [
-            "flask", "javascript", "cloud", "socketio"
+            "flask",
+            "javascript",
+            "cloud",
+            "socketio"
           ],
           "highlights": [
             "A variety of collaborative real-time tools: Mind-mapping, chat, ...",
@@ -238,7 +290,7 @@
           "title": "The Pixel Democracy",
           "description": "Majority rules, period!<br><br>Collaborative drawing board. You decide where the line goes next!",
           "link": {
-            "url": "http://www.thepixeldemocracy.com/",
+            "url": "https://pixel.oli.show/",
             "text": "Draw Now!"
           },
           "media": {
@@ -246,7 +298,9 @@
             "url": "pixeldemocracy.png"
           },
           "technologies": [
-            "flask", "javascript", "socketio"
+            "flask",
+            "javascript",
+            "socketio"
           ]
         }
       ]
@@ -268,7 +322,9 @@
             "url": "mathinc.png"
           },
           "technologies": [
-            "lean", "llm", "python"
+            "lean",
+            "llm",
+            "python"
           ],
           "highlights": [
             "Agent tooling for AI-assisted formalization of mathematics.",
@@ -288,7 +344,9 @@
             "url": "humanedge.png"
           },
           "technologies": [
-            "python_scientific", "machinelearning", "cloud"
+            "python_scientific",
+            "machinelearning",
+            "cloud"
           ],
           "highlights": [
             "Responsible for technical decisions and architecture (CTO).",
@@ -309,7 +367,9 @@
             "url": "ffhs.png"
           },
           "technologies": [
-            "llm", "blockchain", "solidity"
+            "llm",
+            "blockchain",
+            "solidity"
           ],
           "highlights": [
             "Lecturing on practical applications of LLMs.",
@@ -329,7 +389,10 @@
             "url": "ardeo.png"
           },
           "technologies": [
-            "angular", "ruby", "clojure", "machinelearning"
+            "angular",
+            "ruby",
+            "clojure",
+            "machinelearning"
           ],
           "highlights": [
             "Developed shift validation system.",
@@ -349,7 +412,10 @@
             "url": "winnietack.png"
           },
           "technologies": [
-            "unity", "android", "ios", "csharp"
+            "unity",
+            "android",
+            "ios",
+            "csharp"
           ],
           "highlights": [
             "Two adventures available, two new ones coming soon!",
@@ -370,7 +436,10 @@
             "url": "digitalliteracy.png"
           },
           "technologies": [
-            "flask", "vue", "socketio", "cloud"
+            "flask",
+            "vue",
+            "socketio",
+            "cloud"
           ],
           "highlights": [
             "Experience online phenomena and risks in this simulation.",
@@ -391,7 +460,9 @@
             "url": "phd.png"
           },
           "technologies": [
-            "microfluidics", "machinelearning", "python"
+            "microfluidics",
+            "machinelearning",
+            "python"
           ],
           "highlights": [
             "Droplet microfluidics using lab-on-a-chip devices.",
@@ -412,7 +483,9 @@
             "url": "phd.png"
           },
           "technologies": [
-            "microfluidics", "machinelearning", "python"
+            "microfluidics",
+            "machinelearning",
+            "python"
           ],
           "highlights": [
             "Droplet microfluidics using lab-on-a-chip devices.",
@@ -438,7 +511,9 @@
             "url": "vectorflow.png"
           },
           "technologies": [
-            "godot", "android", "html5"
+            "godot",
+            "android",
+            "html5"
           ],
           "highlights": [
             "Patchinko with enemies!",
@@ -458,7 +533,8 @@
             "url": "infinitea.png"
           },
           "technologies": [
-            "javascript", "browser"
+            "javascript",
+            "browser"
           ]
         },
         {
@@ -474,7 +550,9 @@
             "url": "takeoff.png"
           },
           "technologies": [
-            "godot", "cloud", "android"
+            "godot",
+            "cloud",
+            "android"
           ],
           "highlights": [
             "Real-time multiplayer using Godot remote procedural calls.",
@@ -494,7 +572,8 @@
             "url": "macromate.png"
           },
           "technologies": [
-            "python", "python_scientific"
+            "python",
+            "python_scientific"
           ],
           "highlights": [
             "Many more game states than chess.",
@@ -515,7 +594,9 @@
             "url": "cinemojis.png"
           },
           "technologies": [
-            "llm", "typescript", "browser"
+            "llm",
+            "typescript",
+            "browser"
           ],
           "highlights": [
             "Use ChatBot for \"level\" <a href='https://github.com/oOo0oOo/cinemojis/blob/main/scripts/emojify.py#L28'>generation</a>.",
@@ -536,7 +617,9 @@
             "url": "rocketkite.png"
           },
           "technologies": [
-            "python", "kivy", "android"
+            "python",
+            "kivy",
+            "android"
           ],
           "highlights": [
             "Multi-body physics simulation.",
@@ -557,7 +640,8 @@
             "url": "wikihike.png"
           },
           "technologies": [
-            "javascript", "browser"
+            "javascript",
+            "browser"
           ],
           "highlights": [
             "Required reducing the complete simple wikipedia down to 4.2MB of adjacencies.",
@@ -578,7 +662,8 @@
             "url": "cloudtower.png"
           },
           "technologies": [
-            "godot", "android"
+            "godot",
+            "android"
           ]
         },
         {
@@ -594,7 +679,9 @@
             "url": "bite.png"
           },
           "technologies": [
-            "brush", "javascript", "browser"
+            "brush",
+            "javascript",
+            "browser"
           ]
         },
         {
@@ -610,7 +697,9 @@
             "url": "scurry.png"
           },
           "technologies": [
-            "godot", "html5", "ableton"
+            "godot",
+            "html5",
+            "ableton"
           ],
           "highlights": [
             "Developed in 15h.",
@@ -635,13 +724,14 @@
             "type": "img",
             "url": "soundtracks.png"
           },
-            "technologies": [
-                "music", "ableton"
-            ],
-            "highlights": [
-                "All tracks are released to the public domain under <a href='https://creativecommons.org/share-your-work/public-domain/cc0/' target='_blank'>CC0</a>.",
-                "Variety of styles, whatever I feel like :D"
-            ]
+          "technologies": [
+            "music",
+            "ableton"
+          ],
+          "highlights": [
+            "All tracks are released to the public domain under <a href='https://creativecommons.org/share-your-work/public-domain/cc0/' target='_blank'>CC0</a>.",
+            "Variety of styles, whatever I feel like :D"
+          ]
         },
         {
           "id": "proofofgroove",
@@ -656,7 +746,10 @@
             "url": "proofofgroove.png"
           },
           "technologies": [
-            "thegraph", "webassembly", "solidity", "react"
+            "thegraph",
+            "webassembly",
+            "solidity",
+            "react"
           ],
           "highlights": [
             "Uses a <a href='https://thegraph.com/docs/en/developing/assemblyscript-api' target='_blank'>custom subgraph</a> to create NFTs fully decentralized.",
@@ -677,7 +770,9 @@
             "url": "floatingseconds.png"
           },
           "technologies": [
-            "synth", "ableton", "drums"
+            "synth",
+            "ableton",
+            "drums"
           ]
         }
       ]
@@ -689,7 +784,7 @@
         {
           "id": "biography",
           "title": "Biography",
-          "description": "Hi, I am Oliver Dressler.<br><br>Software engineer with a PhD from ETH Zürich. I build systems where software meets hard problems: AI for machine-checked mathematics in <a target='_blank' href='https://lean-lang.org/'>Lean 4</a>, quantitative investment platforms and automated scientific instruments.<br><br>Located in Switzerland.<br><br>Check out my current <a href='#work'>work</a>.",
+          "description": "Hi, I am Oliver Dressler.<br><br>Software engineer with a PhD from ETH Zürich. I build systems where software meets hard problems: AI for machine-checked mathematics in <a target='_blank' href='https://lean-lang.org/'>Lean 4</a>, quantitative investment platforms and automated scientific instruments.<br><br>These days I mostly build tools that let AI agents do real work: proving theorems in Lean, apps for ChatGPT and MCP servers.<br><br>Located in Switzerland.<br><br>Check out my current <a href='#work'>work</a>.",
           "media": {
             "type": "img",
             "url": "biography.png"
@@ -708,12 +803,13 @@
             "url": "this.png"
           },
           "technologies": [
-            "typescript", "three"
+            "typescript",
+            "three"
           ],
           "highlights": [
             "Interactive 3D visualization using three.js.",
             "Easily configurable using <a href='static/config.json' target='_blank'>JSON</a>.",
-            "CI/CD via Github Actions."
+            "Text versions for search engines and AI agents: <a href='projects.html'>HTML</a>, <a href='projects.md'>Markdown</a> and <a href='llms.txt'>llms.txt</a>."
           ]
         },
         {
@@ -728,236 +824,243 @@
       ]
     }
   ],
-
   "TECHNOLOGIES": [
     {
-        "id": "python",
-        "icon": "mdi/language-python",
-        "title": "Python"
+      "id": "python",
+      "icon": "mdi/language-python",
+      "title": "Python"
     },
     {
-        "id": "javascript",
-        "icon": "mdi/language-javascript",
-        "title": "JavaScript"
+      "id": "javascript",
+      "icon": "mdi/language-javascript",
+      "title": "JavaScript"
     },
     {
-        "id": "typescript",
-        "icon": "mdi/language-typescript",
-        "title": "TypeScript"
+      "id": "typescript",
+      "icon": "mdi/language-typescript",
+      "title": "TypeScript"
     },
     {
-        "id": "sql",
-        "icon": "carbon/sql"
+      "id": "sql",
+      "icon": "carbon/sql"
     },
     {
-        "id": "solidity",
-        "icon": "vscode-icons/file-type-light-solidity",
-        "title": "Solidity"
+      "id": "solidity",
+      "icon": "vscode-icons/file-type-light-solidity",
+      "title": "Solidity"
     },
     {
-        "id": "webassembly",
-        "icon": "simple-icons/webassembly",
-        "title": "WebAssembly"
+      "id": "webassembly",
+      "icon": "simple-icons/webassembly",
+      "title": "WebAssembly"
     },
     {
-        "id": "csharp",
-        "icon": "tabler/c-sharp"
+      "id": "csharp",
+      "icon": "tabler/c-sharp"
     },
     {
-        "id": "python_scientific",
-        "icon": "simple-icons/scipy",
-        "title": "Scipy et al."
+      "id": "python_scientific",
+      "icon": "simple-icons/scipy",
+      "title": "Scipy et al."
     },
     {
-        "id": "pandas",
-        "icon": "simple-icons/pandas",
-        "title": "Pandas"
+      "id": "pandas",
+      "icon": "simple-icons/pandas",
+      "title": "Pandas"
     },
     {
-        "id": "flask",
-        "icon": "file-icons/test-python",
-        "title": "Flask"
+      "id": "flask",
+      "icon": "file-icons/test-python",
+      "title": "Flask"
     },
     {
-        "id": "vue",
-        "icon": "mdi/vuejs",
-        "title": "Vue.js"
+      "id": "vue",
+      "icon": "mdi/vuejs",
+      "title": "Vue.js"
     },
     {
-        "id": "react",
-        "icon": "mdi/react",
-        "title": "React"
+      "id": "react",
+      "icon": "mdi/react",
+      "title": "React"
     },
     {
-        "id": "socketio",
-        "icon": "cib/socket-io",
-        "title": "Socket.io"
+      "id": "socketio",
+      "icon": "cib/socket-io",
+      "title": "Socket.io"
     },
     {
-        "id": "subgraph",
-        "icon": "mdi/graph-outline",
-        "title": "Subgraph"
+      "id": "subgraph",
+      "icon": "mdi/graph-outline",
+      "title": "Subgraph"
     },
     {
-        "id": "unity",
-        "icon": "mdi/unity",
-        "title": "Unity"
+      "id": "unity",
+      "icon": "mdi/unity",
+      "title": "Unity"
     },
     {
-        "id": "arcore",
-        "icon": "material-symbols/view-in-ar-outline",
-        "title": "AR Core"
+      "id": "arcore",
+      "icon": "material-symbols/view-in-ar-outline",
+      "title": "AR Core"
     },
     {
-        "id": "android",
-        "icon": "mdi/android",
-        "title": "Android"
+      "id": "android",
+      "icon": "mdi/android",
+      "title": "Android"
     },
     {
-        "id": "ios",
-        "icon": "mdi/apple-ios"
+      "id": "ios",
+      "icon": "mdi/apple-ios"
     },
     {
-        "id": "mobile",
-        "icon": "material-symbols/smartphone",
-        "title": "Mobile"
+      "id": "mobile",
+      "icon": "material-symbols/smartphone",
+      "title": "Mobile"
     },
     {
-        "id": "html5",
-        "icon": "mdi/language-html5",
-        "title": "HTML5"
+      "id": "html5",
+      "icon": "mdi/language-html5",
+      "title": "HTML5"
     },
     {
-        "id": "cloud",
-        "icon": "material-symbols/cloud",
-        "title": "Cloud"
+      "id": "cloud",
+      "icon": "material-symbols/cloud",
+      "title": "Cloud"
     },
     {
-        "id": "microfluidics",
-        "icon": "ic/outline-water-drop",
-        "title": "Microfluidics"
+      "id": "microfluidics",
+      "icon": "ic/outline-water-drop",
+      "title": "Microfluidics"
     },
     {
-        "id": "three",
-        "icon": "tabler/brand-threejs",
-        "title": "Three.js"
+      "id": "three",
+      "icon": "tabler/brand-threejs",
+      "title": "Three.js"
     },
     {
-        "id": "ableton",
-        "icon": "skill-icons/ableton-dark",
-        "title": "Ableton Live"
+      "id": "ableton",
+      "icon": "skill-icons/ableton-dark",
+      "title": "Ableton Live"
     },
     {
-        "id": "drums",
-        "icon": "nimbus/drums",
-        "title": "Drums"
+      "id": "drums",
+      "icon": "nimbus/drums",
+      "title": "Drums"
     },
     {
-        "id": "synth",
-        "icon": "material-symbols/piano",
-        "title": "Synth"
+      "id": "synth",
+      "icon": "material-symbols/piano",
+      "title": "Synth"
     },
     {
-        "id": "music",
-        "icon": "material-symbols/music-note",
-        "title": "Music"
+      "id": "music",
+      "icon": "material-symbols/music-note",
+      "title": "Music"
     },
     {
-        "id": "godot",
-        "icon": "cib/godot-engine",
-        "title": "Godot"
+      "id": "godot",
+      "icon": "cib/godot-engine",
+      "title": "Godot"
     },
     {
-        "id": "kivy",
-        "icon": "vscode-icons/file-type-kivy",
-        "title": "Kivy"
+      "id": "kivy",
+      "icon": "vscode-icons/file-type-kivy",
+      "title": "Kivy"
     },
     {
-        "id": "brush",
-        "icon": "bi/brush",
-        "title": "Painting"
+      "id": "brush",
+      "icon": "bi/brush",
+      "title": "Painting"
     },
     {
-        "id": "blockchain",
-        "icon": "mdi/file-document-boxes",
-        "title": "Blockchain"
+      "id": "blockchain",
+      "icon": "mdi/file-document-boxes",
+      "title": "Blockchain"
     },
     {
-        "id": "machinelearning",
-        "icon": "ph/graph-bold",
-        "title": "Machine Learning"
+      "id": "machinelearning",
+      "icon": "ph/graph-bold",
+      "title": "Machine Learning"
     },
     {
-        "id": "browser",
-        "icon": "ph/browser-fill",
-        "title": "Browser"
+      "id": "browser",
+      "icon": "ph/browser-fill",
+      "title": "Browser"
     },
     {
-        "id": "thegraph",
-        "icon": "mdi/graph-outline",
-        "title": "The Graph"
+      "id": "thegraph",
+      "icon": "mdi/graph-outline",
+      "title": "The Graph"
     },
     {
-        "id": "llm",
-        "icon": "eos-icons/neural-network",
-        "title": "LLM"
+      "id": "llm",
+      "icon": "eos-icons/neural-network",
+      "title": "LLM"
     },
     {
-        "id": "upcycling",
-        "icon": "fluent-mdl2:empty-recycle-bin",
-        "title": "Upcycling"
+      "id": "upcycling",
+      "icon": "fluent-mdl2:empty-recycle-bin",
+      "title": "Upcycling"
     },
     {
-        "id": "rendering",
-        "icon": "ph/graphics-card",
-        "title": "Rendering"
+      "id": "rendering",
+      "icon": "ph/graphics-card",
+      "title": "Rendering"
     },
     {
-        "id": "angular",
-        "icon": "mdi/angular",
-        "title": "Angular"
+      "id": "angular",
+      "icon": "mdi/angular",
+      "title": "Angular"
     },
     {
-        "id": "ruby",
-        "icon": "teenyicons/ruby-outline",
-        "title": "Ruby"
+      "id": "ruby",
+      "icon": "teenyicons/ruby-outline",
+      "title": "Ruby"
     },
     {
-        "id": "clojure",
-        "icon": "cib/clojure",
-        "title": "Clojure"
+      "id": "clojure",
+      "icon": "cib/clojure",
+      "title": "Clojure"
     },
     {
-        "id": "datascience",
-        "icon": "carbon/data-enrichment",
-        "title": "Data Science"
+      "id": "datascience",
+      "icon": "carbon/data-enrichment",
+      "title": "Data Science"
     },
     {
-        "id": "sigma",
-        "icon": "mdi/graph-outline",
-        "title": "sigma.js"
+      "id": "sigma",
+      "icon": "mdi/graph-outline",
+      "title": "sigma.js"
     },
     {
-        "id": "svelte",
-        "icon": "lineicons:svelte",
-        "title": "Svelte"
+      "id": "svelte",
+      "icon": "lineicons:svelte",
+      "title": "Svelte"
     },
     {
-        "id": "lean",
-        "icon": "tabler:letter-l",
-        "title": "Lean4"
+      "id": "lean",
+      "icon": "tabler:letter-l",
+      "title": "Lean4"
     },
     {
-        "id": "vscode",
-        "icon": "mdi/microsoft-visual-studio-code",
-        "title": "VSCode Extension"
+      "id": "vscode",
+      "icon": "mdi/microsoft-visual-studio-code",
+      "title": "VSCode Extension"
+    },
+    {
+      "id": "maps",
+      "icon": "mdi/map-outline",
+      "title": "Maps"
+    },
+    {
+      "id": "c",
+      "icon": "mdi/language-c",
+      "title": "C"
     }
   ],
-
   "HOSTED_PROJECTS": [
     "bite/",
     "cinemoji/",
-    "heist/",
     "leanstructure/",
     "tea/",
     "thelist/",
@@ -965,7 +1068,6 @@
     "vector/vectorflow.html",
     "wikihike/"
   ],
-
   "COLOR_BACKGROUND": "#090A0F",
   "COLOR_SUN": "#E6E2C3",
   "COLOR_ORBIT": "#252525",
@@ -1001,39 +1103,46 @@
     "#ffa500"
   ],
   "COLOR_TECHNOLOGIES": "%23252525",
-
-  "CAMERA_PLANET": [10, 5],
-  "CAMERA_MOON": [4, 2],
-  "CAMERA_PLANET_MOBILE": [17, 7],
-  "CAMERA_MOON_MOBILE": [5, 2],
-
+  "CAMERA_PLANET": [
+    10,
+    5
+  ],
+  "CAMERA_MOON": [
+    4,
+    2
+  ],
+  "CAMERA_PLANET_MOBILE": [
+    17,
+    7
+  ],
+  "CAMERA_MOON_MOBILE": [
+    5,
+    2
+  ],
   "PAN_SPEED": 0.022,
   "ZOOM_SPEED": 0.02,
-
   "EXTRA_RADIUS": 2,
-
   "ORBIT_PLANET_RANDOM": 1,
   "ORBIT_MOON_RANDOM": 0.02,
-
   "RADIUS_SUN": 0.8,
-  "RADIUS_PLANET": [0.125, 0.35],
-  "RADIUS_MOON": [0.05, 0.08],
-
+  "RADIUS_PLANET": [
+    0.125,
+    0.35
+  ],
+  "RADIUS_MOON": [
+    0.05,
+    0.08
+  ],
   "RADIUS_COMET": 0.025,
   "NUM_COMET": 12,
   "NUM_COMET_MOBILE": 3,
-
   "SCALE_PLANET_ORBIT": 40.0,
   "SCALE_MOON_ORBIT": 3.0,
-  
   "ANNOTATION_Y_OFFSET": 170,
   "ANNOTATION_Y_STEP": 32,
-
   "GRAVITY": 0.09,
   "GRAVITY_COMET": 6.0,
-
   "LIGHT_AMBIENT": 0.75,
   "LIGHT_SUN": 3.5,
-
   "SHADOW_MAP": 1024
 }
