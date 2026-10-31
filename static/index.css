@@ -442,14 +442,14 @@ html:not(.js) #info_box {
     opacity: 0.9;
 }
 
-/* --- Project card: a lit slate panel above the sky --------------------- */
+/* --- Project card: a slate panel above the sky -------------------------- */
 #info_box {
     --accent: #97c2b9;
     color: #ece9e3;
-    background: linear-gradient(160deg, #2c3246 0%, #232838 55%, #1f2433 100%);
-    border: 1px solid #ffffff24;
-    border-radius: 20px;
-    box-shadow: 0 40px 90px -30px #000, inset 0 1px 0 #ffffff1a;
+    background: #262b3b;
+    border: 1px solid #ffffff21;
+    border-radius: 16px;
+    box-shadow: 0 30px 70px -30px #000;
     box-sizing: border-box;
 }
 
@@ -467,11 +467,10 @@ html:not(.js) #info_box {
 /* The project's own planet, small, before the section name */
 #info_eyebrow::before {
     content: "";
-    width: 10px;
-    height: 10px;
+    width: 9px;
+    height: 9px;
     border-radius: 50%;
     background: var(--accent);
-    box-shadow: 0 0 10px var(--accent);
 }
 
 #info_title {
@@ -528,27 +527,17 @@ html:not(.js) #info_box {
 
 #info_highlights ul {
     margin-top: 18px;
-    padding-left: 0;
-    list-style: none;
+    padding-left: 20px;
 }
 
 #info_highlights li {
     color: #cfcbc4;
     margin: 9px 0;
-    padding-left: 22px;
-    position: relative;
     line-height: 1.45;
 }
 
-#info_highlights li::before {
-    content: "";
-    position: absolute;
-    left: 2px;
-    top: 0.55em;
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--accent);
+#info_highlights li::marker {
+    color: #8a8f9e;
 }
 
 .media-img {
