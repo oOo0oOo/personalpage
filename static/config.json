@@ -218,10 +218,6 @@
           "id": "proofofgroove2",
           "title": "Proof of Groove",
           "description": "We move together<br>We groove together<br><br>Proof of Groove is an NFT, generated using a fully decentralized synthesizer.",
-          "link": {
-            "url": "https://proofofgroove.com/",
-            "text": "Groove Now!"
-          },
           "media": {
             "type": "img",
             "url": "proofofgroove.png"
@@ -263,6 +259,24 @@
           ]
         },
         {
+          "id": "pixeldemocracy",
+          "title": "The Pixel Democracy",
+          "description": "Majority rules, period!<br><br>Collaborative drawing board. You decide where the line goes next!",
+          "link": {
+            "url": "https://pixel.oli.show/",
+            "text": "Draw Now!"
+          },
+          "media": {
+            "type": "img",
+            "url": "pixeldemocracy.png"
+          },
+          "technologies": [
+            "flask",
+            "javascript",
+            "socketio"
+          ]
+        },
+        {
           "id": "cocrafty",
           "title": "CoCrafty",
           "description": "Develop startup ideas. Easy. Together.<br><br>CoCrafty is a collaboration platform for developing startup ideas.",
@@ -283,24 +297,6 @@
           "highlights": [
             "A variety of collaborative real-time tools: Mind-mapping, chat, ...",
             "No longer actively maintained. Use it while it's still online!"
-          ]
-        },
-        {
-          "id": "pixeldemocracy",
-          "title": "The Pixel Democracy",
-          "description": "Majority rules, period!<br><br>Collaborative drawing board. You decide where the line goes next!",
-          "link": {
-            "url": "https://pixel.oli.show/",
-            "text": "Draw Now!"
-          },
-          "media": {
-            "type": "img",
-            "url": "pixeldemocracy.png"
-          },
-          "technologies": [
-            "flask",
-            "javascript",
-            "socketio"
           ]
         }
       ]
@@ -737,10 +733,6 @@
           "id": "proofofgroove",
           "title": "Proof of Groove",
           "description": "We move together<br>We groove together<br><br>Proof of Groove is an NFT, generated using a fully decentralized synthesizer.",
-          "link": {
-            "url": "https://proofofgroove.com/",
-            "text": "Groove Now!"
-          },
           "media": {
             "type": "img",
             "url": "proofofgroove.png"
