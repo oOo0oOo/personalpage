@@ -815,10 +815,10 @@
         {
           "id": "contact",
           "title": "Contact",
-          "description": "Work inquiries (freelance, contract, advising): <a href='mailto:work@oli.show'>work@oli.show</a><br><br>Quick questions: write to <a target='_blank' href='https://oli.show/assistant/'>Not Quite Oliver</a>, my AI assistant on Signal. It answers first and passes everything on to me.<br><br>Anything else: <a href='m&#97;&#105;lto&#58;&#104;ey&#64;%&#54;&#70;li&#46;sh&#111;w'>h&#101;y&#64;oli&#46;sho&#119;</a>",
+          "description": "Work inquiries (freelance, contract, advising): <a href='mailto:work@oli.show'>work@oli.show</a><br><br>Quick questions: write to <a target='_blank' href='https://signal.me/#eu/D0UDRjo6cTHMOHcPG6fT2-EjoXjA_5vzpsybGPidlw2cEn61xPlGdrExAYpLPO_b'>notquiteoliver.01</a> on Signal (scan the code). <a target='_blank' href='https://oli.show/assistant/'>Not Quite Oliver</a> is my AI assistant: it answers first and passes everything on to me.<br><br>Anything else: <a href='m&#97;&#105;lto&#58;&#104;ey&#64;%&#54;&#70;li&#46;sh&#111;w'>h&#101;y&#64;oli&#46;sho&#119;</a>",
           "media": {
             "type": "img",
-            "url": "contact.png"
+            "url": "signal-qr.png"
           }
         }
       ]

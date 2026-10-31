@@ -266,7 +266,7 @@ ${baseUrl} is Oliver's portfolio. The homepage is an interactive 3D scene (WebGL
 Open to freelance, contract and advising work: AI agents and MCP servers, Lean 4 and machine-checked mathematics, ChatGPT apps, machine learning and quantitative systems, lab and instrument automation.
 
 - Email: work@oli.show
-- Signal: [Not Quite Oliver](${baseUrl}assistant/), an AI assistant that answers questions about Oliver's public work and passes messages on to him
+- Signal: [notquiteoliver.01](https://signal.me/#eu/D0UDRjo6cTHMOHcPG6fT2-EjoXjA_5vzpsybGPidlw2cEn61xPlGdrExAYpLPO_b), Oliver's AI assistant [Not Quite Oliver](${baseUrl}assistant/): it answers questions about his public work and passes messages on to him
 
 ## This site
 
