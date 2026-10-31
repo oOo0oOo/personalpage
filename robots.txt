@@ -1,4 +1,9 @@
-User-agent: *
-Crawl-delay: 10
+# oli.show: everything here is public. Search engines and AI assistants are welcome.
+# Agent-friendly versions: /llms.txt, /projects.md, /static/config.json
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 
-Sitemap: https://www.oli.show/sitemap.txt
+User-agent: *
+Allow: /
+Disallow: /archive/
+
+Sitemap: https://oli.show/sitemap.txt

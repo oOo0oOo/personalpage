@@ -114,7 +114,7 @@
           "title": "Winery Map",
           "description": "Explore 31k+ wineries in this interactive map.<br><br>Find your next wine tasting destination!<br><br>Checkout the <a href='https://github.com/oOo0oOo/winerymap'>github repository</a>.",
           "link": {
-              "url": "https://oli.show/wine/",
+              "url": "https://wine.oli.show/",
               "text": "Taste Now!"
           },
           "media": {
@@ -955,15 +955,15 @@
   ],
 
   "HOSTED_PROJECTS": [
-    "bite",
-    "cinemoji",
-    "old_portfolio",
-    "tea",
-    "thelist",
+    "bite/",
+    "cinemoji/",
+    "heist/",
+    "leanstructure/",
+    "tea/",
+    "thelist/",
     "teams/Team%20Shuffler.html",
     "vector/vectorflow.html",
-    "wikihike",
-    "wine"
+    "wikihike/"
   ],
 
   "COLOR_BACKGROUND": "#090A0F",

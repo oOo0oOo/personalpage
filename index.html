@@ -1,28 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>oli.show</title>
-    <meta name="description" content="Oliver Dressler's portfolio page." />
+    <title>Oliver Dressler · oli.show</title>
+    <meta name="description" content="Oliver Dressler, software engineer with a PhD from ETH Zürich. Portfolio of software, work, games and music projects." />
     <meta name="author" content="Oliver Dressler" />
     <meta name="geo.region" content="CH" />
     <link href="static/media/favicon.png" rel="icon" type="image/x-icon" />
+    <link href="https://oli.show/" rel="canonical" />
+    <link href="/projects.md" rel="alternate" type="text/markdown" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://oli.show/" />
+    <meta property="og:title" content="Oliver Dressler · oli.show" />
+    <meta property="og:description" content="Oliver Dressler, software engineer with a PhD from ETH Zürich. Portfolio of software, work, games and music projects." />
+    <!-- With JavaScript the scene shows the content; #site_index then stays for screen readers and crawlers only. -->
+    <script>document.documentElement.classList.add("js");</script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400&family=Montserrat:wght@500&display=swap" rel="stylesheet" />
     <link href="static/index.css" rel="stylesheet" type="text/css" />
+    <!-- jsonld:start -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Oliver Dressler",
-        "url": "https://www.oli.show/",
-        "jobTitle": "Software Engineer",
-        "alumniOf": { "@type": "CollegeOrUniversity", "name": "ETH Z\u00fcrich" },
-        "sameAs": ["https://github.com/oOo0oOo"]
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://oli.show/#person",
+            "name": "Oliver Dressler",
+            "url": "https://oli.show/",
+            "description": "Software engineer with a PhD from ETH Zürich. I build systems where software meets hard problems: AI for machine-checked mathematics in Lean 4, quantitative investment platforms and automated scientific instruments. Located in Switzerland.",
+            "jobTitle": "Software Engineer",
+            "alumniOf": {
+              "@type": "CollegeOrUniversity",
+              "name": "ETH Zürich"
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "CH"
+            },
+            "sameAs": [
+              "https://github.com/oOo0oOo",
+              "https://www.researchgate.net/scientific-contributions/Oliver-J-Dressler-2036925851",
+              "https://www.ffhs.ch/en/ffhs/people-finder/person/dressler-oliver"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://oli.show/#website",
+            "name": "oli.show",
+            "url": "https://oli.show/",
+            "author": {
+              "@id": "https://oli.show/#person"
+            }
+          }
+        ]
       }
     </script>
+    <!-- jsonld:end -->
     <script type="module" src="static/bundle.js"></script>
   </head>
   <body>
@@ -60,12 +96,59 @@
       <div id="technology_container"></div>
     </div>
     <noscript>
-      <div class="noscript">
-        This page renders an interactive scene, which needs JavaScript.<br><br>
-        Everything it contains is also available as plain text:<br><br>
-        <a href="projects.html">projects.html</a><br><br>
-        Or parse it yourself: <a href="static/config.json">config.json</a>
-      </div>
+      <p class="noscript">This page renders an interactive scene, which needs JavaScript. Here is everything it contains as text.</p>
     </noscript>
+    <!-- site-index:start -->
+    <nav id="site_index" aria-label="Projects">
+      <h1>Oliver Dressler</h1>
+      <p>Software engineer with a PhD from ETH Zürich. I build systems where software meets hard problems: AI for machine-checked mathematics in Lean 4, quantitative investment platforms and automated scientific instruments. Located in Switzerland.</p>
+      <p>Text versions: <a href="projects.html">projects.html</a> · <a href="projects.md">projects.md</a> · <a href="llms.txt">llms.txt</a></p>
+      <h2>Software</h2>
+      <ul>
+        <li><a href="https://github.com/oOo0oOo/lean-lsp-mcp">Lean Theorem Prover MCP</a>: MCP that allows agentic interaction with the Lean theorem prover using leanclient.</li>
+        <li><a href="https://github.com/oOo0oOo/lean-scribe">Lean Scribe</a>: VSCode extension for rendering and running context-rich Lean 4 prompts using state-of-the-art LLMs.</li>
+        <li><a href="https://github.com/oOo0oOo/leanclient">leanclient</a>: Python client to interact with the lean4 language server.</li>
+        <li><a href="https://github.com/oOo0oOo/pynanite">pynanite</a>: Automatic level of details for 3D models.</li>
+        <li><a href="https://oli.show/leanstructure/">Structure of Lean</a>: Visualizing the proof structure in Lean and Mathlib.</li>
+        <li><a href="https://wine.oli.show/">Winery Map</a>: Explore 31k+ wineries in this interactive map.</li>
+        <li><a href="https://proofofgroove.com/">Proof of Groove</a>: We move together We groove together</li>
+        <li><a href="https://devpost.com/software/scrapsters">Scrapsters</a>: Sustainable Shopping with Scrapsters</li>
+        <li><a href="https://github.com/oOo0oOo/personalpage">This Page</a>: Solar system 3D portfolio page.</li>
+        <li><a href="https://github.com/oOo0oOo/SpiderBox">Spider Box</a>: A small AR experiment of a spider living in a box behind your screen.</li>
+        <li><a href="http://cocrafty.com/">CoCrafty</a>: Develop startup ideas. Easy. Together.</li>
+        <li><a href="http://www.thepixeldemocracy.com/">The Pixel Democracy</a>: Majority rules, period!</li>
+      </ul>
+      <h2>Work</h2>
+      <ul>
+        <li><a href="https://math.inc/">Math, Inc.</a>: Math, Inc. builds AI systems for machine-checked mathematics.</li>
+        <li><a href="https://www.human-edge.ch/">Human Edge</a>: The next step in asset management.</li>
+        <li><a href="https://www.ffhs.ch/en/ffhs/people-finder/person/dressler-oliver">Lecturing at FFHS</a>: I lecture multiple courses at the Fernfachhochschule Schweiz, a university of applied sciences.</li>
+        <li><a href="https://quickpool.ch/">QuickPool by Ardeo</a>: Ardeo is providing cutting edge shift planning solutions.</li>
+        <li><a href="https://abenteuerweg.ch/">Winnie & Tack</a>: Go on a hike and experience an interactive adventure with Winnie and Tack.</li>
+        <li><a href="https://www.digital-literacy.live/">Digital Literacy</a>: Strengthening digital opinion-forming with simulations.</li>
+        <li><a href="https://oli.show/projects.html#work_publications">PhD in Chemical Engineering</a>: I completed my PhD in Chemical Engineering at the ETH Zurich.</li>
+        <li><a href="https://www.researchgate.net/scientific-contributions/Oliver-J-Dressler-2036925851">Publications</a>: A selection of publications written during my PhD: Reinforcement Learning for Dynamic Microfluidic Control; Continuous and low error-rate passive synchronization of pre-formed droplets; Doctoral Thesis</li>
+      </ul>
+      <h2>Games</h2>
+      <ul>
+        <li><a href="https://code-box.itch.io/vector-flow">Vector Flow</a>: Casually roll balls towards enemies. Pick the correct position to eliminate all targets.</li>
+        <li><a href="https://oli.show/tea/">Infinitea</a>: Do you feel like having a tea? Then this is the game for you.</li>
+        <li><a href="https://play.google.com/store/apps/details?id=com.slingshotmedia.readyfortakeoff">Ready for Takeoff</a>: Manage a small airport with your friends. Help passengers reach their destination.</li>
+        <li><a href="https://github.com/oOo0oOo/macromate">Macro Mate</a>: Multiplayer chess on a map!</li>
+        <li><a href="https://oli.show/cinemoji/">Cinemoji</a>: Think of a movie.</li>
+        <li><a href="https://play.google.com/store/apps/details?id=rocketkite.rocketkite">Rocket Kite</a>: Fly your rocket kite among the planets.</li>
+        <li><a href="https://oli.show/wikihike/">Wiki Hike</a>: Find the connection between two random articles on wikipedia. Keep moving forwards.</li>
+        <li><a href="https://play.google.com/store/apps/details?id=org.godotengine.towermaster">Cloud Tower</a>: Build a tower of clouds and reach new heights in this small game.</li>
+        <li><a href="https://oli.show/bite/">Bite</a>: A short game about a hungry vampire with water color art.</li>
+        <li><a href="https://code-box.itch.io/scurry">Scurry</a>: Keep your rabbits save by whistling. Just chill and whistle...</li>
+      </ul>
+      <h2>Music</h2>
+      <ul>
+        <li><a href="https://freesound.org/people/code_box/">Soundtracks</a>: A collection of over 50 short soundtracks for games, audio books and animations.</li>
+        <li><a href="https://proofofgroove.com/">Proof of Groove</a>: We move together We groove together</li>
+        <li><a href="https://soundcloud.com/thefloatingseconds/sets/satans-bbq-at-mehrspur">The Floating Seconds</a>: For many years we have developed our unique blend of instrumental progressive rock.</li>
+      </ul>
+    </nav>
+    <!-- site-index:end -->
   </body>
 </html>

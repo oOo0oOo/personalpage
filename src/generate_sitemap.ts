@@ -1,26 +1,20 @@
-// Generate a sitemap.txt file for the site
+// Generate a sitemap.txt file for the site.
+// Only real pages on this host: crawlers ignore #fragments, and sitemaps are
+// per host, so projects on other domains belong in llms.txt instead.
 
 import { writeFileSync } from 'fs';
 import { Config } from './config';
 const config: Config = require('../static/config.json');
 
-const baseUrl = "https://www.oli.show/";
+const baseUrl = "https://oli.show/";
 
-// Portfolio page
-let sitemapContent = baseUrl + "#\n";
-for (const category of config.CONTENT){
-    sitemapContent += baseUrl + "#" + category.id + "\n";
-    for (const project of category.projects){
-        sitemapContent += baseUrl + "#" + category.id + "_" + project.id + "\n";
-    }
-}
+const pages = [
+    "",
+    "projects.html",
+    "projects.md",
+    "llms.txt",
+    // Additional projects hosted on this domain
+    ...config.HOSTED_PROJECTS,
+];
 
-// Static text version of the portfolio
-sitemapContent += baseUrl + "projects.html\n";
-
-// Additional projects hosted on this domain
-for (const project of config.HOSTED_PROJECTS){
-    sitemapContent += baseUrl + project + "\n";
-}
-
-writeFileSync('sitemap.txt', sitemapContent);
+writeFileSync('sitemap.txt', pages.map((page) => baseUrl + page).join("\n") + "\n");
