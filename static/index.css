@@ -500,6 +500,7 @@ html:not(.js) #info_box {
 #info_technologies {
     gap: 7px;
     flex-wrap: wrap;
+    margin: 4px 0 18px 0;
 }
 
 .technology {
@@ -526,7 +527,7 @@ html:not(.js) #info_box {
 }
 
 #info_highlights ul {
-    margin-top: 18px;
+    margin-top: 4px;
     padding-left: 20px;
 }
 

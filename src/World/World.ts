@@ -456,12 +456,13 @@ class World {
                 infoTechnologies.appendChild(templ);
             };
 
-            // Show infoTechnologies div
+            // Show the technologies (under the title) and the highlights
             // @ts-ignore
+            infoTechnologies.style.display = "flex";
             infoExtras.style.display = "block";
         } else {
-            // Hide infoTechnologies div
             // @ts-ignore
+            infoTechnologies.style.display = "none";
             infoExtras.style.display = "none";
         }
 
